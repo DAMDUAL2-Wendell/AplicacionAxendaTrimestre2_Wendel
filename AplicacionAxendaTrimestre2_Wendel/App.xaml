@@ -1,0 +1,9 @@
+﻿<Application x:Class="AplicacionAxendaTrimestre2_Wendel.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
