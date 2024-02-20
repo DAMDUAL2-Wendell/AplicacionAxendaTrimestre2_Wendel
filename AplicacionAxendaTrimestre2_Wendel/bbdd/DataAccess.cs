@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
+
 namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 {
     public class DataAccess : IDisposable
@@ -38,9 +40,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
     {
         //  Instanciar conexion MYSQL y asignar el string de conexion
         conn = new MySqlConnection(conexion);
-               // optionsBuilder.UseMySql((MySqlConnection)conn);
+                optionsBuilder.UseMySql(conexion, new MySqlServerVersion(new Version(8, 0, 21)));
+
             }
-    else
+            else
     {
         //  Instanciar conexion SQLITE y asignar el string de conexion
         conn = new SqliteConnection(conexion);
