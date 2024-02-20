@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +21,38 @@ namespace AplicacionAxendaTrimestre2_Wendel
     /// </summary>
     public partial class Contactos : Window
     {
-        public Contactos()
+
+        private DataAccess _dataAccess;
+
+        public Contactos(DataAccess dataAccess)
         {
             InitializeComponent();
+
+            _dataAccess = dataAccess;
+
+            Persona prueba = new Persona();
+            prueba.FirstName = "pepe";
+            prueba.LastName = "dominguez";
+            prueba.Age = 30;
+
+            if(_dataAccess != null)
+            {
+                _dataAccess.AgregarPersonaAsync(prueba);
+
+            AsignarListaADataGrid();
+
+            }
+
+
         }
+
+        private void AsignarListaADataGrid()
+        {
+            // Obtener la lista de personas después de agregar
+            List<Persona> listaPersonas = _dataAccess.ObtenerPersonas();
+            dataGrid.ItemsSource = listaPersonas;
+        }
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -34,5 +64,6 @@ namespace AplicacionAxendaTrimestre2_Wendel
             this.Close();
             Application.Current.MainWindow.Visibility = Visibility.Visible;
         }
+
     }
 }

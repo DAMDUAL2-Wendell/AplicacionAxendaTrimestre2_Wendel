@@ -19,9 +19,15 @@
             <ColumnDefinition Width="17*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="1" Content="Agenda" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="105" Margin="170,38,0,0" Grid.Row="1" VerticalAlignment="Top" Width="338" FontSize="50" FontFamily="Source Serif Pro Semibold"/>
-        <Button Grid.Column="1" Content="Contactos" HorizontalAlignment="Left" Height="51" Margin="92,62,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnContactos"/>
-        <Button Grid.Column="1" Content="Notas" HorizontalAlignment="Left" Height="51" Margin="291,62,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnNotas"/>
-        <Button Grid.Column="1" Content="Eventos" HorizontalAlignment="Left" Height="51" Margin="497,62,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnEventos"/>
+        <Button Grid.Column="1" Content="Contactos" HorizontalAlignment="Left" Height="51" Margin="90,113,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnContactos"/>
+        <Button Grid.Column="1" Content="Notas" HorizontalAlignment="Left" Height="51" Margin="289,113,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnNotas"/>
+        <Button Grid.Column="1" Content="Eventos" HorizontalAlignment="Left" Height="51" Margin="495,113,0,0" Grid.Row="2" VerticalAlignment="Top" Width="142" Click="ClickBtnEventos"/>
+        <ComboBox Name="comboBox" Grid.Column="1" Margin="90,10,426,262" Grid.Row="2">
+            <ComboBoxItem Name="comboBoxItemFichero" Content="Base de datos en Fichero"></ComboBoxItem>
+            <ComboBoxItem Name="comboBoxItemMemoria" Content="Base de datos en Memoria"></ComboBoxItem>
+            <ComboBoxItem Name="comboBoxItemServidor" Content="Base de datos desde Servidor"></ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Column="1" Content="Conectar" HorizontalAlignment="Left" Height="54" Margin="339,11,0,0" Grid.Row="2" VerticalAlignment="Top" Width="116" Click="ClickBtnConectar"/>
 
     </Grid>
 </Window>
