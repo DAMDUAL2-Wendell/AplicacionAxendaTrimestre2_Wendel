@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace AplicacionAxendaTrimestre2_Wendel
 
             _dataAccess = dataAccess;
 
-            Persona prueba = new Persona();
+            Contacto prueba = new Contacto();
             prueba.FirstName = "pepe";
             prueba.LastName = "dominguez";
             prueba.Age = 30;
@@ -49,7 +50,7 @@ namespace AplicacionAxendaTrimestre2_Wendel
         private void AsignarListaADataGrid()
         {
             // Obtener la lista de personas después de agregar
-            List<Persona> listaPersonas = _dataAccess.ObtenerPersonas();
+            List<Contacto> listaPersonas = _dataAccess.ObtenerPersonas();
             dataGrid.ItemsSource = listaPersonas;
         }
 

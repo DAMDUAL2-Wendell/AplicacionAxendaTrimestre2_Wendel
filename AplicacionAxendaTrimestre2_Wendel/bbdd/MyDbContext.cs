@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,11 +16,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
     public class MyDbContext: DbContext
     {
 
+        // Set de Contactos, crea la tabla contactos en la BBDD
+        public DbSet<Contacto> Contactos { get; set; }
+
+
+        // Constructor de clase pasando como parámetro el OptionsBuilder
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
 
-        public DbSet<Persona> Personas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +32,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         }
 
         
+       // Sobreescritura del método de clase de configuración de la base de datos.
+       // Si no está configurado establecemos por defecto un base de datos en memoria con SQLITE.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Si las opciones no están configuradas, configurar por defecto una
@@ -48,42 +55,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 
     }
 
-    public class Persona
-    {
-        // Marcar el Id como clave primaria y que sea autoincremental
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public int Age { get; set; }
 
-    }
 
-    public class Evento
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
 
-        public string Titulo { get; set; }
 
-        public string Descripcion { get; set; }
-
-        public DateTime FechaCreacion { get; set; } 
-
-        public DateTime FechaActivacion { get; set; }
-    }
-
-    public class Nota
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-
-        public string Titulo { get; set; }
-
-        public string Descripcion { get; set; }
-    }
 }

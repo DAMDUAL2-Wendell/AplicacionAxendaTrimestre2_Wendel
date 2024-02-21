@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using AplicacionAxendaTrimestre2_Wendel.POJO;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
 using System;
@@ -73,19 +74,19 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 }
 
 
-        public List<Persona> ObtenerPersonas()
+        public List<Contacto> ObtenerPersonas()
         {
-            return _dbContext.Personas.ToList();
+            return _dbContext.Contactos.ToList();
         }
 
-        public async Task<List<Persona>> ObtenerPersonasAsync()
+        public async Task<List<Contacto>> ObtenerPersonasAsync()
         {
-            return await _dbContext.Personas.ToListAsync();
+            return await _dbContext.Contactos.ToListAsync();
         }
 
-        public async Task AgregarPersonaAsync(Persona p)
+        public async Task AgregarPersonaAsync(Contacto p)
         {
-            _dbContext.Personas.Add(p);
+            _dbContext.Contactos.Add(p);
             await _dbContext.SaveChangesAsync();
         }
 
