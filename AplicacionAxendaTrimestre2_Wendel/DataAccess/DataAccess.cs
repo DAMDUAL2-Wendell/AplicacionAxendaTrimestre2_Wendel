@@ -9,13 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 {
     public class DataAccess : IDisposable
     {
         public static MyDbContext _dbContext;
+
+        public MyDbContext DbContext
+        {
+            get { return _dbContext; }
+            set { _dbContext = value; }
+        }
 
         public static MyDbContext getDbContext()
         {
@@ -24,9 +28,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 
         public DataAccess(String conexion)
         {
-            // Configurar la conexion a la base de datos en memoria
-            // var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
-            // optionsBuilder.UseSqlite(conexion);
 
             // Verificar si la base de datos es en memoria
             bool esBaseDeDatosEnMemoria = conexion.Contains(":memory:");
@@ -69,22 +70,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 
             // Nos aseguramos de crear las tablas de la base de datos
             _dbContext.Database.EnsureCreatedAsync().Wait();
-        }
-
-        public List<Contacto> ObtenerPersonas()
-        {
-            return _dbContext.Contactos.ToList();
-        }
-
-        public async Task<List<Contacto>> ObtenerPersonasAsync()
-        {
-            return await _dbContext.Contactos.ToListAsync();
-        }
-
-        public async Task AgregarPersonaAsync(Contacto p)
-        {
-            _dbContext.Contactos.Add(p);
-            await _dbContext.SaveChangesAsync();
         }
 
         public void Dispose()

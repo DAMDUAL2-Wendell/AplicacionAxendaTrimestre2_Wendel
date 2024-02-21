@@ -36,8 +36,5 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         }
 
 
-
-
-
     }
 }

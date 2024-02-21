@@ -22,6 +22,7 @@
         <Label Content="Lista de contactos" Grid.Column="1" Margin="241,26,241,272" Grid.Row="1"/>
         <DataGrid Name="dataGrid" Grid.Column="1" HorizontalAlignment="Left" Height="205" Margin="31,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         <Button Content="Atras" Grid.Column="1" Margin="618,321,26,10" Grid.Row="1" Click="NavegarAtras"/>
+        <Button Grid.Column="1" Content="Registro nuevo Contacto" HorizontalAlignment="Left" Height="47" Margin="31,316,0,0" Grid.Row="1" VerticalAlignment="Top" Width="155" Click="MostrarPaginaRegistro"/>
 
     </Grid>
 </Page>

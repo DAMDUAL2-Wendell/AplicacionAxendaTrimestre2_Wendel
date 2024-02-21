@@ -1,4 +1,9 @@
-﻿using System;
+﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
+using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +25,49 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     /// </summary>
     public partial class PaginaEventos : Page
     {
+        private DataAccess _dataAccess = AppData.DataAccess;
+
         public PaginaEventos()
         {
             InitializeComponent();
+
+            Evento eventoPrueba = new Evento();
+            eventoPrueba.Titulo = "Evento de prueba";
+            eventoPrueba.FechaCreacion = DateTime.Now;
+            eventoPrueba.FechaActivacion = DateTime.Now;
+            eventoPrueba.Descripcion = "Descripción de prueba";
+
+            if (_dataAccess != null)
+            {
+                MessageBox.Show("dataAccess no es null.");
+                _dataAccess.DbContext.Add<Evento>(eventoPrueba);
+            }
+
+            Loaded += PaginaEventos_Loaded;
         }
+
+        private async void PaginaEventos_Loaded(object sender, RoutedEventArgs e)
+        {
+            await AsignarListaADataGrid();
+        }
+
+        async private Task AsignarListaADataGrid()
+        {
+            List<Evento> listaEventos = await ObtenerListaEventosAsync();
+            dataGrid.ItemsSource = listaEventos;
+        }
+
+        public async Task<List<Evento>> ObtenerListaEventosAsync()
+        {
+            return await _dataAccess.DbContext.Eventos.ToListAsync();
+        }
+
+
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
+            Navegacion.NavegarAtras(NavigationService);
         }
     }
 }
+    
+

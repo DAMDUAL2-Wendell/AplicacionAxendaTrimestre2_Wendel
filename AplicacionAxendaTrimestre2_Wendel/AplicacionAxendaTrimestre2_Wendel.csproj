@@ -40,7 +40,6 @@
 
   <ItemGroup>
     <Folder Include="Data\LocalBD\" />
-    <Folder Include="UI\Views\Registros\" />
   </ItemGroup>
 
 </Project>

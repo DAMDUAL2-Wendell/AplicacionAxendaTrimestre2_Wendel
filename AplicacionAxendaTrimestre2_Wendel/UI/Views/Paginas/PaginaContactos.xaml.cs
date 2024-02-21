@@ -1,6 +1,10 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
+using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,53 +27,70 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
     /// </summary>
     public partial class PaginaContactos : Page
     {
-        private DataAccess _dataAccess = null;
+        private DataAccess _dataAccess = AppData.DataAccess;
 
         public PaginaContactos()
         {
             InitializeComponent();
 
-            _dataAccess = AppData.DataAccess;
+            // Cargar El DataGrid de Contactos de forma Asíncrona
+            Loaded += PaginaContactos_Loaded;
+            
+        }
 
-            Contacto prueba = new Contacto();
-            prueba.FirstName = "pepe";
-            prueba.LastName = "dominguez";
-            prueba.Age = 30;
-
+        private async void PaginaContactos_Loaded(object sender, RoutedEventArgs e)
+        {
             if (_dataAccess != null)
             {
-                //MessageBox.Show("DataAccess no es null");
-                _dataAccess.AgregarPersonaAsync(prueba);
+                await AgregarContactoAsync(GetContactoPrueba());
                 AsignarListaADataGrid();
             }
         }
 
-        private void AsignarListaADataGrid()
+
+        public Contacto GetContactoPrueba()
+        {
+            Contacto prueba = new Contacto();
+            prueba.FirstName = "pepe";
+            prueba.LastName = "dominguez";
+            prueba.Age = 30;
+            return prueba;
+        }
+
+        private async void GuardarCambios()
+        {
+            await _dataAccess.DbContext.SaveChangesAsync();
+        }
+
+        private async void AsignarListaADataGrid()
         {
             // Obtener la lista de personas después de agregar
-            List<Contacto> listaPersonas = _dataAccess.ObtenerPersonas();
+            List<Contacto> listaPersonas = await ObtenerListaContactosAsync();
             dataGrid.ItemsSource = listaPersonas;
         }
 
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public async Task<List<Contacto>> ObtenerListaContactosAsync()
         {
-            Application.Current.MainWindow.Visibility = Visibility.Visible;
+            return await _dataAccess.DbContext.Contactos.ToListAsync();
         }
 
-        private void ClickBtnAtras(object sender, RoutedEventArgs e)
+        public async Task AgregarContactoAsync(Contacto p)
         {
-            //this.Close();
-            //Application.Current.MainWindow.Visibility = Visibility.Visible;
+            await _dataAccess.DbContext.Contactos.AddAsync(p);
+            GuardarCambios();
+        }
 
+
+        // NAVEGACION
+
+        private void MostrarPaginaRegistro(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarPaginaRegistro(NavigationService);
         }
 
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
+            Navegacion.NavegarAtras(NavigationService);
         }
 
 

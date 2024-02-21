@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +24,37 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
     /// </summary>
     public partial class PaginaNotas : Page
     {
+        private DataAccess _dataAccess = AppData.DataAccess;
+
+
         public PaginaNotas()
         {
             InitializeComponent();
+
+            Nota notaPrueba = new Nota();
+            notaPrueba.Titulo = "Nota de prueba";
+            notaPrueba.Descripcion = "Contenido de prueba";
+
+            if (_dataAccess != null)
+            {
+                AsignarListaADataGrid();
+            }
+
+            AsignarListaADataGrid();
+
+        }
+
+        private async void AsignarListaADataGrid()
+        {
+            //var lista = DataAccess.DbContext.Notas.ToListAsync();
+            
+            //List<Nota> listaNotas = lista;
+            //dataGrid.ItemsSource = listaNotas;
+        }
+
+        public async Task<List<Nota>> ObtenerListaNotasAsync()
+        {
+            return await _dataAccess.DbContext.Notas.ToListAsync();
         }
 
         private void NavegarAtras(object sender, RoutedEventArgs e)

@@ -38,7 +38,7 @@ namespace AplicacionAxendaTrimestre2_Wendel
 
             if(_dataAccess != null)
             {
-                _dataAccess.AgregarPersonaAsync(prueba);
+              //  _dataAccess.AgregarPersonaAsync(prueba);
 
             AsignarListaADataGrid();
 
@@ -50,8 +50,8 @@ namespace AplicacionAxendaTrimestre2_Wendel
         private void AsignarListaADataGrid()
         {
             // Obtener la lista de personas después de agregar
-            List<Contacto> listaPersonas = _dataAccess.ObtenerPersonas();
-            dataGrid.ItemsSource = listaPersonas;
+           // List<Contacto> listaPersonas = _dataAccess.ObtenerPersonas();
+           // dataGrid.ItemsSource = listaPersonas;
         }
 
 

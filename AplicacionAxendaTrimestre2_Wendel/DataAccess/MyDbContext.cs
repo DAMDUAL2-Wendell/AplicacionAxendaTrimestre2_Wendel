@@ -19,6 +19,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         // Set de Contactos, crea la tabla contactos en la BBDD
         public DbSet<Contacto> Contactos { get; set; }
 
+        public DbSet<Evento> Eventos { get; set; }
+
+        public DbSet<Nota> Notas { get; set; }
+
 
         // Constructor de clase pasando como parámetro el OptionsBuilder
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
