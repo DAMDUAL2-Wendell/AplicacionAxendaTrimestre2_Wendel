@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.Configuracion;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,10 +26,6 @@ namespace AplicacionAxendaTrimestre2_Wendel
 
         public DataAccess _dataAccess;
 
-        private string BDMEMORIA = "DataSource=:memory:;Cache=shared";
-        private string RUTAFICHERO = "..\\..\\..\\bbdd\\MiBaseDeDatosLocal.db";
-        private string BDFICHERO = "DataSource=";
-        private string BDMYSQL = "Server=localhost:3306;Database=myDataBase;Uid=root;Pwd=;";
 
         private string STRINGCONEXION = "";
         public MainWindow()
@@ -62,8 +59,8 @@ namespace AplicacionAxendaTrimestre2_Wendel
             switch (comboBox.SelectedIndex)
             {
                 case 0:
-                    STRINGCONEXION = BDFICHERO + RUTAFICHERO;
-                    if (System.IO.File.Exists(RUTAFICHERO))
+                    STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + Configuracion.Configuracion.RUTAFICHERO;
+                    if (System.IO.File.Exists(Configuracion.Configuracion.RUTAFICHERO))
                     {
                         MessageBox.Show("Se ha cargado el fichero con éxito.");
                     }
@@ -73,11 +70,11 @@ namespace AplicacionAxendaTrimestre2_Wendel
                     }
                     break;
                 case 1:
-                    STRINGCONEXION = BDMEMORIA;
+                    STRINGCONEXION = Configuracion.Configuracion.BDMEMORIA;
                     MessageBox.Show("Se ha cargado la base de datos en memoria.");
                     break;
                 case 2:
-                    STRINGCONEXION = BDMYSQL;
+                    STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
                     MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }

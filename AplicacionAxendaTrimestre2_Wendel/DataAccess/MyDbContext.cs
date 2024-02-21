@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 {
-    public class MyDbContext: DbContext
+    public class MyDbContext : DbContext
     {
 
         // Set de Contactos, crea la tabla contactos en la BBDD
@@ -31,9 +31,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             base.OnModelCreating(modelBuilder);
         }
 
-        
-       // Sobreescritura del método de clase de configuración de la base de datos.
-       // Si no está configurado establecemos por defecto un base de datos en memoria con SQLITE.
+
+        // Sobreescritura del método de clase de configuración de la base de datos.
+        // Si no está configurado establecemos por defecto un base de datos en memoria con SQLITE.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Si las opciones no están configuradas, configurar por defecto una
