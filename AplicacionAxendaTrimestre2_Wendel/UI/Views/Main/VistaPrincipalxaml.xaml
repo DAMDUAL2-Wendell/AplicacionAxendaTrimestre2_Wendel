@@ -6,12 +6,81 @@
         xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Main"
         mc:Ignorable="d"
         Title="VistaPrincipalxaml" Height="600" Width="800">
-    <Grid>
-        <Frame Name="frameContenido" NavigationUIVisibility="Hidden"></Frame>
+
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Resources/Styles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Noesis.GUI.Extensions;component/Theme/NoesisTheme.LightBlue.xaml" />  
+              <!--  <ResourceDictionary Source="../../../Resources/Theme/NoesisTheme.LightAqua.xaml" />  -->
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Estilo para todos los botones -->
+            <Style TargetType="Button" BasedOn="{StaticResource Style.ToolBar.Button}" />
+
+            <!-- Estilo para todos los textblocks -->
+            <Style TargetType="TextBlock" BasedOn="{StaticResource Style.TextBox.Placeholder}" />
+
+            <!-- Estilo para todos los TextBox -->
+            <Style TargetType="TextBox" BasedOn="{StaticResource Style.ToolBar.TextBox}" />
+
+            <!-- Estilo para todos los MenuItem -->
+            <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource Style.ToolBar.MenuItem}" />
+
+            <!-- Estilo para todos los CheckBox -->
+            <Style TargetType="CheckBox" BasedOn="{StaticResource Style.ButtonBase}" />
+
+            <!-- Estilo para todos los RadioButton -->
+            <Style TargetType="RadioButton" BasedOn="{StaticResource Style.ComboBox.Toggle}" />
+
+            <!-- Estilo para todos los ComboBox -->
+            <Style TargetType="ComboBox" BasedOn="{StaticResource Style.ToolBar.ComboBox}" />
+
+            <!-- Estilo para todos los ListView -->
+            <Style TargetType="ListView" BasedOn="{StaticResource Style.Focus.Outer.Uniform}" />
+
+            <!-- Estilo para todos los DataGrid -->
+            <Style TargetType="DataGrid" BasedOn="{StaticResource Style.Focus.Outer.Uniform}" />
+
+            <!-- Estilo para todos los Label -->
+            <Style TargetType="Label" BasedOn="{StaticResource Style.Focus.Outer.Padded}" />
+
+            <!-- Estilo para todos los Menu -->
+            <Style TargetType="Menu" BasedOn="{StaticResource Style.ToolBar.Menu}" />
+
+            <!-- Estilo para todos los ToolTip -->
+            <Style TargetType="ToolTip" BasedOn="{StaticResource Style.Focus.Outer.Padded}" />
+
+            <!-- Estilo para todos los ListBox -->
+            <Style TargetType="ListBox" BasedOn="{StaticResource Style.Focus.Outer.Padded}" />
+
+            <!-- Estilo para todos los ScrollViewer -->
+            <Style TargetType="ScrollViewer" BasedOn="{StaticResource Style.GridView.Scroll}" />
+
+            <!-- Estilo para todos los ProgressBar -->
+            <Style TargetType="ProgressBar" BasedOn="{StaticResource Style.Focus.Inner.Uniform}" />
+
+            <!-- Estilo para todos los Slider -->
+            <Style TargetType="Slider" BasedOn="{StaticResource Style.Focus.Outer.Uniform}" />
+
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid Margin="5">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">
+            <Menu  HorizontalAlignment="Center" VerticalAlignment="Top" Width="800">
+                <MenuItem  Header="Boton1" HorizontalAlignment="Center" ToolTip="Boton1 Prueba Tooltip">
+                    <MenuItem Header="Boton1.1"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Boton2"></MenuItem>
+            </Menu>
+
+        </StackPanel>
+        <Grid Margin="5,50">
+            <Frame Name="frameContenido" NavigationUIVisibility="Hidden"></Frame>
+        </Grid>
     </Grid>
-
-
-
-
 
 </Window>

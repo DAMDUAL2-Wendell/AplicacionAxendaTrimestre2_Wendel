@@ -8,34 +8,52 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegistroContacto">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="182*"/>
-            <RowDefinition Height="21*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="698*"/>
-            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Nombre" Grid.Column="1" Margin="28,94,583,234" Grid.Row="1"/>
-        <Label Grid.Column="1" Content="Registro de nuevo contacto" HorizontalAlignment="Left" Height="60" Margin="178,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="396" FontSize="30" FontFamily="Segoe UI Variable Text Semibold"/>
-        <Label Grid.Column="1" Content="Apellidos" HorizontalAlignment="Left" Height="35" Margin="28,162,0,0" Grid.Row="1" VerticalAlignment="Top" Width="77"/>
-        <Label Grid.Column="1" Content="Edad" HorizontalAlignment="Left" Height="32" Margin="46,249,0,0" Grid.Row="1" VerticalAlignment="Top" Width="59"/>
 
-        
-        <TextBox Name="textboxNombre" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="120,94,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="233"/>
-        <TextBox Name="textBoxApellidos" Grid.Column="1" HorizontalAlignment="Left" Height="35" Margin="120,162,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="212"/>
-        <TextBox Name="textboxEdad" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="120,249,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="127"/>
+        <Label Style="{StaticResource estiloLabel}" Grid.Column="2" Content="Registro de nuevo contacto" Height="60" Grid.Row="1" Width="396" FontSize="30" FontFamily="Segoe UI Variable Text Semibold" Grid.ColumnSpan="3" HorizontalAlignment="center"/>
 
 
+        <Label Style="{StaticResource estiloLabel}" Content="Nombre" Grid.Column="1" Grid.Row="2" Height="44" Width="86"/>
+        <Label Style="{StaticResource estiloLabel}" Grid.Column="1" Content="Apellidos" Height="44" Width="90" Grid.Row="3"/>
+        <Label Style="{StaticResource estiloLabel}" Grid.Column="1" Content="Edad" Grid.Row="4"  Height="44" Width="86"/>
+
+
+        <TextBox Style="{StaticResource estiloTextBox}" Name="textboxNombre" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0" Width="250" Height="30"/>
+        <TextBox Style="{StaticResource estiloTextBox}" Name="textBoxApellidos" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"  Margin="10,0,0,0" Width="300" Height="30"/>
+        <TextBox Style="{StaticResource estiloTextBox}" Name="textboxEdad" Grid.Column="2" Grid.Row="4"  Margin="10,0,0,0" Width="40" Height="30"/>
 
 
 
-        <Button Grid.Column="1" Content="Registrarse" HorizontalAlignment="Left" Height="33" Margin="105,321,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152" Click="RegistroNuevoContacto"/>
-        <Button Grid.Column="1" Content="Atras" HorizontalAlignment="Left" Height="33" Margin="574,321,0,0" Grid.Row="1" VerticalAlignment="Top" Width="90" Click="VolverAtras"/>
-        <Button Grid.Column="1" Content="Borrar datos" HorizontalAlignment="Left" Height="36" Margin="461,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="113" Click="BorrarDatosIntroducidos"/>
+
+
+        <Button Style="{StaticResource GelButton}" Grid.Column="2" Content="Registrarse" Grid.Row="5" Click="RegistroNuevoContacto" Height="40" Width="100"/>
+        <Button Style="{StaticResource GelButton}" Grid.Column="4" Content="Atras" Grid.Row="5" Click="VolverAtras" Height="40" Width="80"/>
+        <Button Style="{StaticResource GelButton}" Grid.Column="4" Content="Borrar datos" Grid.Row="2" Click="BorrarDatosIntroducidos" Height="40" Width="100"/>
 
     </Grid>
 </Page>
