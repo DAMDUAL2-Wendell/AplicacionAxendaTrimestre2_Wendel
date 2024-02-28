@@ -29,7 +29,9 @@
         </Grid.ColumnDefinitions>
         <Label Content="Eventos" Grid.Column="1" Margin="241,26,241,272" Grid.Row="1"/>
         <DataGrid Name="dataGrid" Grid.Column="1" HorizontalAlignment="Left" Height="205" Margin="31,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button Style="{StaticResource GelButton}" Grid.Column="1" Content="Atras" HorizontalAlignment="Left" Height="25" Margin="602,329,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Click="NavegarAtras"/>
+        <Button Style="{StaticResource GelButton}" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="602,329,0,0" Grid.Row="1" VerticalAlignment="Top" Width="85" Click="NavegarAtras">
+            <Button Content="Button"/>
+        </Button>
 
     </Grid>
 </Page>

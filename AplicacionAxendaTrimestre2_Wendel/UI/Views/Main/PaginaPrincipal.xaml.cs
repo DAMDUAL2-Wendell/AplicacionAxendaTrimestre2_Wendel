@@ -34,7 +34,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
         private string STRINGCONEXION = "";
 
-        private void MostrarPaginaContactos(object sender, RoutedEventArgs e)
+        private void MostrarPaginaContactos2(object sender, RoutedEventArgs e)
         {
             // Obtener la ventana principal
             VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
@@ -48,6 +48,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                 {
                     // Crear una instancia de la otra página
                     PaginaContactos otraPagina = new PaginaContactos();
+
+                    // Navegar a la otra página en el Frame
+                    frameContenido.NavigationService.Navigate(otraPagina);
+                }
+            }
+        }
+
+        private void MostrarPaginaContactos(object sender, RoutedEventArgs e)
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameContenido = ventanaPrincipal.frameContenido;
+
+                if (frameContenido != null)
+                {
+                    // Crear una instancia de la otra página
+                    PagContactos otraPagina = new PagContactos();
 
                     // Navegar a la otra página en el Frame
                     frameContenido.NavigationService.Navigate(otraPagina);
