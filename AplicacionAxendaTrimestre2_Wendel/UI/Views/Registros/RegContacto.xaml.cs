@@ -43,6 +43,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
             // Establece el DataContext para toda la página
             DataContext = _ContactoActual;
+
         }
 
         // Constructor sobrecargado para edición de un contacto utilizando la misma ventana de Registro
@@ -62,6 +63,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
                 // Establece el índice seleccionado en el ComboBox
                 cb_ContactType.SelectedItem = contacto.ContactType;
+
+                // Modificación del título de la página
+                labelTitle.Content = "Editar usuario";
+
+                // Modificación del contenido del botón de registro
+                btnRegistrar.Content = "Actualizar";
             }
         }
 
@@ -201,6 +208,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
                     // Muestra un mensaje de éxito al usuario
                     MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Navegar atrás luego de actualizar un contacto con éxito
+                    Navegacion.NavegarAtras(NavigationService);
                 }
                 catch (Exception ex)
                 {
@@ -234,6 +244,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
                     // Muestra un mensaje de éxito al usuario
                     MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Navegar atrás luego de un registro con éxito
+                    Navegacion.NavegarAtras(NavigationService);
                 }
                 catch (Exception ex)
                 {

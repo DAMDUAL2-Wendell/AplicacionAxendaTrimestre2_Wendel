@@ -29,12 +29,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         {
         }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
         }
-
 
         // Sobreescritura del método de clase de configuración de la base de datos.
         // Si no está configurado establecemos por defecto un base de datos en memoria con SQLITE.
