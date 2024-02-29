@@ -4,6 +4,7 @@ using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -123,6 +124,62 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             switch (comboBox.SelectedIndex)
             {
                 case 0:
+                    
+
+                    // Obtener la carpeta del directorio de la aplicación
+                    string directorioAplicacion = AppDomain.CurrentDomain.BaseDirectory;
+                    // Navegar hacia arriba en la jerarquía de directorios para encontrar el directorio principal del proyecto
+                    DirectoryInfo directorioProyecto = Directory.GetParent(directorioAplicacion).Parent.Parent.Parent;
+
+                    string filePath = System.IO.Path.Combine(directorioProyecto.FullName, Configuracion.Configuracion.RUTAFICHERO);
+                    STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + directorioProyecto.FullName+ "\\" + Configuracion.Configuracion.RUTAFICHERO;
+
+                    if (directorioProyecto != null)
+                    {
+                        string rutaDirectorioProyecto = directorioProyecto.FullName;
+                        //MessageBox.Show($"El directorio principal del proyecto es: {rutaDirectorioProyecto}");
+                    }
+                    else
+                    {
+                        //MessageBox.Show("No se pudo encontrar el directorio principal del proyecto.");
+                    }
+
+                    if (File.Exists(filePath))
+                    {
+                       // MessageBox.Show("Se ha cargado el fichero con éxito.");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            // Intenta crear el archivo
+                            using (File.Create(filePath)) { }
+                           // MessageBox.Show($"Se ha creado el fichero en la ruta: {filePath}");
+                        }
+                        catch (Exception ex)
+                        {
+                           // MessageBox.Show($"Error al crear el fichero: {ex.Message}");
+                        }
+                    }
+                    break;
+                case 1:
+                    STRINGCONEXION = Configuracion.Configuracion.BDMEMORIA;
+                   // MessageBox.Show("Se ha cargado la base de datos en memoria.");
+                    break;
+                case 2:
+                    STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
+                   // MessageBox.Show("Se ha cargado la base de datos desde servidor.");
+                    break;
+            }
+            AppData.DataAccess = new DataAccess(STRINGCONEXION);
+        }
+
+
+        private void ClickBtnConectar2(object sender, RoutedEventArgs e)
+        {
+            switch (comboBox.SelectedIndex)
+            {
+                case 0:
                     STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + Configuracion.Configuracion.RUTAFICHERO;
                     if (System.IO.File.Exists(Configuracion.Configuracion.RUTAFICHERO))
                     {
@@ -130,7 +187,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     }
                     else
                     {
-                        MessageBox.Show("Creando fichero de base de datos");
+                        MessageBox.Show("Creando fichero de base de datos en la ruta: " );
                     }
                     break;
                 case 1:

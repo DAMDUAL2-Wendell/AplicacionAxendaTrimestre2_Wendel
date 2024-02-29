@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="300"
-      Title="RegContacto" Height="450" Width="300" MinWidth="300" FontFamily="Roboto">
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegContacto" MinWidth="300" FontFamily="Roboto">
 
     <Grid Background="White">
 
@@ -56,10 +56,6 @@
                         <Expander Header="More Info" BorderThickness="0">
                             <StackPanel>
                                 <DockPanel Margin="0 0 0 5">
-                                    <TextBlock Text="Father Name:" MinWidth="100" HorizontalAlignment="Left"/>
-                                    <TextBox Name="tb_FatherName" Text="{Binding FatherName}" TextChanged="Tb_FatherName_TextChanged"/>
-                                </DockPanel>
-                                <DockPanel Margin="0 0 0 5">
                                     <TextBlock Text="Nickname:" MinWidth="100" HorizontalAlignment="Left"/>
                                     <TextBox Name="tb_Nickname" Text="{Binding Nickname}"/>
                                 </DockPanel>
@@ -69,10 +65,14 @@
                             <DockPanel>
                                 <TextBlock Text="Type:" HorizontalAlignment="Left"/>
                                 <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5">
+                                    <ComboBoxItem Content="Familiar"/>
+                                    <ComboBoxItem Content="Amigo"/>
+                                    <ComboBoxItem Content="Trabajo"/>
+                                    <ComboBoxItem Content="Negocios"/>
                                 </ComboBox>
                             </DockPanel>
                             <GroupBox Header="Birthday:">
-                                <DatePicker SelectedDate="{Binding BirthDate}"/>
+                                <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}"/>
                             </GroupBox>
                         </UniformGrid>
                         <GroupBox Header="Tel:" Margin="0 0 0 5">
@@ -106,6 +106,8 @@
 
 
         <Button HorizontalAlignment="Left" Content="Atras" Height="25" Margin="179,398,0,0" VerticalAlignment="Top" Width="85" Click="NavegarAtras"/>
+
+        <Button HorizontalAlignment="Left" Content="Registrar" Height="25" Margin="50,398,0,0" VerticalAlignment="Top" Width="85" Click="RegistrarContacto_Click"/>
 
 
     </Grid>

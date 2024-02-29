@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 {
@@ -48,6 +49,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             {
                 //  Instanciar conexion SQLITE y asignar el string de conexion
                 conn = new SqliteConnection(conexion);
+
+              //  MessageBox.Show("String conexion = " +conexion);
+
                 // Abrir conexion
                 conn.Open();
 

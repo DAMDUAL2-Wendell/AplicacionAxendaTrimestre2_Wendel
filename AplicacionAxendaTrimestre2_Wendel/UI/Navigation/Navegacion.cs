@@ -1,4 +1,5 @@
-﻿using AplicacionAxendaTrimestre2_Wendel.UI.Views.Main;
+﻿using AplicacionAxendaTrimestre2_Wendel.POJO;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Main;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,30 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
                 }
             }
         }
+
+        public static void NavegarPaginaEdicion(NavigationService navigationService, Contacto contacto)
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameContenido = ventanaPrincipal.frameContenido;
+
+                if (frameContenido != null)
+                {
+                    // Crear una instancia de la página de registro
+                    RegContacto paginaEdicion = new RegContacto(contacto);
+
+
+                    // Navegar a la página de registro (edición) en el Frame
+                    frameContenido.NavigationService.Navigate(paginaEdicion);
+                }
+            }
+        }
+
+
 
         public static void NavegarAtras(NavigationService navigationService)
         {

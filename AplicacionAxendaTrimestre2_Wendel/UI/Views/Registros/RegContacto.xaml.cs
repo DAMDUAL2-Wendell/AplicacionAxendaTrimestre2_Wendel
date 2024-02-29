@@ -1,5 +1,9 @@
-﻿using AplicacionAxendaTrimestre2_Wendel.POJO;
+﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.Models;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
 using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -25,39 +29,64 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
     public partial class RegContacto : Page
     {
 
-        Contacto _Contact = null;
+        private Contacto _ContactoActual;
 
+        private DataAccess _dataAccess = AppData.DataAccess;
+
+        // Constructor
         public RegContacto()
         {
             InitializeComponent();
 
-            _Contact = new Contacto();
-            DataContext = _Contact;
+            // Inicializa un nuevo contacto
+            _ContactoActual = new Contacto();
 
+            // Establece el DataContext para toda la página
+            DataContext = _ContactoActual;
         }
 
-        private List<string> GetNumbersFromLB_Numbers()
+        // Constructor sobrecargado para edición de un contacto utilizando la misma ventana de Registro
+        public RegContacto(Contacto contacto) : this()
         {
-            List<string> Numbers = new List<string>();
+            // Verifica si se ha pasado un contacto para edición
+            if (contacto != null)
+            {
+                // Utiliza el contacto pasado para la edición
+                _ContactoActual = contacto;
+
+                // Actualiza el DataContext con el nuevo contacto
+                DataContext = _ContactoActual;
+
+                // Llena los números en la lista
+                FillNumbersInLb_Numbers(contacto.Numbers);
+
+                // Establece el índice seleccionado en el ComboBox
+                cb_ContactType.SelectedItem = contacto.ContactType;
+            }
+        }
+
+        private List<PhoneNumber> GetNumbersFromLB_Numbers()
+        {
+            List<PhoneNumber> Numbers = new List<PhoneNumber>();
 
             for (int i = 0; i < lb_Numbers.Items.Count; i++)
             {
-                Numbers.Add(lb_Numbers.Items[i].ToString());
+                Numbers.Add(new PhoneNumber(lb_Numbers.Items[i].ToString(),_ContactoActual.Id));
             }
 
             return Numbers;
         }
-        private void FillNumbersInLb_Numbers(List<string> numbers)
+        private void FillNumbersInLb_Numbers(List<PhoneNumber> numbers)
         {
             for (int i = 0; i < numbers.Count; i++)
             {
                 lb_Numbers.Items.Add(numbers[i]);
             }
         }
-        public void Fill(Contacto contact, List<string> contactTypes)
+        public void Fill(Contacto contact, List<PhoneNumber> contactTypes)
         {
-            _Contact = contact;
-            sp_Info.DataContext = _Contact;
+            _ContactoActual = contact;
+            sp_Info.DataContext = _ContactoActual;
             FillNumbersInLb_Numbers(contact.Numbers);
 
 
@@ -67,30 +96,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         }
         public Contacto GetContact()
         {
-            _Contact.Numbers = GetNumbersFromLB_Numbers();
-            return _Contact;
+            _ContactoActual.Numbers = GetNumbersFromLB_Numbers();
+            return _ContactoActual;
         }
         private void Tb_LastName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _Contact.LastName = $"{tb_LastName.Text}";
-            tb_FullName.Text = $"{_Contact.FullName}";
+            _ContactoActual.LastName = $"{tb_LastName.Text}";
+            tb_FullName.Text = $"{_ContactoActual.FullName}";
         }
 
         private void Tb_FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _Contact.FirstName = $"{tb_FirstName.Text}";
-            tb_FullName.Text = $"{_Contact.FullName}";
-        }
-
-        private void Tb_FatherName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //_Contact.FatherName = $"{tb_FatherName.Text}";
-           // tb_FullName.Text = $"{_Contact.FullName}";
+            _ContactoActual.FirstName = $"{tb_FirstName.Text}";
+            tb_FullName.Text = $"{_ContactoActual.FullName}";
         }
 
         private void cb_ContactType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _Contact.ContactType = cb_ContactType.SelectedItem.ToString();
+            _ContactoActual.ContactType = cb_ContactType.SelectedItem.ToString();
         }
 
 
@@ -157,6 +180,101 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 //File.WriteAllText(filePath, JsonConvert.SerializeObject(_Contact));
             }
         }
+
+
+        public static int CalcularEdad(DateTime? fechaNacimiento)
+        {
+            // Verificar si la fecha de nacimiento es nula
+            if (!fechaNacimiento.HasValue)
+            {
+                throw new ArgumentException("La fecha de cumpleaños no puede ser nula");
+            }
+
+            // Obtener la fecha actual
+            DateTime fechaActual = DateTime.Today;
+
+            // Calcular la edad
+            int edad = fechaActual.Year - fechaNacimiento.Value.Year;
+
+            // Si el día actual es anterior al día de cumpleaños en este año,
+            // se resta un año a la edad
+            if (fechaNacimiento.Value > fechaActual.AddYears(-edad))
+            {
+                edad--;
+            }
+
+            return edad;
+        }
+
+        private void RegistrarContacto_Click(object sender, RoutedEventArgs e)
+        {
+            // Verifica si se está editando un contacto existente
+            if (_ContactoActual.Id != 0)
+            {
+                // Se está editando un contacto existente, actualiza sus propiedades
+                _ContactoActual.FirstName = tb_FirstName.Text;
+                _ContactoActual.LastName = tb_LastName.Text;
+                _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
+                // Asigna los demás valores aquí...
+                _ContactoActual.Nickname = tb_Nickname.Text;
+                _ContactoActual.Email = tb_Email.Text;
+                _ContactoActual.Address = tb_Address.Text;
+                _ContactoActual.Note = tb_Note.Text;
+                _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
+                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content.ToString();
+
+                try
+                {
+                    // Guarda los cambios en la base de datos
+                    _dataAccess.DbContext.SaveChanges();
+
+                    // Muestra un mensaje de éxito al usuario
+                    MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Muestra un mensaje de error si ocurre algún problema al actualizar el contacto
+                    MessageBox.Show($"Error al actualizar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                // Se está agregando un nuevo contacto
+
+                // Crea un nuevo objeto de Contacto
+                Contacto nuevoContacto = new Contacto()
+                {
+                    FirstName = tb_FirstName.Text,
+                    LastName = tb_LastName.Text,
+                    Age = CalcularEdad(dp_Birthday.SelectedDate),
+                    // Asigna los demás valores aquí...
+                    Nickname = tb_Nickname.Text,
+                    Email = tb_Email.Text,
+                    Address = tb_Address.Text,
+                    Note = tb_Note.Text,
+                    BirthDate = dp_Birthday.SelectedDate,
+                    ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content.ToString()
+            };
+
+                try
+                {
+                    // Agrega el nuevo contacto a tu contexto de base de datos
+                    _dataAccess.DbContext.Contactos.Add(nuevoContacto);
+
+                    // Guarda los cambios en la base de datos
+                    _dataAccess.DbContext.SaveChanges();
+
+                    // Muestra un mensaje de éxito al usuario
+                    MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Muestra un mensaje de error si ocurre algún problema al guardar el contacto
+                    MessageBox.Show($"Error al registrar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
 
 
         /* ------------       NAVEGACION     ------------------*/

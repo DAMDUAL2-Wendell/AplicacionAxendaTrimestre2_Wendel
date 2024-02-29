@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AplicacionAxendaTrimestre2_Wendel.Models;
 
 namespace AplicacionAxendaTrimestre2_Wendel.POJO
 {
@@ -26,9 +27,20 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
         public int Age { get; set; }
         public DateTime? BirthDate { get; set; }
         public string ContactType { get; set; } = "";
-        public List<string> Numbers { get; set; } = new List<string>();
+
+        public List<PhoneNumber> Numbers { get; set; } = new List<PhoneNumber>();
 
         public Contacto() { }
+
+        public Contacto(string nombre, string apellidos)
+        {
+            this.FirstName = nombre;
+            this.LastName = apellidos;
+            this.Age = 18;
+            this.Numbers = new List<PhoneNumber>();
+            this.ContactType = "";
+            this.FullName = nombre + " " + apellidos;
+        }
 
 
         public Contacto(string nombre, string apellidos, int edad)
@@ -36,17 +48,17 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
             this.FirstName = nombre;
             this.LastName = apellidos;
             this.Age = edad;
-            this.Numbers = new List<string>();
+            this.Numbers = new List<PhoneNumber>();
             this.ContactType = "";
             this.FullName = nombre + " " + apellidos;
         }
 
-        public Contacto(string nombre, string apellidos, int edad, List<string> numbers, string contactType)
+        public Contacto(string nombre, string apellidos, int edad, List<PhoneNumber> numbers, string contactType)
         {
             this.FirstName = nombre;
             this.LastName = apellidos;
             this.Age = edad;
-            this.Numbers = numbers ?? new List<string>();
+            this.Numbers = numbers ?? new List<PhoneNumber>();
             this.ContactType = contactType;
             this.FullName = nombre + " " + apellidos;
         }
