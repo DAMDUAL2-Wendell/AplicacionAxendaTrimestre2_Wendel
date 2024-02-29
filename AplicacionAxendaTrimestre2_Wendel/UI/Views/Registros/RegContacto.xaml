@@ -37,9 +37,13 @@
                             <TextBlock Text="Apellido:" MinWidth="100" HorizontalAlignment="Left"/>
                             <TextBox Name="tb_LastName" Width="300" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
                         </DockPanel>
-                       
 
-                        <Expander Header="Más Información" BorderThickness="0">
+                        <GroupBox Header="Cumpleaños:" Width="200" HorizontalAlignment="Left">
+                            <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}"/>
+                        </GroupBox>
+
+
+                        <Expander Header="Más Información" BorderThickness="0" Width="400" HorizontalAlignment="Left">
                             <StackPanel>
                                 <DockPanel Margin="0 0 0 10">
                                     <TextBlock Text="Apodo:" MinWidth="100" HorizontalAlignment="Left"/>
@@ -56,11 +60,7 @@
                                     <ComboBoxItem Content="Trabajo"/>
                                     <ComboBoxItem Content="Negocios"/>
                                 </ComboBox>
-
                             </DockPanel>
-                            <GroupBox Header="Cumpleaños:">
-                                <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}"/>
-                            </GroupBox>
                         </UniformGrid>
                         <GroupBox Header="Teléfono:" Width="200" HorizontalAlignment="Left" Margin="0 0 0 10">
                             <StackPanel>
