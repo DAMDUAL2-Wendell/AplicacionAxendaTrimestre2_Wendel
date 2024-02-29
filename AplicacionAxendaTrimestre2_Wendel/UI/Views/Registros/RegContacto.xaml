@@ -50,8 +50,7 @@
                         <UniformGrid Rows="1" Columns="2" Margin="0 0 0 10">
                             <DockPanel>
                                 <TextBlock Text="Tipo:" HorizontalAlignment="Left"/>
-                                <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5" 
-                                     SelectedItem="{Binding ContactType}" SelectedValue="{Binding ContactType}">
+                                <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5" >
                                     <ComboBoxItem Content="Familiar"/>
                                     <ComboBoxItem Content="Amigo"/>
                                     <ComboBoxItem Content="Trabajo"/>

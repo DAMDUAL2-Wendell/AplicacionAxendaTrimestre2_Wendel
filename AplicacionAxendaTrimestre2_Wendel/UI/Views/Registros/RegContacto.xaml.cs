@@ -153,23 +153,26 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         public static int CalcularEdad(DateTime? fechaNacimiento)
         {
+            int edad = -1;
             // Verificar si la fecha de nacimiento es nula
             if (!fechaNacimiento.HasValue)
             {
-                throw new ArgumentException("La fecha de cumpleaños no puede ser nula");
+                MessageBox.Show("La fecha de cumpleaños no puede ser nula");
             }
-
-            // Obtener la fecha actual
-            DateTime fechaActual = DateTime.Today;
-
-            // Calcular la edad
-            int edad = fechaActual.Year - fechaNacimiento.Value.Year;
-
-            // Si el día actual es anterior al día de cumpleaños en este año,
-            // se resta un año a la edad
-            if (fechaNacimiento.Value > fechaActual.AddYears(-edad))
+            else
             {
-                edad--;
+                // Obtener la fecha actual
+                DateTime fechaActual = DateTime.Today;
+
+                // Calcular la edad
+                edad = fechaActual.Year - fechaNacimiento.Value.Year;
+
+                // Si el día actual es anterior al día de cumpleaños en este año,
+                // se resta un año a la edad
+                if (fechaNacimiento.Value > fechaActual.AddYears(-edad))
+                {
+                    edad--;
+                }
             }
 
             return edad;
@@ -184,7 +187,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 _ContactoActual.FirstName = tb_FirstName.Text;
                 _ContactoActual.LastName = tb_LastName.Text;
                 _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
-                // Asigna los demás valores aquí...
                 _ContactoActual.Nickname = tb_Nickname.Text;
                 _ContactoActual.Email = tb_Email.Text;
                 _ContactoActual.Address = tb_Address.Text;
@@ -208,15 +210,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             }
             else
             {
-                // Se está agregando un nuevo contacto
-
                 // Crea un nuevo objeto de Contacto
                 Contacto nuevoContacto = new Contacto()
                 {
                     FirstName = tb_FirstName.Text,
                     LastName = tb_LastName.Text,
                     Age = CalcularEdad(dp_Birthday.SelectedDate),
-                    // Asigna los demás valores aquí...
                     Nickname = tb_Nickname.Text,
                     Email = tb_Email.Text,
                     Address = tb_Address.Text,
