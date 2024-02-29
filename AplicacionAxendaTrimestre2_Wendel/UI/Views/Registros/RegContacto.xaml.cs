@@ -71,7 +71,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
             for (int i = 0; i < lb_Numbers.Items.Count; i++)
             {
-                Numbers.Add(new PhoneNumber(lb_Numbers.Items[i].ToString(),_ContactoActual.Id));
+                Numbers.Add(new PhoneNumber(lb_Numbers?.Items[i]?.ToString() ?? "Sin teléfono.",_ContactoActual.Id));
             }
 
             return Numbers;
@@ -151,37 +151,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             }
         }
 
-        private void Mi_SetContactFile_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                OpenFileDialog fileDialog = new OpenFileDialog();
-                fileDialog.Filter = "json(*.json)|*.json|json(*.json)|*.json.txt";
-                if (fileDialog.ShowDialog() ?? false)
-                {
-                    string filePath = fileDialog.FileName;
-                    //var tContact = JsonConvert.DeserializeObject<Contacto>(File.ReadAllText(filePath));
-                    //Fill(tContact, ContactsCollection.ContactTypes);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex.Message}", "Error");
-            }
-        }
-
-        private void Mi_SaveContactFile_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog fileDialog = new SaveFileDialog();
-            fileDialog.Filter = "json(*.json)|*.json|json(*.json)|*.json.txt";
-            if (fileDialog.ShowDialog() ?? false)
-            {
-                string filePath = fileDialog.FileName;
-                //File.WriteAllText(filePath, JsonConvert.SerializeObject(_Contact));
-            }
-        }
-
-
         public static int CalcularEdad(DateTime? fechaNacimiento)
         {
             // Verificar si la fecha de nacimiento es nula
@@ -221,7 +190,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 _ContactoActual.Address = tb_Address.Text;
                 _ContactoActual.Note = tb_Note.Text;
                 _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
-                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content.ToString();
+                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
                 try
                 {
@@ -253,7 +222,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     Address = tb_Address.Text,
                     Note = tb_Note.Text,
                     BirthDate = dp_Birthday.SelectedDate,
-                    ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content.ToString()
+                    ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo"
             };
 
                 try
