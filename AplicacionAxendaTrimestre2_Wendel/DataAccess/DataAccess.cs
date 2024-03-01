@@ -66,10 +66,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             if (esBaseDeDatosEnMemoria)
             {
                 // Borrar la base de datos
-                // _dbContext.Database.EnsureDeletedAsync().Wait();
-
                 _dbContext.Database.EnsureDeleted();
-                _dbContext.Database.EnsureCreated();
             }
 
             // Nos aseguramos de crear las tablas de la base de datos

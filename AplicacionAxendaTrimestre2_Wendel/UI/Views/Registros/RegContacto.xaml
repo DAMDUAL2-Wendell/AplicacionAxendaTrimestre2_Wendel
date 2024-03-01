@@ -24,25 +24,26 @@
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel x:Name="sp_Info" Margin="20">
 
+                        <!-- Titulo -->
                         <StackPanel>
                             <Label Name="labelTitle" Content="Registro de nuevo usuario" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontFamily="Caladea" ></Label>
                         </StackPanel>
-                        
+
                         <!-- Nombre Completo-->
                         <DockPanel Margin="0 0 0 10">
-                            <TextBlock Text="Nombre Completo:" Margin="0 0 5 0" MinWidth="100"/>
+                            <TextBlock Text="Nombre Completo:" Margin="0 0 5 0" MinWidth="60"/>
                             <TextBox Name="tb_FullName" Tag="FullName" IsEnabled="False" Text="{Binding FullName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"/>
                         </DockPanel>
 
                         <!-- Nombre -->
                         <DockPanel Margin="0 0 0 10">
-                            <TextBlock Text="Nombre:" MinWidth="100" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Nombre:" MinWidth="60" HorizontalAlignment="Left"/>
                             <TextBox Name="tb_FirstName" Width="300" HorizontalAlignment="Left" Text="{Binding FirstName}" TextChanged="Tb_FirstName_TextChanged"/>
                         </DockPanel>
 
                         <!-- Apellidos -->
                         <DockPanel Margin="0 0 0 10">
-                            <TextBlock Text="Apellido:" MinWidth="100" HorizontalAlignment="Left"/>
+                            <TextBlock Text="Apellido:" MinWidth="60" HorizontalAlignment="Left"/>
                             <TextBox Name="tb_LastName" Width="300" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
                         </DockPanel>
 
@@ -51,7 +52,7 @@
                             <TextBlock Text="Correo Electrónico:" MinWidth="120" HorizontalAlignment="Left"/>
                             <TextBox Name="tb_Email"  Width="300" HorizontalAlignment="Left" Text="{Binding Email}" />
                         </DockPanel>
-                        
+
                         <!-- Dirección -->
                         <DockPanel Margin="0 0 0 10">
                             <TextBlock Text="Dirección:" MinWidth="70" HorizontalAlignment="Left"/>
@@ -64,20 +65,14 @@
                         </GroupBox>
 
                         <!-- Botón expandir más información-->
-                        <Expander Header="Más Información" BorderThickness="0" Width="400" HorizontalAlignment="Left">
+                        <Expander Header="Más Información" BorderThickness="0" Width="500" HorizontalAlignment="Left" Margin="0 10 0 0">
                             <StackPanel>
-                                
-                                <!-- Apodo -->
-                                <DockPanel Margin="0 10 0 10">
-                                    <TextBlock Text="Apodo:" MinWidth="100" HorizontalAlignment="Left"/>
-                                    <TextBox Name="tb_Nickname" Text="{Binding Nickname}"/>
-                                </DockPanel>
 
                                 <!--  Selección de Tipo  -->
-                                <UniformGrid Rows="1" Columns="2" Margin="0 0 0 10">
-                                    <DockPanel Width="300" HorizontalAlignment="Left">
+                                <UniformGrid Rows="1" Columns="2" Margin="0 10 0 10">
+                                    <DockPanel Width="220" HorizontalAlignment="Left">
                                         <TextBlock Text="Tipo:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                        <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5" >
+                                        <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5">
                                             <ComboBoxItem Content="Familiar"/>
                                             <ComboBoxItem Content="Amigo"/>
                                             <ComboBoxItem Content="Trabajo"/>
@@ -85,7 +80,7 @@
                                         </ComboBox>
                                     </DockPanel>
                                 </UniformGrid>
-                                
+
                                 <!-- Teléfonos -->
                                 <GroupBox Header="Teléfono:" Width="200" HorizontalAlignment="Left" Margin="0 0 0 10">
                                     <StackPanel>
@@ -99,19 +94,29 @@
                                     </StackPanel>
                                 </GroupBox>
 
+                                <!-- Apodo -->
+                                <DockPanel Margin="0 0 0 10">
+                                    <TextBlock Text="Apodo:" MinWidth="50" HorizontalAlignment="Left"/>
+                                    <TextBox Name="tb_Nickname" Text="{Binding Nickname}" Width="200" HorizontalAlignment="Left"/>
+                                </DockPanel>
+
+                                <!-- Agregar Nota -->
+                                <GroupBox Header="Nota:" Margin="0 0 0 10" Width="200" HorizontalAlignment="Left">
+                                    <TextBox Name="tb_Note"  Width="300" HorizontalAlignment="Left" Text="{Binding Note}" TextWrapping="Wrap"/>
+                                </GroupBox>
+
                             </StackPanel>
                         </Expander>
-                        
-                        
-                        <!-- Agregar Nota -->
-                        <GroupBox Header="Nota:" Margin="0 0 0 10" Width="200" HorizontalAlignment="Left">
-                            <TextBox Name="tb_Note"  Width="300" HorizontalAlignment="Left" Text="{Binding Note}" TextWrapping="Wrap"/>
-                        </GroupBox>
+
+
+
 
                         <!-- BOTONES -->
-                        <Grid Grid.Column="0" Grid.Row="3" Height="25" Width="500">
+                        <Grid Grid.Column="0" Grid.Row="3" Height="25" Width="500" Margin="0 30 0 0">
                             <UniformGrid Rows="1" Columns="2">
+                                <!-- Registro -->
                                 <Button Name="btnRegistrar" Content="Registrar" Click="RegistrarContacto_Click" Margin="0,0,40,0"/>
+                                <!-- Atras -->
                                 <Button Name="btnAtras" Content="Atras" Click="NavegarAtras" Margin="40,0,0,0"/>
                             </UniformGrid>
                         </Grid>

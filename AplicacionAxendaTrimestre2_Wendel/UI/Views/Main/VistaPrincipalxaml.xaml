@@ -8,6 +8,7 @@
         Title="VistaPrincipalxaml" Height="600" Width="800">
 
 
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

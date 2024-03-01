@@ -18,9 +18,7 @@
 
             <!-- Estilo para todos los botones -->
             <Style TargetType="Button" BasedOn="{StaticResource GelButton}"/>
-
             <Style TargetType="DataGrid" BasedOn="{StaticResource DataGrid1}"></Style>
-
             <Style TargetType="Label" BasedOn="{StaticResource CenteredTitleLabel}"></Style>
 
         </ResourceDictionary>
@@ -41,9 +39,43 @@
         </Grid.ColumnDefinitions>
         
         <Label Content="Lista de contactos" Grid.Column="1" Grid.Row="1"/>
-        
-        <DataGrid Name="dataGrid" Grid.Column="1" HorizontalAlignment="Left" Height="205" Margin="31,15,0,0" Grid.Row="2" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        
+
+        <DataGrid Name="dataGrid" Grid.Column="1" HorizontalAlignment="Left" Height="205" Margin="31,15,0,0" Grid.Row="2" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <DataGrid.Columns>
+
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="X" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="C:\Users\Equipo\Desktop\Clases\DI\UD7\App2eval\AplicacionAxendaTrimestre2_Wendel\AplicacionAxendaTrimestre2_Wendel\Resources\img\user.png" Width="50" Height="50"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                
+
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="FirstName" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="LastName" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="FullName" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Nickname" Binding="{Binding Nickname}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                <DataGridTextColumn Header="Note" Binding="{Binding Note}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="BirthDate" Binding="{Binding BirthDate}"/>
+                <DataGridTextColumn Header="ContactType" Binding="{Binding ContactType}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Style="{StaticResource GelButton}" Content="Atras" Grid.Column="1" Margin="618,244,26,10" Grid.Row="2" Click="NavegarAtras"/>
         <Button Style="{StaticResource GelButton}" Grid.Column="1" Content="Registro nuevo Contacto" HorizontalAlignment="Left" Height="47" Margin="31,239,0,0" Grid.Row="2" VerticalAlignment="Top" Width="155" Click="MostrarPaginaRegistro"/>
 

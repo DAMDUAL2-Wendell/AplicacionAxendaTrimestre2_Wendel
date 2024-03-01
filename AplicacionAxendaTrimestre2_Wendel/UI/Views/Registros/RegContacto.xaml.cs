@@ -58,8 +58,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 // Actualiza el DataContext con el nuevo contacto
                 DataContext = _ContactoActual;
 
-                // Llena los números en la lista
+                // Llena los números de telefonos en la lista
                 FillNumbersInLb_Numbers(contacto.Numbers);
+
+                // Llama al método para establecer el Binding del ContactType
+                SetContactTypeBinding(contacto);
 
                 // Establece el índice seleccionado en el ComboBox
                 cb_ContactType.SelectedItem = contacto.ContactType;
@@ -72,22 +75,46 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             }
         }
 
+        // Selecciona el Item del ComboBox si coincide con el asignado en el contacto
+        private void SetContactTypeBinding(Contacto contacto)
+        {
+            // Verifica si el contacto tiene un tipo de contacto establecido
+            if (!string.IsNullOrEmpty(contacto.ContactType))
+            {
+                // Busca el tipo de contacto en los items del ComboBox
+                ComboBoxItem selectedItem = cb_ContactType.Items.Cast<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == contacto.ContactType);
+
+                // Si se encontró el tipo de contacto, selecciona el elemento correspondiente en el ComboBox
+                if (selectedItem != null)
+                {
+                    cb_ContactType.SelectedItem = selectedItem;
+                }
+            }
+        }
+
+
         private List<PhoneNumber> GetNumbersFromLB_Numbers()
         {
             List<PhoneNumber> Numbers = new List<PhoneNumber>();
 
             for (int i = 0; i < lb_Numbers.Items.Count; i++)
             {
-                Numbers.Add(new PhoneNumber(lb_Numbers?.Items[i]?.ToString() ?? "Sin teléfono.",_ContactoActual.Id));
+                PhoneNumber phoneNumber = new PhoneNumber
+                {
+                    Number = lb_Numbers.Items[i]?.ToString() ?? "Sin teléfono.",
+                    ContactoId = _ContactoActual.Id
+                };
+                Numbers.Add(phoneNumber);
             }
 
             return Numbers;
         }
+
         private void FillNumbersInLb_Numbers(List<PhoneNumber> numbers)
         {
             for (int i = 0; i < numbers.Count; i++)
             {
-                lb_Numbers.Items.Add(numbers[i]);
+                lb_Numbers.Items.Add(numbers[i].Number);
             }
         }
         public void Fill(Contacto contact, List<PhoneNumber> contactTypes)
@@ -95,7 +122,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             _ContactoActual = contact;
             sp_Info.DataContext = _ContactoActual;
             FillNumbersInLb_Numbers(contact.Numbers);
-
 
             cb_ContactType.ItemsSource = contactTypes;
             if (cb_ContactType.Items.Count != 0)
@@ -120,7 +146,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void cb_ContactType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _ContactoActual.ContactType = cb_ContactType.SelectedItem.ToString();
+            _ContactoActual.ContactType = cb_ContactType?.SelectedItem?.ToString() ?? "";
         }
 
 
@@ -139,15 +165,38 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void Btn_AddNumber_Click(object sender, RoutedEventArgs e)
         {
+            // Comprobar cadena no vacía
             if (!String.IsNullOrEmpty(tb_Number.Text))
             {
-                if (!lb_Numbers.Items.Contains(tb_Number.Text))
+                // Comprobar que no exista ese teléfono en la base de datos
+                if (!PhoneNumberExistsInDatabase(tb_Number.Text))
                 {
-                    lb_Numbers.Items.Add(tb_Number.Text);
-                    tb_Number.Text = "";
+                    // Si no está repetido en la base de datos, comprobamos si ya está en la lista
+                    if (!lb_Numbers.Items.Contains(tb_Number.Text))
+                    {
+                        // Agregar el número a la lista
+                        lb_Numbers.Items.Add(tb_Number.Text);
+
+                        // Limpiar el cuadro de texto después de agregar el número
+                        tb_Number.Text = "";
+                    }
+                }
+                else
+                {
+                    // Mostrar mensaje de que ese teléfono ya existe en la base de datos
+                    MessageBox.Show("El número ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
+
+        // Método para verificar si el número de teléfono ya existe en la base de datos
+        private bool PhoneNumberExistsInDatabase(string phoneNumber)
+        {
+            // Realizar una consulta para verificar si el número de teléfono ya existe en la base de datos
+            bool exists = _dataAccess.DbContext.Contactos.Any(c => c.Numbers.Any(n => n.Number == phoneNumber));
+            return exists;
+        }
+
         private void Btn_DeleteNumber_Click(object sender, RoutedEventArgs e)
         {
             if (lb_Numbers.SelectedItems.Count != 0)
@@ -190,7 +239,83 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             // Verifica si se está editando un contacto existente
             if (_ContactoActual.Id != 0)
             {
-                // Se está editando un contacto existente, actualiza sus propiedades
+                // Si se está editando un contacto existente, actualiza sus propiedades
+                _ContactoActual.FirstName = tb_FirstName.Text;
+                _ContactoActual.LastName = tb_LastName.Text;
+                _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
+                _ContactoActual.Nickname = tb_Nickname.Text;
+                _ContactoActual.Email = tb_Email.Text;
+                _ContactoActual.Address = tb_Address.Text;
+                _ContactoActual.Note = tb_Note.Text;
+                _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
+                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
+
+                // Actualiza los números de teléfono del contacto
+                _ContactoActual.Numbers = GetNumbersFromLB_Numbers();
+
+                try
+                {
+                    // Guarda los cambios en la base de datos
+                    _dataAccess.DbContext.SaveChanges();
+
+                    // Muestra un mensaje de éxito al usuario
+                    MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Navegar atrás luego de actualizar un contacto con éxito
+                    Navegacion.NavegarAtras(NavigationService);
+                }
+                catch (Exception ex)
+                {
+                    // Muestra un mensaje de error si ocurre algún problema al actualizar el contacto
+                    MessageBox.Show($"Error al actualizar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                // Crea un nuevo objeto de Contacto
+                Contacto nuevoContacto = new Contacto()
+                {
+                    FirstName = tb_FirstName.Text,
+                    LastName = tb_LastName.Text,
+                    Age = CalcularEdad(dp_Birthday.SelectedDate),
+                    Nickname = tb_Nickname.Text,
+                    Email = tb_Email.Text,
+                    Address = tb_Address.Text,
+                    Note = tb_Note.Text,
+                    BirthDate = dp_Birthday.SelectedDate,
+                    ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo",
+                    Numbers = GetNumbersFromLB_Numbers() // Agrega los números de teléfono al nuevo contacto
+                };
+
+                try
+                {
+                    // Agrega el nuevo contacto a tu contexto de base de datos
+                    _dataAccess.DbContext.Contactos.Add(nuevoContacto);
+
+                    // Guarda los cambios en la base de datos
+                    _dataAccess.DbContext.SaveChanges();
+
+                    // Muestra un mensaje de éxito al usuario
+                    MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Navegar atrás luego de un registro con éxito
+                    Navegacion.NavegarAtras(NavigationService);
+                }
+                catch (Exception ex)
+                {
+                    // Muestra un mensaje de error si ocurre algún problema al guardar el contacto
+                    MessageBox.Show($"Error al registrar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+
+        private void RegistrarContacto_Click2(object sender, RoutedEventArgs e)
+        {
+            // Verifica si se está editando un contacto existente
+            if (_ContactoActual.Id != 0)
+            {
+                // Si se está editando un contacto existente, actualiza sus propiedades
                 _ContactoActual.FirstName = tb_FirstName.Text;
                 _ContactoActual.LastName = tb_LastName.Text;
                 _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
@@ -232,7 +357,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     Note = tb_Note.Text,
                     BirthDate = dp_Birthday.SelectedDate,
                     ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo"
-            };
+                };
 
                 try
                 {
@@ -255,8 +380,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 }
             }
         }
-
-
 
         /* ------------       NAVEGACION     ------------------*/
         private void NavegarAtras(object sender, RoutedEventArgs e)

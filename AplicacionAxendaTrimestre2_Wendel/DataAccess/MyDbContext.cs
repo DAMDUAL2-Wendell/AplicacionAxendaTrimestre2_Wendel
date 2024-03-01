@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using AplicacionAxendaTrimestre2_Wendel.Models;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -24,14 +25,22 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         public DbSet<Nota> Notas { get; set; }
 
 
-        // Constructor de clase pasando como parámetro el OptionsBuilder
+        // Este constructor hereda de la clase base DbContext, y la llamada base(options) se encarga de pasar las opciones de configuración al constructor de la clase base.
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+             //  Asegura de que cualquier configuración predeterminada o lógica interna proporcionada por Entity Framework Core 
+             //  se aplique primero antes de aplicar otras configuraciones específicas del modelo 
             base.OnModelCreating(modelBuilder);
+
+            // Habilita la eliminación en cascada de los telefonos al eliminar un contacto.
+            modelBuilder.Entity<Contacto>()
+                .HasMany(c => c.Numbers)
+                .WithOne(p => p.Contacto)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         // Sobreescritura del método de clase de configuración de la base de datos.
@@ -47,8 +56,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 conn.Open();
                 optionsBuilder.UseSqlite(conn);
 
-                //  Ya que es en memoria nos aseguramos de borrar y cargar las tablas
-                // nuevamente
+                //  Borrar y crear base de datos
                 Database.EnsureDeletedAsync().Wait();
                 Database.EnsureCreatedAsync().Wait();
             }

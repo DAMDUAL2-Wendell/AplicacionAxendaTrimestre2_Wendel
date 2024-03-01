@@ -1,7 +1,9 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.Models;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
 using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using AplicacionAxendaTrimestre2_Wendel.Util;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             InitializeComponent();
 
             Loaded += PagContactos_Loaded;
+
+            InsertarContactosPrueba(TestDataGenerator.GenerateContactos(5));
         }
 
 
@@ -48,51 +52,114 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private async Task MostrarContactosAsync()
         {
-            var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
-            lb_ContactBox.ItemsSource = contactos;
+            var contactos = await _dataAccess.DbContext.Contactos.Where(c => c != null).ToListAsync();
+            dataGrid.ItemsSource = contactos;
         }
 
 
 
-        // ContactsCollection Contacts = new ContactsCollection();
-
-
-        ///Тип Сортировки
-        // Comparison<Contact> SortType = ((a, b) => { return a.FullName.CompareTo(b.FullName); });
-
-        ///Counter для Contacts
-        public int CounterID = 0;
-
-        /*
-        public MainWindow()
+        // Método para insertar contactos de prueba
+        public void InsertarContactosPrueba(List<Contacto> contactosPrueba)
         {
-            InitializeComponent();
-
-            lb_ContactBox.ItemsSource = Contacts.Contacts;
-
-            CounterID = Contacts.GetMaxID() + 1;
+            // Verificar si _dataAccess y _dataAccess.DbContext están inicializados
+            if (_dataAccess != null && _dataAccess.DbContext != null)
+            {
+                // Agregar los contactos de prueba y guardar los cambios en la base de datos
+                _dataAccess.DbContext.Contactos.AddRange(contactosPrueba);
+                _dataAccess.DbContext.SaveChanges();
+            }
         }
-        */
+
+        public static List<Contacto> GetContactosPrueba()
+        {
+            // Datos de prueba para los contactos
+            var contactosPrueba = new List<Contacto>
+        {
+            new Contacto
+            {
+                FirstName = "Juan",
+                LastName = "García",
+                Nickname = "Juani",
+                Email = "juani@example.com",
+                Address = "Calle Principal 123",
+                Note = "Amigo de la infancia",
+                Age = 35,
+                BirthDate = new DateTime(1989, 5, 15),
+                ContactType = "Amigo",
+                Numbers = new List<PhoneNumber>
+                {
+                    new PhoneNumber { Number = "123456789" },
+                    new PhoneNumber { Number = "987654321" }
+                }
+            },
+            new Contacto
+            {
+                FirstName = "María",
+                LastName = "López",
+                Nickname = "Mary",
+                Email = "mary@example.com",
+                Address = "Avenida Central 456",
+                Note = "Compañera de trabajo",
+                Age = 30,
+                BirthDate = new DateTime(1992, 8, 25),
+                ContactType = "Colega",
+                Numbers = new List<PhoneNumber>
+                {
+                    new PhoneNumber { Number = "111222333" }
+                }
+            },
+        };
+
+            return contactosPrueba;
+        }
 
 
 
-        private void Lb_ContactBox_KeyDown(object sender, KeyEventArgs e)
+
+        private async void Eliminar_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener el botón que desencadenó el evento
+            Button btn = sender as Button;
+
+            // Obtener el DataContext del botón (que es el objeto Contacto en este caso)
+            Contacto contacto = btn.DataContext as Contacto;
+
+            if(contacto!= null)
+            {
+                // Eliminar el contacto de la base de datos
+                _dataAccess.DbContext.Contactos.Remove(contacto);
+
+                // Guardar los cambios en la base de datos
+                await _dataAccess.DbContext.SaveChangesAsync();
+
+                // Volver a cargar los contactos en el DataGrid
+                await MostrarContactosAsync();
+            }
+
+ 
+        }
+
+
+
+        private async void Lb_ContactBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Delete)
             {
-                if (lb_ContactBox.SelectedItems.Count > 0)
+                if (dataGrid.SelectedItems.Count > 0)
                 {
-                    List<Contacto> selectedContacts = lb_ContactBox.SelectedItems.Cast<Contacto>().ToList();
-                    var contactList = (List<Contacto>)lb_ContactBox.ItemsSource;
+                    List<Contacto> selectedContacts = dataGrid.SelectedItems.Cast<Contacto>().ToList();
                     foreach (var contact in selectedContacts)
                     {
-                        contactList.Remove(contact);
+                        _dataAccess.DbContext.Contactos.Remove(contact);
                     }
-                    lb_ContactBox.ItemsSource = null;
-                    lb_ContactBox.ItemsSource = contactList;
+                    await _dataAccess.DbContext.SaveChangesAsync();
+
+                    // Actualizar el DataGrid
+                    await MostrarContactosAsync();
                 }
             }
         }
+
 
         private void Tb_FindContact_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -117,7 +184,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                                     .ToList();
 
             // Actualizar el ListBox con los contactos filtrados
-            lb_ContactBox.ItemsSource = filteredContacts;
+            dataGrid.ItemsSource = filteredContacts;
         }
 
 
@@ -125,10 +192,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         private void Btn_EditContact_Click(object sender, RoutedEventArgs e)
         {
             // Verificar si se seleccionó un contacto para editar
-            if (lb_ContactBox.SelectedItem != null && lb_ContactBox.SelectedItem is Contacto)
+            if (dataGrid.SelectedItem != null && dataGrid.SelectedItem is Contacto)
             {
                 // Obtener el contacto seleccionado
-                Contacto contactoSeleccionado = (Contacto)lb_ContactBox.SelectedItem;
+                Contacto contactoSeleccionado = (Contacto)dataGrid.SelectedItem;
 
                 // Aquí puedes pasar el contacto seleccionado como parámetro a la página de registro
                 // para que se pueda cargar en la página de edición
@@ -139,13 +206,14 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
 
+
         private async void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
             // Verificar si se seleccionaron contactos para eliminar
-            if (lb_ContactBox.SelectedItems.Count > 0)
+            if (dataGrid.SelectedItems.Count > 0)
             {
                 // Eliminar los contactos seleccionados de la base de datos
-                foreach (var item in lb_ContactBox.SelectedItems)
+                foreach (var item in dataGrid.SelectedItems)
                 {
                     _dataAccess.DbContext.Contactos.Remove((Contacto)item);
                 }
@@ -153,46 +221,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                 // Guardar los cambios en la base de datos
                 await _dataAccess.DbContext.SaveChangesAsync();
 
-                // Actualizar el ListBox
+                // Actualizar el DataGrid
                 var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
-                lb_ContactBox.ItemsSource = contactos;
+                dataGrid.ItemsSource = contactos;
             }
         }
 
-
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            //SaveJson
-           // Contacts.SaveToJson();
-        }
-
-        private void Lb_ContactBox_KeyDown2(object sender, KeyEventArgs e)
-        {
-            /*
-            //Remove Selected Contacts
-            if (e.Key == Key.Delete)
-            {
-                if (lb_ContactBox.SelectedItems.Count != 0)
-                {
-                    List<int> selectedIDs = new List<int>();
-                    for (int i = 0; i < lb_ContactBox.SelectedItems.Count; i++)
-                    {
-                        selectedIDs.Add(((Contact)lb_ContactBox.SelectedItems[i]).ID);
-                    }
-                    //Remove Contacts
-                    Contacts.RemoveContactsByID(selectedIDs);
-                    lb_ContactBox.Items.Refresh();
-                }
-            }
-            //Refresh Getting Contacts From json
-            else if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.R))
-            {
-                Contacts.GetContactsFromJson();
-                Contacts.Sort(SortType);
-                lb_ContactBox.ItemsSource = Contacts.Contacts;
-            }
-            */
-        }
 
         private void Btn_AddContact_Click(object sender, RoutedEventArgs e)
         {
@@ -201,187 +235,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
         }
-        private void Btn_EditContact_Click2(object sender, RoutedEventArgs e)
-        {
-            /*
-            if (lb_ContactBox.SelectedIndex != -1)
-            {
-                ContactInfo w = new ContactInfo();
-                w.Fill((Contact)lb_ContactBox.SelectedItem, ContactsCollection.ContactTypes);
-                w.ShowDialog();
-
-                //Getting Contact From
-                Contacts.Contacts.Remove((Contact)lb_ContactBox.SelectedItems[0]);
-                var tContact = w.GetContact();
-                tContact.ID = CounterID++;
-                Contacts.Add(tContact);
-
-                //Sorting Contacts
-                Contacts.Sort(SortType);
-                lb_ContactBox.Items.Refresh();
-
-                //SaveJson
-                Contacts.SaveToJson();
-
-            }
-            */
-        }
-
-        private void Btn_DeleteContact_Click2(object sender, RoutedEventArgs e)
-        {
-            /*
-            //Remove Selected Contacts
-            if (lb_ContactBox.SelectedItems.Count != 0)
-            {
-                List<int> selectedIDs = new List<int>();
-                for (int i = 0; i < lb_ContactBox.SelectedItems.Count; i++)
-                {
-                    selectedIDs.Add(((Contact)lb_ContactBox.SelectedItems[i]).ID);
-                }
-
-                //Remove Contacts
-                Contacts.RemoveContactsByID(selectedIDs);
-                lb_ContactBox.Items.Refresh();
-
-                //SaveJson
-                Contacts.SaveToJson();
-            }
-            */
-        }
-
-        // Ordenar por Id
-        private void SortByID_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Id");
-        }
-
-        // Ordenar por nombre
-        private void SortByFirstName_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("FirstName");
-        }
-
-        //  Ordenar por apellido
-        private void SortByLastName_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("LastName");
-        }
-
-        // Ordenar por Nombre completo
-        private void SortByFullName_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("FullName");
-        }
-
-        //  Ordenar por Nickname
-        private void SortByNickname_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Nickname");
-        }
-
-        //  Ordenar por Email
-        private void SortByEmail_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Email");
-        }
-
-        //  Ordenar por Direccion
-        private void SortByAddress_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Address");
-        }
-
-        //  Ordenar por nota
-        private void SortByNote_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Note");
-        }
-
-        //  Ordenar por edad
-        private void SortByAge_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("Age");
-        }
-
-        //  Ordenar por Cumpleaños
-        private void SortByBirthDate_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("BirthDate");
-        }
-
-        // Ordenar por tipo de contacto
-        private void SortByContactType_Click(object sender, RoutedEventArgs e)
-        {
-            SortContactsByField("ContactType");
-        }
 
 
-
-        private void SortContactsByField(string fieldName)
-        {
-            switch (fieldName)
-            {
-                case "Id":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Id)
-                        .ToList();
-                    break;
-                case "FirstName":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.FirstName)
-                        .ToList();
-                    break;
-                case "LastName":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.LastName)
-                        .ToList();
-                    break;
-                case "FullName":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.FullName)
-                        .ToList();
-                    break;
-                case "Nickname":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Nickname)
-                        .ToList();
-                    break;
-                case "Email":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Email)
-                        .ToList();
-                    break;
-                case "Address":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Address)
-                        .ToList();
-                    break;
-                case "Note":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Note)
-                        .ToList();
-                    break;
-                case "Age":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.Age)
-                        .ToList();
-                    break;
-                case "BirthDate":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.BirthDate)
-                        .ToList();
-                    break;
-                case "ContactType":
-                    lb_ContactBox.ItemsSource = ((List<Contacto>)lb_ContactBox.ItemsSource)
-                        .OrderBy(c => c.ContactType)
-                        .ToList();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-
+        // ----------   Navegación   -------------
 
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {
