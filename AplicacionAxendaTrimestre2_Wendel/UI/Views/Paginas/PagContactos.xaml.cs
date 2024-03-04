@@ -38,7 +38,19 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             Loaded += PagContactos_Loaded;
 
-            InsertarContactosPrueba(TestDataGenerator.GenerateContactos(5));
+            try
+            {
+                if (_dataAccess.DbContext.Contactos.Count() == 0)
+                {
+                    InsertarContactosPrueba(TestDataGenerator.GenerateContactos(5));
+
+                }
+            }
+            catch (Exception ex) { }
+
+
+
+
         }
 
 

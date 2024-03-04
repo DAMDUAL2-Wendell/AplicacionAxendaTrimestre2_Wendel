@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         public VistaPrincipalxaml()
         {
             InitializeComponent();
-            MostrarPaginaPrincipal();
+            //MostrarPaginaPrincipal();
         }
 
         private void MostrarPaginaPrincipal()
@@ -33,6 +34,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
             // Navegar a PaginaPrincipal en el Frame
             frameContenido.NavigationService.Navigate(paginaPrincipal);
+        }
+
+        private void MostrarPaginaContactos(object sender, RoutedEventArgs e)
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameContenido = ventanaPrincipal.frameContenido;
+
+                if (frameContenido != null)
+                {
+                    // Crear una instancia de la otra página
+                    PagContactos otraPagina = new PagContactos();
+
+                    // Navegar a la otra página en el Frame
+                    frameContenido.NavigationService.Navigate(otraPagina);
+                }
+            }
         }
 
 

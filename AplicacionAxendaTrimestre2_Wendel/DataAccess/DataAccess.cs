@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.POJO;
+using DI_UD5_CreacionInformes_Wendel;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
@@ -42,7 +43,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             {
                 //  Instanciar conexion MYSQL y asignar el string de conexion
                 conn = new MySqlConnection(conexion);
-                optionsBuilder.UseMySql(conexion, new MySqlServerVersion(new Version(8, 0, 21)));
+                //conn = new ConexionBD().getConexion();
+                optionsBuilder.UseMySql(conn.ConnectionString, new MySqlServerVersion(new Version(8, 0, 21)));
 
             }
             else

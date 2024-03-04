@@ -15,7 +15,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.Configuracion
         //public static string RUTAFICHERO = $"{AppDomain.CurrentDomain.BaseDirectory}Data\\LocalBD\\MiBaseDeDatosLocal.db";
 
         public static string BDFICHERO = "DataSource=";
-        public static string BDMYSQL = "Server=localhost;Database=Agenda;Uid=root;Pwd=;";
+        //public static string BDMYSQL2 = "Server=localhost;Database=;Uid=root;Pwd=;abc123.";
+        public static string BDMYSQL = "Persist Security Info=False;User ID=root;Password=abc123.;Initial Catalog=prueba;Server=localhost";
 
     }
 }

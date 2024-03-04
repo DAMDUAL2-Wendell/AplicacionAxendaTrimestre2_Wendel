@@ -15,9 +15,9 @@ namespace DI_UD5_CreacionInformes_Wendel
         public SqlConnection conexion;
 
         // Strings con los valores para la conexión.
-        private String database = "fabrica";
+        private String database = "prueba";
         private String servidor = "localhost";
-        private String usuario = "sa";
+        private String usuario = "root";
         private String password = "abc123.";
         private String CadeaConexion;
 
@@ -45,7 +45,6 @@ namespace DI_UD5_CreacionInformes_Wendel
                 }
             }
                 return conexion;
-
         }
 
         public bool IsConnected()

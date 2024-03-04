@@ -92,7 +92,8 @@
             <!--Botones-->
             <Grid Grid.Column="0" Grid.Row="3" >
                 <UniformGrid Rows="1" Columns="4">
-                    <Button Name="btn_AddContact" Content="Add" Margin="1" Click="Btn_AddContact_Click"/>
+                    <Button Name="btn_AddContact" Content="Add" Margin="1" Click="Btn_AddContact_Click">
+                    </Button>
                     <Button Name="btn_EditContact" Content="Edit" Margin="1" Click="Btn_EditContact_Click"/>
                     <Button Name="btn_DeleteContact" Content="Delete" Margin="1" Click="Btn_DeleteContact_Click"/>
                     <Button Name="btn_Atras" Content="Atras" Margin="1" Click="NavegarAtras"/>
