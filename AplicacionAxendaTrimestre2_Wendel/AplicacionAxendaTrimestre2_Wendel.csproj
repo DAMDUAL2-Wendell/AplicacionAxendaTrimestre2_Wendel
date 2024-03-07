@@ -16,6 +16,7 @@
 	  <None Remove="UI\Views\Main\event.png" />
 	  <None Remove="UI\Views\Main\note.png" />
 	  <None Remove="UI\Views\Main\user.png" />
+	  <None Remove="UI\Views\Paginas\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -54,6 +55,7 @@
 	  <Resource Include="UI\Views\Main\event.png" />
 	  <Resource Include="UI\Views\Main\note.png" />
 	  <Resource Include="UI\Views\Main\user.png" />
+	  <Resource Include="UI\Views\Paginas\user.png" />
 	</ItemGroup>
 
 </Project>

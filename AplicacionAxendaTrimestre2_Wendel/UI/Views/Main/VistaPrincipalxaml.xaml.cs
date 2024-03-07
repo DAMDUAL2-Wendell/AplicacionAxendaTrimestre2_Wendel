@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         {
             InitializeComponent();
             //MostrarPaginaPrincipal();
+
+            Navegacion.FrameNavegacion();
+
         }
 
         private void MostrarPaginaPrincipal()

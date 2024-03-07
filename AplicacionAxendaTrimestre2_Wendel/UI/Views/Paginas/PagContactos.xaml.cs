@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -47,8 +49,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                 }
             }
             catch (Exception ex) { }
-
-
 
 
         }
@@ -136,19 +136,23 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             // Obtener el DataContext del botón (que es el objeto Contacto en este caso)
             Contacto contacto = btn.DataContext as Contacto;
 
-            if(contacto!= null)
+            if (contacto != null)
             {
-                // Eliminar el contacto de la base de datos
-                _dataAccess.DbContext.Contactos.Remove(contacto);
+                MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar al usuario " + contacto.FirstName +
+                    "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Eliminar el contacto de la base de datos
+                    _dataAccess.DbContext.Contactos.Remove(contacto);
 
-                // Guardar los cambios en la base de datos
-                await _dataAccess.DbContext.SaveChangesAsync();
+                    // Guardar los cambios en la base de datos
+                    await _dataAccess.DbContext.SaveChangesAsync();
 
-                // Volver a cargar los contactos en el DataGrid
-                await MostrarContactosAsync();
+                    // Volver a cargar los contactos en el DataGrid
+                    await MostrarContactosAsync();
+                }
+
             }
-
- 
         }
 
 
@@ -221,21 +225,36 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private async void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
+
             // Verificar si se seleccionaron contactos para eliminar
             if (dataGrid.SelectedItems.Count > 0)
             {
+                Contacto contacto = null;
                 // Eliminar los contactos seleccionados de la base de datos
                 foreach (var item in dataGrid.SelectedItems)
                 {
-                    _dataAccess.DbContext.Contactos.Remove((Contacto)item);
+                    contacto = (Contacto)item;
+                }
+                if (contacto != null)
+                {
+                    if (contacto != null)
+                    {
+                        MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar al usuario " + contacto.FirstName +
+                            "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            _dataAccess.DbContext.Contactos.Remove((Contacto)contacto);
+                            // Guardar los cambios en la base de datos
+                            await _dataAccess.DbContext.SaveChangesAsync();
+
+                            // Actualizar el DataGrid
+                            var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
+                            dataGrid.ItemsSource = contactos;
+                        }
+                    }
+
                 }
 
-                // Guardar los cambios en la base de datos
-                await _dataAccess.DbContext.SaveChangesAsync();
-
-                // Actualizar el DataGrid
-                var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
-                dataGrid.ItemsSource = contactos;
             }
         }
 
@@ -256,6 +275,57 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             Navegacion.NavegarAtras(NavigationService);
         }
 
+        private async void ClickDuplicarContacto(object sender, RoutedEventArgs e)
+        {
+
+            // Verificar si se seleccionaron contactos para eliminar
+            if (dataGrid.SelectedItems.Count > 0)
+            {
+                Contacto contacto = null;
+                // Eliminar los contactos seleccionados de la base de datos
+                foreach (var item in dataGrid.SelectedItems)
+                {
+                    contacto = (Contacto)item;
+                }
+                if (contacto != null)
+                {
+                    if (contacto != null)
+                    {
+                        MessageBoxResult result = MessageBox.Show("¿Está seguro de querer duplicar al usuario " + contacto.FirstName +
+                            "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            //_dataAccess.DbContext.Contactos.Remove((Contacto)contacto);
+                            Contacto nuevoContacto = contacto;
+                            nuevoContacto.Id = Next();
+                            _dataAccess.DbContext.Contactos.Add(contacto);
+                            // Guardar los cambios en la base de datos
+                            await _dataAccess.DbContext.SaveChangesAsync();
+
+                            // Actualizar el DataGrid
+                            var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
+                            dataGrid.ItemsSource = contactos;
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+        private int Next()
+        {
+            // Ordenar los contactos por Id de forma descendente y luego seleccionar el primer elemento
+            var ultimoContacto = _dataAccess.DbContext.Contactos.OrderByDescending(c => c.Id).FirstOrDefault();
+            if (ultimoContacto != null)
+            {
+                return ultimoContacto.Id + 1;
+            }
+            else
+            {
+                return 1;
+            }
+        }
 
 
     }

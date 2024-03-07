@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Main"
         mc:Ignorable="d"
-        Title="VistaPrincipalxaml" Height="600" Width="800">
+        Title="VistaPrincipalxaml" Height="650" Width="830">
 
 
 
@@ -85,11 +85,8 @@
             </Menu>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Height="60">
-            
-
-            <Frame Name="frameNavegacion" NavigationUIVisibility="Visible"></Frame>
-
+        <StackPanel Orientation="Horizontal" Height="80">
+            <Frame Name="frameNavegacion" NavigationUIVisibility="Hidden"></Frame>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Height="450">

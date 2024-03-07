@@ -35,12 +35,8 @@
                         <ComboBoxItem Name="comboBoxItemServidor" Content="Base de datos desde Servidor"></ComboBoxItem>
                     </ComboBox>
                 </StackPanel>
-                
-                <StackPanel Orientation="Vertical">
-                    <Button Content="Conectar" Height="50" Width="120" Margin="40,0,0,0" Click="ClickBtnConectar"/>
-                </StackPanel>
 
-            
+            <Button Content="Conectar" Height="50" Width="120" Margin="40,0,0,0" Click="ClickBtnConectar"/>
             
             <Button Height="50" Width="120" Margin="40,0,0,0" Background="Aquamarine" Click="MostrarPaginaContactos">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

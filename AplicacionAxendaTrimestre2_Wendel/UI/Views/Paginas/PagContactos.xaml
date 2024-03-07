@@ -68,7 +68,7 @@
                     <DataGridTemplateColumn Width="Auto">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="C:\Users\Equipo\Desktop\Clases\DI\UD7\App2eval\AplicacionAxendaTrimestre2_Wendel\AplicacionAxendaTrimestre2_Wendel\Resources\img\user.png" Width="50" Height="50"/>
+                                <Image Source="/UI/Views/Paginas/user.png" Width="50" Height="50"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -96,7 +96,7 @@
                     </Button>
                     <Button Name="btn_EditContact" Content="Edit" Margin="1" Click="Btn_EditContact_Click"/>
                     <Button Name="btn_DeleteContact" Content="Delete" Margin="1" Click="Btn_DeleteContact_Click"/>
-                    <Button Name="btn_Atras" Content="Atras" Margin="1" Click="NavegarAtras"/>
+                    <Button Name="btn_Atras" Content="Duplicar contacto" Margin="1" Click="ClickDuplicarContacto"/>
                 </UniformGrid>
             </Grid>
         </Grid>

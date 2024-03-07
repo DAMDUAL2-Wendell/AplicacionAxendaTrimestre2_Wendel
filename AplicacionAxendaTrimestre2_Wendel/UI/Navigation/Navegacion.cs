@@ -36,6 +36,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             }
         }
 
+        public static void FrameNavegacion()
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameNavegacion = ventanaPrincipal.frameNavegacion;
+
+                if (frameNavegacion != null)
+                {
+                    // Crear una instancia de la otra página
+                    PaginaPrincipal otraPagina = new PaginaPrincipal();
+
+                    // Navegar a la otra página en el Frame
+                    frameNavegacion.NavigationService.Navigate(otraPagina);
+                }
+            }
+        }
+
         public static void NavegarPaginaRegistro(NavigationService navigationService)
         {
             // Obtener la ventana principal
