@@ -1,0 +1,9 @@
+ git clone https://github.com/SyncfusionExamples/syncfusin-wpf-calendar-example
+
+ git clone https://github.com/TomaszOrpik/MyCalendarWPF.git
+
+
+git clone https://github.com/pedrytus/ContactWizard.git
+
+
+git clone https://github.com/Joben28/ContactBook.git

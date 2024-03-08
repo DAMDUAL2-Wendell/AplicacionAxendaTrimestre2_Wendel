@@ -21,5 +21,20 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
         public DateTime FechaCreacion { get; set; }
 
         public DateTime FechaActivacion { get; set; }
+
+        public Evento(int id, string titulo, string descripcion, DateTime fechaCreacion, DateTime fechaActivacion)
+        {
+            Id = id;
+            Titulo = titulo;
+            Descripcion = descripcion;
+            FechaCreacion = fechaCreacion;
+            FechaActivacion = fechaActivacion;
+        }
+
+        public Evento()
+        {
+        }
+
+
     }
 }
