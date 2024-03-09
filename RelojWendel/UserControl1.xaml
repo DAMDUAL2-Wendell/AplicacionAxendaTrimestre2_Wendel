@@ -1,0 +1,24 @@
+<UserControl x:Class="RelojWendel.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RelojWendel" xmlns:VentanaAlarma="clr-namespace:AplicacionRelojWendel"
+             mc:Ignorable="d" Height="170" Width="389">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Label Style="{StaticResource estiloLabel}" Name="labelCronometro" Content="00:00:00" Height="170" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="389" FontSize="70" HorizontalAlignment="Center"/>
+    </Grid>
+
+
+</UserControl>

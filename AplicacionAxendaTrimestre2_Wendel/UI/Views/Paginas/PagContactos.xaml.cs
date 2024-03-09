@@ -24,6 +24,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
+using System.Linq.Expressions;
 
 
 namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
@@ -35,6 +36,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     {
 
         private DataAccess _dataAccess = AppData.DataAccess;
+
+        public static SpeechSynthesizer speech = new SpeechSynthesizer();
+
 
         public PagContactos()
         {
@@ -262,7 +266,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void LeerContacto(object sender, RoutedEventArgs e)
         {
-            SpeechSynthesizer speech = new SpeechSynthesizer();
             speech.Rate = -2;
 
             // Verificar si se seleccionaron contactos para eliminar
@@ -276,17 +279,17 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                 }
                 if (contacto != null)
                 {
-                        speech.SpeakAsync("Datos del contacto seleccionado:");
-                        speech.SpeakAsync("Nombre: " + contacto.FirstName);
-                        speech.SpeakAsync("Apellidos: " + contacto.LastName);
-                        speech.SpeakAsync("Apodo: " + contacto.Nickname);
-                        speech.SpeakAsync("Email: " + contacto.Email);
-                        speech.SpeakAsync("Dirección: " + contacto.Address);
-                        speech.SpeakAsync("Edad: " + contacto.Age);
-                        speech.SpeakAsync("Fecha de nacimiento: " + contacto.BirthDate);
-                        speech.SpeakAsync("Tipo de contacto: " + contacto.ContactType);
-                        speech.SpeakAsync("Teléfono: " + contacto.Numbers.First());
-                        speech.SpeakAsync("Nota: " + contacto.Note);
+                    speech.SpeakAsync("Datos del contacto seleccionado:");
+                    speech.SpeakAsync("Nombre: " + contacto.FirstName);
+                    speech.SpeakAsync("Apellidos: " + contacto.LastName);
+                    speech.SpeakAsync("Apodo: " + contacto.Nickname);
+                    speech.SpeakAsync("Email: " + contacto.Email);
+                    speech.SpeakAsync("Dirección: " + contacto.Address);
+                    speech.SpeakAsync("Edad: " + contacto.Age);
+                    speech.SpeakAsync("Fecha de nacimiento: " + contacto.BirthDate);
+                    speech.SpeakAsync("Tipo de contacto: " + contacto.ContactType);
+                    speech.SpeakAsync("Teléfono: " + contacto.Numbers.First());
+                    speech.SpeakAsync("Nota: " + contacto.Note);
                 }
                 else
                 {
@@ -368,6 +371,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
+        private void btn_pausaLeer_Click(object sender, RoutedEventArgs e)
+        {
+            speech.Pause();
+            SpeechSynthesizer speech2 = new SpeechSynthesizer();
+            speech2.SpeakAsync("Pausado");
+        }
 
+        private void btn_continuaLeer_Click(object sender, RoutedEventArgs e)
+        {
+            SpeechSynthesizer speech2 = new SpeechSynthesizer();
+            speech2.SpeakAsync("Continuando...");
+            speech.Resume();
+        }
     }
 }

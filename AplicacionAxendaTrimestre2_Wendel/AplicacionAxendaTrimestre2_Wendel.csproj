@@ -53,6 +53,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\RelojInterfaces\RelojInterfacesWendel\RelojWendel\RelojWendel.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Resource Include="UI\Views\Main\event.png" />
 	  <Resource Include="UI\Views\Main\note.png" />
 	  <Resource Include="UI\Views\Main\user.png" />
