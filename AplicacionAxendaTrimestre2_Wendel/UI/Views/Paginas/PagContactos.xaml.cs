@@ -25,6 +25,7 @@ using System.Windows.Shapes;
 using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Linq.Expressions;
+using System.Threading;
 
 
 namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
@@ -37,7 +38,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private DataAccess _dataAccess = AppData.DataAccess;
 
-        public static SpeechSynthesizer speech = new SpeechSynthesizer();
+        private SpeechSynthesizer speech = new SpeechSynthesizer();
+        private SpeechSynthesizer speech2 = new SpeechSynthesizer();
 
 
         public PagContactos()
@@ -371,18 +373,30 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
+
+
+        // Función para pausar la voz
         private void btn_pausaLeer_Click(object sender, RoutedEventArgs e)
         {
-            speech.Pause();
-            SpeechSynthesizer speech2 = new SpeechSynthesizer();
-            speech2.SpeakAsync("Pausado");
+            if (speech != null && speech.State == SynthesizerState.Speaking)
+            {
+                speech.Pause();
+                speech2.SpeakAsync("Pausado");
+            }
         }
 
-        private void btn_continuaLeer_Click(object sender, RoutedEventArgs e)
+        // Función para continuar la voz
+        private async void btn_continuaLeer_Click(object sender, RoutedEventArgs e)
         {
-            SpeechSynthesizer speech2 = new SpeechSynthesizer();
-            speech2.SpeakAsync("Continuando...");
-            speech.Resume();
+            if (speech != null && speech.State == SynthesizerState.Paused)
+            {
+                speech2.SpeakAsync("Continuando...");
+                // Esperar un segundo para no mezclar las voces
+                await Task.Delay(1000);
+                speech.Resume();
+            }
         }
+
+
     }
 }

@@ -30,6 +30,7 @@
 		<PackageReference Include="Noesis.GUI.Extensions" Version="3.0.26" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.1" />
 		<PackageReference Include="SQLite" Version="3.13.0" />
+		<PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.2.9" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 		<PackageReference Include="System.Speech" Version="8.0.0" />
 	</ItemGroup>

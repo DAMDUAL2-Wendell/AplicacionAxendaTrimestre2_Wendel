@@ -28,6 +28,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         public PaginaPrincipal()
         {
             InitializeComponent();
+
+            // Conectar con base de datos por defecto 'En Memoria' ya que estoy haciendo pruebas y así es más rápido.
+            ConectarConBaseDatos(1);
+
+            // Seleccionar comboBox 1 (Base de datos en memoria)
+            comboBox.SelectedIndex = 1;
         }
 
         //public DataAccess _dataAccess = AppData.dataAccess;
@@ -121,10 +127,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
         private void ClickBtnConectar(object sender, RoutedEventArgs e)
         {
-            switch (comboBox.SelectedIndex)
+            ConectarConBaseDatos(comboBox.SelectedIndex);
+        }
+
+        private void ConectarConBaseDatos(int comboBoxIndex)
+        {
+            switch (comboBoxIndex)
             {
                 case 0:
-                    
+
 
                     // Obtener la carpeta del directorio de la aplicación
                     string directorioAplicacion = AppDomain.CurrentDomain.BaseDirectory;
@@ -132,7 +143,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     DirectoryInfo directorioProyecto = Directory.GetParent(directorioAplicacion).Parent.Parent.Parent;
 
                     string filePath = System.IO.Path.Combine(directorioProyecto.FullName, Configuracion.Configuracion.RUTAFICHERO);
-                    STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + directorioProyecto.FullName+ "\\" + Configuracion.Configuracion.RUTAFICHERO;
+                    STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + directorioProyecto.FullName + "\\" + Configuracion.Configuracion.RUTAFICHERO;
 
                     if (directorioProyecto != null)
                     {
@@ -146,7 +157,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
                     if (File.Exists(filePath))
                     {
-                       // MessageBox.Show("Se ha cargado el fichero con éxito.");
+                        // MessageBox.Show("Se ha cargado el fichero con éxito.");
                     }
                     else
                     {
@@ -154,21 +165,21 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                         {
                             // Intenta crear el archivo
                             using (File.Create(filePath)) { }
-                           // MessageBox.Show($"Se ha creado el fichero en la ruta: {filePath}");
+                            // MessageBox.Show($"Se ha creado el fichero en la ruta: {filePath}");
                         }
                         catch (Exception ex)
                         {
-                           // MessageBox.Show($"Error al crear el fichero: {ex.Message}");
+                            // MessageBox.Show($"Error al crear el fichero: {ex.Message}");
                         }
                     }
                     break;
                 case 1:
                     STRINGCONEXION = Configuracion.Configuracion.BDMEMORIA;
-                   // MessageBox.Show("Se ha cargado la base de datos en memoria.");
+                    // MessageBox.Show("Se ha cargado la base de datos en memoria.");
                     break;
                 case 2:
                     STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
-                   // MessageBox.Show("Se ha cargado la base de datos desde servidor.");
+                    // MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }
             AppData.DataAccess = new DataAccess(STRINGCONEXION);

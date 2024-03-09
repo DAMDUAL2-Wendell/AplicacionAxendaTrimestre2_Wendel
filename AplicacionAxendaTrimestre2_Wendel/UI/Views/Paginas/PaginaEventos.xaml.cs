@@ -33,8 +33,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             Evento eventoPrueba = new Evento();
             eventoPrueba.Titulo = "Evento de prueba";
-            eventoPrueba.FechaCreacion = DateTime.Now;
-            eventoPrueba.FechaActivacion = DateTime.Now;
+            eventoPrueba.FechaInicio = DateTime.Now;
+            eventoPrueba.FechaFin = DateTime.Now;
             eventoPrueba.Descripcion = "Descripción de prueba";
 
             if (_dataAccess != null)

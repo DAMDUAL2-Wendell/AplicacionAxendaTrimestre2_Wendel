@@ -29,6 +29,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
             Navegacion.FrameNavegacion();
 
+            PagPrincipalRelojYEventos pag = new PagPrincipalRelojYEventos();
+            frameContenido.NavigationService.Navigate(pag);
+
         }
 
         private void MostrarPaginaPrincipal()

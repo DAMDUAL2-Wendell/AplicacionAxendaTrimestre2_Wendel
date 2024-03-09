@@ -18,17 +18,16 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
 
         public string Descripcion { get; set; }
 
-        public DateTime FechaCreacion { get; set; }
+        public DateTime FechaInicio { get; set; }
 
-        public DateTime FechaActivacion { get; set; }
+        public DateTime FechaFin { get; set; }
 
-        public Evento(int id, string titulo, string descripcion, DateTime fechaCreacion, DateTime fechaActivacion)
+        public Evento(string titulo, string descripcion, DateTime fechaCreacion, DateTime fechaActivacion)
         {
-            Id = id;
             Titulo = titulo;
             Descripcion = descripcion;
-            FechaCreacion = fechaCreacion;
-            FechaActivacion = fechaActivacion;
+            FechaInicio = fechaCreacion;
+            FechaFin = fechaActivacion;
         }
 
         public Evento()
