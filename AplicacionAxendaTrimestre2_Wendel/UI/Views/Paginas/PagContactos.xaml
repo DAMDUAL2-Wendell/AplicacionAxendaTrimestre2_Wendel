@@ -9,51 +9,84 @@
       Title="PagContactos">
 
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Resources/Styles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Noesis.GUI.Extensions;component/Theme/NoesisTheme.LightBlue.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Estilo para todos los botones -->
+            <Style TargetType="Button" BasedOn="{StaticResource GelButton}"/>
+
+            <!-- 
+            <Style TargetType="Label" BasedOn="{StaticResource estiloLabel}"></Style>
+            
+            -->
+
+        </ResourceDictionary>
+    </Page.Resources>
+
+
     <Grid>
 
 
         <Grid Margin="10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="293*"/>
+                <ColumnDefinition Width="97*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="18"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
 
 
-            <!-- Busqueda -->
-            <Grid Grid.Column="0" Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Column="0">
+            <!-- Panel Busqueda y botones de síntesis de voz -->
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Width="300">
+                        <StackPanel Orientation="Horizontal">
+                            <!-- Label -->
+                            <Label Content="Buscar: " Background="LightGray" Height="50" Width="70" VerticalAlignment="Center"></Label>
+                            <!-- Búsqueda -->
+                            <TextBox x:Name="tb_FindContact" Tag="Search" Width="250" Height="50" TextChanged="Tb_FindContact_TextChanged" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <UniformGrid Rows="1" Columns="3">
 
-                    <StackPanel Orientation="Vertical">
-                        <Label Content="Buscar: " Background="LightGray" Height="30"></Label>
-                    </StackPanel>
+                        <!-- Botones sintesis de voz -->
+                        <Button Name="btn_leer" Height="50" Width="120" Margin="10,0,10,0"  Background="Aquamarine" Click="LeerContacto">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Leer contacto" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
 
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="10 0 0 0">
-                        <TextBox x:Name="tb_FindContact" Tag="Search" Height="30" TextChanged="Tb_FindContact_TextChanged" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                        <Button Name="btn_pausaLeer" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="btn_pausaLeer_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Pausar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
 
-                </StackPanel>
-
-
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1">
-                    <Button Content="Cambiar vista" Height="30" Margin=" 0 0 10 0 "/>
+                        <Button Name="btn_continuaLeer" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="btn_continuaLeer_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Continuar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        <!-- /Botones sintesis voz -->
+                    </UniformGrid>
                 </StackPanel>
             </Grid>
 
-            <DataGrid Name="dataGrid" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" AutoGenerateColumns="False" ItemsSource="{Binding Contactos}" CanUserAddRows="False">
+            <!-- DATAGRID -->
+            <DataGrid Name="dataGrid" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top" AutoGenerateColumns="False" ItemsSource="{Binding Contactos}" CanUserAddRows="False" Height="26">
                 <DataGrid.Columns>
                     <!-- Botón para eliminar -->
                     <DataGridTemplateColumn Width="Auto">
@@ -89,17 +122,66 @@
             </DataGrid>
 
 
-            <!--Botones-->
-            <Grid Grid.Column="0" Grid.Row="3" >
-                <UniformGrid Rows="1" Columns="7">
-                    <Button Name="btn_AddContact" Content="Add" Margin="1" Click="Btn_AddContact_Click"/>
-                    <Button Name="btn_EditContact" Content="Edit" Margin="1" Click="Btn_EditContact_Click"/>
-                    <Button Name="btn_DeleteContact" Content="Delete" Margin="1" Click="Btn_DeleteContact_Click"/>
-                    <Button Name="btn_Atras" Content="Duplicar contacto" Margin="1" Click="ClickDuplicarContacto"/>
-                    <Button Name="btn_leer" Content="Leer contacto" Margin="1" Click="LeerContacto"/>
-                    <Button Name="btn_pausaLeer" Content="Pausar" Margin="1" Click="btn_pausaLeer_Click"/>
-                    <Button Name="btn_continuaLeer" Content="Continuar" Margin="1" Click="btn_continuaLeer_Click"/>
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2">
+
+                <UniformGrid Rows="4" Columns="1">
+                    <!-- Boton Agregar Contacto -->
+                    <Button Name="btn_AddContacht" Height="50" Width="120" Margin="0"  Background="Aquamarine" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                            <TextBlock Text="Add" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
                 </UniformGrid>
+
+            </StackPanel>
+            
+            
+            
+            <!-- PIE -->
+            <!-- Botones zona Bottom-->
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+
+                <StackPanel Orientation="Vertical">
+
+                    <UniformGrid Rows="1" Columns="4">
+                        <!-- Boton Agregar Contacto -->
+                        <Button Name="btn_AddContact" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="Btn_AddContact_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Add" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Boton Editar Contacto-->
+                        <Button Name="btn_EditContact" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="Btn_EditContact_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Edit" VerticalAlignment="Center" Margin="10,0,10,0"  TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Boton Eliminar Contacto-->
+                        <Button Name="btn_DeleteContact" Height="50" Width="120" Margin="0" Background="Aquamarine" Click="Btn_DeleteContact_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Delete" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Button>
+
+
+                        <!-- Boton Duplicar Contacto-->
+                        <Button Name="btn_DuplicarContacto" Height="50" Width="120" Margin="0"  Background="Aquamarine"  Click="ClickDuplicarContacto">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                                <TextBlock Text="Duplicar contacto" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+
+                </StackPanel>
+
             </Grid>
         </Grid>
 

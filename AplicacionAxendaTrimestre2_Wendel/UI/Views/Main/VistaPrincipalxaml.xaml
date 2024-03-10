@@ -9,6 +9,7 @@
 
 
 
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,7 +19,12 @@
             </ResourceDictionary.MergedDictionaries>
 
             <!-- Estilo para todos los botones -->
-            <Style TargetType="Button" BasedOn="{StaticResource Style.ToolBar.Button}" />
+            <Style TargetType="Button" BasedOn="{StaticResource GelButton}"/>
+
+            <Style TargetType="Label" BasedOn="{StaticResource estiloLabel}"></Style>
+
+            <!-- Estilo para todos los botones -->
+         
 
             <!-- Estilo para todos los textblocks -->
             <Style TargetType="TextBlock" BasedOn="{StaticResource Style.TextBox.Placeholder}" />
@@ -44,8 +50,7 @@
             <!-- Estilo para todos los DataGrid -->
             <Style TargetType="DataGrid" BasedOn="{StaticResource Style.Focus.Outer.Uniform}" />
 
-            <!-- Estilo para todos los Label -->
-            <Style TargetType="Label" BasedOn="{StaticResource Style.Focus.Outer.Padded}" />
+          
 
             <!-- Estilo para todos los Menu -->
             <Style TargetType="Menu" BasedOn="{StaticResource Style.ToolBar.Menu}" />
