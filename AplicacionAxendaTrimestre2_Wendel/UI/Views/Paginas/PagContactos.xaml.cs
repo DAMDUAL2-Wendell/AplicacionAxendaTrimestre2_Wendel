@@ -80,6 +80,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         {
             var contactos = await _dataAccess.DbContext.Contactos.Where(c => c != null).ToListAsync();
             dataGrid.ItemsSource = contactos;
+
+           // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
         }
 
 
@@ -397,6 +399,19 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
+        private void Click_Save_PDF(object sender, RoutedEventArgs e)
+        {
+            SaveFiles.SaveToPdfButton_Click(dataGrid,"Contactos");
+        }
 
+        private void Click_Save_EXCEL(object sender, RoutedEventArgs e)
+        {
+            SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(dataGrid), "Contactos");
+        }
+
+        private void Click_Save_HTML(object sender, RoutedEventArgs e)
+        {
+            SaveFiles.GuardarFicheroHTML(dataGrid, "Contactos");
+        }
     }
 }

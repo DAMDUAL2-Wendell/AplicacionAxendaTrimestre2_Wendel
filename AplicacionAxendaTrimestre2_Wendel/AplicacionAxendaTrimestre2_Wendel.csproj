@@ -16,10 +16,17 @@
 	  <None Remove="UI\Views\Main\event.png" />
 	  <None Remove="UI\Views\Main\note.png" />
 	  <None Remove="UI\Views\Main\user.png" />
+	  <None Remove="UI\Views\Paginas\borrar.png" />
+	  <None Remove="UI\Views\Paginas\excel.png" />
+	  <None Remove="UI\Views\Paginas\html.png" />
+	  <None Remove="UI\Views\Paginas\pdf.jpg" />
 	  <None Remove="UI\Views\Paginas\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="itext7" Version="8.0.3" />
+		<PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.3" />
+		<PackageReference Include="itext7.pdfhtml" Version="5.0.3" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2">
@@ -29,6 +36,7 @@
 		<PackageReference Include="MySql.Data" Version="8.3.0" />
 		<PackageReference Include="Noesis.GUI.Extensions" Version="3.0.26" />
 		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.1" />
+		<PackageReference Include="SpreadsheetLight" Version="3.5.0" />
 		<PackageReference Include="SQLite" Version="3.13.0" />
 		<PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.2.9" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
@@ -61,6 +69,10 @@
 	  <Resource Include="UI\Views\Main\event.png" />
 	  <Resource Include="UI\Views\Main\note.png" />
 	  <Resource Include="UI\Views\Main\user.png" />
+	  <Resource Include="UI\Views\Paginas\borrar.png" />
+	  <Resource Include="UI\Views\Paginas\excel.png" />
+	  <Resource Include="UI\Views\Paginas\html.png" />
+	  <Resource Include="UI\Views\Paginas\pdf.jpg" />
 	  <Resource Include="UI\Views\Paginas\user.png" />
 	</ItemGroup>
 
