@@ -4,13 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas"
-      xmlns:RelojWendel="clr-namespace:RelojWendel;assembly=RelojWendel"
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:util="clr-namespace:AplicacionAxendaTrimestre2_Wendel.Util"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PagPrincipalRelojYEventos">
 
     <Page.Resources>
+
+        <util:DateTimeToTimeStringConverter x:Key="DateTimeToTimeStringConverter" />
 
         <Style x:Key="styleCalendar" TargetType="{x:Type Calendar}">
             <Setter Property="Margin" Value="10"></Setter>
@@ -34,8 +37,28 @@
 
         <StackPanel Orientation="Horizontal" Height="300" VerticalAlignment="Top">
             <Calendar Style="{StaticResource styleCalendar}" Name="calendar" VerticalAlignment="Center" SelectionMode="MultipleRange"/>
+            <!--    
             <RelojWendel:UserControl1 Width="300" Height="100" Background="#FF64D7FD" Margin="50" BorderThickness="3" BorderBrush="#FF0B05D4" VerticalAlignment="Center" HorizontalAlignment="Center"></RelojWendel:UserControl1>
+            
+            -->
+            <syncfusion:SfDigitalGauge 
+                Margin="0"
+                Height="32"
+                Width="350"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontWeight="Bold"
+                FontSize="30"
+                Background="AntiqueWhite"
+                Value="{Binding Source={x:Static sys:DateTime.Now}, 
+                            Converter={StaticResource DateTimeToTimeStringConverter}}"/>
+
+
+
+
         </StackPanel>
+
 
         <DataGrid Name="dataGrid" Height="150" Width="800" VerticalAlignment="Bottom" Margin="10" CanUserAddRows="False"></DataGrid>
 
