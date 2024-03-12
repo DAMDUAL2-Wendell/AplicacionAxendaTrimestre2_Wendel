@@ -63,6 +63,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\RelojInterfaces\RelojInterfacesWendel\RelojWendel\RelojWendel.csproj" />
+	  <ProjectReference Include="..\RelojWendel\RelojWendel.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

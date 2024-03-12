@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AplicacionAxendaTrimestre2_Wendel", "AplicacionAxendaTrimestre2_Wendel\AplicacionAxendaTrimestre2_Wendel.csproj", "{B7B1CE51-F524-4783-91E0-82ABAE8FB404}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelojWendel", "..\RelojInterfaces\RelojInterfacesWendel\RelojWendel\RelojWendel.csproj", "{4832AFA5-721F-4C27-A777-D1574FF63E60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RelojWendel", "RelojWendel\RelojWendel.csproj", "{6CD99DD0-4AD8-47B4-858B-90EF3294DA37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B7B1CE51-F524-4783-91E0-82ABAE8FB404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7B1CE51-F524-4783-91E0-82ABAE8FB404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7B1CE51-F524-4783-91E0-82ABAE8FB404}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4832AFA5-721F-4C27-A777-D1574FF63E60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4832AFA5-721F-4C27-A777-D1574FF63E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4832AFA5-721F-4C27-A777-D1574FF63E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4832AFA5-721F-4C27-A777-D1574FF63E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD99DD0-4AD8-47B4-858B-90EF3294DA37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD99DD0-4AD8-47B4-858B-90EF3294DA37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD99DD0-4AD8-47B4-858B-90EF3294DA37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD99DD0-4AD8-47B4-858B-90EF3294DA37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
