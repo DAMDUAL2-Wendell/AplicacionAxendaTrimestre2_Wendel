@@ -8,15 +8,32 @@ namespace AplicacionAxendaTrimestre2_Wendel.Configuracion
 {
     public static class Configuracion
     {
-        // Configuracion de base de datos.
+        // Configuración de conexión a base de datos en memoria
         public static string BDMEMORIA = "DataSource=:memory:;Cache=shared";
-        public static string RUTAFICHERO = "Data\\LocalBD\\MiBaseDeDatosLocal.db";
-        //public static string RUTAFICHERO = "MiBaseDeDatosLocal.db";
-        //public static string RUTAFICHERO = $"{AppDomain.CurrentDomain.BaseDirectory}Data\\LocalBD\\MiBaseDeDatosLocal.db";
 
+        // Ruta del archivo de base de datos local
+        public static string RUTAFICHERO = "Data\\LocalBD\\MiBaseDeDatosLocal.db";
+
+        // Prefijo para la conexión a base de datos de archivo
         public static string BDFICHERO = "DataSource=";
-        //public static string BDMYSQL2 = "Server=localhost;Database=;Uid=root;Pwd=;abc123.";
+
+        // Configuración de conexión a base de datos MySQL
         public static string BDMYSQL = "Persist Security Info=False;User ID=root;Password=abc123.;Initial Catalog=prueba;Server=localhost";
+
+        // URL de conexión a la base de datos
+        public static string UrlConexion { get; set; } = "localhost";
+
+        // Usuario de la base de datos
+        public static string Usuario { get; set; } = "root";
+
+        // Contraseña de la base de datos
+        public static string Contraseña { get; set; } = "abc123.";
+
+        // Nombre de la base de datos
+        public static string NombreBD { get; set; } = "prueba";
+
+        // Indicador de cambios en la configuración
+        public static bool DatosConexionCambiados { get; set; } = false;
 
     }
 }

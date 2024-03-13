@@ -189,9 +189,26 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     // MessageBox.Show("Se ha cargado la base de datos en memoria.");
                     break;
                 case 2:
-                    STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
+                    // Utilizar la URL de conexión, usuario, contraseña y nombre de base de datos configurados, si están disponibles
+                    string urlConexion = Configuracion.Configuracion.UrlConexion ?? "default_url_connection";
+                    string usuario = Configuracion.Configuracion.Usuario ?? "default_user";
+                    string contraseña = Configuracion.Configuracion.Contraseña ?? "default_password";
+                    string nombreBD = Configuracion.Configuracion.NombreBD ?? "default_database_name";
+
+                    // Si los datos de conexión han sido cambiados y todos los datos necesarios están disponibles, se utiliza la nueva cadena de conexión
+                    if (Configuracion.Configuracion.DatosConexionCambiados && !string.IsNullOrEmpty(urlConexion) && !string.IsNullOrEmpty(usuario) && !string.IsNullOrEmpty(nombreBD))
+                    {
+                        STRINGCONEXION = $"Persist Security Info=False;User ID={usuario};Password={contraseña};Initial Catalog={nombreBD};Server={urlConexion}";
+                    }
+                    else
+                    {
+                        // Usar la cadena de conexión predeterminada si los datos de configuración están incompletos
+                        STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
+                    }
                     // MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
+
+
             }
             AppData.DataAccess = new DataAcceso(STRINGCONEXION);
         }
@@ -209,7 +226,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     }
                     else
                     {
-                        MessageBox.Show("Creando fichero de base de datos en la ruta: " );
+                        MessageBox.Show("Creando fichero de base de datos en la ruta: ");
                     }
                     break;
                 case 1:
@@ -221,7 +238,16 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }
-            AppData.DataAccess = new DataAcceso(STRINGCONEXION);
+            try
+            {
+                AppData.DataAccess = new DataAcceso(STRINGCONEXION);
+                MessageBox.Show("Conexión al servidor establecida correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al conectar con el servidor: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
         }
 
         private void ClickMostrarPaginaHome(object sender, RoutedEventArgs e)
@@ -231,7 +257,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
         private void ClickInsertarContactosAleatorios(object sender, RoutedEventArgs e)
         {
-            contactoManager.InsertarDatosAleatorios(sender,e);
+            contactoManager.InsertarDatosAleatorios(sender, e);
 
             // Actualizar página de contactos
             MostrarPaginaContactos(sender, e);
@@ -257,9 +283,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     await AppData.DataAccess.DbContext.SaveChangesAsync();
 
                     MessageBox.Show("Se han borrado todos los datos de la base de datos correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
-                    
+
                     // Actualizar página de contactos
-                    MostrarPaginaContactos(sender,e);
+                    MostrarPaginaContactos(sender, e);
                 }
                 catch (Exception ex)
                 {
@@ -267,6 +293,16 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                 }
             }
         }
+
+        private void ClickOpcionesConexionBBDD(object sender, RoutedEventArgs e)
+        {
+            // Crear una instancia de la ventana de configuración
+            VentanaConfiguracionBBDD ventanaConfiguracionBBDD = new VentanaConfiguracionBBDD();
+
+            // Mostrar la ventana de configuración
+            ventanaConfiguracionBBDD.ShowDialog();
+        }
+
 
 
     }

@@ -77,6 +77,15 @@
             </Button>
 
 
+            <!-- Boton Opciones Conexion BBDD -->
+            <Button Name="btn_OpcionesConexionBBDD" Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickOpcionesConexionBBDD" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Width="35" Height="35" Source="/UI/Views/Main/agregar_eventos.png"></Image>
+                    <TextBlock Text="Opciones Conexion" VerticalAlignment="Center" Margin="5,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </Button>
+
+
 
         </StackPanel>
 
@@ -119,6 +128,8 @@
                     <TextBlock Text="Notas" VerticalAlignment="Center" Margin="10,0,10,0"></TextBlock>
                 </StackPanel>
             </Button>
+            
+            
         </StackPanel>
     </StackPanel>
 

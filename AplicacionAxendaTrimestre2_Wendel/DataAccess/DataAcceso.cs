@@ -68,13 +68,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             {
                 // Nos aseguramos de crear las tablas de la base de datos
                 _dbContext.Database.EnsureCreatedAsync().Wait();
+
+                // Si se crean las tablas correctamente, mostramos un mensaje de éxito
+                MessageBox.Show("Conexión establecida correctamente y tablas creadas.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                // Si se produce un error, eliminar la base de datos y volver a intentar la creación
-                _dbContext.Database.EnsureDeletedAsync().Wait();
-                // Volver a intentar crear las tablas
-                _dbContext.Database.EnsureCreatedAsync().Wait();
+                try
+                {
+                    // Si se produce un error, eliminar la base de datos y volver a intentar la creación
+                    _dbContext.Database.EnsureDeletedAsync().Wait();
+                    // Volver a intentar crear las tablas
+                    _dbContext.Database.EnsureCreatedAsync().Wait();
+
+                    // Si se crean las tablas correctamente, mostramos un mensaje de éxito
+                    MessageBox.Show("Conexión establecida correctamente y tablas creadas.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch(Exception e)
+                {
+                    // Mostrar un mensaje indicando que no se pudo conectar
+                    MessageBox.Show("No se pudo conectar a la base de datos. Verifica la configuración de conexión y asegúrate de que el servidor esté en funcionamiento.", "Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 

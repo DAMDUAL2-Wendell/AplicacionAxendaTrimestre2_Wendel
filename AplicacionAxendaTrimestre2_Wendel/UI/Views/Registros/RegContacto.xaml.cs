@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -147,12 +148,77 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         }
         private void Tb_LastName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _ContactoActual.LastName = $"{tb_LastName.Text}";
+            if (_ContactoActual != null)
+            {
+                if (sender is TextBox textBox)
+                {
+                    string apellido = textBox.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+
+                    // Comprobar si el apellido contiene solo letras
+                    if (ContieneSoloLetras(apellido))
+                    {
+                        // Comprobar la longitud del apellido
+                        if (LongitudValida(apellido))
+                        {
+                            _ContactoActual.LastName = apellido;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El apellido excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            textBox.Text = _ContactoActual.LastName; // Restaurar el valor anterior
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El apellido solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        textBox.Text = _ContactoActual.LastName; // Restaurar el valor anterior
+                    }
+                }
+            }
         }
 
         private void Tb_FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            _ContactoActual.FirstName = $"{tb_FirstName.Text}";
+            if (_ContactoActual != null)
+            {
+                if (sender is TextBox textBox)
+                {
+                    string nombre = textBox.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+
+                    // Comprobar si el nombre contiene solo letras
+                    if (ContieneSoloLetras(nombre))
+                    {
+                        // Comprobar la longitud del nombre
+                        if (LongitudValida(nombre))
+                        {
+                            _ContactoActual.FirstName = nombre;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El nombre excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            textBox.Text = _ContactoActual.FirstName; // Restaurar el valor anterior
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El nombre solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        textBox.Text = _ContactoActual.FirstName; // Restaurar el valor anterior
+                    }
+                }
+            }
+        }
+
+        // Método para verificar si una cadena contiene solo letras
+        private bool ContieneSoloLetras(string str)
+        {
+            return str.All(char.IsLetter);
+        }
+
+        // Método para verificar la longitud de una cadena
+        private bool LongitudValida(string str)
+        {
+            const int longitudMaxima = 50; // Longitud máxima permitida para el nombre
+            return str.Length <= longitudMaxima;
         }
 
         private void cb_ContactType_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -178,21 +244,74 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         {
             if (!String.IsNullOrEmpty(tb_Email.Text))
             {
-                if (!EmailExistsInDatabase(tb_Email.Text))
+                string nuevoCorreoElectronico = tb_Email.Text.Trim();
+
+                // Verificar si el correo electrónico es válido
+                if (IsValidEmail(nuevoCorreoElectronico))
                 {
-                    if (!lb_Emails.Items.Contains(tb_Email.Text))
+                    if (!EmailExistsInDatabase(nuevoCorreoElectronico))
                     {
-                        lb_Emails.Items.Add(tb_Email.Text);
-                        _ContactoActual.Emails.Add(new Email { Address = tb_Email.Text });
-                        tb_Email.Text = "";
+                        if (!lb_Emails.Items.Contains(nuevoCorreoElectronico))
+                        {
+                            lb_Emails.Items.Add(nuevoCorreoElectronico);
+                            _ContactoActual.Emails.Add(new Email { Address = nuevoCorreoElectronico });
+                            tb_Email.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El correo electrónico ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El correo electrónico ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Por favor, introduzca un correo electrónico válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+
+
+        // Método para verificar si una cadena es un correo electrónico válido
+        private bool EsCorreoElectronicoValido(string correoElectronico)
+        {
+            try
+            {
+                // Expresión regular para validar correos electrónicos
+                string patronCorreoElectronico = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                                                 + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(@"
+                                                 + @"((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}"
+                                                 + @"\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+"
+                                                 + @"[a-zA-Z]{2,}))$";
+
+                // Crear un objeto Regex con el patrón de correo electrónico
+                Regex regex = new Regex(patronCorreoElectronico);
+
+                // Comprobar si la cadena coincide con el patrón de correo electrónico
+                return regex.IsMatch(correoElectronico);
+            }
+            catch (ArgumentException ex)
+            {
+                // Si se produce una excepción al crear la expresión regular, mostrar un mensaje de error
+                MessageBox.Show($"Error al validar el correo electrónico: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch(Exception ex)
+            {
+                // Si se produce una excepción al crear la expresión regular, mostrar un mensaje de error
+                MessageBox.Show($"Error al validar el correo electrónico: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+        }
+
 
         private void lb_Emails_KeyDown(object sender, KeyEventArgs e)
         {
@@ -222,21 +341,45 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         {
             if (!String.IsNullOrEmpty(tb_Number.Text))
             {
-                if (!PhoneNumberExistsInDatabase(tb_Number.Text))
+                string numeroTelefono = tb_Number.Text.Trim();
+
+                // Verificar si contiene solo dígitos
+                if (ContieneSoloDigitos(numeroTelefono))
                 {
-                    if (!lb_Numbers.Items.Contains(tb_Number.Text))
+                    if (!PhoneNumberExistsInDatabase(numeroTelefono))
                     {
-                        lb_Numbers.Items.Add(tb_Number.Text);
-                        _ContactoActual.Numbers.Add(new PhoneNumber { Number = tb_Number.Text });
-                        tb_Number.Text = "";
+                        if (!lb_Numbers.Items.Contains(numeroTelefono))
+                        {
+                            lb_Numbers.Items.Add(numeroTelefono);
+                            _ContactoActual.Numbers.Add(new PhoneNumber { Number = numeroTelefono });
+                            tb_Number.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El número ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("El número ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("El número de teléfono no puede contener letras u otros caracteres.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+
+
+        private bool ContieneSoloDigitos(string texto)
+        {
+            foreach (char caracter in texto)
+            {
+                if (!Char.IsDigit(caracter))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
 
         // Método para verificar si el número de teléfono ya existe en la base de datos
@@ -299,73 +442,91 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void RegistrarContacto_Click(object sender, RoutedEventArgs e)
         {
-            // Verifica si se está editando un contacto existente
-            if (_ContactoActual.Id != 0)
+            // Verifica si se han ingresado todos los campos obligatorios
+            if (CamposObligatoriosCompletos())
             {
-                // Actualiza las propiedades del contacto
-                _ContactoActual.FirstName = tb_FirstName.Text;
-                _ContactoActual.LastName = tb_LastName.Text;
-                _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
-                _ContactoActual.Nickname = tb_Nickname.Text;
-                _ContactoActual.Address = tb_Address.Text;
-                _ContactoActual.Note = tb_Note.Text;
-                _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
-                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
-
-                try
+                // Verifica si se está editando un contacto existente
+                if (_ContactoActual.Id != 0)
                 {
-                    // Actualiza la lista de números de teléfono del contacto
-                    _ContactoActual.Numbers = GetNumbersFromListBox(lb_Numbers);
+                    // Actualiza las propiedades del contacto
+                    _ContactoActual.FirstName = tb_FirstName.Text;
+                    _ContactoActual.LastName = tb_LastName.Text;
+                    _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
+                    _ContactoActual.Nickname = tb_Nickname.Text;
+                    _ContactoActual.Address = tb_Address.Text;
+                    _ContactoActual.Note = tb_Note.Text;
+                    _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
+                    _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
-                    // Actualiza la lista de correos electrónicos del contacto
-                    _ContactoActual.Emails = GetEmailsFromListBox(lb_Emails);
+                    try
+                    {
+                        // Actualiza la lista de números de teléfono del contacto
+                        _ContactoActual.Numbers = GetNumbersFromListBox(lb_Numbers);
 
-                    // Guarda los cambios en la base de datos
-                    _dataAccess.DbContext.SaveChanges();
+                        // Actualiza la lista de correos electrónicos del contacto
+                        _ContactoActual.Emails = GetEmailsFromListBox(lb_Emails);
 
-                    MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Navegacion.NavegarAtras(NavigationService);
+                        // Guarda los cambios en la base de datos
+                        _dataAccess.DbContext.SaveChanges();
+
+                        MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Navegacion.NavegarAtras(NavigationService);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al actualizar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show($"Error al actualizar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    // Crea un nuevo objeto de Contacto
+                    Contacto nuevoContacto = new Contacto()
+                    {
+                        FirstName = tb_FirstName.Text,
+                        LastName = tb_LastName.Text,
+                        Age = CalcularEdad(dp_Birthday.SelectedDate),
+                        Nickname = tb_Nickname.Text,
+                        Address = tb_Address.Text,
+                        Note = tb_Note.Text,
+                        BirthDate = dp_Birthday.SelectedDate,
+                        ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo",
+                        // Lista de números de teléfono
+                        Numbers = GetNumbersFromListBox(lb_Numbers),
+                        // Lista de correos electrónicos
+                        Emails = GetEmailsFromListBox(lb_Emails)
+                    };
+
+                    try
+                    {
+                        // Agrega el nuevo contacto a tu contexto de base de datos
+                        _dataAccess.DbContext.Contactos.Add(nuevoContacto);
+
+                        // Guarda los cambios en la base de datos
+                        _dataAccess.DbContext.SaveChanges();
+
+                        MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Navegacion.NavegarAtras(NavigationService);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error al registrar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
             else
             {
-                // Crea un nuevo objeto de Contacto
-                Contacto nuevoContacto = new Contacto()
-                {
-                    FirstName = tb_FirstName.Text,
-                    LastName = tb_LastName.Text,
-                    Age = CalcularEdad(dp_Birthday.SelectedDate),
-                    Nickname = tb_Nickname.Text,
-                    Address = tb_Address.Text,
-                    Note = tb_Note.Text,
-                    BirthDate = dp_Birthday.SelectedDate,
-                    ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo",
-                    // Lista de números de teléfono
-                    Numbers = GetNumbersFromListBox(lb_Numbers),
-                    // Lista de correos electrónicos
-                    Emails = GetEmailsFromListBox(lb_Emails)
-                };
-
-                try
-                {
-                    // Agrega el nuevo contacto a tu contexto de base de datos
-                    _dataAccess.DbContext.Contactos.Add(nuevoContacto);
-
-                    // Guarda los cambios en la base de datos
-                    _dataAccess.DbContext.SaveChanges();
-
-                    MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Navegacion.NavegarAtras(NavigationService);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al registrar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                MessageBox.Show("Por favor, complete todos los campos obligatorios (nombre, apellidos, dirección y cumpleaños) antes de registrar el contacto.", "Campos incompletos", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+
+        private bool CamposObligatoriosCompletos()
+        {
+            // Verifica si se han ingresado los datos obligatorios
+            return !string.IsNullOrWhiteSpace(tb_FirstName.Text) &&
+                   !string.IsNullOrWhiteSpace(tb_LastName.Text) &&
+                   !string.IsNullOrWhiteSpace(tb_Address.Text) &&
+                   dp_Birthday.SelectedDate.HasValue;
         }
 
 
