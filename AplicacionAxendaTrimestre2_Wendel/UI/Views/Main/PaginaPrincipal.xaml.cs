@@ -1,8 +1,12 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.DataAccess;
+using AplicacionAxendaTrimestre2_Wendel.Models;
+using AplicacionAxendaTrimestre2_Wendel.POJO;
 using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
+using AplicacionAxendaTrimestre2_Wendel.Util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +30,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
     /// </summary>
     public partial class PaginaPrincipal : Page
     {
+
+        ContactoManager contactoManager = null;
         public PaginaPrincipal()
         {
             InitializeComponent();
@@ -35,6 +41,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
             // Seleccionar comboBox 1 (Base de datos en memoria)
             comboBox.SelectedIndex = 1;
+
+            contactoManager = new ContactoManager();
+
         }
 
         //public DataAccess _dataAccess = AppData.dataAccess;
@@ -217,6 +226,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         private void ClickMostrarPaginaHome(object sender, RoutedEventArgs e)
         {
             Navegacion.NavegarPaginaHome(NavigationService);
+        }
+
+        private void ClickInsertarContactosAleatorios(object sender, RoutedEventArgs e)
+        {
+
+ 
+            contactoManager.InsertarDatosAleatorios(sender,e);
+        }
+
+        private async void ClickInsertarEventosAleatorios(object sender, RoutedEventArgs e)
+        {
+            await contactoManager.AgregarEventosAContactosAsync();
         }
     }
 }

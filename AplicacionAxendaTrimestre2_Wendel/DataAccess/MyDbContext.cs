@@ -20,6 +20,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         // Set de Contactos, crea la tabla contactos en la BBDD
         public DbSet<Contacto> Contactos { get; set; }
 
+        // Lista para almacenar todos los eventos
+        public List<Evento> ListaEventos { get; } = new List<Evento>();
+
+        public List<Nota> listaNotas { get; } = new List<Nota>();
+
 
         // Este constructor hereda de la clase base DbContext, y la llamada base(options) se encarga de pasar las opciones de configuración al constructor de la clase base.
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
@@ -74,6 +79,31 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             }
 
             return todosLosEventos;
+        }
+
+        public void AgregarEvento(Evento evento)
+        {
+            ListaEventos.Add(evento);
+        }
+
+
+        public async Task<List<Evento>> ObtenerTodosLosEventosAsync()
+        {
+            // Obtener la lista de contactos con sus eventos relacionados
+            var contactosConEventos = await Contactos
+                .Include(c => c.Eventos)
+                .ToListAsync();
+
+            // Limpiar la lista de eventos antes de agregar nuevos eventos
+            ListaEventos.Clear();
+
+            // Recorrer cada contacto y agregar sus eventos a la lista
+            foreach (var contacto in contactosConEventos)
+            {
+                ListaEventos.AddRange(contacto.Eventos);
+            }
+
+            return ListaEventos;
         }
 
         public List<Evento> ObtenerListaEventos()

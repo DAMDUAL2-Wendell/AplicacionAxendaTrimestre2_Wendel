@@ -79,8 +79,7 @@
             </MenuItem>
             <MenuItem Header="Boton2"></MenuItem>
         </Menu>
-        
-        
+
 
         <StackPanel Orientation="Vertical" Margin="5">
             <StackPanel.Background>
@@ -94,7 +93,7 @@
                 <Frame Name="frameNavegacion" NavigationUIVisibility="Hidden"></Frame>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" MinHeight="600" MaxHeight="1000" Height="Auto">
+            <StackPanel Orientation="Horizontal" MinHeight="600" MaxHeight="1000" Height="Auto" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0" MinWidth="800" Width="Auto" MaxWidth="1000">
                 <Frame Name="frameContenido" NavigationUIVisibility="Hidden"></Frame>
             </StackPanel>
 

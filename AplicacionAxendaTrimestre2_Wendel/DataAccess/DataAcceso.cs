@@ -64,15 +64,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             // Instanciar y asignar la clase MyDbContext con las opciones creadas anteriormente
             _dbContext = new MyDbContext(optionsBuilder.Options);
 
-            // Si es base de datos en memoria borramos los datos
-            if (esBaseDeDatosEnMemoria)
+            try
             {
-                // Borrar la base de datos
-                _dbContext.Database.EnsureDeleted();
+                // Nos aseguramos de crear las tablas de la base de datos
+                _dbContext.Database.EnsureCreatedAsync().Wait();
             }
-            _dbContext.Database.EnsureDeleted();
-            // Nos aseguramos de crear las tablas de la base de datos
-            _dbContext.Database.EnsureCreatedAsync().Wait();
+            catch (Exception ex)
+            {
+                // Si se produce un error, eliminar la base de datos y volver a intentar la creación
+                _dbContext.Database.EnsureDeletedAsync().Wait();
+                // Volver a intentar crear las tablas
+                _dbContext.Database.EnsureCreatedAsync().Wait();
+            }
         }
 
         public void Dispose()

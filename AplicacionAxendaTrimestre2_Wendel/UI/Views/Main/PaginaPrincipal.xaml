@@ -51,6 +51,24 @@
                     <TextBlock Text="Cambiar base de datos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                 </StackPanel>
             </Button>
+
+            <!-- Boton Insertar Contactos de Prueba -->
+            <Button Name="btn_InsertarContactosPrueba" Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickInsertarContactosAleatorios" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
+                    <TextBlock Text="Insertar Contactos Prueba" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </Button>
+
+            <!-- Boton Insertar Eventos de Prueba -->
+            <Button Name="btn_InsertarEventosPrueba" Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickInsertarEventosAleatorios" >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
+                    <TextBlock Text="Insertar Eventos Prueba" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </Button>
+
+
         </StackPanel>
 
 

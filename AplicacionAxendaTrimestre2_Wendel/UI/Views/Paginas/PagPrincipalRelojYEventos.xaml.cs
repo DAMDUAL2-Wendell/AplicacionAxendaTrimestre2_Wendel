@@ -4,6 +4,7 @@ using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
 using AplicacionAxendaTrimestre2_Wendel.Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -28,19 +29,57 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     {
         private DataAcceso _dataAccess = AppData.DataAccess;
         public List<Evento> eventos = new List<Evento>();
+
+        private string _eventosInfo;
+        public string EventosInfo
+        {
+            get { return _eventosInfo; }
+            set
+            {
+                _eventosInfo = value;
+                OnPropertyChanged("EventosInfo");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public PagPrincipalRelojYEventos()
         {
             InitializeComponent();
 
-            AgregarEventosAContactosAsync();
+            // Establecer el DataContext de la página
+            DataContext = this;
 
 
             _dataAccess.DbContext.SaveChanges();
             // _dataAccess.DbContext.SaveChangesAsync();
 
-            eventos = _dataAccess.DbContext.ObtenerListaEventos();
+            //eventos = _dataAccess.DbContext.ObtenerListaEventos();
+
+            // Obtener los eventos para la fecha actual
+            eventos = _dataAccess.DbContext.ObtenerListaEventos().Where(ev => ev.FechaInicio.Date == DateTime.Now.Date || ev.FechaFin.Date == DateTime.Now.Date.Date).ToList();
+
 
             dataGrid.ItemsSource = eventos;
+
+
+            // Comprobar si hay eventos al cargar la página
+            if (eventos.Any())
+            {
+                // Si hay eventos, mostrar el DataGrid
+                dataGrid.ItemsSource = eventos;
+                dataGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                // Si no hay eventos ocultar el DataGrid
+                dataGrid.Visibility = Visibility.Collapsed;
+            }
+
 
             // Suscribirse al evento de selección de fecha del calendario
             calendar.SelectedDatesChanged += Calendar_SelectedDatesChanged;
@@ -49,41 +88,33 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             // Suscribirse al evento Loaded de los botones de día del calendario
             calendar.Loaded += Calendar_Loaded;
+
+            // Actualizar la información de eventos al cargar la página
+            ActualizarInfoEventos();
+
         }
 
-
-        private async Task AgregarEventosAContactosAsync()
+        private void ActualizarInfoEventos()
         {
-            // Obtener un número aleatorio entre 1 y 5 para seleccionar el contacto
-            Random rnd = new Random();
-            int contactoId = rnd.Next(1, 6); // Selecciona un número aleatorio entre 1 y 5 inclusive
+            // Obtener la fecha actual
+            DateTime fechaActual = DateTime.Today;
 
-            // Crear los eventos
-            Evento evento1 = new Evento("peluqueria", "ir al peluquero", DateTime.Now, DateTime.Now.AddDays(1));
-            Evento evento2 = new Evento("compras", "ir a comprar", DateTime.Now.AddDays(5), DateTime.Now.AddDays(6));
+            // Filtrar los eventos para la fecha actual
+            int cantidadEventos = eventos.Count(ev => ev.FechaInicio.Date == fechaActual.Date);
 
-            // Buscar el contacto por su Id
-            var contacto = await _dataAccess.DbContext.Contactos.FindAsync(contactoId);
-
-            // Verificar si se encontró el contacto
-            if (contacto != null)
+            // Actualizar la información de eventos
+            if (cantidadEventos > 0)
             {
-                // Agregar los eventos al contacto
-                contacto.Eventos.Add(evento1);
-                contacto.Eventos.Add(evento2);
-
-                // Guardar los cambios en la base de datos
-                await _dataAccess.DbContext.SaveChangesAsync();
-
-                MessageBox.Show("Eventos guardados correctamente en el contacto con id: " + contactoId);
+                EventosInfo = $"Hay {cantidadEventos} evento(s) programado(s) para hoy ({fechaActual.ToShortDateString()}).";
             }
             else
             {
-                // Manejar el caso donde no se encuentra el contacto
-                Console.WriteLine("No se encontró el contacto con el Id especificado.");
+                EventosInfo = $"No hay eventos programados para hoy ({fechaActual.ToShortDateString()}).";
             }
-
         }
+
+
+
 
         private void Calendar_Loaded(object sender, RoutedEventArgs e)
         {

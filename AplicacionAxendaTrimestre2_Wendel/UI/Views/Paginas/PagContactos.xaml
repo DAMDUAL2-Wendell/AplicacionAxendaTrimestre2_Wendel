@@ -248,13 +248,7 @@
                             </StackPanel>
                         </Button>
 
-                        <!-- Boton Duplicar Contacto-->
-                        <Button Name="btn_InsertarContactosPrueba" Height="50" Width="120" Margin="0"  Background="Aquamarine"  Click="InsertarDatosAleatorios">
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
-                                <TextBlock Text="Insertar Contactos Prueba" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                            </StackPanel>
-                        </Button>
+                        
                     </UniformGrid>
 
                 </StackPanel>
