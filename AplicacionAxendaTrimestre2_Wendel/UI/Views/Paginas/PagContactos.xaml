@@ -7,12 +7,13 @@
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="1500"
       Title="PagContactos">
 
 
     <Page.Resources>
         <ResourceDictionary>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="../../../Resources/Styles.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Noesis.GUI.Extensions;component/Theme/NoesisTheme.LightBlue.xaml" />
@@ -26,6 +27,7 @@
             <Style TargetType="Label" BasedOn="{StaticResource estiloLabel}"></Style>
             
             -->
+
 
         </ResourceDictionary>
     </Page.Resources>
@@ -43,7 +45,7 @@
                 <RowDefinition Height="18"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
 
 
@@ -166,7 +168,9 @@
   
 
             <!-- Botones laterales -->
-            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" MinHeight="250" MaxWidth="200" MinWidth="150">
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                        Height="300"
+                        MaxWidth="200" MinWidth="150">
                 <StackPanel.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="#EFEFEF" Offset="0"/>
@@ -210,13 +214,13 @@
 
             <!-- PIE -->
             <!-- Botones zona Bottom-->
-            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Width="650" HorizontalAlignment="Left">
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center">
 
                 <StackPanel Orientation="Vertical">
 
                     <UniformGrid Rows="1" Columns="5">
                         <!-- Boton Agregar Contacto -->
-                        <Button Name="btn_AddContact" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="Btn_AddContact_Click">
+                        <Button Name="btn_AddContact" Height="50" Width="120" Margin="10,0,10,0"  Background="Aquamarine" Click="Btn_AddContact_Click">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Width="35" Height="35" Source="/UI/Views/Paginas/agregar-usuario.png"></Image>
                                 <TextBlock Text="Add" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
@@ -224,7 +228,7 @@
                         </Button>
 
                         <!-- Boton Editar Contacto-->
-                        <Button Name="btn_EditContact" Height="50" Width="120" Margin="0"  Background="Aquamarine" Click="Btn_EditContact_Click">
+                        <Button Name="btn_EditContact" Height="50" Width="120" Margin="10,0,10,0"   Background="Aquamarine" Click="Btn_EditContact_Click">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Width="35" Height="35" Source="/UI/Views/Paginas/editar_usuario.png"></Image>
                                 <TextBlock Text="Edit" VerticalAlignment="Center" Margin="10,0,10,0"  TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
@@ -232,7 +236,7 @@
                         </Button>
 
                         <!-- Boton Eliminar Contacto-->
-                        <Button Name="btn_DeleteContact" Height="50" Width="120" Margin="0" Background="Aquamarine" Click="Btn_DeleteContact_Click">
+                        <Button Name="btn_DeleteContact" Height="50" Width="120" Margin="10,0,10,0"  Background="Aquamarine" Click="Btn_DeleteContact_Click">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Width="35" Height="35" Source="/UI/Views/Paginas/eliminar_usuario.png"></Image>
                                 <TextBlock Text="Delete" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
@@ -241,7 +245,7 @@
 
 
                         <!-- Boton Duplicar Contacto-->
-                        <Button Name="btn_DuplicarContacto" Height="50" Width="120" Margin="0"  Background="Aquamarine"  Click="ClickDuplicarContacto">
+                        <Button Name="btn_DuplicarContacto" Height="50" Width="120" Margin="10,0,10,0"   Background="Aquamarine"  Click="ClickDuplicarContacto">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
                                 <TextBlock Text="Duplicar contacto" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
