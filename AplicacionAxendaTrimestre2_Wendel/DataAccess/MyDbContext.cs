@@ -42,6 +42,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 .HasMany(c => c.Numbers)
                 .WithOne(p => p.Contacto)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Habilita la eliminación en cascada de los correos electrónicos al eliminar un contacto.
+            modelBuilder.Entity<Contacto>()
+                .HasMany(c => c.Emails)
+                .WithOne(e => e.Contacto)
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
         // Sobreescritura del método de clase de configuración de la base de datos.
@@ -63,7 +69,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             }
         }
 
-        public async Task<List<Evento>> ObtenerListaEventosAsync()
+        public async Task<List<Evento>> ObtenerListaEventosAsync2()
         {
             var contactosConEventos = await Contactos
                 .Include(c => c.Eventos) // Incluimos los eventos relacionados con cada contacto
@@ -79,6 +85,26 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             }
 
             return todosLosEventos;
+        }
+
+        public async Task<List<Evento>> ObtenerListaEventosAsync()
+        {
+            var contactosConEventos = await Contactos
+                .Include(c => c.Eventos)
+                .SelectMany(c => c.Eventos)
+                .ToListAsync();
+
+            return contactosConEventos;
+        }
+
+        public async Task<List<Nota>> ObtenerListaNotasAsync()
+        {
+            var contactosConNotas = await Contactos
+                .Include(c => c.Notas)
+                .SelectMany(c => c.Notas)
+                .ToListAsync();
+
+            return contactosConNotas;
         }
 
         public void AgregarEvento(Evento evento)
@@ -127,7 +153,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 
 
 
-        public async Task<List<Nota>> ObtenerListaNotasAsync()
+        public async Task<List<Nota>> ObtenerListaNotasAsync2()
         {
             var contactosConNotas = await Contactos
                 .Include(c => c.Notas) // Incluimos las notas relacionadas con cada contacto

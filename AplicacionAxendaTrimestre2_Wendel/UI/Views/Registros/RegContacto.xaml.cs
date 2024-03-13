@@ -61,6 +61,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 // Llena los números de telefonos en la lista
                 FillNumbersInLb_Numbers(contacto.Numbers);
 
+                // Llena los correos electrónicos en la lista
+                FillEmailsInLb_Emails(contacto.Emails);
+
+
                 // Llama al método para establecer el Binding del ContactType
                 SetContactTypeBinding(contacto);
 
@@ -117,6 +121,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 lb_Numbers.Items.Add(numbers[i].Number);
             }
         }
+
+        private void FillEmailsInLb_Emails(List<Email> emails)
+        {
+            foreach (var email in emails)
+            {
+                lb_Emails.Items.Add(email.Address);
+            }
+        }
+
         public void Fill(Contacto contact, List<PhoneNumber> contactTypes)
         {
             _ContactoActual = contact;
@@ -161,31 +174,70 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             }
         }
 
+        private void Btn_AddEmail_Click(object sender, RoutedEventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tb_Email.Text))
+            {
+                if (!EmailExistsInDatabase(tb_Email.Text))
+                {
+                    if (!lb_Emails.Items.Contains(tb_Email.Text))
+                    {
+                        lb_Emails.Items.Add(tb_Email.Text);
+                        _ContactoActual.Emails.Add(new Email { Address = tb_Email.Text });
+                        tb_Email.Text = "";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El correo electrónico ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+            }
+        }
+
+        private void lb_Emails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (lb_Emails.SelectedItems.Count != 0)
+                {
+                    // Crear una lista de índices de elementos seleccionados
+                    List<int> selectedIndexes = new List<int>();
+                    foreach (var item in lb_Emails.SelectedItems)
+                    {
+                        selectedIndexes.Add(lb_Emails.Items.IndexOf(item));
+                    }
+
+                    // Eliminar elementos seleccionados de la ListBox
+                    foreach (int index in selectedIndexes.OrderByDescending(i => i))
+                    {
+                        lb_Emails.Items.RemoveAt(index);
+                    }
+                }
+            }
+        }
+
+
+
         private void Btn_AddNumber_Click(object sender, RoutedEventArgs e)
         {
-            // Comprobar cadena no vacía
             if (!String.IsNullOrEmpty(tb_Number.Text))
             {
-                // Comprobar que no exista ese teléfono en la base de datos
                 if (!PhoneNumberExistsInDatabase(tb_Number.Text))
                 {
-                    // Si no está repetido en la base de datos, comprobamos si ya está en la lista
                     if (!lb_Numbers.Items.Contains(tb_Number.Text))
                     {
-                        // Agregar el número a la lista
                         lb_Numbers.Items.Add(tb_Number.Text);
-
-                        // Limpiar el cuadro de texto después de agregar el número
+                        _ContactoActual.Numbers.Add(new PhoneNumber { Number = tb_Number.Text });
                         tb_Number.Text = "";
                     }
                 }
                 else
                 {
-                    // Mostrar mensaje de que ese teléfono ya existe en la base de datos
                     MessageBox.Show("El número ya existe en la base de datos.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
         }
+
 
         // Método para verificar si el número de teléfono ya existe en la base de datos
         private bool PhoneNumberExistsInDatabase(string phoneNumber)
@@ -204,6 +256,19 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 lb_Numbers.Items.RemoveAt(selectedIndex);
             }
         }
+
+        private void Btn_DeleteEmail_Click(object sender, RoutedEventArgs e)
+        {
+            if (lb_Emails.SelectedItems.Count != 0)
+            {
+                int selectedIndex = lb_Emails.SelectedIndex;
+                // Remove
+                lb_Emails.Items.RemoveAt(selectedIndex);
+            }
+        }
+
+
+
 
         public static int CalcularEdad(DateTime? fechaNacimiento)
         {
@@ -237,34 +302,32 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             // Verifica si se está editando un contacto existente
             if (_ContactoActual.Id != 0)
             {
-                // Si se está editando un contacto existente, actualiza sus propiedades
+                // Actualiza las propiedades del contacto
                 _ContactoActual.FirstName = tb_FirstName.Text;
                 _ContactoActual.LastName = tb_LastName.Text;
                 _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
                 _ContactoActual.Nickname = tb_Nickname.Text;
-                _ContactoActual.Email = tb_Email.Text;
                 _ContactoActual.Address = tb_Address.Text;
                 _ContactoActual.Note = tb_Note.Text;
                 _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
                 _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
-                // Actualiza los números de teléfono del contacto
-                _ContactoActual.Numbers = GetNumbersFromLB_Numbers();
-
                 try
                 {
+                    // Actualiza la lista de números de teléfono del contacto
+                    _ContactoActual.Numbers = GetNumbersFromListBox(lb_Numbers);
+
+                    // Actualiza la lista de correos electrónicos del contacto
+                    _ContactoActual.Emails = GetEmailsFromListBox(lb_Emails);
+
                     // Guarda los cambios en la base de datos
                     _dataAccess.DbContext.SaveChanges();
 
-                    // Muestra un mensaje de éxito al usuario
                     MessageBox.Show("Contacto actualizado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    // Navegar atrás luego de actualizar un contacto con éxito
                     Navegacion.NavegarAtras(NavigationService);
                 }
                 catch (Exception ex)
                 {
-                    // Muestra un mensaje de error si ocurre algún problema al actualizar el contacto
                     MessageBox.Show($"Error al actualizar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -277,12 +340,14 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     LastName = tb_LastName.Text,
                     Age = CalcularEdad(dp_Birthday.SelectedDate),
                     Nickname = tb_Nickname.Text,
-                    Email = tb_Email.Text,
                     Address = tb_Address.Text,
                     Note = tb_Note.Text,
                     BirthDate = dp_Birthday.SelectedDate,
                     ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo",
-                    Numbers = GetNumbersFromLB_Numbers() // Agrega los números de teléfono al nuevo contacto
+                    // Lista de números de teléfono
+                    Numbers = GetNumbersFromListBox(lb_Numbers),
+                    // Lista de correos electrónicos
+                    Emails = GetEmailsFromListBox(lb_Emails)
                 };
 
                 try
@@ -293,18 +358,35 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     // Guarda los cambios en la base de datos
                     _dataAccess.DbContext.SaveChanges();
 
-                    // Muestra un mensaje de éxito al usuario
                     MessageBox.Show("Contacto registrado correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    // Navegar atrás luego de un registro con éxito
                     Navegacion.NavegarAtras(NavigationService);
                 }
                 catch (Exception ex)
                 {
-                    // Muestra un mensaje de error si ocurre algún problema al guardar el contacto
                     MessageBox.Show($"Error al registrar el contacto: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+
+        private List<PhoneNumber> GetNumbersFromListBox(ListBox listBox)
+        {
+            var numbers = new List<PhoneNumber>();
+            foreach (var item in listBox.Items)
+            {
+                numbers.Add(new PhoneNumber { Number = item.ToString() });
+            }
+            return numbers;
+        }
+
+        private List<Email> GetEmailsFromListBox(ListBox listBox)
+        {
+            var emails = new List<Email>();
+            foreach (var item in listBox.Items)
+            {
+                emails.Add(new Email { Address = item.ToString() });
+            }
+            return emails;
         }
 
 
@@ -318,7 +400,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 _ContactoActual.LastName = tb_LastName.Text;
                 _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
                 _ContactoActual.Nickname = tb_Nickname.Text;
-                _ContactoActual.Email = tb_Email.Text;
                 _ContactoActual.Address = tb_Address.Text;
                 _ContactoActual.Note = tb_Note.Text;
                 _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
@@ -350,7 +431,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     LastName = tb_LastName.Text,
                     Age = CalcularEdad(dp_Birthday.SelectedDate),
                     Nickname = tb_Nickname.Text,
-                    Email = tb_Email.Text,
                     Address = tb_Address.Text,
                     Note = tb_Note.Text,
                     BirthDate = dp_Birthday.SelectedDate,
@@ -378,6 +458,16 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 }
             }
         }
+
+
+        private bool EmailExistsInDatabase(string email)
+        {
+            // Realiza una consulta para verificar si el correo electrónico ya existe en la base de datos
+            bool exists = _dataAccess.DbContext.Contactos.Any(c => c.Emails.Any(e => e.Address == email));
+            return exists;
+        }
+
+
 
         /* ------------       NAVEGACION     ------------------*/
         private void NavegarAtras(object sender, RoutedEventArgs e)

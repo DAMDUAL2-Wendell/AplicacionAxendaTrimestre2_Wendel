@@ -21,7 +21,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
 
         [NotMapped] // No mapear esta propiedad a la base de datos
         public string Nickname { get; set; } = "";
-        public string Email { get; set; } = "";
         public string Address { get; set; } = "";
         public string Note { get; set; } = "";
         public int Age { get; set; }
@@ -30,6 +29,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
 
         // Lista de números de teléfono
         public List<PhoneNumber> Numbers { get; set; } = new List<PhoneNumber>();
+
+        // Lista de direcciones de correo electrónico
+        public List<Email> Emails { get; set; } = new List<Email>();
 
         // Lista de notas
         public List<Nota> Notas { get; set; } = new List<Nota>();

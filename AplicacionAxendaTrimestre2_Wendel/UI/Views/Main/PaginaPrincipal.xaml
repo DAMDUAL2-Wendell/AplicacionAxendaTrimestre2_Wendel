@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Main"
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       mc:Ignorable="d" 
-      d:DesignHeight="100" d:DesignWidth="1280"
+      d:DesignHeight="100" d:DesignWidth="1250"
       Title="PaginaPrincipal">
 
 
@@ -38,14 +38,14 @@
             </StackPanel.Background>
 
             <StackPanel Orientation="Horizontal">
-                <ComboBox Name="comboBox" Height="50" Width="200" Margin="40,0,0,0">
+                <ComboBox Name="comboBox" Height="50" Width="220" Margin="40,0,20,0">
                     <ComboBoxItem Name="comboBoxItemFichero" Content="Base de datos en Fichero"></ComboBoxItem>
                     <ComboBoxItem Name="comboBoxItemMemoria" Content="Base de datos en Memoria"></ComboBoxItem>
                     <ComboBoxItem Name="comboBoxItemServidor" Content="Base de datos desde Servidor"></ComboBoxItem>
                 </ComboBox>
             </StackPanel>
 
-            <Button Height="50" Width="120" Margin="40,0,0,0" Background="Aquamarine" Click="ClickBtnConectar">
+            <Button Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickBtnConectar">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Width="40" Height="40" Source="/UI/Views/Main/base-de-datos.png"></Image>
                     <TextBlock Text="Cambiar base de datos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
@@ -55,7 +55,7 @@
             <!-- Boton Insertar Contactos de Prueba -->
             <Button Name="btn_InsertarContactosPrueba" Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickInsertarContactosAleatorios" >
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
+                    <Image Width="35" Height="35" Source="/UI/Views/Main/add_usuarios.png"></Image>
                     <TextBlock Text="Insertar Contactos Prueba" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                 </StackPanel>
             </Button>
@@ -63,10 +63,19 @@
             <!-- Boton Insertar Eventos de Prueba -->
             <Button Name="btn_InsertarEventosPrueba" Height="50" Width="120" Margin="20,0,20,0" Background="Aquamarine" Click="ClickInsertarEventosAleatorios" >
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Width="35" Height="35" Source="/UI/Views/Paginas/duplicar_usuario.png"></Image>
+                    <Image Width="35" Height="35" Source="/UI/Views/Main/agregar_eventos.png"></Image>
                     <TextBlock Text="Insertar Eventos Prueba" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                 </StackPanel>
             </Button>
+
+            <!-- Boton Borrar todos los Datos BBDD -->
+            <Button Name="btn_BorrarDatosBD" Height="50" Width="120" Margin="20,0,20,0" Background="LightCoral" Click="ClickBorrarDatosBD">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Width="35" Height="35" Source="/UI/Views/Main/borrarBBDD.png"></Image>
+                    <TextBlock Text="Borrar Datos BD" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                </StackPanel>
+            </Button>
+
 
 
         </StackPanel>

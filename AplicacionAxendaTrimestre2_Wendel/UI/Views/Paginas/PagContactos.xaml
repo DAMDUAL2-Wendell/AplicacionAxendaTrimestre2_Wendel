@@ -7,7 +7,7 @@
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="1500"
+      d:DesignHeight="650" d:DesignWidth="1300"
       Title="PagContactos">
 
 
@@ -48,10 +48,8 @@
                 <RowDefinition Height="80"/>
             </Grid.RowDefinitions>
 
-
-
             <!-- Panel Busqueda y botones de síntesis de voz -->
-            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,0,0">
                 <StackPanel Orientation="Horizontal">
                     <Grid Width="300">
                         <StackPanel Orientation="Horizontal">
@@ -89,126 +87,159 @@
                 </StackPanel>
             </Grid>
 
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="10,0,0,0" Width="1250">
 
                 <!-- DATAGRID -->
-            <DataGrid x:Name="dataGrid"
-          Grid.Column="0"
-          Grid.Row="2"
-          HorizontalAlignment="Stretch"
-          VerticalAlignment="Top"
-          AutoGenerateColumns="False"
-          ItemsSource="{Binding Contactos}"
-          RowHeight="50"
-          MaxHeight="400"
-          Background="White"
-          CanUserSortColumns="True"
-                      CanUserAddRows="False"
-          ScrollViewer.HorizontalScrollBarVisibility="Visible"
-          ScrollViewer.VerticalScrollBarVisibility="Visible"
-          CanUserResizeColumns="False">
-                <DataGrid.Columns>
-                    <!-- Columna de botón para eliminar -->
-                    <DataGridTemplateColumn Width="60" Header="Eliminar">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Name="btn_Eliminar_Contacto"
-                            Height="30"
-                            Width="30"
-                            Margin="0"
-                            Background="Aquamarine"
-                            Click="Eliminar_Click">
-                                    <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center">
-                                        <Image Width="30"
-                                   Height="30"
-                                   Source="/UI/Views/Paginas/borrar.png" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                <DataGrid x:Name="dataGrid"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding Contactos}"
+                            RowHeight="50"
+                            Height="500"
+                            Background="White"
+                            CanUserSortColumns="True"
+                            CanUserAddRows="False"
+                            ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                            ScrollViewer.VerticalScrollBarVisibility="Visible"
+                            CanUserResizeColumns="False">
+                    <DataGrid.Columns>
+                        <!-- Columna de botón para eliminar -->
+                        <DataGridTemplateColumn Width="60" Header="Eliminar">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btn_Eliminar_Contacto"
+                  Height="30"
+                  Width="30"
+                  Margin="0"
+                  Background="Aquamarine"
+                  Click="Eliminar_Click">
+                                        <StackPanel Orientation="Horizontal"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center">
+                                            <Image Width="25"
+                         Height="25"
+                         Source="/UI/Views/Paginas/eliminarUser.png" />
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                    <!-- Columna de imagen -->
-                    <DataGridTemplateColumn Width="60" Header="Imagen">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="/UI/Views/Paginas/user.png"
-                           Width="50"
-                           Height="50" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                        <!-- Columna de imagen -->
+                        <DataGridTemplateColumn Width="60" Header="Imagen">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="/UI/Views/Paginas/user.png"
+                 Width="50"
+                 Height="50" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                    <!-- Resto de las columnas de datos -->
-                    <DataGridTextColumn Header="ID"
-                            Binding="{Binding Id}" />
-                    <DataGridTextColumn Header="FirstName"
-                            Binding="{Binding FirstName}" />
-                    <DataGridTextColumn Header="LastName"
-                            Binding="{Binding LastName}" />
-                    <DataGridTextColumn Header="Nickname"
-                            Binding="{Binding Nickname}" />
-                    <DataGridTextColumn Header="Email"
-                            Binding="{Binding Email}" />
-                    <DataGridTextColumn Header="Address"
-                            Binding="{Binding Address}" />
-                    <DataGridTextColumn Header="Note"
-                            Binding="{Binding Note}" />
-                    <DataGridTextColumn Header="Age"
-                            Binding="{Binding Age}" />
-                    <DataGridTextColumn Header="BirthDate"
-                            Binding="{Binding BirthDate}" />
-                    <DataGridTextColumn Header="ContactType"
-                            Binding="{Binding ContactType}" />
-                </DataGrid.Columns>
-            </DataGrid>
+                        <!-- Resto de las columnas de datos -->
+                        <DataGridTextColumn Header="ID"
+                  Binding="{Binding Id}" />
+                        <DataGridTextColumn Header="FirstName"
+                  Binding="{Binding FirstName}" />
+                        <DataGridTextColumn Header="LastName"
+                  Binding="{Binding LastName}" />
+                        <DataGridTextColumn Header="Nickname"
+                  Binding="{Binding Nickname}" />
+                        <DataGridTextColumn Header="Address"
+                  Binding="{Binding Address}" />
+                        <DataGridTextColumn Header="Note"
+                  Binding="{Binding Note}" />
+                        <DataGridTextColumn Header="Age"
+                  Binding="{Binding Age}" />
+                        <DataGridTextColumn Header="BirthDate"
+                  Binding="{Binding BirthDate}" />
+                        <DataGridTextColumn Header="ContactType"
+                  Binding="{Binding ContactType}" />
 
-            <!-- /DATAGRID -->
-  
+                        <!-- Columna de telefonos -->
+                        <DataGridTemplateColumn Width="80" Header="Telefono">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding Numbers}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Number}" Margin="0,0,0,5"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-            <!-- Botones laterales -->
-            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                        Height="300"
-                        MaxWidth="200" MinWidth="150">
-                <StackPanel.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                        <GradientStop Color="#EFEFEF" Offset="0"/>
-                        <GradientStop Color="#CCCCCC" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+                        <!-- Columna de Email -->
+                        <DataGridTemplateColumn Width="120" Header="Email">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <ItemsControl ItemsSource="{Binding Emails}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Address}" Margin="0,0,0,5"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                <Label Content="Informes" Background="White" FontSize="20" HorizontalContentAlignment="Center" FontWeight="Bold"></Label>
-                <UniformGrid Rows="5" Columns="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    </DataGrid.Columns>
 
-                    <!-- Boton guardar PDF -->
-                    <Button Name="btn_Save_PDF" Height="50" Width="120" Margin="0,20,0,0"  Background="Aquamarine" Click="Click_Save_PDF" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Paginas/pdf.jpg"></Image>
-                            <TextBlock Text="Guardar PDF" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <!-- Boton guardar EXCEL -->
-                    <Button Name="btn_Save_EXCEL" Height="50" Width="120" Margin="0,20,0,0" Background="Aquamarine" Click="Click_Save_EXCEL" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Paginas/excel.png"></Image>
-                            <TextBlock Text="Guardar EXCEL" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <!-- Boton guardar HTML -->
-                    <Button Name="btn_Save_HTML" Height="50" Width="120" Margin="0,20,0,0" Background="Aquamarine" Click="Click_Save_HTML" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Paginas/html.png"></Image>
-                            <TextBlock Text="Guardar HTML" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
+                </DataGrid>
+                <!-- /DATAGRID -->
 
 
-                </UniformGrid>
+                <!-- Botones laterales -->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" 
+              Height="300"
+              MaxWidth="200" MinWidth="150">
+                    <StackPanel.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#EFEFEF" Offset="0"/>
+                            <GradientStop Color="#CCCCCC" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <Label Content="Informes" Background="White" FontSize="20" HorizontalContentAlignment="Center" FontWeight="Bold"></Label>
+                    <UniformGrid Rows="5" Columns="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                        <!-- Boton guardar PDF -->
+                        <Button Name="btn_Save_PDF" Height="50" Width="120" Margin="0,20,0,0"  Background="Aquamarine" Click="Click_Save_PDF" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Paginas/pdf.jpg"></Image>
+                                <TextBlock Text="Guardar PDF" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Boton guardar EXCEL -->
+                        <Button Name="btn_Save_EXCEL" Height="50" Width="120" Margin="0,20,0,0" Background="Aquamarine" Click="Click_Save_EXCEL" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Paginas/excel.png"></Image>
+                                <TextBlock Text="Guardar EXCEL" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Boton guardar HTML -->
+                        <Button Name="btn_Save_HTML" Height="50" Width="120" Margin="0,20,0,0" Background="Aquamarine" Click="Click_Save_HTML" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Paginas/html.png"></Image>
+                                <TextBlock Text="Guardar HTML" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+
+                    </UniformGrid>
+
+                </StackPanel>
+
+
 
             </StackPanel>
+
 
 
 
@@ -252,7 +283,7 @@
                             </StackPanel>
                         </Button>
 
-                        
+
                     </UniformGrid>
 
                 </StackPanel>

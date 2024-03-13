@@ -81,53 +81,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
 
-
-        public static List<Contacto> GetContactosPrueba()
-        {
-            // Datos de prueba para los contactos
-            var contactosPrueba = new List<Contacto>
-        {
-            new Contacto
-            {
-                FirstName = "Juan",
-                LastName = "García",
-                Nickname = "Juani",
-                Email = "juani@example.com",
-                Address = "Calle Principal 123",
-                Note = "Amigo de la infancia",
-                Age = 35,
-                BirthDate = new DateTime(1989, 5, 15),
-                ContactType = "Amigo",
-                Numbers = new List<PhoneNumber>
-                {
-                    new PhoneNumber { Number = "123456789" },
-                    new PhoneNumber { Number = "987654321" }
-                }
-            },
-            new Contacto
-            {
-                FirstName = "María",
-                LastName = "López",
-                Nickname = "Mary",
-                Email = "mary@example.com",
-                Address = "Avenida Central 456",
-                Note = "Compañera de trabajo",
-                Age = 30,
-                BirthDate = new DateTime(1992, 8, 25),
-                ContactType = "Colega",
-                Numbers = new List<PhoneNumber>
-                {
-                    new PhoneNumber { Number = "111222333" }
-                }
-            },
-        };
-
-            return contactosPrueba;
-        }
-
-
-
-
         private async void Eliminar_Click(object sender, RoutedEventArgs e)
         {
             // Obtener el botón que desencadenó el evento
@@ -190,7 +143,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                                                 c.FirstName.ToLower().Contains(searchText) ||
                                                 c.LastName.ToLower().Contains(searchText) ||
                                                 c.Nickname.ToLower().Contains(searchText) ||
-                                                c.Email.ToLower().Contains(searchText) ||
+                                                c.Emails.Any(e => e.Address.ToLower().Contains(searchText)) ||
                                                 c.Address.ToLower().Contains(searchText) ||
                                                 c.Note.ToLower().Contains(searchText) ||
                                                 c.Age.ToString().Contains(searchText) ||
@@ -271,12 +224,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                     speech.SpeakAsync("Nombre: " + contacto.FirstName);
                     speech.SpeakAsync("Apellidos: " + contacto.LastName);
                     speech.SpeakAsync("Apodo: " + contacto.Nickname);
-                    speech.SpeakAsync("Email: " + contacto.Email);
+
+                    // Leer todos los correos electrónicos del contacto
+                    foreach (var email in contacto.Emails)
+                    {
+                        speech.SpeakAsync("Email: " + email.Address);
+                    }
+
                     speech.SpeakAsync("Dirección: " + contacto.Address);
                     speech.SpeakAsync("Edad: " + contacto.Age);
                     speech.SpeakAsync("Fecha de nacimiento: " + contacto.BirthDate);
                     speech.SpeakAsync("Tipo de contacto: " + contacto.ContactType);
-                    speech.SpeakAsync("Teléfono: " + contacto.Numbers.First());
+
+                    // Leer todos los números de teléfono del contacto
+                    foreach (var phoneNumber in contacto.Numbers)
+                    {
+                        speech.SpeakAsync("Teléfono: " + phoneNumber.Number);
+                    }
+
                     speech.SpeakAsync("Nota: " + contacto.Note);
                 }
                 else
@@ -385,7 +350,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void Click_Save_PDF(object sender, RoutedEventArgs e)
         {
+            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid,new int[] {0,1});
             SaveFiles.SaveToPdfButton_Click(dataGrid, "Contactos");
+
+            Navegacion.NavegarPaginaContactos(NavigationService);
+
         }
 
         private void Click_Save_EXCEL(object sender, RoutedEventArgs e)

@@ -89,6 +89,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Reloj
             timer.Start();
             //labelCronometro.Content = hora;
 
+            // Asignar la hora actual al reloj
+            AsignarHoraActual();
+
+        }
+
+        // Método para asignar la hora actual al reloj
+        private void AsignarHoraActual()
+        {
+            // Obtener la hora actual
+            DateTime horaActual = DateTime.Now;
+
+            // Asignar la hora actual al reloj
+            this.hora = horaActual.Hour;
+            this.minutos = horaActual.Minute;
+            this.segundos = horaActual.Second;
+
+            // Actualizar la interfaz con la hora formateada
+            labelCronometro.Content = getHoraFormateada();
         }
 
         // Método para iniciar o detener el temporizador

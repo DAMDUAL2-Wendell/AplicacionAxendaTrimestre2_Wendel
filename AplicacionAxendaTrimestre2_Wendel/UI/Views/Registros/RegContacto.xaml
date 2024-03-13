@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="630" d:DesignWidth="1000"
+      d:DesignHeight="630" d:DesignWidth="1250"
       Title="RegContacto" FontFamily="Roboto">
 
     <Page.Resources>
@@ -28,7 +28,7 @@
     </Page.Resources>
 
 
-    <Grid Background="White" Margin="10">
+    <Grid Background="White" Margin="10" Width="1230">
 
 
         <Grid Grid.Row="1" Grid.Column="0">
@@ -44,19 +44,19 @@
             </Grid.ColumnDefinitions>
 
             <!-- Titulo -->
-            <StackPanel  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,10,10,10">
+            <StackPanel  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,10,10,10">
                 <Label Name="labelTitle" Content="Registro de nuevo usuario" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" FontFamily="Caladea" ></Label>
             </StackPanel>
 
 
             <!-- Imagen de Contacto -->
-            <StackPanel  Grid.Row="1" Grid.Column="0" Height="250" Width="250" Margin="20,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="AliceBlue">
+            <StackPanel Width="370"  Grid.Row="1" Grid.Column="0" Height="250" Margin="20,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="AliceBlue">
                 
                 <Image Name="contactImage" Source="/UI/Views/Registros/user.png" Width="150" Height="150" Margin="0,10,0,0" />
                 
                 <Button Height="50" Width="150" Background="Aquamarine" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,20,0,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image Width="40" Height="40" Source="/UI/Views/Main/user.png"></Image>
+                        <Image Width="40" Height="40" Source="/UI/Views/Registros/edicion-de-imagen.png"></Image>
                         <TextBlock Text="Seleccionar imagen" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                     </StackPanel>
                 </Button>
@@ -65,46 +65,52 @@
 
 
 
-
             <!-- Datos Contacto -->
-                <StackPanel x:Name="sp_Info" Margin="10" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center">
+                <StackPanel x:Name="sp_Info" Margin="10" Grid.Row="1" Width="390" Grid.Column="1" HorizontalAlignment="Center" Background="#FF8AC0EA">
 
-                    <!-- Nombre -->
-                    <DockPanel Margin="0 0 0 10">
+                <Label Content="   Información de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+
+
+                <!-- Nombre -->
+                    <DockPanel Margin="10 20 10 10">
                         <TextBlock Text="Nombre:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox Name="tb_FirstName" Width="300" HorizontalAlignment="Left" Text="{Binding FirstName}" TextChanged="Tb_FirstName_TextChanged"/>
+                        <TextBox Name="tb_FirstName" Width="240" HorizontalAlignment="Left" Text="{Binding FirstName}" TextChanged="Tb_FirstName_TextChanged"/>
                     </DockPanel>
 
                     <!-- Apellidos -->
-                    <DockPanel Margin="0 0 0 10">
+                <DockPanel Margin="10 0 10 10">
                         <TextBlock Text="Apellido:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                        <TextBox Name="tb_LastName" Width="300" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
-                    </DockPanel>
-
-                    <!-- Email -->
-                    <DockPanel Margin="0 0 0 10">
-                        <TextBlock Text="Correo Electrónico:" MinWidth="120" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                        <TextBox Name="tb_Email"  Width="300" HorizontalAlignment="Left" Text="{Binding Email}" />
+                        <TextBox Name="tb_LastName" Width="240" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
                     </DockPanel>
 
                     <!-- Dirección -->
-                    <DockPanel Margin="0 0 0 10">
+                    <DockPanel Margin="10 0 10 10">
                         <TextBlock Text="Dirección:" MinWidth="70" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                        <TextBox Name="tb_Address"  Width="300" HorizontalAlignment="Left" Text="{Binding Address}"/>
+                        <TextBox Name="tb_Address"  Width="230" HorizontalAlignment="Left" Text="{Binding Address}"/>
                     </DockPanel>
 
                     <!-- Fecha Cumpleaños -->
-                    <GroupBox Header="Cumpleaños:" Width="200" HorizontalAlignment="Left">
+                <GroupBox Header="Cumpleaños:" Width="200" HorizontalAlignment="Left" Margin="10 0 0 10">
                         <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}"/>
                     </GroupBox>
 
-                  
+                <!-- Email -->
+                <GroupBox Header="Emails:" Width="200" HorizontalAlignment="Left" Margin="10 0 0 10">
+                    <StackPanel>
+                        <ListBox Name="lb_Emails" MaxHeight="100" KeyDown="lb_Emails_KeyDown" FontSize="14" FontWeight="DemiBold" BorderThickness="0" SelectionMode="Extended">
+                        </ListBox>
+                        <StackPanel>
+                            <TextBox Name="tb_Email" Tag="Email"/>
+                            <Button Name="btn_AddEmail" Content="Agregar email" Click="Btn_AddEmail_Click" Margin="0 0 0 5"/>
+                            <Button Name="btn_DeleteEmail" Content="Eliminar email Seleccionado" Click="Btn_DeleteEmail_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
 
-
-                </StackPanel>
+            </StackPanel>
 
             <!-- Botón expandir más información-->
-            <Expander Header="Más Información" Grid.Column="2" Grid.Row="1" IsExpanded="True" BorderThickness="0" HorizontalAlignment="Center" Margin="10">
+            <Expander Header="Más Información" Width="400" Grid.Column="2" Grid.Row="1" IsExpanded="True" BorderThickness="0" HorizontalAlignment="Center" Margin="10" FontWeight="Bold">
                 <StackPanel>
 
                     <!--  Selección de Tipo  -->
@@ -150,14 +156,29 @@
 
 
             <!-- BOTONES -->
-            <Grid Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="3" Height="25" Width="500">
-                <UniformGrid Rows="1" Columns="2">
+            <Grid Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Row="3" Height="60" Width="1230">
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
                     <!-- Registro -->
-                    <Button Name="btnRegistrar" Content="Registrar" Click="RegistrarContacto_Click" Margin="0,0,40,0"/>
+        
+                    <Button Name="btnRegistrar" Height="50" Width="150" Background="Aquamarine" Click="RegistrarContacto_Click" HorizontalAlignment="Center" Margin="0,0,50,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/registrarse.png"></Image>
+                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
                     <!-- Atras -->
-                    <Button Name="btnAtras" Content="Atras" Click="NavegarAtras" Margin="40,0,0,0"/>
+                    <Button Name="btnAtras" Height="50" Width="150" Background="Aquamarine" Click="NavegarAtras" HorizontalAlignment="Center" Margin="50,0,0,0">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/atras.png"></Image>
+                            <TextBlock Text="Volver atrás" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+
                 </UniformGrid>
             </Grid>
+            
         </Grid>
     </Grid>
 

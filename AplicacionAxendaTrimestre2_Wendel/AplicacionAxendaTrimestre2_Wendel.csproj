@@ -14,7 +14,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="UI\Views\Main\add_usuarios.png" />
+	  <None Remove="UI\Views\Main\agregar_eventos.png" />
 	  <None Remove="UI\Views\Main\base-de-datos.png" />
+	  <None Remove="UI\Views\Main\borrarBBDD.png" />
 	  <None Remove="UI\Views\Main\casa.png" />
 	  <None Remove="UI\Views\Main\event.png" />
 	  <None Remove="UI\Views\Main\note.png" />
@@ -24,6 +27,7 @@
 	  <None Remove="UI\Views\Paginas\boton-de-play.png" />
 	  <None Remove="UI\Views\Paginas\duplicar_usuario.png" />
 	  <None Remove="UI\Views\Paginas\editar_usuario.png" />
+	  <None Remove="UI\Views\Paginas\eliminarUser.png" />
 	  <None Remove="UI\Views\Paginas\eliminar_usuario.png" />
 	  <None Remove="UI\Views\Paginas\excel.png" />
 	  <None Remove="UI\Views\Paginas\html.png" />
@@ -31,6 +35,9 @@
 	  <None Remove="UI\Views\Paginas\pausa.png" />
 	  <None Remove="UI\Views\Paginas\pdf.jpg" />
 	  <None Remove="UI\Views\Paginas\user.png" />
+	  <None Remove="UI\Views\Registros\atras.png" />
+	  <None Remove="UI\Views\Registros\edicion-de-imagen.png" />
+	  <None Remove="UI\Views\Registros\registrarse.png" />
 	  <None Remove="UI\Views\Registros\user.png" />
 	</ItemGroup>
 
@@ -76,13 +83,12 @@
 		</ApplicationDefinition>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Folder Include="Data\LocalBD\" />
-	</ItemGroup>
-
 
 	<ItemGroup>
+	  <Resource Include="UI\Views\Main\add_usuarios.png" />
+	  <Resource Include="UI\Views\Main\agregar_eventos.png" />
 	  <Resource Include="UI\Views\Main\base-de-datos.png" />
+	  <Resource Include="UI\Views\Main\borrarBBDD.png" />
 	  <Resource Include="UI\Views\Main\casa.png" />
 	  <Resource Include="UI\Views\Main\event.png" />
 	  <Resource Include="UI\Views\Main\note.png" />
@@ -92,6 +98,7 @@
 	  <Resource Include="UI\Views\Paginas\boton-de-play.png" />
 	  <Resource Include="UI\Views\Paginas\duplicar_usuario.png" />
 	  <Resource Include="UI\Views\Paginas\editar_usuario.png" />
+	  <Resource Include="UI\Views\Paginas\eliminarUser.png" />
 	  <Resource Include="UI\Views\Paginas\eliminar_usuario.png" />
 	  <Resource Include="UI\Views\Paginas\excel.png" />
 	  <Resource Include="UI\Views\Paginas\html.png" />
@@ -99,7 +106,15 @@
 	  <Resource Include="UI\Views\Paginas\pausa.png" />
 	  <Resource Include="UI\Views\Paginas\pdf.jpg" />
 	  <Resource Include="UI\Views\Paginas\user.png" />
+	  <Resource Include="UI\Views\Registros\atras.png" />
+	  <Resource Include="UI\Views\Registros\edicion-de-imagen.png" />
+	  <Resource Include="UI\Views\Registros\registrarse.png" />
 	  <Resource Include="UI\Views\Registros\user.png" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <Folder Include="Data\LocalBD\" />
 	</ItemGroup>
 
 </Project>
