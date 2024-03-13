@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
@@ -211,6 +212,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     break;
             }
             AppData.DataAccess = new DataAccess(STRINGCONEXION);
+        }
+
+        private void ClickMostrarPaginaHome(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarPaginaHome(NavigationService);
         }
     }
 }

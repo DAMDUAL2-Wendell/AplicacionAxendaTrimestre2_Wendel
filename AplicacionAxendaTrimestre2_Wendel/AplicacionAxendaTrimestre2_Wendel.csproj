@@ -6,6 +6,7 @@
 		<TargetFramework>net8.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Resources\ico\icons8-agenda-96.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -13,14 +14,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="UI\Views\Main\base-de-datos.png" />
+	  <None Remove="UI\Views\Main\casa.png" />
 	  <None Remove="UI\Views\Main\event.png" />
 	  <None Remove="UI\Views\Main\note.png" />
 	  <None Remove="UI\Views\Main\user.png" />
+	  <None Remove="UI\Views\Paginas\agregar-usuario.png" />
 	  <None Remove="UI\Views\Paginas\borrar.png" />
+	  <None Remove="UI\Views\Paginas\boton-de-play.png" />
+	  <None Remove="UI\Views\Paginas\duplicar_usuario.png" />
+	  <None Remove="UI\Views\Paginas\editar_usuario.png" />
+	  <None Remove="UI\Views\Paginas\eliminar_usuario.png" />
 	  <None Remove="UI\Views\Paginas\excel.png" />
 	  <None Remove="UI\Views\Paginas\html.png" />
+	  <None Remove="UI\Views\Paginas\leer.png" />
+	  <None Remove="UI\Views\Paginas\pausa.png" />
 	  <None Remove="UI\Views\Paginas\pdf.jpg" />
 	  <None Remove="UI\Views\Paginas\user.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\ico\icons8-agenda-96.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -39,7 +53,9 @@
 		<PackageReference Include="SpreadsheetLight" Version="3.5.0" />
 		<PackageReference Include="SQLite" Version="3.13.0" />
 		<PackageReference Include="Syncfusion.SfGauge.WPF" Version="24.2.9" />
+		<PackageReference Include="Syncfusion.SfGrid.WPF" Version="24.2.9" />
 		<PackageReference Include="Syncfusion.SfScheduler.WPF" Version="24.2.9" />
+		<PackageReference Include="Syncfusion.Shared.WPF" Version="24.2.9" />
 		<PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
 		<PackageReference Include="System.Speech" Version="8.0.0" />
 	</ItemGroup>
@@ -64,12 +80,21 @@
 
 
 	<ItemGroup>
+	  <Resource Include="UI\Views\Main\base-de-datos.png" />
+	  <Resource Include="UI\Views\Main\casa.png" />
 	  <Resource Include="UI\Views\Main\event.png" />
 	  <Resource Include="UI\Views\Main\note.png" />
 	  <Resource Include="UI\Views\Main\user.png" />
+	  <Resource Include="UI\Views\Paginas\agregar-usuario.png" />
 	  <Resource Include="UI\Views\Paginas\borrar.png" />
+	  <Resource Include="UI\Views\Paginas\boton-de-play.png" />
+	  <Resource Include="UI\Views\Paginas\duplicar_usuario.png" />
+	  <Resource Include="UI\Views\Paginas\editar_usuario.png" />
+	  <Resource Include="UI\Views\Paginas\eliminar_usuario.png" />
 	  <Resource Include="UI\Views\Paginas\excel.png" />
 	  <Resource Include="UI\Views\Paginas\html.png" />
+	  <Resource Include="UI\Views\Paginas\leer.png" />
+	  <Resource Include="UI\Views\Paginas\pausa.png" />
 	  <Resource Include="UI\Views\Paginas\pdf.jpg" />
 	  <Resource Include="UI\Views\Paginas\user.png" />
 	</ItemGroup>

@@ -26,6 +26,8 @@ using System.Speech.Synthesis;
 using System.Speech.Recognition;
 using System.Linq.Expressions;
 using System.Threading;
+using Syncfusion.UI.Xaml.Grid;
+using System.Collections;
 
 
 namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
@@ -48,17 +50,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             Loaded += PagContactos_Loaded;
 
+        }
+
+        private void InsertarDatosAleatorios(object sender, RoutedEventArgs e)
+        {
             try
             {
-                if (_dataAccess.DbContext.Contactos.Count() == 0)
-                {
-                    InsertarContactosPrueba(TestDataGenerator.GenerateContactos(5));
-
-                }
+                List<Contacto> contactos = TestDataGenerator.GenerateContactos(5);
+                InsertarContactosPrueba(contactos);
+                List<PhoneNumber> telefonos = TestDataGenerator.GenerateTelefonos(5);
+                InsertarTelefonosEnContactos(contactos, telefonos);
             }
             catch (Exception ex) { }
-
-
         }
 
         private void BrowseImage()
@@ -81,7 +84,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             var contactos = await _dataAccess.DbContext.Contactos.Where(c => c != null).ToListAsync();
             dataGrid.ItemsSource = contactos;
 
-           // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
+            // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
         }
 
 
@@ -97,6 +100,46 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                 _dataAccess.DbContext.SaveChanges();
             }
         }
+
+        public void InsertarTelefonosEnContactos(List<Contacto> contactos, List<PhoneNumber> telefonos)
+        {
+            Random random = new Random();
+
+            // Verificar si _dataAccess y _dataAccess.DbContext están inicializados
+            if (_dataAccess == null || _dataAccess.DbContext == null)
+            {
+                return; // Salir del método si _dataAccess no está inicializado correctamente
+            }
+
+            foreach (var contacto in contactos)
+            {
+                // Verificar si quedan números de teléfono disponibles
+                if (telefonos.Any())
+                {
+                    // Obtener un número de teléfono aleatorio de la lista
+                    int indexTelefonoAleatorio = random.Next(0, telefonos.Count);
+                    PhoneNumber telefonoAleatorio = telefonos[indexTelefonoAleatorio];
+
+                    // Asignar el número de teléfono al contacto
+                    contacto.Numbers.Add(telefonoAleatorio);
+
+                    // Asignar el Id del contacto al número de teléfono
+                    telefonoAleatorio.ContactoId = contacto.Id;
+
+                    // Eliminar el número de teléfono de la lista para evitar que se reutilice en otro contacto
+                    telefonos.RemoveAt(indexTelefonoAleatorio);
+                }
+                else
+                {
+                    // Si no quedan números de teléfono disponibles, salir del bucle
+                    break;
+                }
+            }
+
+            // Guardar los cambios en la base de datos
+            _dataAccess.DbContext.SaveChanges();
+        }
+
 
         public static List<Contacto> GetContactosPrueba()
         {
@@ -401,17 +444,29 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void Click_Save_PDF(object sender, RoutedEventArgs e)
         {
-            SaveFiles.SaveToPdfButton_Click(dataGrid,"Contactos");
+            SaveFiles.SaveToPdfButton_Click(DataGridModificado(), "Contactos");
         }
 
         private void Click_Save_EXCEL(object sender, RoutedEventArgs e)
         {
-            SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(dataGrid), "Contactos");
+            SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(DataGridModificado()), "Contactos");
         }
 
         private void Click_Save_HTML(object sender, RoutedEventArgs e)
         {
-            SaveFiles.GuardarFicheroHTML(dataGrid, "Contactos");
+            SaveFiles.GuardarFicheroHTML(DataGridModificado(), "Contactos");
         }
+      
+        private DataGrid DataGridModificado()
+        {
+            // Convertir SFDataGrid en DataGrid
+            DataGrid dg = DataGridHelper.ConvertToWpfDataGrid(dataGrid);
+            // Eliminar la primera y segunda fila que es el boton de eliminar y la foto de contacto
+            DataGrid dataGridModificado = DataGridHelper.EliminarEncabezadosPorIndices(dg, new int[] { 0, 1, 2 });
+            return dataGridModificado;
+        }
+
+
+
     }
 }

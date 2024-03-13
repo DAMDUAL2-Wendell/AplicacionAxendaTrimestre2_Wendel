@@ -17,5 +17,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
         public string Titulo { get; set; }
 
         public string Descripcion { get; set; }
+
+        // Propiedad de navegación para establecer la relación con Contacto
+        public int ContactoId { get; set; }
+
+        // Referencia de navegación a la entidad Contacto
+        [ForeignKey("ContactoId")]
+        public Contacto Contacto { get; set; }
     }
 }

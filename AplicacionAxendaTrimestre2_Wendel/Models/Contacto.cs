@@ -19,7 +19,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
         public string LastName { get; set; } = "";
 
         [NotMapped] // No mapear esta propiedad a la base de datos
-        public string FullName { get; set; } = "";
         public string Nickname { get; set; } = "";
         public string Email { get; set; } = "";
         public string Address { get; set; } = "";
@@ -28,7 +27,14 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
         public DateTime? BirthDate { get; set; }
         public string ContactType { get; set; } = "";
 
+        // Lista de números de teléfono
         public List<PhoneNumber> Numbers { get; set; } = new List<PhoneNumber>();
+
+        // Lista de notas
+        public List<Nota> Notas { get; set; } = new List<Nota>();
+
+        // Lista de eventos
+        public List<Evento> Eventos { get; set; } = new List<Evento>();
 
         public Contacto() { }
 
@@ -39,7 +45,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
             this.Age = 18;
             this.Numbers = new List<PhoneNumber>();
             this.ContactType = "";
-            this.FullName = nombre + " " + apellidos;
         }
 
 
@@ -50,7 +55,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
             this.Age = edad;
             this.Numbers = new List<PhoneNumber>();
             this.ContactType = "";
-            this.FullName = nombre + " " + apellidos;
         }
 
         public Contacto(string nombre, string apellidos, int edad, List<PhoneNumber> numbers, string contactType)
@@ -60,7 +64,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.POJO
             this.Age = edad;
             this.Numbers = numbers ?? new List<PhoneNumber>();
             this.ContactType = contactType;
-            this.FullName = nombre + " " + apellidos;
         }
 
         public override string ToString()

@@ -18,15 +18,13 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
             // Nombres y apellidos aleatorios para los contactos
             string[] nombres = { "Juan", "María", "Pedro", "Ana", "Luis", "Sofía", "Carlos", "Laura", "José", "Isabel" };
             string[] apellidos = { "García", "Martínez", "López", "González", "Rodríguez", "Pérez", "Fernández", "Sánchez", "Romero", "Álvarez" };
-
             for (int i = 0; i < cantidad; i++)
             {
                 string nombre = nombres[rand.Next(nombres.Length)];
                 string apellido = apellidos[rand.Next(apellidos.Length)];
-
                 contactos.Add(new Contacto
                 {
-                    Id = i + 1,
+                    //Id = i + 1,
                     FirstName = nombre,
                     LastName = apellido,
                     Nickname = "Nickname" + (i + 1),
@@ -43,9 +41,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
                     }
                 });
             }
-
             return contactos;
         }
+
+        public static List<PhoneNumber> GenerateTelefonos(int cantidad)
+        {
+            List<PhoneNumber> telefonos = new List<PhoneNumber>();
+            Random rand = new Random();
+
+            for (int i = 0; i < cantidad; i++)
+            {
+                string numero = rand.Next(100000000, 999999999).ToString(); // Generar un número aleatorio de 9 dígitos
+                telefonos.Add(new PhoneNumber { Number = numero });
+            }
+
+            return telefonos;
+        }
+
+
     }
 }
     

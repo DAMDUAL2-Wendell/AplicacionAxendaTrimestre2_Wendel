@@ -135,13 +135,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         private void Tb_LastName_TextChanged(object sender, TextChangedEventArgs e)
         {
             _ContactoActual.LastName = $"{tb_LastName.Text}";
-            tb_FullName.Text = $"{_ContactoActual.FullName}";
         }
 
         private void Tb_FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
             _ContactoActual.FirstName = $"{tb_FirstName.Text}";
-            tb_FullName.Text = $"{_ContactoActual.FullName}";
         }
 
         private void cb_ContactType_SelectionChanged(object sender, SelectionChangedEventArgs e)

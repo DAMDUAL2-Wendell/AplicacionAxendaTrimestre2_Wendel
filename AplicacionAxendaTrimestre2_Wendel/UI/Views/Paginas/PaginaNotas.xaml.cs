@@ -52,10 +52,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
             //dataGrid.ItemsSource = listaNotas;
         }
 
-        public async Task<List<Nota>> ObtenerListaNotasAsync()
+        public async Task<List<Nota>> ObtenerListaNotasAsync(int contactoId)
         {
-            return await _dataAccess.DbContext.Notas.ToListAsync();
+            // Obtener el contacto por su ID
+            Contacto contacto = await _dataAccess.DbContext.Contactos
+                                        // Incluir la lista de notas del contacto
+                                        .Include(c => c.Notas)
+                                        .FirstOrDefaultAsync(c => c.Id == contactoId);
+
+            if (contacto != null)
+            {
+                // Devolver la lista de notas del contacto
+                return contacto.Notas;
+            }
+            else
+            {
+                // Si el contacto no se encuentra, devolver una lista vacía
+                return new List<Nota>();
+            }
         }
+
+
 
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {

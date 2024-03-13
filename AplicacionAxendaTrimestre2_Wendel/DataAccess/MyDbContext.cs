@@ -20,10 +20,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
         // Set de Contactos, crea la tabla contactos en la BBDD
         public DbSet<Contacto> Contactos { get; set; }
 
-        public DbSet<Evento> Eventos { get; set; }
-
-        public DbSet<Nota> Notas { get; set; }
-
 
         // Este constructor hereda de la clase base DbContext, y la llamada base(options) se encarga de pasar las opciones de configuración al constructor de la clase base.
         public MyDbContext(DbContextOptions<MyDbContext> options) : base(options)
@@ -60,6 +56,63 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 Database.EnsureDeletedAsync().Wait();
                 Database.EnsureCreatedAsync().Wait();
             }
+        }
+
+        public async Task<List<Evento>> ObtenerListaEventosAsync()
+        {
+            var contactosConEventos = await Contactos
+                .Include(c => c.Eventos) // Incluimos los eventos relacionados con cada contacto
+                .ToListAsync();
+
+            // Creamos una lista para almacenar todos los eventos
+            List<Evento> todosLosEventos = new List<Evento>();
+
+            // Recorremos cada contacto para agregar sus eventos a la lista
+            foreach (var contacto in contactosConEventos)
+            {
+                todosLosEventos.AddRange(contacto.Eventos);
+            }
+
+            return todosLosEventos;
+        }
+
+        public List<Evento> ObtenerListaEventos()
+        {
+            var contactosConEventos = Contactos
+                .Include(c => c.Eventos) // Incluimos los eventos relacionados con cada contacto
+                .ToList();
+
+            // Creamos una lista para almacenar todos los eventos
+            List<Evento> todosLosEventos = new List<Evento>();
+
+            // Recorremos cada contacto para agregar sus eventos a la lista
+            foreach (var contacto in contactosConEventos)
+            {
+                todosLosEventos.AddRange(contacto.Eventos);
+            }
+
+            return todosLosEventos;
+        }
+
+
+
+
+        public async Task<List<Nota>> ObtenerListaNotasAsync()
+        {
+            var contactosConNotas = await Contactos
+                .Include(c => c.Notas) // Incluimos las notas relacionadas con cada contacto
+                .ToListAsync();
+
+            // Creamos una lista para almacenar todas las notas
+            List<Nota> todasLasNotas = new List<Nota>();
+
+            // Recorremos cada contacto para agregar sus notas a la lista
+            foreach (var contacto in contactosConNotas)
+            {
+                todasLasNotas.AddRange(contacto.Notas);
+            }
+
+            return todasLasNotas;
         }
 
 

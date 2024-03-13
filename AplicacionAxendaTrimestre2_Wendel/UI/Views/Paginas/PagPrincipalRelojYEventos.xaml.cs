@@ -32,12 +32,13 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         {
             InitializeComponent();
 
-            _dataAccess.DbContext.Eventos.Add(new Evento("peluqueria", "ir al peluquero", DateTime.Now, DateTime.Now.AddDays(1)));
-            _dataAccess.DbContext.Eventos.Add(new Evento("compras", "ir a comprar", DateTime.Now.AddDays(5), DateTime.Now.AddDays(6)));
-            _dataAccess.DbContext.SaveChanges();
-           // _dataAccess.DbContext.SaveChangesAsync();
+            AgregarEventosAContactosAsync();
 
-            eventos = _dataAccess.DbContext.Eventos.ToList();
+
+            _dataAccess.DbContext.SaveChanges();
+            // _dataAccess.DbContext.SaveChangesAsync();
+
+            eventos = _dataAccess.DbContext.ObtenerListaEventos();
 
             dataGrid.ItemsSource = eventos;
 
@@ -48,6 +49,40 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             // Suscribirse al evento Loaded de los botones de día del calendario
             calendar.Loaded += Calendar_Loaded;
+        }
+
+
+        private async Task AgregarEventosAContactosAsync()
+        {
+            // Obtener un número aleatorio entre 1 y 5 para seleccionar el contacto
+            Random rnd = new Random();
+            int contactoId = rnd.Next(1, 6); // Selecciona un número aleatorio entre 1 y 5 inclusive
+
+            // Crear los eventos
+            Evento evento1 = new Evento("peluqueria", "ir al peluquero", DateTime.Now, DateTime.Now.AddDays(1));
+            Evento evento2 = new Evento("compras", "ir a comprar", DateTime.Now.AddDays(5), DateTime.Now.AddDays(6));
+
+            // Buscar el contacto por su Id
+            var contacto = await _dataAccess.DbContext.Contactos.FindAsync(contactoId);
+
+            // Verificar si se encontró el contacto
+            if (contacto != null)
+            {
+                // Agregar los eventos al contacto
+                contacto.Eventos.Add(evento1);
+                contacto.Eventos.Add(evento2);
+
+                // Guardar los cambios en la base de datos
+                await _dataAccess.DbContext.SaveChangesAsync();
+
+                MessageBox.Show("Eventos guardados correctamente en el contacto con id: " + contactoId);
+            }
+            else
+            {
+                // Manejar el caso donde no se encuentra el contacto
+                Console.WriteLine("No se encontró el contacto con el Id especificado.");
+            }
+
         }
 
         private void Calendar_Loaded(object sender, RoutedEventArgs e)
