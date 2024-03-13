@@ -47,6 +47,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
 
         public PaginaNotas(Contacto c)
         {
+            InitializeComponent();
             _contactoActual = c;
             if(_contactoActual != null)
             {

@@ -27,7 +27,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     {
         private DataAcceso _dataAccess = AppData.DataAccess;
 
-
         private Contacto _contactoActual;
 
         public PaginaEventos()
@@ -47,7 +46,17 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
-        private void AsignarListaEventosActualADataGrid()
+        public DataGrid GetDataGrid()
+        {
+            return dataGrid;
+        }
+
+        public TextBox GetTextBoxFindEven()
+        {
+            return tb_FindEvent;
+        }
+
+        public void AsignarListaEventosActualADataGrid()
         {
             if (_contactoActual != null)
             {
@@ -69,7 +78,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             await AsignarListaADataGrid();
         }
 
-        async private Task AsignarListaADataGrid()
+        async public Task AsignarListaADataGrid()
         {
             List<Evento> listaEventos = await _dataAccess.DbContext.ObtenerListaEventosAsync(); 
             dataGrid.ItemsSource = listaEventos;
@@ -77,7 +86,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
 
-        private async void Tb_FindEvent_TextChanged(object sender, TextChangedEventArgs e)
+        public async void Tb_FindEvent_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = tb_FindEvent.Text.Trim().ToLower();
 

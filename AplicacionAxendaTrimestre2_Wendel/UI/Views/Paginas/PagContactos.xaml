@@ -36,6 +36,9 @@
 
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/UI/Views/Paginas/HD-wallpaper-pen-agenda-smartphone-ultra-background-for-u-tv-widescreen-ultrawide-laptop-tablet-smartphone-pens.jpg" Opacity="0.285" Stretch="UniformToFill"/>
+        </Grid.Background>
 
 
         <Grid Margin="10">
@@ -107,7 +110,7 @@
                             CanUserResizeColumns="False" SelectionChanged="DataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <!-- Columna de botón para eliminar -->
-                        <DataGridTemplateColumn Width="60" Header="Eliminar">
+                        <DataGridTemplateColumn Width="60" Header="Del">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Name="btn_Eliminar_Contacto"
@@ -129,7 +132,7 @@
                         </DataGridTemplateColumn>
 
                         <!-- Columna de imagen -->
-                        <DataGridTemplateColumn Width="60" Header="Imagen">
+                        <DataGridTemplateColumn Width="60" Header="Img">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Source="/UI/Views/Paginas/user.png"
@@ -142,21 +145,21 @@
                         <!-- Resto de las columnas de datos -->
                         <DataGridTextColumn Header="ID"
                   Binding="{Binding Id}" />
-                        <DataGridTextColumn Header="FirstName"
+                        <DataGridTextColumn Header="Nombre"
                   Binding="{Binding FirstName}" />
-                        <DataGridTextColumn Header="LastName"
+                        <DataGridTextColumn Header="Apellidos"
                   Binding="{Binding LastName}" />
-                        <DataGridTextColumn Header="Nickname"
+                        <DataGridTextColumn Header="Nick"
                   Binding="{Binding Nickname}" />
-                        <DataGridTextColumn Header="Address"
+                        <DataGridTextColumn Header="Direccion"
                   Binding="{Binding Address}" />
-                        <DataGridTextColumn Header="Note"
+                        <DataGridTextColumn Header="Nota"
                   Binding="{Binding Note}" />
-                        <DataGridTextColumn Header="Age"
+                        <DataGridTextColumn Header="Edad"
                   Binding="{Binding Age}" />
-                        <DataGridTextColumn Header="BirthDate"
-                  Binding="{Binding BirthDate}" />
-                        <DataGridTextColumn Header="ContactType"
+                        <DataGridTextColumn Header="Cumple"
+                  Binding="{Binding BirthDate}" Width="65" />
+                        <DataGridTextColumn Header="Tipo"
                   Binding="{Binding ContactType}" />
 
                         <!-- Columna de telefonos -->
@@ -190,24 +193,22 @@
                         </DataGridTemplateColumn>
 
                         <!-- Columna de Notas -->
-                        <DataGridTemplateColumn Width="100" Header="Notas">
+                        <DataGridTemplateColumn Width="80" Header="Notas">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Button Content="Notas" Tag="{Binding}" Visibility="Hidden" Click="MostrarNotas_Click" />
-                                        <Label Content="Sin notas" Visibility="Visible" />
+                                        <Button Content="Notas" Tag="{Binding}" Visibility="Visible" Click="MostrarNotas_Click" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
                         <!-- Columna de Eventos -->
-                        <DataGridTemplateColumn Width="100" Header="Eventos">
+                        <DataGridTemplateColumn Width="80" Header="Eventos">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Button Content="Eventos" Tag="{Binding}" Visibility="Visible" Click="MostrarEventos_Click" />
-                                        <Label Content="Sin eventos" Visibility="Hidden" />
+                                        <Button Name="btnMostrarEventosContacto" Content="Eventos" Tag="{Binding}" Visibility="Visible" Click="MostrarEventos_Click" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

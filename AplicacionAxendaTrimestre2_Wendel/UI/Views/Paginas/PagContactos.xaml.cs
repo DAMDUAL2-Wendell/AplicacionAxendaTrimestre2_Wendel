@@ -55,7 +55,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         }
 
-        
+
 
         private void BrowseImage()
         {
@@ -72,7 +72,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
-        private async Task MostrarContactosAsync()
+        public async Task MostrarContactosAsync()
         {
             // Obtener todos los contactos de la base de datos, incluyendo las propiedades de navegación relacionadas
             var contactos = await _dataAccess.DbContext.Contactos
@@ -85,8 +85,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             dataGrid.ItemsSource = contactos;
 
+           
+
             // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
         }
+
+
 
 
 
@@ -320,7 +324,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
 
         }
-        private int Next()
+
+
+        public int Next()
         {
             // Ordenar los contactos por Id de forma descendente y luego seleccionar el primer elemento
             var ultimoContacto = _dataAccess.DbContext.Contactos.OrderByDescending(c => c.Id).FirstOrDefault();
@@ -410,7 +416,13 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             {
                 // Asignar el contacto seleccionado a la variable _contactoActual
                 _contactoActual = (Contacto)dataGrid.SelectedItem;
+
             }
         }
+
+        
+
+
+
     }
 }

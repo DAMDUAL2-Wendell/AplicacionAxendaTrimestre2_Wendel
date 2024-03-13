@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="1200"
       Title="PaginaNotas">
 
     <Page.Resources>
@@ -16,7 +16,8 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid>
+    <Grid Width="Auto" Height="Auto">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="33*"/>
             <RowDefinition Height="364*"/>
@@ -27,9 +28,13 @@
             <ColumnDefinition Width="712*"/>
             <ColumnDefinition Width="51*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Notas" Grid.Column="1" Margin="241,26,241,272" Grid.Row="1"/>
-        <DataGrid Name="dataGrid" Grid.Column="1" HorizontalAlignment="Left" Height="205" Margin="31,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        <Button Style="{StaticResource GelButton}" Grid.Column="1" Content="Atras" HorizontalAlignment="Left" Height="21" Margin="597,333,0,0" Grid.Row="1" VerticalAlignment="Top" Width="88" Click="NavegarAtras"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+            <Label Content="Notas"/>
+            <DataGrid Name="dataGrid" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+            <Button Style="{StaticResource GelButton}" Content="Atras" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="88" Click="NavegarAtras"/>
+
+        </StackPanel>
+      
 
     </Grid>
 </Page>

@@ -40,7 +40,13 @@
 
             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
 
-
+                <TextBlock Margin="10" Text="Haz click en un día o selecciona varios días con la tecla shift para realizar la búsqueda de eventos." 
+                   Background="#FFF5CFC1" 
+                   HorizontalAlignment="Center" 
+                   FontSize="25" 
+                   Width="500" 
+                   FontWeight="Bold" 
+                   TextWrapping="Wrap"/>
 
                 <Calendar Style="{StaticResource styleCalendar}" Name="calendar" VerticalAlignment="Center" SelectionMode="MultipleRange"/>
 

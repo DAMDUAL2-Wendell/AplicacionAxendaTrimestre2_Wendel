@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas"
       xmlns:util="clr-namespace:AplicacionAxendaTrimestre2_Wendel.Util"
       mc:Ignorable="d" 
-      d:DesignHeight="650" d:DesignWidth="1250"
+      d:DesignHeight="650" d:DesignWidth="1300"
       Title="PaginaEventos">
 
     <Page.Resources>
@@ -34,11 +34,12 @@
             <util:DateTimeToTimeStringConverter x:Key="DateTimeToTimeStringConverter" />
 
         </ResourceDictionary>
-        
+
     </Page.Resources>
 
- 
+
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="410*"/>
@@ -52,13 +53,21 @@
 
         <Grid Grid.Row="1" Grid.Column="1" Margin="0,50,0,0">
 
- 
 
-            <StackPanel Orientation="Horizontal">
-                
-                <Calendar Style="{StaticResource styleCalendar}"/>
 
-                <StackPanel Orientation="Vertical" Margin="20,50,0,50" Width="620">
+            <StackPanel Orientation="Horizontal" >
+
+                <StackPanel Orientation="Vertical" >
+                    <Label Content="Calendario de eventos" Background="#FFF5CFC1" HorizontalAlignment="Center" FontSize="30" Width="500" FontWeight="Bold"></Label>
+
+                    <Calendar Style="{StaticResource styleCalendar}"/>
+
+                </StackPanel>
+
+
+                <StackPanel Orientation="Vertical" Margin="20,70,0,50" Width="620" Height="432">
+
+
 
                     <!-- Panel Busqueda -->
                     <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,0">
@@ -73,24 +82,24 @@
                             </Grid>
                             <UniformGrid Rows="1" Columns="3">
 
-                            
+
                             </UniformGrid>
                         </StackPanel>
                     </Grid>
 
-                    <DataGrid Name="dataGrid" HorizontalAlignment="Center" VerticalAlignment="Center" Height="300" Width="620" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <DataGrid Name="dataGrid" HorizontalAlignment="Center" Height="246" Width="620" d:ItemsSource="{d:SampleData ItemCount=5}"/>
 
 
 
                     <!-- BOTONES -->
-                    <Grid VerticalAlignment="Center" Margin="0,30,0,0" Height="60">
+                    <Grid Margin="0,30,0,0" Height="60">
                         <UniformGrid Rows="1" Columns="1" HorizontalAlignment="Center">
 
 
                             <!-- Atras -->
                             <Button Name="btnAtras" Height="50" Width="150" Background="#FFB7F5E0" Click="NavegarAtras" HorizontalAlignment="Center">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Image Width="40" Height="40" Source="/UI/Views/Registros/atras.png"></Image>
+                                    <Image Width="35" Height="35" Source="/UI/Views/Registros/atras.png"></Image>
                                     <TextBlock Text="Volver atrás" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                                 </StackPanel>
                             </Button>
@@ -102,11 +111,11 @@
                 </StackPanel>
             </StackPanel>
 
-  
+
 
         </Grid>
-        
-        <Label Grid.Column="1" Content="Eventos" Background="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="68" Margin="277,0,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="498" FontSize="40" FontWeight="Bold"/>
+
+        <Label Grid.Column="1" Content="Eventos" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="68" Grid.RowSpan="2" VerticalAlignment="Top" Width="498" FontSize="50" FontWeight="Bold"/>
 
 
     </Grid>
