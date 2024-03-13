@@ -27,12 +27,42 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     {
         private DataAcceso _dataAccess = AppData.DataAccess;
 
+
+        private Contacto _contactoActual;
+
         public PaginaEventos()
         {
             InitializeComponent();
 
             Loaded += PaginaEventos_Loaded;
         }
+
+        public PaginaEventos(Contacto contacto)
+        {
+            InitializeComponent();
+            _contactoActual = contacto;
+            if(_contactoActual != null)
+            {
+                AsignarListaEventosActualADataGrid();
+            }
+        }
+
+        private void AsignarListaEventosActualADataGrid()
+        {
+            if (_contactoActual != null)
+            {
+                // Obtener los eventos asociados al contacto actual
+                List<Evento> listaEventos = _contactoActual.Eventos;
+                dataGrid.ItemsSource = listaEventos;
+            }
+            else
+            {
+                dataGrid.ItemsSource = new List<Evento>();
+            }
+        }
+
+
+
 
         private async void PaginaEventos_Loaded(object sender, RoutedEventArgs e)
         {
@@ -83,6 +113,16 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         {
             Navegacion.NavegarAtras(NavigationService);
         }
+
+        public static void NavegarPaginaEventos(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaEventos con el contacto actual
+            PaginaEventos paginaEventos = new PaginaEventos(contacto);
+
+            // Navegar a la página PaginaEventos en el NavigationService proporcionado
+            navigationService.Navigate(paginaEventos);
+        }
+
 
 
     }

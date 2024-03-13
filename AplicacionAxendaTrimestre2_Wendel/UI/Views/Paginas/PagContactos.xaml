@@ -30,6 +30,8 @@
 
 
         </ResourceDictionary>
+
+
     </Page.Resources>
 
 
@@ -102,7 +104,7 @@
                             CanUserAddRows="False"
                             ScrollViewer.HorizontalScrollBarVisibility="Visible"
                             ScrollViewer.VerticalScrollBarVisibility="Visible"
-                            CanUserResizeColumns="False">
+                            CanUserResizeColumns="False" SelectionChanged="DataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <!-- Columna de botón para eliminar -->
                         <DataGridTemplateColumn Width="60" Header="Eliminar">
@@ -186,6 +188,33 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+
+                        <!-- Columna de Notas -->
+                        <DataGridTemplateColumn Width="100" Header="Notas">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Button Content="Notas" Tag="{Binding}" Visibility="Hidden" Click="MostrarNotas_Click" />
+                                        <Label Content="Sin notas" Visibility="Visible" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Columna de Eventos -->
+                        <DataGridTemplateColumn Width="100" Header="Eventos">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Button Content="Eventos" Tag="{Binding}" Visibility="Visible" Click="MostrarEventos_Click" />
+                                        <Label Content="Sin eventos" Visibility="Hidden" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
 
                     </DataGrid.Columns>
 

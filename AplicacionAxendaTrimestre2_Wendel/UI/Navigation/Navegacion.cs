@@ -2,6 +2,7 @@
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Main;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros;
+using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             }
         }
 
+        public static void NavegarPaginaNotas(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaNotas con el contacto actual
+            PaginaNotas paginaNotas = new PaginaNotas(contacto);
+
+            // Navegar a la página PaginaNotas en el NavigationService proporcionado
+            navigationService.Navigate(paginaNotas);
+        }
+
+
+        public static void NavegarPaginaEventos(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaEventos con el contacto actual
+            PaginaEventos paginaEventos = new PaginaEventos(contacto);
+
+            // Navegar a la página PaginaNotas en el NavigationService proporcionado
+            navigationService.Navigate(paginaEventos);
+        }
         public static void NavegarPaginaContactos(NavigationService navigationService)
         {
             // Obtener la ventana principal

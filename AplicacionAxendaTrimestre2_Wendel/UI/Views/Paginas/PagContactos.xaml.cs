@@ -40,7 +40,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     {
 
         private DataAcceso _dataAccess = AppData.DataAccess;
-
+        private Contacto _contactoActual;
 
         private SpeechSynthesizer speech = new SpeechSynthesizer();
         private SpeechSynthesizer speech2 = new SpeechSynthesizer();
@@ -49,6 +49,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         public PagContactos()
         {
             InitializeComponent();
+            _contactoActual = null;
 
             Loaded += PagContactos_Loaded;
 
@@ -73,7 +74,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private async Task MostrarContactosAsync()
         {
-            var contactos = await _dataAccess.DbContext.Contactos.Where(c => c != null).ToListAsync();
+            // Obtener todos los contactos de la base de datos, incluyendo las propiedades de navegación relacionadas
+            var contactos = await _dataAccess.DbContext.Contactos
+                                .Include(c => c.Numbers)
+                                .Include(c => c.Emails)
+                                .Include(c => c.Notas)
+                                .Include(c => c.Eventos)
+                                .Where(c => c != null)
+                                .ToListAsync();
+
             dataGrid.ItemsSource = contactos;
 
             // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
@@ -107,6 +116,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             }
         }
+
 
 
 
@@ -377,7 +387,30 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             return null;
         }
 
+        private void MostrarEventos_Click(object sender, RoutedEventArgs e)
+        {
+            if (_contactoActual != null)
+            {
+                Navegacion.NavegarPaginaEventos(NavigationService, _contactoActual);
+            }
+        }
 
+        private void MostrarNotas_Click(object sender, RoutedEventArgs e)
+        {
+            if (_contactoActual != null)
+            {
+                Navegacion.NavegarPaginaNotas(NavigationService, _contactoActual);
+            }
+        }
 
+        private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            // Verificar si se seleccionó un contacto del DataGrid
+            if (dataGrid.SelectedItem != null && dataGrid.SelectedItem is Contacto)
+            {
+                // Asignar el contacto seleccionado a la variable _contactoActual
+                _contactoActual = (Contacto)dataGrid.SelectedItem;
+            }
+        }
     }
 }

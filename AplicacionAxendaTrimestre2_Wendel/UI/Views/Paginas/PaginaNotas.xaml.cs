@@ -4,6 +4,7 @@ using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
     public partial class PaginaNotas : Page
     {
         private DataAcceso _dataAccess = AppData.DataAccess;
-
+        private Contacto _contactoActual;
 
         public PaginaNotas()
         {
@@ -42,6 +43,22 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
 
             AsignarListaADataGrid();
 
+        }
+
+        public PaginaNotas(Contacto c)
+        {
+            _contactoActual = c;
+            if(_contactoActual != null)
+            {
+                AsignarListaEventosActualADataGrid();
+            }
+        }
+
+        private void AsignarListaEventosActualADataGrid()
+        {
+            // Obtener los eventos asociados al contacto actual
+            List<Nota> listaEventos = _contactoActual.Notas;
+            dataGrid.ItemsSource = listaEventos;
         }
 
         private async void AsignarListaADataGrid()
