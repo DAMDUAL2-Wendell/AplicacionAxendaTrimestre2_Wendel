@@ -70,7 +70,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 // Borrar la base de datos
                 _dbContext.Database.EnsureDeleted();
             }
-
+            _dbContext.Database.EnsureDeleted();
             // Nos aseguramos de crear las tablas de la base de datos
             _dbContext.Database.EnsureCreatedAsync().Wait();
         }

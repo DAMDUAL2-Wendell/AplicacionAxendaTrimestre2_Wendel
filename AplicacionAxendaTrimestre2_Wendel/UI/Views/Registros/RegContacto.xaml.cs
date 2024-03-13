@@ -385,5 +385,25 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             Navegacion.NavegarAtras(NavigationService);
         }
 
+
+        // Evento para seleccionar una imagen de un archivo
+        private void SelectImage_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.gif";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                // Obtener la ruta del archivo seleccionado
+                string selectedImagePath = openFileDialog.FileName;
+
+                // Establecer la imagen seleccionada como origen de la imagen
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(selectedImagePath);
+                bitmap.EndInit();
+                contactImage.Source = bitmap;
+            }
+        }
     }
 }

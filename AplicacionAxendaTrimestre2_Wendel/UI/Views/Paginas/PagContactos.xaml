@@ -87,8 +87,8 @@
             </Grid>
 
 
-            <!-- DATAGRID -->
-            <syncfusion:SfDataGrid x:Name="dataGrid"
+                <!-- DATAGRID -->
+                <syncfusion:SfDataGrid x:Name="dataGrid"
                                 Grid.Column="0"
                                 Grid.Row="2"
                                 HorizontalAlignment="Stretch"
@@ -97,70 +97,76 @@
                                 ItemsSource="{Binding Contactos}"
                                 ColumnSizer="Auto"
                                 RowHeight="50"
+                                    MaxHeight="400"
+                                    ScrollMode="Async"
+                                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                    CanMaintainScrollPosition="True"
+                                    ScrollViewer.CanContentScroll="True"
                                    Background="White"
                                 >
-                <syncfusion:SfDataGrid.Columns>
-                    <!-- Columna de botón para eliminar -->
-                    <syncfusion:GridTemplateColumn Width="60" HeaderText="Eliminar">
-                        <syncfusion:GridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Name="btn_Eliminar_Contacto"
+                    <syncfusion:SfDataGrid.Columns>
+                        <!-- Columna de botón para eliminar -->
+                        <syncfusion:GridTemplateColumn Width="60" HeaderText="Eliminar">
+                            <syncfusion:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btn_Eliminar_Contacto"
                                     Height="30"
                                     Width="30"
                                     Margin="0"
                                     Background="Aquamarine"
                                     Click="Eliminar_Click">
-                                    <StackPanel Orientation="Horizontal"
+                                        <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center">
-                                        <Image Width="30"
+                                            <Image Width="30"
                                             Height="30"
                                             Source="/UI/Views/Paginas/borrar.png" />
-                                    </StackPanel>
-                                </Button>
-                            </DataTemplate>
-                        </syncfusion:GridTemplateColumn.CellTemplate>
-                    </syncfusion:GridTemplateColumn>
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </syncfusion:GridTemplateColumn.CellTemplate>
+                        </syncfusion:GridTemplateColumn>
 
-                    <!-- Columna de imagen -->
-                    <syncfusion:GridTemplateColumn Width="60" HeaderText="Imagen">
-                        <syncfusion:GridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="/UI/Views/Paginas/user.png"
+                        <!-- Columna de imagen -->
+                        <syncfusion:GridTemplateColumn Width="60" HeaderText="Imagen">
+                            <syncfusion:GridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="/UI/Views/Paginas/user.png"
                                     Width="50"
                                     Height="50" />
-                            </DataTemplate>
-                        </syncfusion:GridTemplateColumn.CellTemplate>
-                    </syncfusion:GridTemplateColumn>
+                                </DataTemplate>
+                            </syncfusion:GridTemplateColumn.CellTemplate>
+                        </syncfusion:GridTemplateColumn>
 
-                    <!-- Resto de las columnas de datos -->
-                    <syncfusion:GridTextColumn HeaderText="ID"
+                        <!-- Resto de las columnas de datos -->
+                        <syncfusion:GridTextColumn HeaderText="ID"
                                             MappingName="Id" />
-                    <syncfusion:GridTextColumn HeaderText="FirstName"
+                        <syncfusion:GridTextColumn HeaderText="FirstName"
                                             MappingName="FirstName" />
-                    <syncfusion:GridTextColumn HeaderText="LastName"
+                        <syncfusion:GridTextColumn HeaderText="LastName"
                                             MappingName="LastName" />
-                    <syncfusion:GridTextColumn HeaderText="Nickname"
+                        <syncfusion:GridTextColumn HeaderText="Nickname"
                                             MappingName="Nickname" />
-                    <syncfusion:GridTextColumn HeaderText="Email"
+                        <syncfusion:GridTextColumn HeaderText="Email"
                                             MappingName="Email" />
-                    <syncfusion:GridTextColumn HeaderText="Address"
+                        <syncfusion:GridTextColumn HeaderText="Address"
                                             MappingName="Address" />
-                    <syncfusion:GridTextColumn HeaderText="Note"
+                        <syncfusion:GridTextColumn HeaderText="Note"
                                             MappingName="Note" />
-                    <syncfusion:GridTextColumn HeaderText="Age"
+                        <syncfusion:GridTextColumn HeaderText="Age"
                                             MappingName="Age" />
-                    <syncfusion:GridTextColumn HeaderText="BirthDate"
+                        <syncfusion:GridTextColumn HeaderText="BirthDate"
                                             MappingName="BirthDate" />
-                    <syncfusion:GridTextColumn HeaderText="ContactType"
+                        <syncfusion:GridTextColumn HeaderText="ContactType"
                                             MappingName="ContactType" />
-                </syncfusion:SfDataGrid.Columns>
-            </syncfusion:SfDataGrid>
-            <!-- /DATAGRID -->
-
+                    </syncfusion:SfDataGrid.Columns>
+                </syncfusion:SfDataGrid>
+                <!-- /DATAGRID -->
+  
 
             <!-- Botones laterales -->
-            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" VerticalAlignment="Stretch">
+            <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" MinHeight="250" MaxWidth="200" MinWidth="150">
                 <StackPanel.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                         <GradientStop Color="#EFEFEF" Offset="0"/>
@@ -204,7 +210,7 @@
 
             <!-- PIE -->
             <!-- Botones zona Bottom-->
-            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Width="650" HorizontalAlignment="Left">
 
                 <StackPanel Orientation="Vertical">
 

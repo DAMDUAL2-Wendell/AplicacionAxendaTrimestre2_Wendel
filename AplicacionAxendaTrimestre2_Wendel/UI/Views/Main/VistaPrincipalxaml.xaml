@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Main"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
-        Title="Agenda" Height="800" Width="1280">
+        Title="Agenda" Height="800" Width="1500">
 
 
     <Window.Resources>

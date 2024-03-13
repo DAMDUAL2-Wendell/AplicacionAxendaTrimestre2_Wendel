@@ -31,6 +31,7 @@
 	  <None Remove="UI\Views\Paginas\pausa.png" />
 	  <None Remove="UI\Views\Paginas\pdf.jpg" />
 	  <None Remove="UI\Views\Paginas\user.png" />
+	  <None Remove="UI\Views\Registros\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -97,6 +98,7 @@
 	  <Resource Include="UI\Views\Paginas\pausa.png" />
 	  <Resource Include="UI\Views\Paginas\pdf.jpg" />
 	  <Resource Include="UI\Views\Paginas\user.png" />
+	  <Resource Include="UI\Views\Registros\user.png" />
 	</ItemGroup>
 
 </Project>
