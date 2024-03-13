@@ -30,6 +30,7 @@ using Syncfusion.UI.Xaml.Grid;
 using System.Collections;
 
 
+
 namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 {
     /// <summary>
@@ -38,7 +39,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     public partial class PagContactos : Page
     {
 
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
+
 
         private SpeechSynthesizer speech = new SpeechSynthesizer();
         private SpeechSynthesizer speech2 = new SpeechSynthesizer();
@@ -444,26 +446,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void Click_Save_PDF(object sender, RoutedEventArgs e)
         {
-            SaveFiles.SaveToPdfButton_Click(DataGridModificado(), "Contactos");
+            SaveFiles.SaveToPdfButton_Click(dataGrid, "Contactos");
         }
 
         private void Click_Save_EXCEL(object sender, RoutedEventArgs e)
         {
-            SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(DataGridModificado()), "Contactos");
+            SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(dataGrid), "Contactos");
         }
 
         private void Click_Save_HTML(object sender, RoutedEventArgs e)
         {
-            SaveFiles.GuardarFicheroHTML(DataGridModificado(), "Contactos");
+            SaveFiles.GuardarFicheroHTML(dataGrid, "Contactos");
         }
       
         private DataGrid DataGridModificado()
         {
             // Convertir SFDataGrid en DataGrid
-            DataGrid dg = DataGridHelper.ConvertToWpfDataGrid(dataGrid);
+            // DataGrid dg = DataGridHelper.ConvertToWpfDataGrid(dataGrid);
             // Eliminar la primera y segunda fila que es el boton de eliminar y la foto de contacto
-            DataGrid dataGridModificado = DataGridHelper.EliminarEncabezadosPorIndices(dg, new int[] { 0, 1, 2 });
-            return dataGridModificado;
+            //DataGrid dataGridModificado = DataGridHelper.EliminarEncabezadosPorIndices(dg, new int[] { 0, 1, 2 });
+            //return dataGridModificado;
+            return null;
         }
 
 

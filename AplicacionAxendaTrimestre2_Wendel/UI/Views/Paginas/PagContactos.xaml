@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas"
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PagContactos">
@@ -88,81 +89,80 @@
 
 
                 <!-- DATAGRID -->
-                <syncfusion:SfDataGrid x:Name="dataGrid"
-                                Grid.Column="0"
-                                Grid.Row="2"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Top"
-                                AutoGenerateColumns="False"
-                                ItemsSource="{Binding Contactos}"
-                                ColumnSizer="Auto"
-                                RowHeight="50"
-                                    MaxHeight="400"
-                                    ScrollMode="Async"
-                                    ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                                    ScrollViewer.VerticalScrollBarVisibility="Visible"
-                                    CanMaintainScrollPosition="True"
-                                    ScrollViewer.CanContentScroll="True"
-                                   Background="White"
-                                >
-                    <syncfusion:SfDataGrid.Columns>
-                        <!-- Columna de botón para eliminar -->
-                        <syncfusion:GridTemplateColumn Width="60" HeaderText="Eliminar">
-                            <syncfusion:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Name="btn_Eliminar_Contacto"
-                                    Height="30"
-                                    Width="30"
-                                    Margin="0"
-                                    Background="Aquamarine"
-                                    Click="Eliminar_Click">
-                                        <StackPanel Orientation="Horizontal"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center">
-                                            <Image Width="30"
-                                            Height="30"
-                                            Source="/UI/Views/Paginas/borrar.png" />
-                                        </StackPanel>
-                                    </Button>
-                                </DataTemplate>
-                            </syncfusion:GridTemplateColumn.CellTemplate>
-                        </syncfusion:GridTemplateColumn>
+            <DataGrid x:Name="dataGrid"
+          Grid.Column="0"
+          Grid.Row="2"
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Top"
+          AutoGenerateColumns="False"
+          ItemsSource="{Binding Contactos}"
+          RowHeight="50"
+          MaxHeight="400"
+          Background="White"
+          CanUserSortColumns="True"
+                      CanUserAddRows="False"
+          ScrollViewer.HorizontalScrollBarVisibility="Visible"
+          ScrollViewer.VerticalScrollBarVisibility="Visible"
+          CanUserResizeColumns="False">
+                <DataGrid.Columns>
+                    <!-- Columna de botón para eliminar -->
+                    <DataGridTemplateColumn Width="60" Header="Eliminar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="btn_Eliminar_Contacto"
+                            Height="30"
+                            Width="30"
+                            Margin="0"
+                            Background="Aquamarine"
+                            Click="Eliminar_Click">
+                                    <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                                        <Image Width="30"
+                                   Height="30"
+                                   Source="/UI/Views/Paginas/borrar.png" />
+                                    </StackPanel>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                        <!-- Columna de imagen -->
-                        <syncfusion:GridTemplateColumn Width="60" HeaderText="Imagen">
-                            <syncfusion:GridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="/UI/Views/Paginas/user.png"
-                                    Width="50"
-                                    Height="50" />
-                                </DataTemplate>
-                            </syncfusion:GridTemplateColumn.CellTemplate>
-                        </syncfusion:GridTemplateColumn>
+                    <!-- Columna de imagen -->
+                    <DataGridTemplateColumn Width="60" Header="Imagen">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="/UI/Views/Paginas/user.png"
+                           Width="50"
+                           Height="50" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
 
-                        <!-- Resto de las columnas de datos -->
-                        <syncfusion:GridTextColumn HeaderText="ID"
-                                            MappingName="Id" />
-                        <syncfusion:GridTextColumn HeaderText="FirstName"
-                                            MappingName="FirstName" />
-                        <syncfusion:GridTextColumn HeaderText="LastName"
-                                            MappingName="LastName" />
-                        <syncfusion:GridTextColumn HeaderText="Nickname"
-                                            MappingName="Nickname" />
-                        <syncfusion:GridTextColumn HeaderText="Email"
-                                            MappingName="Email" />
-                        <syncfusion:GridTextColumn HeaderText="Address"
-                                            MappingName="Address" />
-                        <syncfusion:GridTextColumn HeaderText="Note"
-                                            MappingName="Note" />
-                        <syncfusion:GridTextColumn HeaderText="Age"
-                                            MappingName="Age" />
-                        <syncfusion:GridTextColumn HeaderText="BirthDate"
-                                            MappingName="BirthDate" />
-                        <syncfusion:GridTextColumn HeaderText="ContactType"
-                                            MappingName="ContactType" />
-                    </syncfusion:SfDataGrid.Columns>
-                </syncfusion:SfDataGrid>
-                <!-- /DATAGRID -->
+                    <!-- Resto de las columnas de datos -->
+                    <DataGridTextColumn Header="ID"
+                            Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="FirstName"
+                            Binding="{Binding FirstName}" />
+                    <DataGridTextColumn Header="LastName"
+                            Binding="{Binding LastName}" />
+                    <DataGridTextColumn Header="Nickname"
+                            Binding="{Binding Nickname}" />
+                    <DataGridTextColumn Header="Email"
+                            Binding="{Binding Email}" />
+                    <DataGridTextColumn Header="Address"
+                            Binding="{Binding Address}" />
+                    <DataGridTextColumn Header="Note"
+                            Binding="{Binding Note}" />
+                    <DataGridTextColumn Header="Age"
+                            Binding="{Binding Age}" />
+                    <DataGridTextColumn Header="BirthDate"
+                            Binding="{Binding BirthDate}" />
+                    <DataGridTextColumn Header="ContactType"
+                            Binding="{Binding ContactType}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- /DATAGRID -->
   
 
             <!-- Botones laterales -->

@@ -10,7 +10,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared
     public static class AppData
     {
 
-        public static DataAccess DataAccess { get; set; }
+        public static DataAcceso DataAccess { get; set; }
 
     }
 }

@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas"
+      xmlns:Reloj="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Reloj"
       xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:util="clr-namespace:AplicacionAxendaTrimestre2_Wendel.Util"
@@ -37,25 +38,8 @@
 
         <StackPanel Orientation="Horizontal" Height="300" VerticalAlignment="Top">
             <Calendar Style="{StaticResource styleCalendar}" Name="calendar" VerticalAlignment="Center" SelectionMode="MultipleRange"/>
-            <!--    
-            <RelojWendel:UserControl1 Width="300" Height="100" Background="#FF64D7FD" Margin="50" BorderThickness="3" BorderBrush="#FF0B05D4" VerticalAlignment="Center" HorizontalAlignment="Center"></RelojWendel:UserControl1>
-            
-            -->
-            <syncfusion:SfDigitalGauge 
-                Margin="0"
-                Height="32"
-                Width="350"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                FontWeight="Bold"
-                FontSize="30"
-                Background="AntiqueWhite"
-                Value="{Binding Source={x:Static sys:DateTime.Now}, 
-                            Converter={StaticResource DateTimeToTimeStringConverter}}"/>
 
-
-
+            <Reloj:Reloj Width="300" Height="100" Background="#FF85DEFB" Margin="50" BorderThickness="3" BorderBrush="White" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"></Reloj:Reloj>
 
         </StackPanel>
 

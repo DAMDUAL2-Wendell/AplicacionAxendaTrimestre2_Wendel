@@ -26,7 +26,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
     public partial class RegistroContacto : Page
     {
 
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
         public RegistroContacto()
         {
             InitializeComponent();

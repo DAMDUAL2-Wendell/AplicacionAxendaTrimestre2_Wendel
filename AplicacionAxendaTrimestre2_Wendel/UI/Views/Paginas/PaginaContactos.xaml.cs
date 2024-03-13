@@ -27,7 +27,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
     /// </summary>
     public partial class PaginaContactos : Page
     {
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
 
         public PaginaContactos()
         {

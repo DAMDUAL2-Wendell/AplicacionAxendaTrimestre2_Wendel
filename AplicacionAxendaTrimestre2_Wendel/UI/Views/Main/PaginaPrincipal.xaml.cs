@@ -183,7 +183,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     // MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }
-            AppData.DataAccess = new DataAccess(STRINGCONEXION);
+            AppData.DataAccess = new DataAcceso(STRINGCONEXION);
         }
 
 
@@ -211,7 +211,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }
-            AppData.DataAccess = new DataAccess(STRINGCONEXION);
+            AppData.DataAccess = new DataAcceso(STRINGCONEXION);
         }
 
         private void ClickMostrarPaginaHome(object sender, RoutedEventArgs e)

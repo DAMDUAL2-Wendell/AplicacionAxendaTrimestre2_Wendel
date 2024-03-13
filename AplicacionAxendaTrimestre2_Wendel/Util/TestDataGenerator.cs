@@ -59,6 +59,50 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
         }
 
 
+        public static List<Contacto> GetContactosPrueba()
+        {
+            // Datos de prueba para los contactos
+            var contactosPrueba = new List<Contacto>
+        {
+            new Contacto
+            {
+                FirstName = "Juan",
+                LastName = "García",
+                Nickname = "Juani",
+                Email = "juani@example.com",
+                Address = "Calle Principal 123",
+                Note = "Amigo de la infancia",
+                Age = 35,
+                BirthDate = new DateTime(1989, 5, 15),
+                ContactType = "Amigo",
+                Numbers = new List<PhoneNumber>
+                {
+                    new PhoneNumber { Number = "123456789" },
+                    new PhoneNumber { Number = "987654321" }
+                }
+            },
+            new Contacto
+            {
+                FirstName = "María",
+                LastName = "López",
+                Nickname = "Mary",
+                Email = "mary@example.com",
+                Address = "Avenida Central 456",
+                Note = "Compañera de trabajo",
+                Age = 30,
+                BirthDate = new DateTime(1992, 8, 25),
+                ContactType = "Colega",
+                Numbers = new List<PhoneNumber>
+                {
+                    new PhoneNumber { Number = "111222333" }
+                }
+            },
+        };
+
+            return contactosPrueba;
+        }
+
+
     }
 }
     

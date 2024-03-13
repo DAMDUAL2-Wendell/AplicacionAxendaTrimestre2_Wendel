@@ -31,7 +31,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private Contacto _ContactoActual;
 
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
 
         // Constructor
         public RegContacto()

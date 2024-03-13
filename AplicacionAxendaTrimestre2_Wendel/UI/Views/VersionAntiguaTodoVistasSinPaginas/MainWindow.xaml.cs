@@ -24,7 +24,7 @@ namespace AplicacionAxendaTrimestre2_Wendel
     public partial class MainWindow : Window
     {
 
-        public DataAccess _dataAccess;
+        public DataAcceso _dataAccess;
 
 
         private string STRINGCONEXION = "";
@@ -78,7 +78,7 @@ namespace AplicacionAxendaTrimestre2_Wendel
                     MessageBox.Show("Se ha cargado la base de datos desde servidor.");
                     break;
             }
-            _dataAccess = new DataAccess(STRINGCONEXION);
+            _dataAccess = new DataAcceso(STRINGCONEXION);
         }
     }
 }

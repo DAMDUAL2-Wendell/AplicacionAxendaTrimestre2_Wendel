@@ -23,9 +23,9 @@ namespace AplicacionAxendaTrimestre2_Wendel
     public partial class Contactos : Window
     {
 
-        private DataAccess _dataAccess;
+        private DataAcceso _dataAccess;
 
-        public Contactos(DataAccess dataAccess)
+        public Contactos(DataAcceso dataAccess)
         {
             InitializeComponent();
 

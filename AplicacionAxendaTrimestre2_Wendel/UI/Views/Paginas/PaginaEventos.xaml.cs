@@ -25,7 +25,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
     /// </summary>
     public partial class PaginaEventos : Page
     {
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
 
         public PaginaEventos()
         {

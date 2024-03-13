@@ -24,7 +24,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
     /// </summary>
     public partial class PaginaNotas : Page
     {
-        private DataAccess _dataAccess = AppData.DataAccess;
+        private DataAcceso _dataAccess = AppData.DataAccess;
 
 
         public PaginaNotas()

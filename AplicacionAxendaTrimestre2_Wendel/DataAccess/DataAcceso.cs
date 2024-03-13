@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 {
-    public class DataAccess : IDisposable
+    public class DataAcceso : IDisposable
     {
         public static MyDbContext _dbContext;
 
@@ -28,7 +28,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             return _dbContext;
         }
 
-        public DataAccess(String conexion)
+        public DataAcceso(String conexion)
         {
 
             // Verificar si la base de datos es en memoria
