@@ -1,0 +1,83 @@
+﻿<Page x:Class="AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros.RegEvento"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros"
+      mc:Ignorable="d" 
+      d:DesignHeight="630" d:DesignWidth="1250"
+      Title="RegEvento" FontFamily="Roboto">
+
+    <Page.Resources>
+        <!-- Recursos y estilos -->
+    </Page.Resources>
+
+    <Grid Background="White" Margin="10" Width="1230">
+        <!-- Titulo -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,10,10,10">
+            <Label Background="#FFCBFFEE" Name="labelTitle" Content="Pagina de registro de eventos" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Caladea" FontWeight="Bold" />
+        </StackPanel>
+
+        <!-- Contenedor para los datos del evento -->
+        <StackPanel Margin="0,100,0,100" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="400" HorizontalAlignment="Center">
+            <!-- Titulo de los datos del evento -->
+            <Label Content="Datos de Evento" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+
+            <!-- Campos del evento -->
+            <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Titulo:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Name="tb_Titulo" Width="240" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Descripción:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                <TextBox Name="tb_Descripcion" Width="240" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Fecha de inicio:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                <DatePicker Name="dp_FechaInicio" Width="230" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Fecha de fin:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                <DatePicker Name="dp_FechaFin" Width="230" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <!-- Campo de búsqueda de contacto -->
+            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Buscar Contacto:" MinWidth="90" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Name="tb_SearchContact" Width="250" HorizontalAlignment="Left" TextChanged="Tb_SearchContact_TextChanged"/>
+            </DockPanel>
+
+            <DockPanel>
+                <!-- Resultados de búsqueda de contactos -->
+                <ListBox Name="lb_ContactResults" MaxHeight="150" HorizontalAlignment="Center" Margin="0,10,0,20">
+                    <!-- Elementos de la lista -->
+                </ListBox>
+            </DockPanel>
+
+            <!-- Botones -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Margin="10" Width="Auto">
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
+                    <!-- Botones de registro y cancelación -->
+                    <Button Name="btnRegistrarEvento" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarEvento_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Button>
+                </UniformGrid>
+            </StackPanel>
+
+        </StackPanel>
+
+       
+
+       
+    </Grid>
+</Page>
