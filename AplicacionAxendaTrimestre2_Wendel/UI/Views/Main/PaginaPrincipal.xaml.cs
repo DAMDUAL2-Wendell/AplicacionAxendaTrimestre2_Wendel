@@ -4,7 +4,6 @@ using AplicacionAxendaTrimestre2_Wendel.Models;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
 using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
-using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
 using AplicacionAxendaTrimestre2_Wendel.Util;
 using Microsoft.EntityFrameworkCore;

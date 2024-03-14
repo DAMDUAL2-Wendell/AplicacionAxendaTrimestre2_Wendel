@@ -43,7 +43,14 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             if(_contactoActual != null)
             {
                 AsignarListaEventosActualADataGrid();
+                labelTitulo.Content += " de " + _contactoActual.FirstName;
+                btnAgregarEvento.Visibility = Visibility.Visible;
             }
+        }
+
+        private void Click_AgregarEvento(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarARegistroEvento(NavigationService, _contactoActual);
         }
 
         public DataGrid GetDataGrid()
@@ -138,16 +145,35 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                             MessageBox.Show("borrando evento contactoactual:"
                                 + _contactoActual + "evneto:" + evento.Descripcion);
                             _contactoActual.Eventos.Remove(evento);
+
+                            // Eliminar el evento de la base de datos
+                            _dataAccess.DbContext.ListaEventos.Remove(evento);
+
+                            // Guardar los cambios en la base de datos
+                            await _dataAccess.DbContext.SaveChangesAsync();
+
+                            // Eliminar el evento del dataGrid
+                            if (dataGrid.ItemsSource is IList<Evento> eventos)
+                            {
+                                eventos.Remove(evento);
+                                dataGrid.ItemsSource = null;
+                                dataGrid.ItemsSource = eventos;
+                            }
+                        }
+                        else
+                        {
+                            // Eliminar evento de la base de datos
+                            await _dataAccess.DbContext.EliminarEventoPorIdAsync(evento.Id);
+                            // Eliminar el evento del dataGrid
+                            if (dataGrid.ItemsSource is IList<Evento> eventos)
+                            {
+                                eventos.Remove(evento);
+                                dataGrid.ItemsSource = null;
+                                dataGrid.ItemsSource = eventos;
+                            }
                         }
 
-                        // Eliminar el evento de la base de datos
-                        _dataAccess.DbContext.ListaEventos.Remove(evento);
-
-                        // Guardar los cambios en la base de datos
-                        await _dataAccess.DbContext.SaveChangesAsync();
-
-                        // Actualizar el DataGrid de eventos
-                        await ActualizarDataGridEventosAsync();
+                       
                     }
                     catch (Exception ex)
                     {

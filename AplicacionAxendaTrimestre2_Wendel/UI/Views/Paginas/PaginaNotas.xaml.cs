@@ -1,103 +1,205 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
+using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones
+namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 {
-    /// <summary>
-    /// Lógica de interacción para PaginaNotas.xaml
-    /// </summary>
     public partial class PaginaNotas : Page
     {
         private DataAcceso _dataAccess = AppData.DataAccess;
+
         private Contacto _contactoActual;
 
         public PaginaNotas()
         {
             InitializeComponent();
-
-            Nota notaPrueba = new Nota();
-            notaPrueba.Titulo = "Nota de prueba";
-            notaPrueba.Descripcion = "Contenido de prueba";
-
-            if (_dataAccess != null)
-            {
-                AsignarListaADataGrid();
-            }
-
-            AsignarListaADataGrid();
+            Loaded += PaginaNotas_Loaded;
 
         }
 
-        public PaginaNotas(Contacto c)
+        public PaginaNotas(Contacto contacto)
         {
             InitializeComponent();
-            _contactoActual = c;
-            if(_contactoActual != null)
+            _contactoActual = contacto;
+            if (_contactoActual != null)
             {
-                AsignarListaEventosActualADataGrid();
+                AsignarListaNotasActualADataGrid();
+                labelTitle.Content += " de " + _contactoActual.FirstName;
+                btnAgregarNota.Visibility = Visibility.Visible;
             }
         }
 
-        private void AsignarListaEventosActualADataGrid()
+        public DataGrid GetDataGrid()
         {
-            // Obtener los eventos asociados al contacto actual
-            List<Nota> listaEventos = _contactoActual.Notas;
-            dataGrid.ItemsSource = listaEventos;
+            return dataGridNotes;
         }
 
-        private async void AsignarListaADataGrid()
+        public TextBox GetTextBoxFindNote()
         {
-            //var lista = DataAccess.DbContext.Notas.ToListAsync();
-            
-            //List<Nota> listaNotas = lista;
-            //dataGrid.ItemsSource = listaNotas;
+            return tb_FindNote;
         }
 
-        public async Task<List<Nota>> ObtenerListaNotasAsync(int contactoId)
+        public async void AsignarListaNotasActualADataGrid()
         {
-            // Obtener el contacto por su ID
-            Contacto contacto = await _dataAccess.DbContext.Contactos
-                                        // Incluir la lista de notas del contacto
-                                        .Include(c => c.Notas)
-                                        .FirstOrDefaultAsync(c => c.Id == contactoId);
-
-            if (contacto != null)
+            if (_contactoActual != null)
             {
-                // Devolver la lista de notas del contacto
-                return contacto.Notas;
+                // Obtener las notas asociadas al contacto actual
+                List<Nota> listaNotas = _contactoActual.Notas;
+                dataGridNotes.ItemsSource = listaNotas;
             }
             else
             {
-                // Si el contacto no se encuentra, devolver una lista vacía
-                return new List<Nota>();
+                dataGridNotes.ItemsSource = new List<Nota>();
+            }
+        }
+
+        private async void PaginaNotas_Loaded(object sender, RoutedEventArgs e)
+        {
+            await AsignarListaADataGrid();
+        }
+
+        public async Task AsignarListaADataGrid()
+        {
+            List<Nota> listaNotas = await _dataAccess.DbContext.ObtenerListaNotasAsync();
+            dataGridNotes.ItemsSource = listaNotas;
+        }
+
+        public async void Tb_FindNote_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = tb_FindNote.Text.Trim().ToLower();
+
+            // Obtener todas las notas de la base de datos
+            var allNotes = await _dataAccess.DbContext.ObtenerListaNotasAsync();
+
+            // Filtrar las notas en memoria
+            var filteredNotes = allNotes
+                .Where(note => note.Id.ToString().Contains(searchText) ||
+                                note.Titulo.ToLower().Contains(searchText) ||
+                                note.Descripcion.ToLower().Contains(searchText) ||
+                                note.Contacto.FirstName.ToLower().Contains(searchText) ||
+                                note.Contacto.LastName.ToLower().Contains(searchText) ||
+                                note.Contacto.Nickname.ToLower().Contains(searchText) ||
+                                note.Contacto.Emails.Any(em => em.Address.ToLower().Contains(searchText)) ||
+                                note.Contacto.Address.ToLower().Contains(searchText) ||
+                                note.Contacto.Age.ToString().Contains(searchText) ||
+                                (note.Contacto.BirthDate != null && note.Contacto.BirthDate.Value.ToString().Contains(searchText)) ||
+                                note.Contacto.ContactType.ToLower().Contains(searchText) ||
+                                note.Contacto.Numbers.Any(num => num.Number.ToLower().Contains(searchText)))
+                .ToList();
+
+            // Actualizar el DataGrid con las notas filtradas
+            dataGridNotes.ItemsSource = filteredNotes;
+        }
+
+        private async void EliminarNota_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener el botón que desencadenó el evento
+            Button btn = sender as Button;
+
+            // Obtener la nota asociada al botón
+            Nota nota = btn.Tag as Nota;
+
+            if (nota != null)
+            {
+                MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar la nota " + nota.Titulo +
+                    "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        // Verificar si hay un contacto asociado a la nota y eliminar la nota de su lista de notas
+                        if (_contactoActual != null)
+                        {
+                            MessageBox.Show("Borrando nota del contacto actual:"
+                                + _contactoActual + ", Nota: " + nota.Descripcion);
+                            _contactoActual.Notas.Remove(nota);
+
+                            // Eliminar la nota de la base de datos
+                            _dataAccess.DbContext.listaNotas.Remove(nota);
+
+                            // Guardar los cambios en la base de datos
+                            await _dataAccess.DbContext.SaveChangesAsync();
+
+                            // Eliminar la nota del DataGrid
+                            if (dataGridNotes.ItemsSource is IList<Nota> notas)
+                            {
+                                notas.Remove(nota);
+                                dataGridNotes.ItemsSource = null;
+                                dataGridNotes.ItemsSource = notas;
+                            }
+                        }
+                        else
+                        {
+                            // Eliminar la nota de la base de datos
+                            await _dataAccess.DbContext.EliminarNotaPorIdAsync(nota.Id);
+
+                            // Eliminar la nota del DataGrid
+                            if (dataGridNotes.ItemsSource is IList<Nota> notas)
+                            {
+                                notas.Remove(nota);
+                                dataGridNotes.ItemsSource = null;
+                                dataGridNotes.ItemsSource = notas;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al intentar eliminar la nota: " + ex.Message,
+                            "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("La nota es nula.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
 
+        private async Task ActualizarDataGridNotasAsync()
+        {
+            try
+            {
+                // Obtener la lista actualizada de notas desde la base de datos
+                List<Nota> notas = await _dataAccess.DbContext.ObtenerListaNotasAsync();
+
+                // Asignar la lista de notas al DataGrid
+                dataGridNotes.ItemsSource = notas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el DataGrid de notas: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Click_AgregarNota(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarARegistroNota(NavigationService, _contactoActual);
+        }
+
+        /* ------------       NAVEGACION     ------------------*/
 
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
+            Navegacion.NavegarAtras(NavigationService);
+        }
+
+        public static void NavegarPaginaNotas(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaNotas con el contacto actual
+            PaginaNotas paginaNotas = new PaginaNotas(contacto);
+
+            // Navegar a la página PaginaNotas en el NavigationService proporcionado
+            navigationService.Navigate(paginaNotas);
         }
     }
 }

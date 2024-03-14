@@ -41,7 +41,11 @@
 	  <None Remove="UI\Views\Paginas\pdf.jpg" />
 	  <None Remove="UI\Views\Paginas\top-view-pen-notebook-written-600nw-2271882733.webp" />
 	  <None Remove="UI\Views\Paginas\user.png" />
+	  <None Remove="UI\Views\Registros\aceptar.png" />
+	  <None Remove="UI\Views\Registros\agregarEvento.png" />
+	  <None Remove="UI\Views\Registros\agregarNota.png" />
 	  <None Remove="UI\Views\Registros\atras.png" />
+	  <None Remove="UI\Views\Registros\cancelar.png" />
 	  <None Remove="UI\Views\Registros\edicion-de-imagen.png" />
 	  <None Remove="UI\Views\Registros\evento.png" />
 	  <None Remove="UI\Views\Registros\nota.png" />
@@ -120,7 +124,11 @@
 	  <Resource Include="UI\Views\Paginas\pdf.jpg" />
 	  <Resource Include="UI\Views\Paginas\top-view-pen-notebook-written-600nw-2271882733.webp" />
 	  <Resource Include="UI\Views\Paginas\user.png" />
+	  <Resource Include="UI\Views\Registros\aceptar.png" />
+	  <Resource Include="UI\Views\Registros\agregarEvento.png" />
+	  <Resource Include="UI\Views\Registros\agregarNota.png" />
 	  <Resource Include="UI\Views\Registros\atras.png" />
+	  <Resource Include="UI\Views\Registros\cancelar.png" />
 	  <Resource Include="UI\Views\Registros\edicion-de-imagen.png" />
 	  <Resource Include="UI\Views\Registros\evento.png" />
 	  <Resource Include="UI\Views\Registros\nota.png" />

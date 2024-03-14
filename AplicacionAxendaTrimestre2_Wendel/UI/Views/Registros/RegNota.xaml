@@ -5,10 +5,57 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="RegNota">
+      d:DesignHeight="630" d:DesignWidth="1250"
+      Title="RegNota" FontFamily="Roboto">
 
-    <Grid>
-        
+    <Page.Resources>
+        <!-- Recursos y estilos -->
+    </Page.Resources>
+
+    <Grid Background="White" Margin="10" Width="1230">
+        <!-- Titulo -->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10,10,10,10">
+            <Label Background="#FFCBFFEE" Name="labelTitle" Content="Página de registro de notas" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" FontFamily="Caladea" FontWeight="Bold" />
+        </StackPanel>
+
+        <!-- Contenedor para los datos de la nota -->
+        <StackPanel Margin="0,100,0,100" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="400" HorizontalAlignment="Center">
+            <!-- Titulo de los datos de la nota -->
+            <Label Content="Datos de la Nota" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+
+            <!-- Campos de la nota -->
+            <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Título:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Name="tb_Titulo" Width="240" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                <TextBlock Text="Descripción:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                <TextBox Name="tb_Descripcion" Width="240" HorizontalAlignment="Left"/>
+            </DockPanel>
+
+            <!-- Mostrar información del contacto si existe -->
+            <DockPanel>
+                <Label Name="lblContacto" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Datos del Contacto no disponibles">
+                </Label>
+            </DockPanel>
+
+            <!-- Botones -->
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Margin="10" Width="Auto">
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
+                    <!-- Botones de registro y cancelación -->
+                    <Button Name="btnRegistrarNota" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarNota_Click" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </Button>
+                </UniformGrid>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

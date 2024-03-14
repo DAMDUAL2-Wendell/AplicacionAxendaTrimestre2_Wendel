@@ -54,50 +54,53 @@
 
                 <Label Content="   Foto de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
 
-                <Image Name="contactImage" Source="/UI/Views/Registros/user.png" Width="150" Height="150" Margin="0,10,0,0" />
+                <Image Name="contactImage" Source="/UI/Views/Registros/user.png" Width="150" Height="150" Margin="0,5,0,0" />
 
-                <Button Height="50" Width="150" Background="Aquamarine" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button Height="50" Width="150" Background="Aquamarine" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,10,0,0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Image Width="40" Height="40" Source="/UI/Views/Registros/edicion-de-imagen.png"></Image>
                         <TextBlock Text="Seleccionar imagen" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                     </StackPanel>
                 </Button>
 
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,0,0,0">
+                <Label Content="   Consultar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,10,0,0">
 
                     <!-- Consultar Eventos -->
-                    <Button Name="btnConsultarEventos" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="MostrarEventos_Click" >
+                    <Button Name="btnConsultarEventos" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="MostrarEventos_Click" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                            <Image Width="30" Height="30" Source="/UI/Views/Registros/evento.png"></Image>
                             <TextBlock Text="Consultar Eventos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
 
                     <!-- Consultar Notas -->
-                    <Button Name="btnConsultarNotas" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0"  Click="MostrarNotas_Click">
+                    <Button Name="btnConsultarNotas" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0"  Click="MostrarNotas_Click">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                            <Image Width="30" Height="30" Source="/UI/Views/Registros/nota.png"></Image>
                             <TextBlock Text="Consultar Notas" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
 
                 </UniformGrid>
 
+                <Label Content="   Agregar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
 
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,100,0,0">
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,10,0,0">
 
                     <!-- Agregar Evento -->
-                    <Button Name="btnAgregarEvento" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
+                    <Button Name="btnAgregarEvento" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                            <Image Width="30" Height="30" Source="/UI/Views/Registros/agregarEvento.png"></Image>
                             <TextBlock Text="Agregar evento" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
 
                     <!-- Agregar Nota -->
-                    <Button Name="btnAgregarNota" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota">
+                    <Button Name="btnAgregarNota" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                            <Image Width="30" Height="30" Source="/UI/Views/Registros/agregarNota.png"></Image>
                             <TextBlock Text="Agregar nota" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
@@ -182,8 +185,8 @@
                             </ListBox>
                             <StackPanel>
                                 <TextBox Name="tb_Number" Tag="Number" Width="250" Height="30"/>
-                                <Button Name="btn_AddNumber" Content="Agregar Número" Click="Btn_AddNumber_Click" Margin="15 10"/>
-                                <Button Name="btn_DeleteNumber" Content="Eliminar Número Seleccionado" Click="Btn_DeleteNumber_Click" Margin="15 5"/>
+                                <Button Name="btn_AddNumber" Height="20" Content="Agregar Número" Click="Btn_AddNumber_Click" Margin="15 10"/>
+                                <Button Name="btn_DeleteNumber" Height="20" Content="Eliminar Número Seleccionado" Click="Btn_DeleteNumber_Click" Margin="15 5"/>
                             </StackPanel>
                         </StackPanel>
                     </GroupBox>

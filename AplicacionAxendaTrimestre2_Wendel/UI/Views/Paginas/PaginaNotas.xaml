@@ -1,11 +1,12 @@
-﻿<Page x:Class="AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones.PaginaNotas"
+﻿<Page x:Class="AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas.PaginaNotas"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones"
+      xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas"
+      xmlns:util="clr-namespace:AplicacionAxendaTrimestre2_Wendel.Util"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="1200"
+      d:DesignHeight="650" d:DesignWidth="1300"
       Title="PaginaNotas">
 
     <Page.Resources>
@@ -16,25 +17,96 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Width="Auto" Height="Auto">
-
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="33*"/>
-            <RowDefinition Height="364*"/>
-            <RowDefinition Height="37*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="410*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="712*"/>
-            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="760*"/>
+            <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
-            <Label Content="Notas"/>
-            <DataGrid Name="dataGrid" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="642" d:ItemsSource="{d:SampleData ItemCount=5}"/>
-            <Button Style="{StaticResource GelButton}" Content="Atras" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="88" Click="NavegarAtras"/>
 
-        </StackPanel>
-      
+        <Grid Grid.Row="1" Grid.Column="1" Margin="0,50,0,0">
 
+            <StackPanel Orientation="Vertical" Margin="0,70,0,50" Width="800" Height="432">
+                <!-- Panel Busqueda -->
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="20,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Width="300">
+                            <StackPanel Orientation="Horizontal">
+                                <!-- Label -->
+                                <Label Content="Buscar: " Background="LightGray" Height="50" Width="70" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                                <!-- Búsqueda -->
+                                <TextBox x:Name="tb_FindNote" Tag="Search" Width="250" Height="50" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" TextChanged="Tb_FindNote_TextChanged"/>
+                            </StackPanel>
+                        </Grid>
+                        <UniformGrid Rows="1" Columns="3">
+                            <!-- Agregar aquí cualquier otro control de búsqueda si es necesario -->
+                        </UniformGrid>
+                    </StackPanel>
+                </Grid>
+
+                <!-- DataGrid para mostrar las notas -->
+                <DataGrid Name="dataGridNotes" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760">
+                    <DataGrid.Columns>
+                       
+                        <!-- Columna de botón para eliminar la nota -->
+                        <DataGridTemplateColumn Header="Del" Width="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Name="btnDeleteNote"
+                                            Height="30"
+                                            Width="30"
+                                            Margin="0"
+                                            Background="Aquamarine"
+                                            Click="EliminarNota_Click"
+                                            Tag="{Binding}">
+                                        <Image Width="25" Height="25" Source="/UI/Views/Paginas/eliminarNota.png"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Columna de título de la nota -->
+                        <DataGridTextColumn Header="Título" Binding="{Binding Titulo}" Width="*"/>
+                        <!-- Columna de descripción de la nota -->
+                        <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!-- Botones -->
+                <Grid Margin="0,30,0,0" Height="60">
+                    <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
+
+                        <!-- Agregar Nota -->
+                        <Button Name="btnAgregarNota" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota" Visibility="Hidden">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                                <TextBlock Text="Agregar nota" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                        
+                        
+                        <!-- Botón para regresar -->
+                        <Button Name="btnBack" Height="50" Width="150" Background="#FFB7F5E0" Click="NavegarAtras" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="35" Height="35" Source="/UI/Views/Registros/atras.png"/>
+                                <TextBlock Text="Volver atrás" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Button>
+
+                        
+                    </UniformGrid>
+                </Grid>
+            </StackPanel>
+
+        </Grid>
+
+        <!-- Etiqueta de título -->
+        <Label Name="labelTitle" Grid.Column="1" Content="Notas" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="68" Grid.RowSpan="2" VerticalAlignment="Top" Width="498" FontSize="50" FontWeight="Bold"/>
     </Grid>
 </Page>

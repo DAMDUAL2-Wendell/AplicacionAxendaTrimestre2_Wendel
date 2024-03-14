@@ -2,7 +2,6 @@
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Main;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros;
-using AplicacionAxendaTrimestre2_Wendel.UI.Views.Secciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;

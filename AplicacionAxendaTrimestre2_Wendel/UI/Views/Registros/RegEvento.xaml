@@ -53,17 +53,25 @@
 
 
             <!-- Botones -->
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Margin="10" Width="Auto">
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="80" Margin="10" Width="400">
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <!-- Botones de registro y cancelación -->
-                    <Button Name="btnRegistrarEvento" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarEvento_Click" >
+
+                    <!-- Registrar -->
+                    <Button Name="btnRegistrarEvento" Height="50" Width="150" Background="Aquamarine" Click="RegistrarEvento_Click" HorizontalAlignment="Center" Margin="0,0,20,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                            <Image Width="35" Height="35" Source="/UI/Views/Registros/aceptar.png"></Image>
+                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click" >
+
+
+
+                    <!-- Cancelar -->
+                    <Button Name="btnCancelar" Height="50" Width="150" Background="Aquamarine" Click="Cancelar_Click" HorizontalAlignment="Center" Margin="20,0,0,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
+                            <Image Width="35" Height="35" Source="/UI/Views/Registros/cancelar.png"></Image>
+                            <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
                 </UniformGrid>

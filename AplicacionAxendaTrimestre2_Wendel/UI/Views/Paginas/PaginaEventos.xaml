@@ -20,7 +20,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Calendar}">
-                            <Viewbox Height="450">
+                            <Viewbox Height="350">
                                 <CalendarItem x:Name="PART_CalendarItem"
                                              Background="{TemplateBinding Background}"
                                              BorderBrush="{TemplateBinding BorderBrush}"
@@ -58,19 +58,19 @@
             <StackPanel Orientation="Horizontal" >
 
                 <StackPanel Orientation="Vertical" >
-                    <Label Content="Calendario de eventos" Background="#FFF5CFC1" HorizontalAlignment="Center" FontSize="30" Width="500" FontWeight="Bold"></Label>
+                    <Label Content="Calendario de eventos" Background="#FFF5CFC1" HorizontalAlignment="Center" FontSize="30" Width="370" FontWeight="Bold"></Label>
 
                     <Calendar Style="{StaticResource styleCalendar}"/>
 
                 </StackPanel>
 
 
-                <StackPanel Orientation="Vertical" Margin="20,70,0,50" Width="620" Height="432">
+                <StackPanel Orientation="Vertical" Margin="0,70,0,50" Width="800" Height="432">
 
 
 
                     <!-- Panel Busqueda -->
-                    <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,0">
+                    <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="20,0,0,0">
                         <StackPanel Orientation="Horizontal">
                             <Grid Width="300">
                                 <StackPanel Orientation="Horizontal">
@@ -86,7 +86,8 @@
                             </UniformGrid>
                         </StackPanel>
                     </Grid>
-                    <DataGrid Name="dataGrid" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="620" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    
+                    <DataGrid Name="dataGrid" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}">
                         <DataGrid.Columns>
                             <!-- Columna de botón para eliminar -->
                             <DataGridTemplateColumn Width="60" Header="Del">
@@ -118,8 +119,16 @@
 
                     <!-- BOTONES -->
                     <Grid Margin="0,30,0,0" Height="60">
-                        <UniformGrid Rows="1" Columns="1" HorizontalAlignment="Center">
+                        <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
 
+
+                            <!-- Agregar Evento -->
+                            <Button Name="btnAgregarEvento" Visibility="Hidden" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                                    <TextBlock Text="Agregar evento" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                                </StackPanel>
+                            </Button>
 
                             <!-- Atras -->
                             <Button Name="btnAtras" Height="50" Width="150" Background="#FFB7F5E0" Click="NavegarAtras" HorizontalAlignment="Center">
@@ -140,7 +149,7 @@
 
         </Grid>
 
-        <Label Grid.Column="1" Content="Eventos" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="68" Grid.RowSpan="2" VerticalAlignment="Top" Width="498" FontSize="50" FontWeight="Bold"/>
+        <Label Name="labelTitulo" Grid.Column="1" Content="Eventos" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="68" Grid.RowSpan="2" VerticalAlignment="Top" Width="498" FontSize="50" FontWeight="Bold"/>
 
 
     </Grid>

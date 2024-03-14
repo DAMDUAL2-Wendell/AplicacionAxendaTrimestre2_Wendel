@@ -174,6 +174,53 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             return todasLasNotas;
         }
 
+        public async Task EliminarEventoPorIdAsync(int eventoId)
+        {
+            // Buscar el evento por su ID en la lista de eventos de cada contacto
+            var contactosConEvento = await Contactos
+                .Include(c => c.Eventos)
+                .Where(c => c.Eventos.Any(e => e.Id == eventoId))
+                .ToListAsync();
+
+            // Recorrer cada contacto que tenga el evento y eliminarlo de su lista de eventos
+            foreach (var contacto in contactosConEvento)
+            {
+                var evento = contacto.Eventos.FirstOrDefault(e => e.Id == eventoId);
+                if (evento != null)
+                {
+                    contacto.Eventos.Remove(evento);
+                }
+            }
+
+            // Guardar los cambios en la base de datos
+            await SaveChangesAsync();
+        }
+
+        public async Task EliminarNotaPorIdAsync(int notaId)
+        {
+            // Buscar la nota por su ID en la lista de notas de cada contacto
+            var contactosConNota = await Contactos
+                .Include(c => c.Notas)
+                .Where(c => c.Notas.Any(n => n.Id == notaId))
+                .ToListAsync();
+
+            // Recorrer cada contacto que tenga la nota y eliminarla de su lista de notas
+            foreach (var contacto in contactosConNota)
+            {
+                var nota = contacto.Notas.FirstOrDefault(n => n.Id == notaId);
+                if (nota != null)
+                {
+                    contacto.Notas.Remove(nota);
+                }
+            }
+
+            // Guardar los cambios en la base de datos
+            await SaveChangesAsync();
+        }
+
+
+
+
 
     }
 
