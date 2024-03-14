@@ -16,6 +16,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ControlzEx.Theming;
 using MahApps.Metro.Controls;
+using System.Diagnostics;
+using System.IO;
+
+
+
 
 namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 {
@@ -142,8 +147,91 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             }
         }
 
+        // Método para abrir el Manual de Instalación
+        private void AbrirManualInstalacion_Click(object sender, RoutedEventArgs e)
+        {
+            string rutaManual = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualInstalacion.pdf";
+            AbrirManual(rutaManual);
+        }
+
+        // Método para abrir el Manual de Usuario
+        private void AbrirManualUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            string rutaManual = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualUsuario.pdf";
+            AbrirManual(rutaManual);
+        }
+
+        // Método para abrir el manual en la ruta especificada
+        private void AbrirManual(string ruta)
+        {
+            try
+            {
+                Process.Start(ruta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al abrir el manual: " + ex.Message);
+            }
+        }
+
+        // Método para abrir la ayuda
+        private void HelpClickChm(object sender, RoutedEventArgs e)
+        {
+            string helpFileName = bingPathToAppDir(@"Recursos\Help\help.chm");
+            try
+            {
+                if (System.IO.File.Exists(helpFileName))
+                {
+                    //Help.ShowHelp(null, helpFileName);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Fichero de ayuda no encontrado");
+                }
+            }
+            catch (Exception ex) { System.Windows.MessageBox.Show("Error al abrir la ayuda."); };
+        }
+
+        // Método para abrir un documento PDF de ayuda con el programa Internet Explorer.
+        private void HelpClickPdf(object sender, RoutedEventArgs e)
+        {
+            string helpFileName = bingPathToAppDir(@"Manuales\ManualUsuario.pdf");
+
+            try
+            {
+                if (System.IO.File.Exists(helpFileName))
+                {
+                    Process.Start(@"C:\Program Files\Internet Explorer\iexplore.exe", helpFileName);
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Fichero de ayuda no encontrado");
+                }
+            }
+            catch (Exception ex) { System.Windows.MessageBox.Show("Error al abrir la ayuda." + ex.Message); };
+
+        }
+
+        // Método que devuelve la ruta donde está el proyecto + la ruta que se le pasa como parámetro.
+        public static string bingPathToAppDir(string localPath)
+        {
+            string currentDir = Environment.CurrentDirectory;
+            DirectoryInfo directory = new DirectoryInfo(
+                System.IO.Path.GetFullPath(System.IO.Path.Combine(currentDir, @"..\..\..\" + localPath)));
+            return directory.ToString();
+        }
 
 
 
+        // Método para manejar el evento KeyDown (tecla F1)
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+            if (e.Key == Key.F1)
+            {
+                string rutaManualUsuario = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualUsuario.pdf";
+                AbrirManual(rutaManualUsuario);
+            }
+        }
     }
 }

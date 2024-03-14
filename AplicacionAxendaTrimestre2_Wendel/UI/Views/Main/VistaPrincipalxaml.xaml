@@ -7,6 +7,7 @@
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         mc:Ignorable="d"
+                 ResizeMode="NoResize"
         Title="Agenda" Height="850" Width="1200">
 
 
@@ -77,6 +78,14 @@
                 <MenuItem Header="Boton1.1"></MenuItem>
             </MenuItem>
             <MenuItem Header="Boton2"></MenuItem>
+
+            <!-- Manuales -->
+            <MenuItem Header="Manuales">
+                <!-- Opción para abrir el Manual de Instalación -->
+                <MenuItem Header="Manual de Instalación" Click="AbrirManualInstalacion_Click" />
+                <!-- Opción para abrir el Manual de Usuario -->
+                <MenuItem Header="Manual de Usuario" Click="AbrirManualUsuario_Click" />
+            </MenuItem>
 
             <MenuItem Header="Tema">
                 <!-- ComboBox para seleccionar el tema base -->
