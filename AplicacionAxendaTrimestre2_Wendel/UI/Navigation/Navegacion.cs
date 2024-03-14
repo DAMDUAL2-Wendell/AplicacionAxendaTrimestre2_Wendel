@@ -70,6 +70,25 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             navigationService.Navigate(paginaNotas);
         }
 
+        public static void NavegarARegistroEvento(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaNotas con el contacto actual
+            RegEvento paginaRegEvento = new RegEvento(contacto);
+
+            // Navegar a la página PaginaNotas en el NavigationService proporcionado
+            navigationService.Navigate(paginaRegEvento);
+        }
+
+        public static void NavegarARegistroNota(NavigationService navigationService, Contacto contacto)
+        {
+            // Crear una instancia de la página PaginaNotas con el contacto actual
+            RegNota paginaRegistroNotas = new RegNota(contacto);
+
+            // Navegar a la página PaginaNotas en el NavigationService proporcionado
+            navigationService.Navigate(paginaRegistroNotas);
+        }
+
+
 
         public static void NavegarPaginaEventos(NavigationService navigationService, Contacto contacto)
         {

@@ -116,6 +116,72 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             dataGrid.ItemsSource = filteredEvents;
         }
 
+        private async void EliminarEvento_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener el botón que desencadenó el evento
+            Button btn = sender as Button;
+
+            // Obtener el evento asociado al botón
+            Evento evento = btn.Tag as Evento;
+
+            if (evento != null)
+            {
+                MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar el evento " + evento.Titulo +
+                    "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        // Verificar si hay un contacto asociado al evento y eliminar el evento de su lista de eventos
+                        if (_contactoActual != null)
+                        {
+                            MessageBox.Show("borrando evento contactoactual:"
+                                + _contactoActual + "evneto:" + evento.Descripcion);
+                            _contactoActual.Eventos.Remove(evento);
+                        }
+
+                        // Eliminar el evento de la base de datos
+                        _dataAccess.DbContext.ListaEventos.Remove(evento);
+
+                        // Guardar los cambios en la base de datos
+                        await _dataAccess.DbContext.SaveChangesAsync();
+
+                        // Actualizar el DataGrid de eventos
+                        await ActualizarDataGridEventosAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocurrió un error al intentar eliminar el evento: " + ex.Message,
+                            "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("El evento es nulo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+
+        private async Task ActualizarDataGridEventosAsync()
+        {
+            try
+            {
+                // Obtener la lista actualizada de eventos desde la base de datos
+                List<Evento> eventos = await _dataAccess.DbContext.ObtenerListaEventosAsync();
+
+                // Asignar la lista de eventos al DataGrid
+                dataGrid.ItemsSource = eventos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar el DataGrid de eventos: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
+
 
         /* ------------       NAVEGACION     ------------------*/
         private void NavegarAtras(object sender, RoutedEventArgs e)

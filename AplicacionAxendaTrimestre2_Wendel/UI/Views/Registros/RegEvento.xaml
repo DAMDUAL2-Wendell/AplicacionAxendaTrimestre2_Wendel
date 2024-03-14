@@ -44,29 +44,24 @@
                 <DatePicker Name="dp_FechaFin" Width="230" HorizontalAlignment="Left"/>
             </DockPanel>
 
-            <!-- Campo de búsqueda de contacto -->
-            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
-                <TextBlock Text="Buscar Contacto:" MinWidth="90" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Name="tb_SearchContact" Width="250" HorizontalAlignment="Left" TextChanged="Tb_SearchContact_TextChanged"/>
+
+            <!-- Mostrar información del contacto si existe -->
+            <DockPanel>
+                <Label Name="lblContacto" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Datos del Contacto no disponibles">
+                </Label>
             </DockPanel>
 
-            <DockPanel>
-                <!-- Resultados de búsqueda de contactos -->
-                <ListBox Name="lb_ContactResults" MaxHeight="150" HorizontalAlignment="Center" Margin="0,10,0,20">
-                    <!-- Elementos de la lista -->
-                </ListBox>
-            </DockPanel>
 
             <!-- Botones -->
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Margin="10" Width="Auto">
                 <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
                     <!-- Botones de registro y cancelación -->
-                    <Button Name="btnRegistrarEvento" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarEvento_Click">
+                    <Button Name="btnRegistrarEvento" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarEvento_Click" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
                         </StackPanel>
                     </Button>
-                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click">
+                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click" >
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
                         </StackPanel>

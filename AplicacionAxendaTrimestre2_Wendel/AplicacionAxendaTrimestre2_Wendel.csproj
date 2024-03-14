@@ -43,6 +43,8 @@
 	  <None Remove="UI\Views\Paginas\user.png" />
 	  <None Remove="UI\Views\Registros\atras.png" />
 	  <None Remove="UI\Views\Registros\edicion-de-imagen.png" />
+	  <None Remove="UI\Views\Registros\evento.png" />
+	  <None Remove="UI\Views\Registros\nota.png" />
 	  <None Remove="UI\Views\Registros\registrarse.png" />
 	  <None Remove="UI\Views\Registros\user.png" />
 	</ItemGroup>
@@ -120,6 +122,8 @@
 	  <Resource Include="UI\Views\Paginas\user.png" />
 	  <Resource Include="UI\Views\Registros\atras.png" />
 	  <Resource Include="UI\Views\Registros\edicion-de-imagen.png" />
+	  <Resource Include="UI\Views\Registros\evento.png" />
+	  <Resource Include="UI\Views\Registros\nota.png" />
 	  <Resource Include="UI\Views\Registros\registrarse.png" />
 	  <Resource Include="UI\Views\Registros\user.png" />
 	</ItemGroup>

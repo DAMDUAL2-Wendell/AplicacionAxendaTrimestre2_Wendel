@@ -30,7 +30,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
     public partial class RegContacto : Page
     {
 
-        private Contacto _ContactoActual;
+        private Contacto _contactoActual;
 
         private DataAcceso _dataAccess = AppData.DataAccess;
 
@@ -40,10 +40,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             InitializeComponent();
 
             // Inicializa un nuevo contacto
-            _ContactoActual = new Contacto();
+            _contactoActual = new Contacto();
 
             // Establece el DataContext para toda la página
-            DataContext = _ContactoActual;
+            DataContext = _contactoActual;
 
         }
 
@@ -54,10 +54,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             if (contacto != null)
             {
                 // Utiliza el contacto pasado para la edición
-                _ContactoActual = contacto;
+                _contactoActual = contacto;
 
                 // Actualiza el DataContext con el nuevo contacto
-                DataContext = _ContactoActual;
+                DataContext = _contactoActual;
 
                 // Llena los números de telefonos en la lista
                 FillNumbersInLb_Numbers(contacto.Numbers);
@@ -107,7 +107,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 PhoneNumber phoneNumber = new PhoneNumber
                 {
                     Number = lb_Numbers.Items[i]?.ToString() ?? "Sin teléfono.",
-                    ContactoId = _ContactoActual.Id
+                    ContactoId = _contactoActual.Id
                 };
                 Numbers.Add(phoneNumber);
             }
@@ -133,8 +133,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         public void Fill(Contacto contact, List<PhoneNumber> contactTypes)
         {
-            _ContactoActual = contact;
-            sp_Info.DataContext = _ContactoActual;
+            _contactoActual = contact;
+            sp_Info.DataContext = _contactoActual;
             FillNumbersInLb_Numbers(contact.Numbers);
 
             cb_ContactType.ItemsSource = contactTypes;
@@ -143,12 +143,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         }
         public Contacto GetContact()
         {
-            _ContactoActual.Numbers = GetNumbersFromLB_Numbers();
-            return _ContactoActual;
+            _contactoActual.Numbers = GetNumbersFromLB_Numbers();
+            return _contactoActual;
         }
         private void Tb_LastName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (_ContactoActual != null)
+            if (_contactoActual != null)
             {
                 if (sender is TextBox textBox)
                 {
@@ -160,18 +160,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         // Comprobar la longitud del apellido
                         if (LongitudValida(apellido))
                         {
-                            _ContactoActual.LastName = apellido;
+                            _contactoActual.LastName = apellido;
                         }
                         else
                         {
                             MessageBox.Show("El apellido excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            textBox.Text = _ContactoActual.LastName; // Restaurar el valor anterior
+                            textBox.Text = _contactoActual.LastName; // Restaurar el valor anterior
                         }
                     }
                     else
                     {
                         MessageBox.Show("El apellido solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        textBox.Text = _ContactoActual.LastName; // Restaurar el valor anterior
+                        textBox.Text = _contactoActual.LastName; // Restaurar el valor anterior
                     }
                 }
             }
@@ -179,7 +179,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void Tb_FirstName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (_ContactoActual != null)
+            if (_contactoActual != null)
             {
                 if (sender is TextBox textBox)
                 {
@@ -191,18 +191,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         // Comprobar la longitud del nombre
                         if (LongitudValida(nombre))
                         {
-                            _ContactoActual.FirstName = nombre;
+                            _contactoActual.FirstName = nombre;
                         }
                         else
                         {
                             MessageBox.Show("El nombre excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            textBox.Text = _ContactoActual.FirstName; // Restaurar el valor anterior
+                            textBox.Text = _contactoActual.FirstName; // Restaurar el valor anterior
                         }
                     }
                     else
                     {
                         MessageBox.Show("El nombre solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        textBox.Text = _ContactoActual.FirstName; // Restaurar el valor anterior
+                        textBox.Text = _contactoActual.FirstName; // Restaurar el valor anterior
                     }
                 }
             }
@@ -223,7 +223,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void cb_ContactType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _ContactoActual.ContactType = cb_ContactType?.SelectedItem?.ToString() ?? "";
+            _contactoActual.ContactType = cb_ContactType?.SelectedItem?.ToString() ?? "";
         }
 
 
@@ -254,7 +254,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         if (!lb_Emails.Items.Contains(nuevoCorreoElectronico))
                         {
                             lb_Emails.Items.Add(nuevoCorreoElectronico);
-                            _ContactoActual.Emails.Add(new Email { Address = nuevoCorreoElectronico });
+                            _contactoActual.Emails.Add(new Email { Address = nuevoCorreoElectronico });
                             tb_Email.Text = "";
                         }
                     }
@@ -351,7 +351,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         if (!lb_Numbers.Items.Contains(numeroTelefono))
                         {
                             lb_Numbers.Items.Add(numeroTelefono);
-                            _ContactoActual.Numbers.Add(new PhoneNumber { Number = numeroTelefono });
+                            _contactoActual.Numbers.Add(new PhoneNumber { Number = numeroTelefono });
                             tb_Number.Text = "";
                         }
                     }
@@ -446,25 +446,25 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             if (CamposObligatoriosCompletos())
             {
                 // Verifica si se está editando un contacto existente
-                if (_ContactoActual.Id != 0)
+                if (_contactoActual.Id != 0)
                 {
                     // Actualiza las propiedades del contacto
-                    _ContactoActual.FirstName = tb_FirstName.Text;
-                    _ContactoActual.LastName = tb_LastName.Text;
-                    _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
-                    _ContactoActual.Nickname = tb_Nickname.Text;
-                    _ContactoActual.Address = tb_Address.Text;
-                    _ContactoActual.Note = tb_Note.Text;
-                    _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
-                    _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
+                    _contactoActual.FirstName = tb_FirstName.Text;
+                    _contactoActual.LastName = tb_LastName.Text;
+                    _contactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
+                    _contactoActual.Nickname = tb_Nickname.Text;
+                    _contactoActual.Address = tb_Address.Text;
+                    _contactoActual.Note = tb_Note.Text;
+                    _contactoActual.BirthDate = dp_Birthday.SelectedDate;
+                    _contactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
                     try
                     {
                         // Actualiza la lista de números de teléfono del contacto
-                        _ContactoActual.Numbers = GetNumbersFromListBox(lb_Numbers);
+                        _contactoActual.Numbers = GetNumbersFromListBox(lb_Numbers);
 
                         // Actualiza la lista de correos electrónicos del contacto
-                        _ContactoActual.Emails = GetEmailsFromListBox(lb_Emails);
+                        _contactoActual.Emails = GetEmailsFromListBox(lb_Emails);
 
                         // Guarda los cambios en la base de datos
                         _dataAccess.DbContext.SaveChanges();
@@ -554,17 +554,17 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         private void RegistrarContacto_Click2(object sender, RoutedEventArgs e)
         {
             // Verifica si se está editando un contacto existente
-            if (_ContactoActual.Id != 0)
+            if (_contactoActual.Id != 0)
             {
                 // Si se está editando un contacto existente, actualiza sus propiedades
-                _ContactoActual.FirstName = tb_FirstName.Text;
-                _ContactoActual.LastName = tb_LastName.Text;
-                _ContactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
-                _ContactoActual.Nickname = tb_Nickname.Text;
-                _ContactoActual.Address = tb_Address.Text;
-                _ContactoActual.Note = tb_Note.Text;
-                _ContactoActual.BirthDate = dp_Birthday.SelectedDate;
-                _ContactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
+                _contactoActual.FirstName = tb_FirstName.Text;
+                _contactoActual.LastName = tb_LastName.Text;
+                _contactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
+                _contactoActual.Nickname = tb_Nickname.Text;
+                _contactoActual.Address = tb_Address.Text;
+                _contactoActual.Note = tb_Note.Text;
+                _contactoActual.BirthDate = dp_Birthday.SelectedDate;
+                _contactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
                 try
                 {
@@ -656,5 +656,32 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 contactImage.Source = bitmap;
             }
         }
+
+        private void Click_AgregarEvento(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarARegistroEvento(NavigationService, _contactoActual);
+        }
+
+        private void Click_AgregarNota(object sender, RoutedEventArgs e)
+        {
+            Navegacion.NavegarARegistroNota(NavigationService, _contactoActual);
+        }
+
+        private void MostrarEventos_Click(object sender, RoutedEventArgs e)
+        {
+            if (_contactoActual != null)
+            {
+                Navegacion.NavegarPaginaEventos(NavigationService, _contactoActual);
+            }
+        }
+
+        private void MostrarNotas_Click(object sender, RoutedEventArgs e)
+        {
+            if (_contactoActual != null)
+            {
+                Navegacion.NavegarPaginaNotas(NavigationService, _contactoActual);
+            }
+        }
+
     }
 }

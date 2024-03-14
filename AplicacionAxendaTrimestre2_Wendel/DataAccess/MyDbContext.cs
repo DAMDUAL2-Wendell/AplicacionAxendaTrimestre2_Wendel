@@ -107,6 +107,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             return contactosConNotas;
         }
 
+        
         public void AgregarEvento(Evento evento)
         {
             ListaEventos.Add(evento);
@@ -131,6 +132,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
 
             return ListaEventos;
         }
+
+        
 
         public List<Evento> ObtenerListaEventos()
         {

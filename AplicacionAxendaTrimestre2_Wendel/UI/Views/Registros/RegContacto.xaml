@@ -50,7 +50,7 @@
 
 
             <!-- Imagen de Contacto -->
-            <StackPanel Width="Auto" MinWidth="250" Grid.Row="1" Grid.Column="0" Height="Auto" MinHeight="300" Margin="20,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFCEFFFF">
+            <StackPanel Width="Auto" MinWidth="250" Grid.Row="1" Height="450" Grid.Column="0" Margin="20,10,20,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFCEFFFF">
 
                 <Label Content="   Foto de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
 
@@ -62,6 +62,47 @@
                         <TextBlock Text="Seleccionar imagen" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                     </StackPanel>
                 </Button>
+
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,0,0,0">
+
+                    <!-- Consultar Eventos -->
+                    <Button Name="btnConsultarEventos" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="MostrarEventos_Click" >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                            <TextBlock Text="Consultar Eventos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Consultar Notas -->
+                    <Button Name="btnConsultarNotas" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0"  Click="MostrarNotas_Click">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                            <TextBlock Text="Consultar Notas" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                </UniformGrid>
+
+
+                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,100,0,0">
+
+                    <!-- Agregar Evento -->
+                    <Button Name="btnAgregarEvento" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                            <TextBlock Text="Agregar evento" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <!-- Agregar Nota -->
+                    <Button Name="btnAgregarNota" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                            <TextBlock Text="Agregar nota" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                </UniformGrid>
 
             </StackPanel>
 
@@ -154,9 +195,10 @@
                         <TextBox Name="tb_Note" Width="250" HorizontalAlignment="Left" Text="{Binding Note}" TextWrapping="Wrap"/>
                     </GroupBox>
 
+
+
                 </StackPanel>
             </Expander>
-
 
 
             <!-- BOTONES -->
