@@ -50,7 +50,7 @@
                 </Grid>
 
                 <!-- DataGrid para mostrar las notas -->
-                <DataGrid Name="dataGridNotes" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760">
+                <DataGrid Name="dataGridNotes" RowHeight="50" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760">
                     <DataGrid.Columns>
                        
                         <!-- Columna de botón para eliminar la nota -->
@@ -58,13 +58,13 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Name="btnDeleteNote"
-                                            Height="30"
-                                            Width="30"
+                                            Height="45"
+                                            Width="35"
                                             Margin="0"
                                             Background="Aquamarine"
                                             Click="EliminarNota_Click"
                                             Tag="{Binding}">
-                                        <Image Width="25" Height="25" Source="/UI/Views/Paginas/eliminarNota.png"/>
+                                        <Image Width="30" Height="30" Source="/UI/Views/Paginas/eliminar.png"/>
                                     </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

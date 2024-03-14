@@ -36,15 +36,15 @@
 
     <Grid>
 
-        <StackPanel Orientation="Horizontal" Height="650" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" Height="650" Width="1250" VerticalAlignment="Top">
 
-            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="400">
 
                 <TextBlock Margin="10" Text="Haz click en un día o selecciona varios días con la tecla shift para realizar la búsqueda de eventos." 
                    Background="#FFF5CFC1" 
                    HorizontalAlignment="Center" 
                    FontSize="25" 
-                   Width="500" 
+                   Width="400" 
                    FontWeight="Bold" 
                    TextWrapping="Wrap"/>
 
@@ -53,24 +53,22 @@
 
             </StackPanel>
            
-            <Grid Width="700">
+            <Grid Width="850">
                 
                 
 
-                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,10,0">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,10,0" >
 
                     <Reloj:Reloj Width="300" Height="100" Background="#FF85DEFB" Margin="10" BorderThickness="3" BorderBrush="White" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black"></Reloj:Reloj>
 
                     <!-- Label para mostrar la cantidad de eventos y la fecha actual -->
-                    <Label Content="{Binding EventosInfo}" Width="700" Margin="10,0,20,10" HorizontalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" VerticalAlignment="Center" FontSize="16" Height="40"/>
+                    <Label Content="{Binding EventosInfo}" Width="750" Margin="10,0,20,10" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="White" VerticalAlignment="Center" FontSize="16" Height="40"/>
 
                     <!-- DataGrid oculto -->
-                    <DataGrid x:Name="dataGrid" Height="200" VerticalAlignment="Center" MaxHeight="400" Width="700" Margin="10,0,20,0" CanUserAddRows="False" Visibility="Visible"/>
-
+                    <DataGrid x:Name="dataGrid" Height="200" VerticalAlignment="Center" HorizontalAlignment="Left" MaxHeight="400" Width="750" Margin="10,0,20,0" CanUserAddRows="False" Visibility="Visible"/>
 
                 </StackPanel>
 
-           
             </Grid>
 
         </StackPanel>

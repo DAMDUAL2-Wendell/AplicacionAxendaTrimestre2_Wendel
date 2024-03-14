@@ -192,14 +192,6 @@
                     </GroupBox>
 
 
-
-                    <!-- Agregar Nota -->
-                    <GroupBox Header="Nota:" Margin="0 0 0 10" Width="300" HorizontalAlignment="Center">
-                        <TextBox Name="tb_Note" Width="250" HorizontalAlignment="Left" Text="{Binding Note}" TextWrapping="Wrap"/>
-                    </GroupBox>
-
-
-
                 </StackPanel>
             </Expander>
 

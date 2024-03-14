@@ -454,7 +454,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     _contactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
                     _contactoActual.Nickname = tb_Nickname.Text;
                     _contactoActual.Address = tb_Address.Text;
-                    _contactoActual.Note = tb_Note.Text;
                     _contactoActual.BirthDate = dp_Birthday.SelectedDate;
                     _contactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
@@ -487,7 +486,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         Age = CalcularEdad(dp_Birthday.SelectedDate),
                         Nickname = tb_Nickname.Text,
                         Address = tb_Address.Text,
-                        Note = tb_Note.Text,
                         BirthDate = dp_Birthday.SelectedDate,
                         ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo",
                         // Lista de números de teléfono
@@ -562,7 +560,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                 _contactoActual.Age = CalcularEdad(dp_Birthday.SelectedDate);
                 _contactoActual.Nickname = tb_Nickname.Text;
                 _contactoActual.Address = tb_Address.Text;
-                _contactoActual.Note = tb_Note.Text;
                 _contactoActual.BirthDate = dp_Birthday.SelectedDate;
                 _contactoActual.ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo";
 
@@ -593,7 +590,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                     Age = CalcularEdad(dp_Birthday.SelectedDate),
                     Nickname = tb_Nickname.Text,
                     Address = tb_Address.Text,
-                    Note = tb_Note.Text,
                     BirthDate = dp_Birthday.SelectedDate,
                     ContactType = (cb_ContactType.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Sin Tipo"
                 };

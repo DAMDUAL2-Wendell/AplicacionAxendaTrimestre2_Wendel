@@ -86,16 +86,16 @@
                             </UniformGrid>
                         </StackPanel>
                     </Grid>
-                    
-                    <DataGrid Name="dataGrid" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}">
+
+                    <DataGrid Name="dataGrid" CanUserAddRows="False" RowHeight="50" HorizontalAlignment="Center" Height="246" Width="760" d:ItemsSource="{d:SampleData ItemCount=5}">
                         <DataGrid.Columns>
                             <!-- Columna de botón para eliminar -->
                             <DataGridTemplateColumn Width="60" Header="Del">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btn_Eliminar_Evento"
-                            Height="30"
-                            Width="30"
+                            Height="45"
+                            Width="35"
                             Margin="0"
                             Background="Aquamarine"
                             Click="EliminarEvento_Click"
@@ -103,9 +103,9 @@
                                             <StackPanel Orientation="Horizontal"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center">
-                                                <Image Width="25"
-                                    Height="25"
-                                    Source="/UI/Views/Paginas/eliminarEvento.png" />
+                                                <Image Width="30"
+                                    Height="30"
+                                    Source="/UI/Views/Paginas/eliminar.png" />
                                             </StackPanel>
                                         </Button>
                                     </DataTemplate>

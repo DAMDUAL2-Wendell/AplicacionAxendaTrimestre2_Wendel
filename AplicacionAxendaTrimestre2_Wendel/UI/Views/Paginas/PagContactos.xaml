@@ -124,7 +124,7 @@
                           VerticalAlignment="Center">
                                             <Image Width="25"
                          Height="25"
-                         Source="/UI/Views/Paginas/eliminarUser.png" />
+                         Source="/UI/Views/Paginas/eliminar.png" />
                                         </StackPanel>
                                     </Button>
                                 </DataTemplate>

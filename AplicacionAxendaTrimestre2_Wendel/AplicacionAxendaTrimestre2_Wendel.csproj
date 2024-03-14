@@ -31,6 +31,7 @@
 	  <None Remove="UI\Views\Paginas\calendar-agenda-schedule-close-up-shot-for-background-BRB4K3.jpg" />
 	  <None Remove="UI\Views\Paginas\duplicar_usuario.png" />
 	  <None Remove="UI\Views\Paginas\editar_usuario.png" />
+	  <None Remove="UI\Views\Paginas\eliminar.png" />
 	  <None Remove="UI\Views\Paginas\eliminarUser.png" />
 	  <None Remove="UI\Views\Paginas\eliminar_usuario.png" />
 	  <None Remove="UI\Views\Paginas\excel.png" />
@@ -114,6 +115,7 @@
 	  <Resource Include="UI\Views\Paginas\calendar-agenda-schedule-close-up-shot-for-background-BRB4K3.jpg" />
 	  <Resource Include="UI\Views\Paginas\duplicar_usuario.png" />
 	  <Resource Include="UI\Views\Paginas\editar_usuario.png" />
+	  <Resource Include="UI\Views\Paginas\eliminar.png" />
 	  <Resource Include="UI\Views\Paginas\eliminarUser.png" />
 	  <Resource Include="UI\Views\Paginas\eliminar_usuario.png" />
 	  <Resource Include="UI\Views\Paginas\excel.png" />
