@@ -83,8 +83,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
 
 
 
-
-
         public static DataGrid ConvertToWpfDataGrid(SfDataGrid sfDataGrid)
         {
             // Crear un nuevo DataGrid
@@ -102,7 +100,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
             dataGrid.AutoGenerateColumns = sfDataGrid.AutoGenerateColumns;
             dataGrid.CanUserDeleteRows = sfDataGrid.AllowDeleting;
             dataGrid.CanUserResizeColumns = sfDataGrid.AllowResizingColumns;
-            dataGrid.IsReadOnly = !sfDataGrid.AllowEditing; // Invertir el valor de AllowEditing para ReadOnly
+            dataGrid.IsReadOnly = !sfDataGrid.AllowEditing;
 
             // Verificar si hay columnas generadas automáticamente
             if (sfDataGrid.AutoGenerateColumns)

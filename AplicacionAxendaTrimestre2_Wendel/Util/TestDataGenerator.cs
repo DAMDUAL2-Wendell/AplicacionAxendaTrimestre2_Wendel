@@ -57,7 +57,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
 
             for (int i = 0; i < cantidad; i++)
             {
-                string numero = rand.Next(100000000, 999999999).ToString(); // Generar un número aleatorio de 9 dígitos
+                // Generar un número aleatorio de 9 dígitos
+                string numero = rand.Next(100000000, 999999999).ToString();
                 telefonos.Add(new PhoneNumber { Number = numero });
             }
 
@@ -72,7 +73,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
             for (int i = 0; i < cantidad; i++)
             {
                 // Generar una dirección de correo electrónico aleatoria
-                string address = $"user{i + 1}@example.com"; // Puedes personalizar el dominio si lo deseas
+                string address = $"user{i + 1}@example.com";
                 emails.Add(new Email { Address = address });
             }
 

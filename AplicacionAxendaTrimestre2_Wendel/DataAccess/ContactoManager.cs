@@ -97,8 +97,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.DataAccess
             {
                 List<Contacto> contactos = TestDataGenerator.GenerateContactos(5);
                 InsertarContactosPrueba(contactos);
-                List<PhoneNumber> telefonos = TestDataGenerator.GenerateTelefonos(5);
-                InsertarTelefonosEnContactos(contactos, telefonos);
+                //List<PhoneNumber> telefonos = TestDataGenerator.GenerateTelefonos(2);
+                //InsertarTelefonosEnContactos(contactos, telefonos);
             }
             catch (Exception ex) { }
         }

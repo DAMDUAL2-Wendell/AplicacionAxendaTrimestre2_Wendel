@@ -96,6 +96,7 @@
 
                 <!-- DATAGRID -->
                 <DataGrid x:Name="dataGrid"
+                            d:ItemsSource="{d:SampleData ItemCount=5}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Top"
                             AutoGenerateColumns="False"
@@ -197,7 +198,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Button Content="Notas" Tag="{Binding}" Visibility="Visible" Click="MostrarNotas_Click" />
+                                        <Button Content="Notas" Tag="{Binding}"  Height="25" Visibility="Visible" Click="MostrarNotas_Click" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
@@ -208,7 +209,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel>
-                                        <Button Name="btnMostrarEventosContacto" Content="Eventos" Tag="{Binding}" Visibility="Visible" Click="MostrarEventos_Click" />
+                                        <Button Name="btnMostrarEventosContacto" Content="Eventos" Height="25" Tag="{Binding}" Visibility="Visible" Click="MostrarEventos_Click" />
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
