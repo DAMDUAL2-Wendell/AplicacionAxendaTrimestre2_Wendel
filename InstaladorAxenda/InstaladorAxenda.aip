@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="21.5.1" version="21.5.1" Modules="simple" RootPath="." Language="en" Id="{73340E0B-6C44-4F9B-956E-9B23E3103FB7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+    <ROW Name="HiddenItems" Value="AppXProductDetailsComponent;AppXDependenciesComponent;AppXAppDetailsComponent;AppXVisualAssetsComponent;AppXCapabilitiesComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;FixupComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Cryptography.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_ControlzEx.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_DocumentFormat.OpenXml.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Google.Protobuf.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_K4os.Compression.LZ4.Streams.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_K4os.Compression.LZ4.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_K4os.Hash.xxHash.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MahApps.Metro.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MahApps.Metro.resources.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\de"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Data.Sqlite.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Microsoft.Xaml.Behaviors.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MySql.Data.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_MySqlConnector.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Newtonsoft.Json.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Noesis.GUI.Extensions.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.core.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_SpreadsheetLight.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Data.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Licensing.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGauge.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGrid.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfInput.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfScheduler.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\unix\lib\netcoreapp2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll_2" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win\lib\netcoreapp2.1"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.IO.Pipelines.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Speech.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_System.Speech.dll_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win\lib\net8.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_ZstdSharp.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_comerr64.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_e_sqlite3.a" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\browser-wasm\nativeassets\net8.0"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-arm\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_2" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_3" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x86\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_gssapi64.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.barcodes.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.bouncycastleadapter.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.bouncycastleconnector.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.commons.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.forms.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.html2pdf.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.io.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.kernel.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.layout.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.pdfa.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.pdfua.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.sign.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.styledxmlparser.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_itext.svg.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_k5sprt64.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_krb5_64.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_krbcc64.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\maccatalyst-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\maccatalyst-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_2" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\osx-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_3" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\osx-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-arm\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_10" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-x86\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_2" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-armel\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_3" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-mips64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_4" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-musl-arm\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_5" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-musl-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_6" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-musl-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_7" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-ppc64le\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_8" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-s390x\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_9" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libsqlite3.dylib" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\osx-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_libsqlite3.so" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\linux-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_sni.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-arm64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_sni.dll_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_sni.dll_2" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win-x86\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_sqlite3.dll" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win7-x64\native"/>
+    <ROW Property="AI_PROPPATH_DIR_PERBUILD_sqlite3.dll_1" Value="..\AplicacionAxendaTrimestre2_Wendel\bin\Release\net8.0-windows\publish\runtimes\win7-x86\native"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json" Value="AplicacionAxendaTrimestre2_Wendel.deps.json"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll" Value="AplicacionAxendaTrimestre2_Wendel.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" Value="AplicacionAxendaTrimestre2_Wendel.exe"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json" Value="AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Cryptography.dll" Value="BouncyCastle.Cryptography.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_ControlzEx.dll" Value="ControlzEx.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll" Value="DocumentFormat.OpenXml.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Google.Protobuf.dll" Value="Google.Protobuf.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.Streams.dll" Value="K4os.Compression.LZ4.Streams.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.dll" Value="K4os.Compression.LZ4.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_K4os.Hash.xxHash.dll" Value="K4os.Hash.xxHash.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.dll" Value="MahApps.Metro.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.resources.dll" Value="MahApps.Metro.resources.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll" Value="Microsoft.Data.Sqlite.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Value="Microsoft.DotNet.PlatformAbstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Value="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Value="Microsoft.EntityFrameworkCore.Relational.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Value="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll" Value="Microsoft.EntityFrameworkCore.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Value="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Value="Microsoft.Extensions.Caching.Memory.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Value="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Value="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Value="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Value="Microsoft.Extensions.DependencyModel.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Value="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll" Value="Microsoft.Extensions.Logging.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll" Value="Microsoft.Extensions.Options.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll" Value="Microsoft.Extensions.Primitives.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll" Value="Microsoft.Xaml.Behaviors.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MySql.Data.dll" Value="MySql.Data.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_MySqlConnector.dll" Value="MySqlConnector.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll" Value="Newtonsoft.Json.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Noesis.GUI.Extensions.dll" Value="Noesis.GUI.Extensions.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll" Value="Pomelo.EntityFrameworkCore.MySql.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Value="SQLitePCLRaw.batteries_v2.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll" Value="SQLitePCLRaw.core.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll" Value="SQLitePCLRaw.provider.e_sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll" Value="SpreadsheetLight.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll" Value="Syncfusion.Data.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll" Value="Syncfusion.Licensing.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll" Value="Syncfusion.SfBusyIndicator.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGauge.WPF.dll" Value="Syncfusion.SfGauge.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll" Value="Syncfusion.SfGrid.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.WPF.dll" Value="Syncfusion.SfInput.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfScheduler.WPF.dll" Value="Syncfusion.SfScheduler.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Value="Syncfusion.SfSkinManager.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll" Value="Syncfusion.Shared.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll" Value="Syncfusion.Themes.MaterialLight.WPF.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll" Value="System.Data.SqlClient.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_1" Value="System.Data.SqlClient.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_2" Value="System.Data.SqlClient.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.IO.Pipelines.dll" Value="System.IO.Pipelines.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll" Value="System.Speech.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll_1" Value="System.Speech.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_ZstdSharp.dll" Value="ZstdSharp.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_comerr64.dll" Value="comerr64.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.a" Value="e_sqlite3.a"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll" Value="e_sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_1" Value="e_sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_2" Value="e_sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_3" Value="e_sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_gssapi64.dll" Value="gssapi64.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.barcodes.dll" Value="itext.barcodes.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleadapter.dll" Value="itext.bouncy-castle-adapter.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleconnector.dll" Value="itext.bouncy-castle-connector.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.commons.dll" Value="itext.commons.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.forms.dll" Value="itext.forms.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.html2pdf.dll" Value="itext.html2pdf.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.io.dll" Value="itext.io.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.kernel.dll" Value="itext.kernel.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.layout.dll" Value="itext.layout.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.pdfa.dll" Value="itext.pdfa.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.pdfua.dll" Value="itext.pdfua.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.sign.dll" Value="itext.sign.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.styledxmlparser.dll" Value="itext.styledxmlparser.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_itext.svg.dll" Value="itext.svg.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_k5sprt64.dll" Value="k5sprt64.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_krb5_64.dll" Value="krb5_64.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_krbcc64.dll" Value="krbcc64.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib" Value="libe_sqlite3.dylib"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_1" Value="libe_sqlite3.dylib"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_2" Value="libe_sqlite3.dylib"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_3" Value="libe_sqlite3.dylib"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_1" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_10" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_2" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_3" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_4" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_5" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_6" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_7" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_8" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_9" Value="libe_sqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.dylib" Value="libsqlite3.dylib"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.so" Value="libsqlite3.so"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_sni.dll" Value="sni.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_sni.dll_1" Value="sni.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_sni.dll_2" Value="sni.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll" Value="sqlite3.dll"/>
+    <ROW Property="AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll_1" Value="sqlite3.dll"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPPRODUCTICON" Value="AplicacionAxendaTrimestre2_Wendel.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="Carballeira"/>
+    <ROW Property="ProductCode" Value="1033:{B04923D7-668B-40DD-9A28-FC080A4026EA} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="AplicacionAxenda"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Options="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
+    <ROW Property="UpgradeCode" Value="{3090EFA6-E47A-4E30-998F-64286B36E0EC}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT60" MultiBuildValue="DefaultBuild:Windows Vista/Server 2008" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT60Display" MultiBuildValue="DefaultBuild:Windows Vista/Server 2008" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="AplicacionAxendaTrimestre2_Wend_Dir" Directory_Parent="APPDIR" DefaultDir="APLICA~1|AplicacionAxendaTrimestre2_Wendel"/>
+    <ROW Directory="DesktopFolder" Directory_Parent="TARGETDIR" DefaultDir="DESKTO~1|DesktopFolder" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="browserwasm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="BROWSE~1|browser-wasm"/>
+    <ROW Directory="de_Dir" Directory_Parent="AplicacionAxendaTrimestre2_Wend_Dir" DefaultDir="de"/>
+    <ROW Directory="lib_1_Dir" Directory_Parent="win_Dir" DefaultDir="lib"/>
+    <ROW Directory="lib_Dir" Directory_Parent="unix_Dir" DefaultDir="lib"/>
+    <ROW Directory="linuxarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~2|linux-arm64"/>
+    <ROW Directory="linuxarm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~1|linux-arm"/>
+    <ROW Directory="linuxarmel_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~3|linux-armel"/>
+    <ROW Directory="linuxmips64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~4|linux-mips64"/>
+    <ROW Directory="linuxmuslarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~6|linux-musl-arm64"/>
+    <ROW Directory="linuxmuslarm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~5|linux-musl-arm"/>
+    <ROW Directory="linuxmuslx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~7|linux-musl-x64"/>
+    <ROW Directory="linuxppc64le_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~8|linux-ppc64le"/>
+    <ROW Directory="linuxs390x_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX-~9|linux-s390x"/>
+    <ROW Directory="linuxx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX~10|linux-x64"/>
+    <ROW Directory="linuxx86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="LINUX~11|linux-x86"/>
+    <ROW Directory="maccatalystarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="MACCAT~1|maccatalyst-arm64"/>
+    <ROW Directory="maccatalystx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="MACCAT~2|maccatalyst-x64"/>
+    <ROW Directory="native_10_Dir" Directory_Parent="linuxx86_Dir" DefaultDir="native"/>
+    <ROW Directory="native_11_Dir" Directory_Parent="maccatalystarm64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_12_Dir" Directory_Parent="maccatalystx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_13_Dir" Directory_Parent="osxarm64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_14_Dir" Directory_Parent="osxx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_15_Dir" Directory_Parent="win7x64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_16_Dir" Directory_Parent="win7x86_Dir" DefaultDir="native"/>
+    <ROW Directory="native_17_Dir" Directory_Parent="winarm_Dir" DefaultDir="native"/>
+    <ROW Directory="native_18_Dir" Directory_Parent="winarm64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_19_Dir" Directory_Parent="winx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_1_Dir" Directory_Parent="linuxarm64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_20_Dir" Directory_Parent="winx86_Dir" DefaultDir="native"/>
+    <ROW Directory="native_2_Dir" Directory_Parent="linuxarmel_Dir" DefaultDir="native"/>
+    <ROW Directory="native_3_Dir" Directory_Parent="linuxmips64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_4_Dir" Directory_Parent="linuxmuslarm_Dir" DefaultDir="native"/>
+    <ROW Directory="native_5_Dir" Directory_Parent="linuxmuslarm64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_6_Dir" Directory_Parent="linuxmuslx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_7_Dir" Directory_Parent="linuxppc64le_Dir" DefaultDir="native"/>
+    <ROW Directory="native_8_Dir" Directory_Parent="linuxs390x_Dir" DefaultDir="native"/>
+    <ROW Directory="native_9_Dir" Directory_Parent="linuxx64_Dir" DefaultDir="native"/>
+    <ROW Directory="native_Dir" Directory_Parent="linuxarm_Dir" DefaultDir="native"/>
+    <ROW Directory="nativeassets_Dir" Directory_Parent="browserwasm_Dir" DefaultDir="NATIVE~1|nativeassets"/>
+    <ROW Directory="net8.0_1_Dir" Directory_Parent="lib_1_Dir" DefaultDir="net8.0"/>
+    <ROW Directory="net8.0_Dir" Directory_Parent="nativeassets_Dir" DefaultDir="net8.0"/>
+    <ROW Directory="netcoreapp2.1_1_Dir" Directory_Parent="lib_1_Dir" DefaultDir="NETCOR~1.1|netcoreapp2.1"/>
+    <ROW Directory="netcoreapp2.1_Dir" Directory_Parent="lib_Dir" DefaultDir="NETCOR~1.1|netcoreapp2.1"/>
+    <ROW Directory="osxarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="OSX-AR~1|osx-arm64"/>
+    <ROW Directory="osxx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="osx-x64"/>
+    <ROW Directory="runtimes_Dir" Directory_Parent="AplicacionAxendaTrimestre2_Wend_Dir" DefaultDir="runtimes"/>
+    <ROW Directory="unix_Dir" Directory_Parent="runtimes_Dir" DefaultDir="unix"/>
+    <ROW Directory="win7x64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win7-x64"/>
+    <ROW Directory="win7x86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win7-x86"/>
+    <ROW Directory="win_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win"/>
+    <ROW Directory="winarm64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="WIN-AR~1|win-arm64"/>
+    <ROW Directory="winarm_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-arm"/>
+    <ROW Directory="winx64_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x64"/>
+    <ROW Directory="winx86_Dir" Directory_Parent="runtimes_Dir" DefaultDir="win-x86"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SideBySideGuidComponent">
+    <ROW Component="APPDIR" Value="{BA68C7A3-0F3A-4AD8-BDC4-B7E8DC109B61}"/>
+    <ROW Component="ProductInformation" Value="{4BF0A878-D98F-410F-ACC1-7A995B103EAF}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" ComponentId="{9729BC17-DA45-44AE-B517-89A0785EBD6F}" Directory_="AplicacionAxendaTrimestre2_Wend_Dir" Attributes="256" KeyPath="AplicacionAxendaTrimestre2_Wendel.exe"/>
+    <ROW Component="APPDIR" ComponentId="{BA68C7A3-0F3A-4AD8-BDC4-B7E8DC109B61}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PrimaryOutput" ComponentId="{2A7F386F-8D26-45ED-8A32-042B72904573}" Directory_="AplicacionAxendaTrimestre2_Wend_Dir" Attributes="0" KeyPath="AplicacionAxendaTrimestre2_Wendel.dll"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput" ComponentId="{CAFBAF90-2CB1-4349-93DE-6505F1A1B65C}" Directory_="AplicacionAxendaTrimestre2_Wend_Dir" Attributes="0" KeyPath="AplicacionAxendaTrimestre2_Wendel.deps.json" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_de" ComponentId="{3BEC9B7C-F8B2-4946-826D-0B6645D88C7E}" Directory_="de_Dir" Attributes="0" KeyPath="MahApps.Metro.resources.dll"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_browserwasm_nativeassets_net8.0" ComponentId="{53714CB2-A04C-44FC-BA71-2C7326023E6D}" Directory_="net8.0_Dir" Attributes="0" KeyPath="e_sqlite3.a" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm64_native" ComponentId="{A979342E-491D-4D6D-88CA-982F4C8DA22D}" Directory_="native_1_Dir" Attributes="0" KeyPath="libe_sqlite3.so_1" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm_native" ComponentId="{280ACB8C-427C-488D-9DAF-1DAFE2AE4A72}" Directory_="native_Dir" Attributes="0" KeyPath="libe_sqlite3.so" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarmel_native" ComponentId="{C6DA3D56-60B6-484D-A4A7-B7FBCDCA0AFC}" Directory_="native_2_Dir" Attributes="0" KeyPath="libe_sqlite3.so_2" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmips64_native" ComponentId="{026604AA-30EF-4676-8FD5-5292BFB98243}" Directory_="native_3_Dir" Attributes="0" KeyPath="libe_sqlite3.so_3" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm64_native" ComponentId="{2A45CDAE-0049-46AC-928E-6FE86C23938B}" Directory_="native_5_Dir" Attributes="0" KeyPath="libe_sqlite3.so_5" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm_native" ComponentId="{1D03DE70-3A0E-457F-8805-6898BB9CF540}" Directory_="native_4_Dir" Attributes="0" KeyPath="libe_sqlite3.so_4" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslx64_native" ComponentId="{41799878-CA18-42EC-A7AC-AC14E7678135}" Directory_="native_6_Dir" Attributes="0" KeyPath="libe_sqlite3.so_6" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxppc64le_native" ComponentId="{CEA504CC-A56E-4CA2-B20D-CF203E59EF3A}" Directory_="native_7_Dir" Attributes="0" KeyPath="libe_sqlite3.so_7" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxs390x_native" ComponentId="{5B51EB4A-8D36-4C32-801C-849A1078B436}" Directory_="native_8_Dir" Attributes="0" KeyPath="libe_sqlite3.so_8" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx64_native" ComponentId="{8193ACDE-C7CD-47BE-8256-86295CFE027C}" Directory_="native_9_Dir" Attributes="0" KeyPath="libe_sqlite3.so_9" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx86_native" ComponentId="{5D2B50A5-956C-453C-9BC7-F7830C1AF4CE}" Directory_="native_10_Dir" Attributes="0" KeyPath="libe_sqlite3.so_10" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystarm64_native" ComponentId="{F620C685-E7D3-4AC2-9943-4DF8FD88EB1E}" Directory_="native_11_Dir" Attributes="0" KeyPath="libe_sqlite3.dylib" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystx64_native" ComponentId="{4BDA66AF-BA3F-409A-8093-DCFB77D76D44}" Directory_="native_12_Dir" Attributes="0" KeyPath="libe_sqlite3.dylib_1" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxarm64_native" ComponentId="{C6905A60-CAF5-47A9-B330-930470F925D7}" Directory_="native_13_Dir" Attributes="0" KeyPath="libe_sqlite3.dylib_2" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxx64_native" ComponentId="{86B69458-15C1-4919-A151-CFA3C613C7E1}" Directory_="native_14_Dir" Attributes="0" KeyPath="libe_sqlite3.dylib_3" Type="0"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_unix_lib_netcoreapp2.1" ComponentId="{A47AA6DC-7908-4F58-83C9-FA6733FB64C7}" Directory_="netcoreapp2.1_Dir" Attributes="0" KeyPath="System.Data.SqlClient.dll_1"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x64_native" ComponentId="{7FAD67C3-2CCB-4975-9918-2D1DDA0F08FA}" Directory_="native_15_Dir" Attributes="256" KeyPath="sqlite3.dll"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x86_native" ComponentId="{2A3E91E1-5152-4BEF-8A4B-F12E8A9D8A82}" Directory_="native_16_Dir" Attributes="0" KeyPath="sqlite3.dll_1"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_net8.0" ComponentId="{F3CDBEB8-66A1-4685-821C-5841F93899BE}" Directory_="net8.0_1_Dir" Attributes="0" KeyPath="System.Speech.dll_1"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_netcoreapp2.1" ComponentId="{67A1EAFC-E2BD-4031-A7CD-89AE49E133A5}" Directory_="netcoreapp2.1_1_Dir" Attributes="0" KeyPath="System.Data.SqlClient.dll_2"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm64_native" ComponentId="{DA0838A0-C36F-4925-B9ED-2A52DD121D3C}" Directory_="native_18_Dir" Attributes="256" KeyPath="sni.dll"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm_native" ComponentId="{85BCEBE5-0457-4D2C-9F3D-887CD3FB87B6}" Directory_="native_17_Dir" Attributes="0" KeyPath="e_sqlite3.dll"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" ComponentId="{5315FE00-71B6-45B9-BB0F-BDAF441715D4}" Directory_="native_19_Dir" Attributes="256" KeyPath="sni.dll_1"/>
+    <ROW Component="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx86_native" ComponentId="{3979DAE8-0FF6-4846-9B3B-72914EB3C373}" Directory_="native_20_Dir" Attributes="0" KeyPath="sni.dll_2"/>
+    <ROW Component="ProductInformation" ComponentId="{4BF0A878-D98F-410F-ACC1-7A995B103EAF}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="AplicacionAxendaTrimestre2_Wendel.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PrimaryOutput" FileName="APLICA~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll&gt;" SelfReg="false"/>
+    <ROW File="AplicacionAxendaTrimestre2_Wendel.deps.json" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="APLICA~2.JSO|[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json&gt;" SelfReg="false"/>
+    <ROW File="AplicacionAxendaTrimestre2_Wendel.exe" Component_="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" FileName="APLICA~2.EXE|[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe&gt;" SelfReg="false" DigSign="true"/>
+    <ROW File="AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="APLICA~3.JSO|[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json&gt;" SelfReg="false"/>
+    <ROW File="BouncyCastle.Cryptography.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="BOUNCY~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Cryptography.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_BouncyCastle.Cryptography.dll&gt;" SelfReg="false"/>
+    <ROW File="ControlzEx.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="CONTRO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_ControlzEx.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_ControlzEx.dll&gt;" SelfReg="false"/>
+    <ROW File="DocumentFormat.OpenXml.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="DOCUME~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_DocumentFormat.OpenXml.dll&gt;" SelfReg="false"/>
+    <ROW File="Google.Protobuf.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="GOOGLE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Google.Protobuf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Google.Protobuf.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.barcodes.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTB~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.barcodes.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.barcodes.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.bouncycastleadapter.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTB~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleadapter.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.bouncycastleadapter.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.bouncycastleconnector.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTB~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleconnector.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.bouncycastleconnector.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.commons.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTC~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.commons.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.commons.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.forms.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTF~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.forms.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.forms.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.html2pdf.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTH~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.html2pdf.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.html2pdf.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.io.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.io.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.io.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.kernel.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTK~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.kernel.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.kernel.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.layout.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTL~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.layout.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.layout.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.pdfa.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.pdfa.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.pdfa.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.pdfua.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTP~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.pdfua.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.pdfua.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.sign.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.sign.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.sign.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.styledxmlparser.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTS~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.styledxmlparser.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.styledxmlparser.dll&gt;" SelfReg="false"/>
+    <ROW File="itext.svg.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ITEXTS~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_itext.svg.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_itext.svg.dll&gt;" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="K4OSCO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_K4os.Compression.LZ4.dll&gt;" SelfReg="false"/>
+    <ROW File="K4os.Compression.LZ4.Streams.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="K4OSCO~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.Streams.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_K4os.Compression.LZ4.Streams.dll&gt;" SelfReg="false"/>
+    <ROW File="K4os.Hash.xxHash.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="K4OSHA~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Hash.xxHash.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_K4os.Hash.xxHash.dll&gt;" SelfReg="false"/>
+    <ROW File="MahApps.Metro.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MAHAPP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MahApps.Metro.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Data.Sqlite.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Data.Sqlite.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.DotNet.PlatformAbstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Abstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Relational.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.EntityFrameworkCore.Sqlite.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Abstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Caching.Memory.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICROS~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Memory.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Configuration.Abstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyInjection.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~12.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.DependencyModel.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~13.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyModel.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.Abstractions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~14.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Logging.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~15.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Options.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~16.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Extensions.Primitives.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~17.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll&gt;" SelfReg="false"/>
+    <ROW File="Microsoft.Xaml.Behaviors.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MICRO~18.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Microsoft.Xaml.Behaviors.dll&gt;" SelfReg="false"/>
+    <ROW File="MySql.Data.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MYSQLD~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MySql.Data.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MySql.Data.dll&gt;" SelfReg="false"/>
+    <ROW File="MySqlConnector.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="MYSQLC~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MySqlConnector.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MySqlConnector.dll&gt;" SelfReg="false"/>
+    <ROW File="Newtonsoft.Json.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="NEWTON~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Newtonsoft.Json.dll&gt;" SelfReg="false"/>
+    <ROW File="Noesis.GUI.Extensions.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="NOESIS~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Noesis.GUI.Extensions.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Noesis.GUI.Extensions.dll&gt;" SelfReg="false"/>
+    <ROW File="Pomelo.EntityFrameworkCore.MySql.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="POMELO~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll&gt;" SelfReg="false"/>
+    <ROW File="SpreadsheetLight.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SPREAD~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SpreadsheetLight.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.batteries_v2.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SQLITE~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.batteries_v2.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.core.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SQLITE~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.core.dll&gt;" SelfReg="false"/>
+    <ROW File="SQLitePCLRaw.provider.e_sqlite3.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SQLITE~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Data.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Data.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Licensing.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Licensing.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfBusyIndicator.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfGauge.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~5.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGauge.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfGauge.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfGrid.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~6.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfGrid.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfInput.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~7.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfInput.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfScheduler.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~8.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfScheduler.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfScheduler.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.SfSkinManager.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCFU~9.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.SfSkinManager.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Shared.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCF~10.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="Syncfusion.Themes.MaterialLight.WPF.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYNCF~11.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Data.SqlClient.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SqlClient.dll&gt;" SelfReg="false"/>
+    <ROW File="System.IO.Pipelines.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYSTEM~3.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.IO.Pipelines.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.IO.Pipelines.dll&gt;" SelfReg="false"/>
+    <ROW File="System.Speech.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="SYSTEM~4.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Speech.dll&gt;" SelfReg="false"/>
+    <ROW File="ZstdSharp.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput" FileName="ZSTDSH~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_ZstdSharp.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_ZstdSharp.dll&gt;" SelfReg="false"/>
+    <ROW File="MahApps.Metro.resources.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_de" FileName="MAHAPP~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.resources.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_MahApps.Metro.resources.dll&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm64_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_1&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_2" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarmel_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_2&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_3" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmips64_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_3]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_3&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_4" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_4]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_4&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_5" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm64_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_5]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_5&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_6" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslx64_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_6]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_6&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_7" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxppc64le_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_7]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_7&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_8" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxs390x_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_8]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_8&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_9" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx64_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_9]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_9&gt;" SelfReg="false"/>
+    <ROW File="libsqlite3.so" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx64_native" FileName="LIBSQL~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.so]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libsqlite3.so&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.so_10" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx86_native" FileName="LIBE_S~2.SO|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_10]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.so_10&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.dylib" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystarm64_native" FileName="LIBE_S~2.DYL|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.dylib&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.dylib_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystx64_native" FileName="LIBE_S~2.DYL|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.dylib_1&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.dylib_2" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxarm64_native" FileName="LIBE_S~2.DYL|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.dylib_2&gt;" SelfReg="false"/>
+    <ROW File="libe_sqlite3.dylib_3" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxx64_native" FileName="LIBE_S~2.DYL|[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_3]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libe_sqlite3.dylib_3&gt;" SelfReg="false"/>
+    <ROW File="libsqlite3.dylib" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxx64_native" FileName="LIBSQL~2.DYL|[|AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.dylib]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_libsqlite3.dylib&gt;" SelfReg="false"/>
+    <ROW File="sqlite3.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_sqlite3.dll&gt;" SelfReg="false"/>
+    <ROW File="sqlite3.dll_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x86_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_sqlite3.dll_1&gt;" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm_native" FileName="E_SQLI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_e_sqlite3.dll&gt;" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm64_native" FileName="E_SQLI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_e_sqlite3.dll_1&gt;" SelfReg="false"/>
+    <ROW File="sni.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_sni.dll&gt;" SelfReg="false"/>
+    <ROW File="comerr64.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_comerr64.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_comerr64.dll&gt;" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll_2" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="E_SQLI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_e_sqlite3.dll_2&gt;" SelfReg="false"/>
+    <ROW File="gssapi64.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_gssapi64.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_gssapi64.dll&gt;" SelfReg="false"/>
+    <ROW File="k5sprt64.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_k5sprt64.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_k5sprt64.dll&gt;" SelfReg="false"/>
+    <ROW File="krb5_64.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_krb5_64.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_krb5_64.dll&gt;" SelfReg="false"/>
+    <ROW File="krbcc64.dll" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_krbcc64.dll]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_krbcc64.dll&gt;" SelfReg="false"/>
+    <ROW File="sni.dll_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_sni.dll_1&gt;" SelfReg="false"/>
+    <ROW File="e_sqlite3.dll_3" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx86_native" FileName="E_SQLI~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_3]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_e_sqlite3.dll_3&gt;" SelfReg="false"/>
+    <ROW File="sni.dll_2" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx86_native" FileName="[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_sni.dll_2&gt;" SelfReg="false"/>
+    <ROW File="e_sqlite3.a" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_browserwasm_nativeassets_net8.0" FileName="E_SQLI~2.A|[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.a]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_e_sqlite3.a&gt;" SelfReg="false"/>
+    <ROW File="System.Data.SqlClient.dll_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_unix_lib_netcoreapp2.1" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SqlClient.dll_1&gt;" SelfReg="false"/>
+    <ROW File="System.Speech.dll_1" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_net8.0" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll_1]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Speech.dll_1&gt;" SelfReg="false"/>
+    <ROW File="System.Data.SqlClient.dll_2" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_netcoreapp2.1" FileName="SYSTEM~2.DLL|[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_2]" Attributes="0" SourcePath="&lt;AI_APPPATH_PERBUILD_System.Data.SqlClient.dll_2&gt;" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.AppPathsComponent">
+    <ROW Name="AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json" Path="[|AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json]\[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.deps.json]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" Path="[|AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe]\[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json" Path="[|AI_PROPPATH_DIR_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json]\[|AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_BouncyCastle.Cryptography.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_BouncyCastle.Cryptography.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_BouncyCastle.Cryptography.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_ControlzEx.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_ControlzEx.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_ControlzEx.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_DocumentFormat.OpenXml.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_DocumentFormat.OpenXml.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_DocumentFormat.OpenXml.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Google.Protobuf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Google.Protobuf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Google.Protobuf.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_K4os.Compression.LZ4.Streams.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_K4os.Compression.LZ4.Streams.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.Streams.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_K4os.Compression.LZ4.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_K4os.Compression.LZ4.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Compression.LZ4.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_K4os.Hash.xxHash.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_K4os.Hash.xxHash.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_K4os.Hash.xxHash.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MahApps.Metro.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MahApps.Metro.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MahApps.Metro.resources.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MahApps.Metro.resources.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MahApps.Metro.resources.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Data.Sqlite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Data.Sqlite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Data.Sqlite.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.DotNet.PlatformAbstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Relational.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.Sqlite.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.EntityFrameworkCore.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.EntityFrameworkCore.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.EntityFrameworkCore.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Caching.Memory.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Caching.Memory.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Configuration.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyInjection.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyInjection.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.DependencyModel.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.DependencyModel.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.DependencyModel.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.Abstractions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Logging.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Logging.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Logging.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Options.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Options.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Options.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Extensions.Primitives.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Extensions.Primitives.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Extensions.Primitives.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Microsoft.Xaml.Behaviors.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Microsoft.Xaml.Behaviors.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Microsoft.Xaml.Behaviors.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MySql.Data.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MySql.Data.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MySql.Data.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_MySqlConnector.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_MySqlConnector.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_MySqlConnector.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Newtonsoft.Json.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Newtonsoft.Json.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Newtonsoft.Json.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Noesis.GUI.Extensions.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Noesis.GUI.Extensions.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Noesis.GUI.Extensions.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Pomelo.EntityFrameworkCore.MySql.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.batteries_v2.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.batteries_v2.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.batteries_v2.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.core.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.core.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.core.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SQLitePCLRaw.provider.e_sqlite3.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_SpreadsheetLight.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_SpreadsheetLight.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_SpreadsheetLight.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Data.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Data.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Data.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Licensing.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Licensing.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Licensing.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfBusyIndicator.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfGauge.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGauge.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGauge.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfGrid.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfGrid.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfGrid.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfInput.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfInput.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfInput.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfScheduler.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfScheduler.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfScheduler.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.SfSkinManager.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.SfSkinManager.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Shared.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Shared.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Shared.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_Syncfusion.Themes.MaterialLight.WPF.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.SqlClient.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.SqlClient.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Data.SqlClient.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Data.SqlClient.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Data.SqlClient.dll_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.IO.Pipelines.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.IO.Pipelines.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.IO.Pipelines.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Speech.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Speech.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_System.Speech.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_System.Speech.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_System.Speech.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_ZstdSharp.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_ZstdSharp.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_ZstdSharp.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_comerr64.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_comerr64.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_comerr64.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_e_sqlite3.a" Path="[|AI_PROPPATH_DIR_PERBUILD_e_sqlite3.a]\[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.a]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_e_sqlite3.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_e_sqlite3.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_e_sqlite3.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_e_sqlite3.dll_3" Path="[|AI_PROPPATH_DIR_PERBUILD_e_sqlite3.dll_3]\[|AI_PROPPATH_FILENAME_PERBUILD_e_sqlite3.dll_3]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_gssapi64.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_gssapi64.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_gssapi64.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.barcodes.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.barcodes.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.barcodes.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.bouncycastleadapter.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.bouncycastleadapter.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleadapter.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.bouncycastleconnector.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.bouncycastleconnector.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.bouncycastleconnector.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.commons.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.commons.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.commons.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.forms.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.forms.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.forms.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.html2pdf.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.html2pdf.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.html2pdf.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.io.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.io.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.io.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.kernel.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.kernel.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.kernel.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.layout.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.layout.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.layout.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.pdfa.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.pdfa.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.pdfa.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.pdfua.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.pdfua.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.pdfua.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.sign.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.sign.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.sign.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.styledxmlparser.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.styledxmlparser.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.styledxmlparser.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_itext.svg.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_itext.svg.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_itext.svg.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_k5sprt64.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_k5sprt64.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_k5sprt64.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_krb5_64.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_krb5_64.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_krb5_64.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_krbcc64.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_krbcc64.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_krbcc64.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.dylib" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.dylib_1" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_1]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.dylib_2" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_2]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.dylib_3" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.dylib_3]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.dylib_3]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_1" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_1]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_10" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_10]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_10]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_2" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_2]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_3" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_3]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_3]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_4" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_4]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_4]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_5" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_5]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_5]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_6" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_6]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_6]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_7" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_7]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_7]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_8" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_8]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_8]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libe_sqlite3.so_9" Path="[|AI_PROPPATH_DIR_PERBUILD_libe_sqlite3.so_9]\[|AI_PROPPATH_FILENAME_PERBUILD_libe_sqlite3.so_9]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libsqlite3.dylib" Path="[|AI_PROPPATH_DIR_PERBUILD_libsqlite3.dylib]\[|AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.dylib]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_libsqlite3.so" Path="[|AI_PROPPATH_DIR_PERBUILD_libsqlite3.so]\[|AI_PROPPATH_FILENAME_PERBUILD_libsqlite3.so]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_sni.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_sni.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_sni.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_sni.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll_1]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_sni.dll_2" Path="[|AI_PROPPATH_DIR_PERBUILD_sni.dll_2]\[|AI_PROPPATH_FILENAME_PERBUILD_sni.dll_2]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_sqlite3.dll" Path="[|AI_PROPPATH_DIR_PERBUILD_sqlite3.dll]\[|AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll]" Type="2" Content="0"/>
+    <ROW Name="AI_APPPATH_PERBUILD_sqlite3.dll_1" Path="[|AI_PROPPATH_DIR_PERBUILD_sqlite3.dll_1]\[|AI_PROPPATH_FILENAME_PERBUILD_sqlite3.dll_1]" Type="2" Content="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" Languages="en" InstallationType="4" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="Themes.aip" Path="&lt;AI_FRAGS&gt;Themes.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Type="65" Source="aicustact.dll" Target="PreserveInstallType"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PrimaryOutput"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_de"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarm64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxarmel_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmips64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslarm64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxmuslx64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxppc64le_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxs390x_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_linuxx86_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystarm64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_maccatalystx64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxarm64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_osxx64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win7x86_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winarm64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx64_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_winx86_native"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_browserwasm_nativeassets_net8.0"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_unix_lib_netcoreapp2.1"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_net8.0"/>
+    <ROW Feature_="MainFeature" Component_="AplicacionAxendaTrimestre2_Wendel_PublishOutput_runtimes_win_lib_netcoreapp2.1"/>
+    <ROW Feature_="MainFeature" Component_="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="AplicacionAxendaTrimestre2_Wendel.exe" SourcePath="..\AplicacionAxendaTrimestre2_Wendel\Resources\ico\icons8-agenda-96.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1399"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_PRESERVE_INSTALL_TYPE" Sequence="199"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 600)" Description="[ProductName] cannot be installed on [WindowsTypeNT60Display]." DescriptionLocId="AI.LaunchCondition.NoNT60" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="Manufacturer" Root="-1" Key="Software\[Manufacturer]" Name="\"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="ProductName" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="\"/>
+    <ROW Registry="Software" Root="-1" Key="Software" Name="\"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="AI_PROPPATH_FILENAME_PERBUILD_Aplic" Directory_="DesktopFolder" Name="APLICA~2.EXE|AplicacionAxenda.exe]" Component_="AI_PROPPATH_FILENAME_PERBUILD_AplicacionAxendaTrimestre2_Wendel.exe" Target="[#AplicacionAxendaTrimestre2_Wendel.exe]" Hotkey="0" Icon_="AplicacionAxendaTrimestre2_Wendel.exe" IconIndex="0" ShowCmd="1" WkDir="AplicacionAxendaTrimestre2_Wend_Dir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.VsProjectComponent">
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="AplicacionAxendaTrimestre2_Wendel.deps.json"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="AplicacionAxendaTrimestre2_Wendel.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="AplicacionAxendaTrimestre2_Wendel.exe"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="AplicacionAxendaTrimestre2_Wendel.runtimeconfig.json"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="BouncyCastle.Cryptography.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="ControlzEx.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="DocumentFormat.OpenXml.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Google.Protobuf.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.barcodes.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.bouncycastleadapter.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.bouncycastleconnector.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.commons.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.forms.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.html2pdf.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.io.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.kernel.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.layout.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.pdfa.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.pdfua.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.sign.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.styledxmlparser.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="itext.svg.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="K4os.Compression.LZ4.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="K4os.Compression.LZ4.Streams.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="K4os.Hash.xxHash.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="MahApps.Metro.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Data.Sqlite.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.DotNet.PlatformAbstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.EntityFrameworkCore.Abstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.EntityFrameworkCore.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.EntityFrameworkCore.Relational.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.EntityFrameworkCore.Sqlite.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Caching.Abstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Caching.Memory.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Configuration.Abstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.DependencyInjection.Abstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.DependencyInjection.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.DependencyModel.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Logging.Abstractions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Logging.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Options.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Extensions.Primitives.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Microsoft.Xaml.Behaviors.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="MySql.Data.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="MySqlConnector.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Newtonsoft.Json.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Noesis.GUI.Extensions.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Pomelo.EntityFrameworkCore.MySql.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="SpreadsheetLight.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="SQLitePCLRaw.batteries_v2.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="SQLitePCLRaw.core.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="SQLitePCLRaw.provider.e_sqlite3.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.Data.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.Licensing.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfBusyIndicator.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfGauge.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfGrid.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfInput.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfScheduler.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.SfSkinManager.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.Shared.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="Syncfusion.Themes.MaterialLight.WPF.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.Data.SqlClient.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.IO.Pipelines.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.Speech.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="ZstdSharp.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="MahApps.Metro.resources.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_2"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_3"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_4"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_5"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_6"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_7"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_8"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_9"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libsqlite3.so"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.so_10"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.dylib"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.dylib_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.dylib_2"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libe_sqlite3.dylib_3"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="libsqlite3.dylib"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="sqlite3.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="sqlite3.dll_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="e_sqlite3.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="e_sqlite3.dll_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="sni.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="comerr64.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="e_sqlite3.dll_2"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="gssapi64.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="k5sprt64.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="krb5_64.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="krbcc64.dll"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="sni.dll_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="e_sqlite3.dll_3"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="sni.dll_2"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="e_sqlite3.a"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.Data.SqlClient.dll_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.Speech.dll_1"/>
+    <ROW ProjectId="{b7b1ce51-f524-4783-91e0-82abae8fb404}" ProjectName="AplicacionAxendaTrimestre2_Wendel" OutputGroup="PublishOutput" OutputFile="System.Data.SqlClient.dll_2"/>
+  </COMPONENT>
+</DOCUMENT>
