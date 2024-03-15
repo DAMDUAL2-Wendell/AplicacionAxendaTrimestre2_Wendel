@@ -5,7 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros"
       mc:Ignorable="d" 
-      d:DesignHeight="630" d:DesignWidth="1250"
+      d:DesignHeight="630" 
+      MinWidth="1230"
+      MaxWidth="1300"
       Title="RegContacto" FontFamily="Roboto">
 
     <Page.Resources>
@@ -38,9 +40,9 @@
                 <RowDefinition Height="70*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="500*"/>
+                <ColumnDefinition Width="30*"/>
             </Grid.ColumnDefinitions>
 
             <!-- Titulo -->
@@ -49,155 +51,162 @@
             </StackPanel>
 
 
-            <!-- Imagen de Contacto -->
-            <StackPanel Width="Auto" MinWidth="250" Grid.Row="1" Height="450" Grid.Column="0" Margin="20,10,20,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FFCEFFFF">
+            <!-- CONTENIDO -->
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
 
-                <Label Content="   Foto de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+                <!-- Imagen de Contacto -->
+                <StackPanel VerticalAlignment="Center" Width="345" Height="450"  Margin="10"  Background="#FFCEFFFF">
 
-                <Image Name="contactImage" Source="/UI/Views/Registros/user.png" Width="150" Height="150" Margin="0,5,0,0" />
+                    <Label Content="   Foto de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
 
-                <Button Height="50" Width="150" Background="Aquamarine" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,10,0,0">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Image Width="40" Height="40" Source="/UI/Views/Registros/edicion-de-imagen.png"></Image>
-                        <TextBlock Text="Seleccionar imagen" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                    </StackPanel>
-                </Button>
+                    <Image Name="contactImage" Source="/UI/Views/Registros/user.png" Width="150" Height="150" Margin="0,5,0,0" />
 
-                <Label Content="   Consultar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
-
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,10,0,0">
-
-                    <!-- Consultar Eventos -->
-                    <Button Name="btnConsultarEventos" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="MostrarEventos_Click" >
+                    <Button Height="50" Width="150" Background="Aquamarine" Click="SelectImage_Click" HorizontalAlignment="Center" Margin="0,10,0,0">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="30" Height="30" Source="/UI/Views/Registros/evento.png"></Image>
-                            <TextBlock Text="Consultar Eventos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            <Image Width="40" Height="40" Source="/UI/Views/Registros/edicion-de-imagen.png"></Image>
+                            <TextBlock Text="Seleccionar imagen" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
 
-                    <!-- Consultar Notas -->
-                    <Button Name="btnConsultarNotas" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0"  Click="MostrarNotas_Click">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="30" Height="30" Source="/UI/Views/Registros/nota.png"></Image>
-                            <TextBlock Text="Consultar Notas" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
+                    <Label Content="   Consultar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
 
-                </UniformGrid>
+                    <UniformGrid Rows="1" Columns="2" Width="330" HorizontalAlignment="Center" Margin="10">
 
-                <Label Content="   Agregar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+                        <!-- Consultar Eventos -->
+                        <Button Name="btnConsultarEventos" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="MostrarEventos_Click" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Registros/evento.png"></Image>
+                                <TextBlock Text="Consultar Eventos" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
 
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <!-- Consultar Notas -->
+                        <Button Name="btnConsultarNotas" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0"  Click="MostrarNotas_Click">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Registros/nota.png"></Image>
+                                <TextBlock Text="Consultar Notas" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
 
-                    <!-- Agregar Evento -->
-                    <Button Name="btnAgregarEvento" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="30" Height="30" Source="/UI/Views/Registros/agregarEvento.png"></Image>
-                            <TextBlock Text="Agregar evento" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                    <!-- Agregar Nota -->
-                    <Button Name="btnAgregarNota" Height="50" Width="110" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Width="30" Height="30" Source="/UI/Views/Registros/agregarNota.png"></Image>
-                            <TextBlock Text="Agregar nota" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
-                        </StackPanel>
-                    </Button>
-
-                </UniformGrid>
-
-            </StackPanel>
-
-
-
-            <!-- Datos Contacto -->
-            <StackPanel x:Name="sp_Info" Margin="10" Grid.Row="1" Width="390" Grid.Column="1" HorizontalAlignment="Center" Background="#FF8AC0EA">
-
-                <Label Content="   Información de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
-
-
-                <!-- Nombre -->
-                <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
-                    <TextBlock Text="Nombre:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <TextBox Name="tb_FirstName" Width="240" HorizontalAlignment="Left" Text="{Binding FirstName}" TextChanged="Tb_FirstName_TextChanged"/>
-                </DockPanel>
-
-                <!-- Apellidos -->
-                <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
-                    <TextBlock Text="Apellido:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                    <TextBox Name="tb_LastName" Width="240" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
-                </DockPanel>
-
-                <!-- Dirección -->
-                <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
-                    <TextBlock Text="Dirección:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-                    <TextBox Name="tb_Address"  Width="230" HorizontalAlignment="Left" Text="{Binding Address}"/>
-                </DockPanel>
-
-                <!-- Fecha Cumpleaños -->
-                <GroupBox Header="Cumpleaños:" Width="300" Height="90" HorizontalAlignment="Center" Margin="10 0 0 10">
-                    <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}" Width="250" Height="30"/>
-                </GroupBox>
-
-                <!-- Email -->
-                <GroupBox Header="Emails:" Width="300" HorizontalAlignment="Center" Margin="10 0 0 10">
-                    <StackPanel>
-                        <ListBox Name="lb_Emails" MaxHeight="100" KeyDown="lb_Emails_KeyDown" FontSize="14" FontWeight="DemiBold" BorderThickness="0" SelectionMode="Extended">
-                        </ListBox>
-                        <StackPanel>
-                            <TextBox Name="tb_Email" Tag="Email" Width="250" Height="30"/>
-                            <Button Name="btn_AddEmail" Content="Agregar email" Height="20" Click="Btn_AddEmail_Click" Margin="15 10 15 5"/>
-                            <Button Name="btn_DeleteEmail" Height="20" Content="Eliminar email Seleccionado" Click="Btn_DeleteEmail_Click" Margin="15 5 15 5"/>
-                        </StackPanel>
-                    </StackPanel>
-                </GroupBox>
-
-
-            </StackPanel>
-            <!-- Botón expandir más información-->
-            <Expander Header="Más Información" Width="400" Grid.Column="2" Grid.Row="1" IsExpanded="True" BorderThickness="0" HorizontalAlignment="Center" Margin="10" FontWeight="Bold">
-                <StackPanel>
-
-                    <!--  Selección de Tipo  -->
-                    <UniformGrid Rows="1" Columns="2" Margin="0 10 0 10" HorizontalAlignment="Center">
-                        <DockPanel Width="150" HorizontalAlignment="Left">
-                            <TextBlock Text="Tipo:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5">
-                                <ComboBoxItem Content="Familiar"/>
-                                <ComboBoxItem Content="Amigo"/>
-                                <ComboBoxItem Content="Trabajo"/>
-                                <ComboBoxItem Content="Negocios"/>
-                            </ComboBox>
-                        </DockPanel>
                     </UniformGrid>
 
-                    <!-- Apodo -->
-                    <DockPanel Margin="0 0 0 10" HorizontalAlignment="Center">
-                        <TextBlock Text="Apodo:" MinWidth="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBox Name="tb_Nickname" Text="{Binding Nickname}" Width="250" HorizontalAlignment="Left"/>
+                    <Label Content="   Agregar" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="25" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+
+                    <UniformGrid Rows="1"  Columns="2" Width="330" HorizontalAlignment="Center" Margin="10">
+
+                        <!-- Agregar Evento -->
+                        <Button Name="btnAgregarEvento" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="0,0,10,0" Click="Click_AgregarEvento">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Registros/agregarEvento.png"></Image>
+                                <TextBlock Text="Agregar evento" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+                        <!-- Agregar Nota -->
+                        <Button Name="btnAgregarNota" Height="50" Width="150" Background="Aquamarine" HorizontalAlignment="Center" Margin="10,0,0,0" Click="Click_AgregarNota">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="40" Height="40" Source="/UI/Views/Registros/agregarNota.png"></Image>
+                                <TextBlock Text="Agregar nota" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+                </StackPanel>
+                <!-- /Imagen de Contacto -->
+
+
+                <!-- Datos Contacto -->
+                <StackPanel x:Name="sp_Info" VerticalAlignment="Center" Width="345" Height="450" Margin="10"  Background="#FF8AC0EA">
+
+                    <Label Content="   Información de Contacto" FontSize="16" FontWeight="Bold" Margin="0" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Background="#FF56BDEC"></Label>
+
+                    <!-- Nombre -->
+                    <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
+                        <TextBlock Text="Nombre:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <TextBox Name="tb_FirstName" Width="240" HorizontalAlignment="Left" Text="{Binding FirstName}" TextChanged="Tb_FirstName_TextChanged"/>
                     </DockPanel>
 
-                    <!-- Teléfonos -->
-                    <GroupBox Header="Teléfono:" Width="300" HorizontalAlignment="Center" Margin="0 0 0 10">
+                    <!-- Apellidos -->
+                    <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                        <TextBlock Text="Apellido:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                        <TextBox Name="tb_LastName" Width="240" HorizontalAlignment="Left" Text="{Binding LastName}" TextChanged="Tb_LastName_TextChanged" />
+                    </DockPanel>
+
+                    <!-- Dirección -->
+                    <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+                        <TextBlock Text="Dirección:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+                        <TextBox Name="tb_Address"  Width="230" HorizontalAlignment="Left" Text="{Binding Address}"/>
+                    </DockPanel>
+
+                    <!-- Fecha Cumpleaños -->
+                    <GroupBox Header="Cumpleaños:" Width="300" Height="90" HorizontalAlignment="Center" Margin="10 0 0 10">
+                        <DatePicker x:Name="dp_Birthday" SelectedDate="{Binding BirthDate}" Width="250" Height="30"/>
+                    </GroupBox>
+
+                    <!-- Email -->
+                    <GroupBox Header="Emails:" Width="300" HorizontalAlignment="Center" Margin="10 0 0 10">
                         <StackPanel>
-                            <ListBox Name="lb_Numbers" MaxHeight="100" KeyDown="lb_Numbers_KeyDown" FontSize="14" FontWeight="DemiBold" BorderThickness="0" SelectionMode="Extended">
+                            <ListBox Name="lb_Emails" MaxHeight="100" KeyDown="lb_Emails_KeyDown" FontSize="14" FontWeight="DemiBold" BorderThickness="0" SelectionMode="Extended">
                             </ListBox>
                             <StackPanel>
-                                <TextBox Name="tb_Number" Tag="Number" Width="250" Height="30"/>
-                                <Button Name="btn_AddNumber" Height="20" Content="Agregar Número" Click="Btn_AddNumber_Click" Margin="15 10"/>
-                                <Button Name="btn_DeleteNumber" Height="20" Content="Eliminar Número Seleccionado" Click="Btn_DeleteNumber_Click" Margin="15 5"/>
+                                <TextBox Name="tb_Email" Tag="Email" Width="250" Height="30"/>
+                                <Button Name="btn_AddEmail" Content="Agregar email" Height="20" Click="Btn_AddEmail_Click" Margin="15 10 15 5"/>
+                                <Button Name="btn_DeleteEmail" Height="20" Content="Eliminar email Seleccionado" Click="Btn_DeleteEmail_Click" Margin="15 5 15 5"/>
                             </StackPanel>
                         </StackPanel>
                     </GroupBox>
-
-
                 </StackPanel>
-            </Expander>
+                <!-- /Datos Contacto -->
+
+
+                <!-- Botón expandir más información-->
+                <Expander Header="Más Información" VerticalAlignment="Center" Width="345" Height="450" Margin="10"  IsExpanded="True" BorderThickness="0" FontWeight="Bold">
+                    <StackPanel>
+
+                        <!--  Selección de Tipo  -->
+                        <UniformGrid Rows="1" Columns="2" Margin="0 10 0 10" HorizontalAlignment="Center">
+                            <DockPanel Width="150" HorizontalAlignment="Left">
+                                <TextBlock Text="Tipo:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <ComboBox Name="cb_ContactType" Height="25" SelectionChanged="cb_ContactType_SelectionChanged" Margin="5">
+                                    <ComboBoxItem Content="Familiar"/>
+                                    <ComboBoxItem Content="Amigo"/>
+                                    <ComboBoxItem Content="Trabajo"/>
+                                    <ComboBoxItem Content="Negocios"/>
+                                </ComboBox>
+                            </DockPanel>
+                        </UniformGrid>
+
+                        <!-- Apodo -->
+                        <DockPanel Margin="0 0 0 10" HorizontalAlignment="Center">
+                            <TextBlock Text="Apodo:" MinWidth="50" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBox Name="tb_Nickname" Text="{Binding Nickname}" Width="250" HorizontalAlignment="Left"/>
+                        </DockPanel>
+
+                        <!-- Teléfonos -->
+                        <GroupBox Header="Teléfono:" Width="300" HorizontalAlignment="Center" Margin="0 0 0 10">
+                            <StackPanel>
+                                <ListBox Name="lb_Numbers" MaxHeight="100" KeyDown="lb_Numbers_KeyDown" FontSize="14" FontWeight="DemiBold" BorderThickness="0" SelectionMode="Extended">
+                                </ListBox>
+                                <StackPanel>
+                                    <TextBox Name="tb_Number" Tag="Number" Width="250" Height="30"/>
+                                    <Button Name="btn_AddNumber" Height="20" Content="Agregar Número" Click="Btn_AddNumber_Click" Margin="15 10"/>
+                                    <Button Name="btn_DeleteNumber" Height="20" Content="Eliminar Número Seleccionado" Click="Btn_DeleteNumber_Click" Margin="15 5"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+
+                    </StackPanel>
+                </Expander>
+
+
+
+            </StackPanel>
+
+
+
 
 
             <!-- BOTONES -->
-            <Grid Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="3" Height="60" Width="1230">
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Center" Grid.Row="2" Height="60">
                 <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
                     <!-- Registro -->
 
@@ -215,7 +224,6 @@
                             <TextBlock Text="Volver atrás" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
                         </StackPanel>
                     </Button>
-
 
                 </UniformGrid>
             </Grid>

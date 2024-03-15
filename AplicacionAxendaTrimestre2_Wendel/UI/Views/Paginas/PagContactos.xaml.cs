@@ -246,10 +246,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
 
-        // -------      GUARDAR INFORMES     ----------
+        // -------      GUARDAR INFORMES PDF EXCEL HTML     ----------
         private void Click_Save_PDF(object sender, RoutedEventArgs e)
         {
-            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid, new int[] { 0, 1 });
+            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid, new int[] { 0, 1, 5, 11, 12, 13, 14 });
+
             SaveFiles.SaveToPdfButton_Click(dataGrid, "Contactos");
 
             Navegacion.NavegarPaginaContactos(NavigationService);
@@ -259,11 +260,17 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         private void Click_Save_EXCEL(object sender, RoutedEventArgs e)
         {
             SaveFiles.SaveDataTableExcel(SaveFiles.DataGridToDataTable(dataGrid), "Contactos");
+
+            Navegacion.NavegarPaginaContactos(NavigationService);
         }
 
         private void Click_Save_HTML(object sender, RoutedEventArgs e)
         {
+            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid, new int[] { 0, 1, 5, 11, 12, 13, 14 });
+
             SaveFiles.GuardarFicheroHTML(dataGrid, "Contactos");
+
+            Navegacion.NavegarPaginaContactos(NavigationService);
         }
         // ---------   /GUARDAR INFORMES    ---------------
 

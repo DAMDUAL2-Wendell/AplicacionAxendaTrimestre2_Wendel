@@ -37,7 +37,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         {
             InitializeComponent();
             _contacto = c;
-            lblContacto.Content = "Datos del contacto:\n Id: " + _contacto.Id + ", Nombre: " + _contacto.FirstName + ", Apellidos: " + _contacto.LastName;
+            lblContacto.Content = "Datos del contacto:\nId: " + _contacto.Id + ", Nombre: " + _contacto.FirstName + ", Apellidos: " + _contacto.LastName;
             //MessageBox.Show("Entrando en reg evento con contacto: " + c.FirstName);
         }
 

@@ -9,8 +9,24 @@
       Title="RegNota" FontFamily="Roboto">
 
     <Page.Resources>
-        <!-- Recursos y estilos -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Resources/Styles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Noesis.GUI.Extensions;component/Theme/NoesisTheme.LightBlue.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Estilo para todos los botones -->
+            <Style TargetType="Button" BasedOn="{StaticResource GelButton}"/>
+
+            <!-- 
+         <Style TargetType="Label" BasedOn="{StaticResource estiloLabel}"></Style>
+         
+         -->
+
+        </ResourceDictionary>
     </Page.Resources>
+
 
     <Grid Background="White" Margin="10" Width="1230">
         <!-- Titulo -->
@@ -19,43 +35,62 @@
         </StackPanel>
 
         <!-- Contenedor para los datos de la nota -->
-        <StackPanel Margin="0,100,0,100" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="400" HorizontalAlignment="Center">
+        <StackPanel Margin="0,100,0,100" Grid.Row="1" Background="#FFDCDEE0" Grid.Column="0" Grid.ColumnSpan="3" Width="400" Height="400" HorizontalAlignment="Center">
             <!-- Titulo de los datos de la nota -->
-            <Label Content="Datos de la Nota" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+            <Label Content="Datos de la Nota" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" Background="#FF56BDEC"/>
 
             <!-- Campos de la nota -->
-            <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
-                <TextBlock Text="Título:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Name="tb_Titulo" Width="240" HorizontalAlignment="Left"/>
+            <DockPanel Margin="10 30 10 10" HorizontalAlignment="Center" Width="350">
+                <TextBlock Text="Titulo:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBox Name="tb_Titulo"  Width="280" HorizontalAlignment="Right"/>
             </DockPanel>
 
-            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+            <DockPanel Margin="10 30 10 10" HorizontalAlignment="Center" Width="350">
                 <TextBlock Text="Descripción:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                <TextBox Name="tb_Descripcion" Width="240" HorizontalAlignment="Left"/>
+                <TextBox Name="tb_Descripcion"  Width="280" Height="80" TextWrapping="Wrap" HorizontalAlignment="Right"  VerticalScrollBarVisibility="Auto"/>
             </DockPanel>
 
             <!-- Mostrar información del contacto si existe -->
-            <DockPanel>
+            <DockPanel Margin="10 30 10 10">
                 <Label Name="lblContacto" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Datos del Contacto no disponibles">
                 </Label>
             </DockPanel>
 
-            <!-- Botones -->
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Margin="10" Width="Auto">
-                <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center">
-                    <!-- Botones de registro y cancelación -->
-                    <Button Name="btnRegistrarNota" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="RegistrarNota_Click" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </Button>
-                    <Button Name="btnCancelar" Height="50" Width="150" Margin="10" Background="Aquamarine" Click="Cancelar_Click" >
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </Button>
-                </UniformGrid>
-            </StackPanel>
+
+            <Grid Height="100">
+
+                <!-- Botones -->
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50" Margin="10" Width="400">
+                    <UniformGrid Rows="1" Columns="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <!-- Botones de registro y cancelación -->
+
+                        <!-- Registrar -->
+                        <Button Name="btnRegistrarNota" Height="50" Width="150" Background="Aquamarine" Click="RegistrarNota_Click" HorizontalAlignment="Center" Margin="0,0,20,0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="35" Height="35" Source="/UI/Views/Registros/aceptar.png"></Image>
+                                <TextBlock Text="Registrar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+
+
+
+                        <!-- Cancelar -->
+                        <Button Name="btnCancelar" Height="50" Width="150" Background="Aquamarine" Click="Cancelar_Click" HorizontalAlignment="Center" Margin="20,0,0,0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Width="35" Height="35" Source="/UI/Views/Registros/cancelar.png"></Image>
+                                <TextBlock Text="Cancelar" VerticalAlignment="Center" Margin="10,0,10,0" TextAlignment="Center" Width="55" TextWrapping="Wrap"></TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </UniformGrid>
+                </StackPanel>
+
+
+            </Grid>
+
+
+
+
         </StackPanel>
+        
     </Grid>
 </Page>

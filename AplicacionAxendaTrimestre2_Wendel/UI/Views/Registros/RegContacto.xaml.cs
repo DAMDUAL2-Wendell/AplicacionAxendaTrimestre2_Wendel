@@ -152,7 +152,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             {
                 if (sender is TextBox textBox)
                 {
-                    string apellido = textBox.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+                    string apellido = textBox.Text.Trim();
 
                     // Comprobar si el apellido contiene solo letras
                     if (ContieneSoloLetras(apellido))
@@ -165,13 +165,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         else
                         {
                             MessageBox.Show("El apellido excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            textBox.Text = _contactoActual.LastName; // Restaurar el valor anterior
+                            // Restaurar el valor anterior
+                            textBox.Text = _contactoActual.LastName;
                         }
                     }
                     else
                     {
                         MessageBox.Show("El apellido solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        textBox.Text = _contactoActual.LastName; // Restaurar el valor anterior
+                        // Restaurar el valor anterior
+                        textBox.Text = _contactoActual.LastName;
                     }
                 }
             }
@@ -183,7 +185,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
             {
                 if (sender is TextBox textBox)
                 {
-                    string nombre = textBox.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+                    string nombre = textBox.Text.Trim();
 
                     // Comprobar si el nombre contiene solo letras
                     if (ContieneSoloLetras(nombre))
@@ -196,13 +198,13 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
                         else
                         {
                             MessageBox.Show("El nombre excede la longitud máxima permitida.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            textBox.Text = _contactoActual.FirstName; // Restaurar el valor anterior
+                            textBox.Text = _contactoActual.FirstName;
                         }
                     }
                     else
                     {
                         MessageBox.Show("El nombre solo puede contener letras.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        textBox.Text = _contactoActual.FirstName; // Restaurar el valor anterior
+                        textBox.Text = _contactoActual.FirstName;
                     }
                 }
             }

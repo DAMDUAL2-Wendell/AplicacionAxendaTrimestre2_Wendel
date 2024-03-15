@@ -9,8 +9,24 @@
       Title="RegEvento" FontFamily="Roboto">
 
     <Page.Resources>
-        <!-- Recursos y estilos -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Resources/Styles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Noesis.GUI.Extensions;component/Theme/NoesisTheme.LightBlue.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <!-- Estilo para todos los botones -->
+            <Style TargetType="Button" BasedOn="{StaticResource GelButton}"/>
+
+            <!-- 
+         <Style TargetType="Label" BasedOn="{StaticResource estiloLabel}"></Style>
+         
+         -->
+
+        </ResourceDictionary>
     </Page.Resources>
+
 
     <Grid Background="White" Margin="10" Width="1230">
         <!-- Titulo -->
@@ -19,34 +35,34 @@
         </StackPanel>
 
         <!-- Contenedor para los datos del evento -->
-        <StackPanel Margin="0,100,0,100" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Width="400" HorizontalAlignment="Center">
+        <StackPanel Margin="0,100,0,100" Grid.Row="1" Background="#FFDCDEE0" Grid.Column="0" Grid.ColumnSpan="3" Width="400" Height="400" HorizontalAlignment="Center">
             <!-- Titulo de los datos del evento -->
-            <Label Content="Datos de Evento" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" />
+            <Label Content="Datos de Evento" FontSize="20" FontWeight="Bold" Margin="0,0,0,10" Background="#FF56BDEC" />
 
             <!-- Campos del evento -->
-            <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center">
+            <DockPanel Margin="10 20 10 10" HorizontalAlignment="Center" Width="350">
                 <TextBlock Text="Titulo:" MinWidth="60" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <TextBox Name="tb_Titulo" Width="240" HorizontalAlignment="Left"/>
+                <TextBox Name="tb_Titulo"  Width="280" HorizontalAlignment="Right"/>
             </DockPanel>
 
-            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
+            <DockPanel Margin="10 10 10 10" HorizontalAlignment="Center" Width="350">
                 <TextBlock Text="Descripción:" MinWidth="60" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
-                <TextBox Name="tb_Descripcion" Width="240" HorizontalAlignment="Left"/>
+                <TextBox Name="tb_Descripcion"  Width="280" Height="70" TextWrapping="Wrap" HorizontalAlignment="Right"  VerticalScrollBarVisibility="Auto"/>
             </DockPanel>
 
-            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
-                <TextBlock Text="Fecha de inicio:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+            <DockPanel Margin="10 10 10 10" HorizontalAlignment="Center" Width="350">
+                <TextBlock Text="Fecha Inicio:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
                 <DatePicker Name="dp_FechaInicio" Width="230" HorizontalAlignment="Left"/>
             </DockPanel>
 
-            <DockPanel Margin="10 0 10 10" HorizontalAlignment="Center">
-                <TextBlock Text="Fecha de fin:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
+            <DockPanel Margin="10 10 10 10" HorizontalAlignment="Center" Width="350">
+                <TextBlock Text="Fecha Fin:" MinWidth="70" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
                 <DatePicker Name="dp_FechaFin" Width="230" HorizontalAlignment="Left"/>
             </DockPanel>
 
 
             <!-- Mostrar información del contacto si existe -->
-            <DockPanel>
+            <DockPanel Margin="10 10 10 10">
                 <Label Name="lblContacto" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Datos del Contacto no disponibles">
                 </Label>
             </DockPanel>
@@ -76,6 +92,7 @@
                     </Button>
                 </UniformGrid>
             </StackPanel>
+         
 
         </StackPanel>
 

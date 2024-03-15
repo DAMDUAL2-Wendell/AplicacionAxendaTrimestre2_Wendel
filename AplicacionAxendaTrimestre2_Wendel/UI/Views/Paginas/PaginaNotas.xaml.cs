@@ -1,4 +1,5 @@
 ﻿using AplicacionAxendaTrimestre2_Wendel.bbdd;
+using AplicacionAxendaTrimestre2_Wendel.Controller;
 using AplicacionAxendaTrimestre2_Wendel.POJO;
 using AplicacionAxendaTrimestre2_Wendel.UI.Navigation;
 using AplicacionAxendaTrimestre2_Wendel.UI.Views.Shared;
@@ -19,6 +20,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private Contacto _contactoActual;
 
+        // Constructor Pagina notas normal (Mostrará todas las notas)
         public PaginaNotas()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         }
 
+        // Constructor de PaginaNotas pasando un contacto (Mostrará las notas de ese contacto)
         public PaginaNotas(Contacto contacto)
         {
             InitializeComponent();
@@ -48,6 +51,15 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             return tb_FindNote;
         }
 
+        
+        // -------------     GESTION NOTAS --------------
+
+        private async void PaginaNotas_Loaded(object sender, RoutedEventArgs e)
+        {
+            await AsignarListaADataGrid();
+        }
+
+        // Agregar notas del contacto actual al datagrid
         public async void AsignarListaNotasActualADataGrid()
         {
             if (_contactoActual != null)
@@ -62,17 +74,14 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
-        private async void PaginaNotas_Loaded(object sender, RoutedEventArgs e)
-        {
-            await AsignarListaADataGrid();
-        }
-
+        // Agregar todas las notas al datagrid
         public async Task AsignarListaADataGrid()
         {
             List<Nota> listaNotas = await _dataAccess.DbContext.ObtenerListaNotasAsync();
             dataGridNotes.ItemsSource = listaNotas;
         }
 
+        // Buscar nota
         public async void Tb_FindNote_TextChanged(object sender, TextChangedEventArgs e)
         {
             string searchText = tb_FindNote.Text.Trim().ToLower();
@@ -80,21 +89,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             // Obtener todas las notas de la base de datos
             var allNotes = await _dataAccess.DbContext.ObtenerListaNotasAsync();
 
-            // Filtrar las notas en memoria
-            var filteredNotes = allNotes
-                .Where(note => note.Id.ToString().Contains(searchText) ||
-                                note.Titulo.ToLower().Contains(searchText) ||
-                                note.Descripcion.ToLower().Contains(searchText) ||
-                                note.Contacto.FirstName.ToLower().Contains(searchText) ||
-                                note.Contacto.LastName.ToLower().Contains(searchText) ||
-                                note.Contacto.Nickname.ToLower().Contains(searchText) ||
-                                note.Contacto.Emails.Any(em => em.Address.ToLower().Contains(searchText)) ||
-                                note.Contacto.Address.ToLower().Contains(searchText) ||
-                                note.Contacto.Age.ToString().Contains(searchText) ||
-                                (note.Contacto.BirthDate != null && note.Contacto.BirthDate.Value.ToString().Contains(searchText)) ||
-                                note.Contacto.ContactType.ToLower().Contains(searchText) ||
-                                note.Contacto.Numbers.Any(num => num.Number.ToLower().Contains(searchText)))
-                .ToList();
+            // Filtrar las notas
+            var filteredNotes = NotasController.GetNotasFiltradas(allNotes,searchText);
 
             // Actualizar el DataGrid con las notas filtradas
             dataGridNotes.ItemsSource = filteredNotes;
@@ -110,50 +106,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             if (nota != null)
             {
-                MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar la nota " + nota.Titulo +
-                    "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
-                {
-                    try
-                    {
-                        // Verificar si hay un contacto asociado a la nota y eliminar la nota de su lista de notas
-                        if (_contactoActual != null)
-                        {
-
-                            // Eliminar la nota de la base de datos
-                            _dataAccess.DbContext.listaNotas.Remove(nota);
-
-                            // Guardar los cambios en la base de datos
-                            await _dataAccess.DbContext.SaveChangesAsync();
-
-                            // Eliminar la nota del DataGrid
-                            if (dataGridNotes.ItemsSource is IList<Nota> notas)
-                            {
-                                notas.Remove(nota);
-                                dataGridNotes.ItemsSource = null;
-                                dataGridNotes.ItemsSource = notas;
-                            }
-                        }
-                        else
-                        {
-                            // Eliminar la nota de la base de datos
-                            await _dataAccess.DbContext.EliminarNotaPorIdAsync(nota.Id);
-
-                            // Eliminar la nota del DataGrid
-                            if (dataGridNotes.ItemsSource is IList<Nota> notas)
-                            {
-                                notas.Remove(nota);
-                                dataGridNotes.ItemsSource = null;
-                                dataGridNotes.ItemsSource = notas;
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Ocurrió un error al intentar eliminar la nota: " + ex.Message,
-                            "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-                }
+                NotasController.EliminarNota_Click(_dataAccess,dataGridNotes,_contactoActual,nota);
             }
             else
             {
@@ -161,7 +114,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
-
+        /*
         private async Task ActualizarDataGridNotasAsync()
         {
             try
@@ -176,15 +129,22 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             {
                 MessageBox.Show("Error al actualizar el DataGrid de notas: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }*/
 
         private void Click_AgregarNota(object sender, RoutedEventArgs e)
         {
             Navegacion.NavegarARegistroNotaContacto(NavigationService, _contactoActual);
         }
 
-        /* ------------       NAVEGACION     ------------------*/
+        // -------------     /GESTION NOTAS --------------
 
+
+
+
+
+
+
+        /* ------------       NAVEGACION     ------------------*/
         private void NavegarAtras(object sender, RoutedEventArgs e)
         {
             Navegacion.NavegarAtras(NavigationService);
@@ -198,5 +158,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             // Navegar a la página PaginaNotas en el NavigationService proporcionado
             navigationService.Navigate(paginaNotas);
         }
+        /* ------------       /NAVEGACION     ------------------*/
+
+
+
+
     }
 }

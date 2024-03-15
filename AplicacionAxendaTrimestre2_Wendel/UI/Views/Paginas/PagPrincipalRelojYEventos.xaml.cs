@@ -56,9 +56,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
 
             _dataAccess.DbContext.SaveChanges();
-            // _dataAccess.DbContext.SaveChangesAsync();
 
-            //eventos = _dataAccess.DbContext.ObtenerListaEventos();
 
             // Obtener los eventos para la fecha actual
             eventos = _dataAccess.DbContext.ObtenerListaEventos().Where(ev => ev.FechaInicio.Date == DateTime.Now.Date || ev.FechaFin.Date == DateTime.Now.Date.Date).ToList();

@@ -2,12 +2,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
+
+using System.Windows.Controls;
+using System.Collections.ObjectModel;
 
 namespace AplicacionAxendaTrimestre2_Wendel.Util
 {
@@ -41,6 +45,41 @@ namespace AplicacionAxendaTrimestre2_Wendel.Util
             }
             return dataGrid;
         }
+
+
+        public static DataGrid DuplicarDataGrid(DataGrid dataGridOriginal)
+        {
+            if (dataGridOriginal == null)
+            {
+                throw new ArgumentNullException(nameof(dataGridOriginal), "El argumento 'dataGridOriginal' no puede ser nulo.");
+            }
+
+            // Crear un nuevo DataGrid
+            DataGrid dataGridModificado = new DataGrid();
+
+            // Configurar columnas (opcional, dependiendo de tu caso)
+            if (dataGridOriginal.Columns != null)
+            {
+                foreach (var column in dataGridOriginal.Columns)
+                {
+                    dataGridModificado.Columns.Add(new DataGridTextColumn()
+                    {
+                        Header = column.Header,
+                        Binding = (column as DataGridTextColumn).Binding
+                    });
+                }
+            }
+
+            // Convertir ItemCollection a IEnumerable<object> y luego copiar los datos
+            if (dataGridOriginal.Items != null)
+            {
+                dataGridModificado.ItemsSource = (dataGridOriginal.Items as IEnumerable).Cast<object>().ToList();
+            }
+
+            return dataGridModificado;
+        }
+
+
 
 
 
