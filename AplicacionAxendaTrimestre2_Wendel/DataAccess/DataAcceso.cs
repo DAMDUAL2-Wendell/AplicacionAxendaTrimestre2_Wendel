@@ -34,7 +34,8 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
             // Verificar si la base de datos es en memoria
             bool esBaseDeDatosEnMemoria = conexion.Contains(":memory:");
 
-            IDbConnection conn; // IDbConnection para admitir tanto SQLite como MySQL
+            // IDbConnection para admitir tanto SQLite como MySQL
+            IDbConnection conn;
 
             // Instanciar OptionsBuilder
             var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();
@@ -52,7 +53,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 //  Instanciar conexion SQLITE y asignar el string de conexion
                 conn = new SqliteConnection(conexion);
 
-              //  MessageBox.Show("String conexion = " +conexion);
+                //  MessageBox.Show("String conexion = " +conexion);
 
                 // Abrir conexion
                 conn.Open();
@@ -70,7 +71,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                 _dbContext.Database.EnsureCreatedAsync().Wait();
 
                 // Si se crean las tablas correctamente, mostramos un mensaje de éxito
-                MessageBox.Show("Conexión establecida correctamente y tablas creadas.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                //MessageBox.Show("Conexión establecida correctamente y tablas creadas.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
@@ -80,9 +81,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.bbdd
                     _dbContext.Database.EnsureDeletedAsync().Wait();
                     // Volver a intentar crear las tablas
                     _dbContext.Database.EnsureCreatedAsync().Wait();
-
-                    // Si se crean las tablas correctamente, mostramos un mensaje de éxito
-                    MessageBox.Show("Conexión establecida correctamente y tablas creadas.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch(Exception e)
                 {

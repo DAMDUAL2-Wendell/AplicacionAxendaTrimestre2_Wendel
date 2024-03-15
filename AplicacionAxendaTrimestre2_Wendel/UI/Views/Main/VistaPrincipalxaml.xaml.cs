@@ -18,6 +18,7 @@ using ControlzEx.Theming;
 using MahApps.Metro.Controls;
 using System.Diagnostics;
 using System.IO;
+using SQLitePCL;
 
 
 
@@ -31,6 +32,18 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
     {
 
         private readonly List<string> baseThemes = new List<string> { "Dark", "Light" };
+
+        // Manuales
+        private static String MANUAL_USUARIO_PDF = @"Manuales\ManualUsuario.pdf";
+        private static String MANUAL_USUARIO_CHM = @"Manuales\ManualUsuario.chm";
+        private static String MANUAL_INSTALACION_PDF = @"Manuales\ManualInstalacion.pdf";
+        private static String MANUAL_INSTALACION_CHM = @"Manuales\ManualInstalacion.chm";
+
+
+        // Rutas ejecutables programas
+        private static String PROGRAMA_INTERNET_EXPLORER = @"C:\Program Files\Internet Explorer\iexplore.exe";
+        private static String PROGRAMA_ABRIR_AYUDA = @"hh.exe";
+
 
         private readonly List<string> accentColors = new List<string>
             {
@@ -147,19 +160,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             }
         }
 
-        // Método para abrir el Manual de Instalación
-        private void AbrirManualInstalacion_Click(object sender, RoutedEventArgs e)
-        {
-            string rutaManual = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualInstalacion.pdf";
-            AbrirManual(rutaManual);
-        }
-
-        // Método para abrir el Manual de Usuario
-        private void AbrirManualUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            string rutaManual = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualUsuario.pdf";
-            AbrirManual(rutaManual);
-        }
+    
 
         // Método para abrir el manual en la ruta especificada
         private void AbrirManual(string ruta)
@@ -192,24 +193,76 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             catch (Exception ex) { System.Windows.MessageBox.Show("Error al abrir la ayuda."); };
         }
 
-        // Método para abrir un documento PDF de ayuda con el programa Internet Explorer.
-        private void HelpClickPdf(object sender, RoutedEventArgs e)
-        {
-            string helpFileName = bingPathToAppDir(@"Manuales\ManualUsuario.pdf");
+       
 
+
+        // ------     MANUALES    --------------------
+
+
+       
+
+        private void AbrirManualInstalacion_ClickPDF(object sender, RoutedEventArgs e)
+        {
+            AbrirFichero(PROGRAMA_INTERNET_EXPLORER,MANUAL_INSTALACION_PDF);
+        }
+
+        private void AbrirManualUsuario_ClickPDF(object sender, RoutedEventArgs e)
+        {
+            AbrirFichero(PROGRAMA_INTERNET_EXPLORER,MANUAL_USUARIO_PDF);
+        }
+
+        // Método para abrir el Manual de Instalación
+        private void AbrirManualInstalacion_ClickCHM(object sender, RoutedEventArgs e)
+        {
+            AbrirFichero(PROGRAMA_ABRIR_AYUDA,MANUAL_INSTALACION_CHM);
+        }
+
+        // Método para abrir el Manual de Usuario
+        private void AbrirManualUsuario_ClickCHM(object sender, RoutedEventArgs e)
+        {
+            AbrirFichero(PROGRAMA_ABRIR_AYUDA,MANUAL_USUARIO_CHM);
+        }
+
+        // Método para manejar el evento KeyDown (tecla F1)
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+            if (e.Key == Key.F1)
+            {
+                AbrirFichero(PROGRAMA_ABRIR_AYUDA, MANUAL_USUARIO_CHM);
+            }
+            if (e.Key == Key.F2)
+            {
+                AbrirFichero(PROGRAMA_ABRIR_AYUDA, MANUAL_INSTALACION_CHM);
+            }
+            if (e.Key == Key.F3)
+            {
+                AbrirFichero(PROGRAMA_INTERNET_EXPLORER, MANUAL_USUARIO_PDF);
+            }
+            if (e.Key == Key.F4)
+            {
+                AbrirFichero(PROGRAMA_INTERNET_EXPLORER, MANUAL_INSTALACION_PDF);
+            }
+        }
+
+
+        // Método para abrir un documento PDF de ayuda con el programa Internet Explorer.
+        private void AbrirFichero(String ejecutable, String rutaFichero)
+        {
+            // Coger la ruta raiz del proyecto y agregar la ruta del fichero.
+            string helpFileName = bingPathToAppDir(rutaFichero);
             try
             {
                 if (System.IO.File.Exists(helpFileName))
                 {
-                    Process.Start(@"C:\Program Files\Internet Explorer\iexplore.exe", helpFileName);
+                    Process.Start(ejecutable, helpFileName);
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("Fichero de ayuda no encontrado");
+                    System.Windows.MessageBox.Show("Fichero no encontrado");
                 }
             }
-            catch (Exception ex) { System.Windows.MessageBox.Show("Error al abrir la ayuda." + ex.Message); };
-
+            catch (Exception ex) { System.Windows.MessageBox.Show("Error al abrir el fichero." + ex.Message); };
         }
 
         // Método que devuelve la ruta donde está el proyecto + la ruta que se le pasa como parámetro.
@@ -222,16 +275,5 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
         }
 
 
-
-        // Método para manejar el evento KeyDown (tecla F1)
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-            if (e.Key == Key.F1)
-            {
-                string rutaManualUsuario = @"Equipo@Equipo MINGW64 ~/Desktop/Clases/DI/AplicacionAxendaTrimestre2_Wendel/AplicacionAxendaTrimestre2_Wendel/Manuales/ManualUsuario.pdf";
-                AbrirManual(rutaManualUsuario);
-            }
-        }
     }
 }

@@ -28,6 +28,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using Syncfusion.UI.Xaml.Grid;
 using System.Collections;
+using AplicacionAxendaTrimestre2_Wendel.Controller;
 
 
 
@@ -42,8 +43,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         private DataAcceso _dataAccess = AppData.DataAccess;
         private Contacto _contactoActual;
 
-        private SpeechSynthesizer speech = new SpeechSynthesizer();
-        private SpeechSynthesizer speech2 = new SpeechSynthesizer();
+        SpeechController _speechController;
 
 
         public PagContactos()
@@ -51,16 +51,10 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             InitializeComponent();
             _contactoActual = null;
 
+            _speechController = new SpeechController();
+
             Loaded += PagContactos_Loaded;
 
-        }
-
-
-
-        private void BrowseImage()
-        {
-            //var filePath = _dialogService.OpenFile(string.Empty);
-            //SelectedContact.ImagePath = filePath;
         }
 
 
@@ -72,6 +66,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
         }
 
+
+
+        // -------  GESTION CONTACTOS  ---------------
+
+        // Agregar todos los contactos al DataGrid
         public async Task MostrarContactosAsync()
         {
             // Obtener todos los contactos de la base de datos, incluyendo las propiedades de navegación relacionadas
@@ -84,17 +83,11 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                                 .ToListAsync();
 
             dataGrid.ItemsSource = contactos;
-
-           
-
-            // MessageBox.Show("Hay " + contactos.Count.ToString() + " contactos en la agenda.");
         }
 
 
-
-
-
-        private async void Eliminar_Click(object sender, RoutedEventArgs e)
+        //  Eliminar contacto con el boton en el datagrid
+        private async void Click_BtnDataGrid(object sender, RoutedEventArgs e)
         {
             // Obtener el botón que desencadenó el evento
             Button btn = sender as Button;
@@ -120,8 +113,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
             }
         }
-
-
 
 
         private async void Lb_ContactBox_KeyDown(object sender, KeyEventArgs e)
@@ -171,202 +162,94 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         }
 
 
-
         private void Btn_EditContact_Click(object sender, RoutedEventArgs e)
         {
-            // Verificar si se seleccionó un contacto para editar
-            if (dataGrid.SelectedItem != null && dataGrid.SelectedItem is Contacto)
+            Contacto contacto = ContactoController.GetcontactoSeleccinoadoDataGrid(dataGrid);
+            if (contacto != null)
             {
-                // Obtener el contacto seleccionado
-                Contacto contactoSeleccionado = (Contacto)dataGrid.SelectedItem;
-
-                // Aquí puedes pasar el contacto seleccionado como parámetro a la página de registro
-                // para que se pueda cargar en la página de edición
-                // Puedes usar NavigationService para navegar a la página de registro y pasar el contacto seleccionado como parámetro
-                Navegacion.NavegarPaginaEdicion(NavigationService, contactoSeleccionado);
+                 Navegacion.NavegarPaginaEdicion(NavigationService, contacto);
             }
         }
 
 
-
-
         private async void Btn_DeleteContact_Click(object sender, RoutedEventArgs e)
         {
-            // Verificar si se seleccionaron contactos para eliminar
-            if (dataGrid.SelectedItems.Count > 0)
+            Contacto contacto = ContactoController.GetcontactoSeleccinoadoDataGrid(dataGrid);
+            if (contacto != null)
             {
-                Contacto contacto = null;
-                // Eliminar los contactos seleccionados de la base de datos
-                foreach (var item in dataGrid.SelectedItems)
-                {
-                    contacto = (Contacto)item;
-                }
-                if (contacto != null)
-                {
-                    MessageBoxResult result = MessageBox.Show("¿Está seguro de querer eliminar al usuario " + contacto.FirstName +
-                        "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        _dataAccess.DbContext.Contactos.Remove((Contacto)contacto);
-                        // Guardar los cambios en la base de datos
-                        await _dataAccess.DbContext.SaveChangesAsync();
-
-                        // Actualizar el DataGrid
-                        var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
-                        dataGrid.ItemsSource = contactos;
-                    }
-                }
+                ContactoController.EliminaContacto(_dataAccess, dataGrid, contacto);
             }
         }
 
         private void LeerContacto(object sender, RoutedEventArgs e)
         {
-            speech.Rate = -2;
-
-            // Verificar si se seleccionaron contactos para eliminar
-            if (dataGrid.SelectedItems.Count > 0)
+            Contacto contacto = ContactoController.GetcontactoSeleccinoadoDataGrid(dataGrid);
+            if (contacto != null)
             {
-                Contacto contacto = null;
-                // Eliminar los contactos seleccionados de la base de datos
-                foreach (var item in dataGrid.SelectedItems)
-                {
-                    contacto = (Contacto)item;
-                }
-                if (contacto != null)
-                {
-                    speech.SpeakAsync("Datos del contacto seleccionado:");
-                    speech.SpeakAsync("Nombre: " + contacto.FirstName);
-                    speech.SpeakAsync("Apellidos: " + contacto.LastName);
-                    speech.SpeakAsync("Apodo: " + contacto.Nickname);
-
-                    // Leer todos los correos electrónicos del contacto
-                    foreach (var email in contacto.Emails)
-                    {
-                        speech.SpeakAsync("Email: " + email.Address);
-                    }
-
-                    speech.SpeakAsync("Dirección: " + contacto.Address);
-                    speech.SpeakAsync("Edad: " + contacto.Age);
-                    speech.SpeakAsync("Fecha de nacimiento: " + contacto.BirthDate);
-                    speech.SpeakAsync("Tipo de contacto: " + contacto.ContactType);
-
-                    // Leer todos los números de teléfono del contacto
-                    foreach (var phoneNumber in contacto.Numbers)
-                    {
-                        speech.SpeakAsync("Teléfono: " + phoneNumber.Number);
-                    }
-
-                    speech.SpeakAsync("Nota: " + contacto.Note);
-                }
-                else
-                {
-                    speech.SpeakAsync("No se ha seleccionado ningún contacto de la lista.");
-                }
-            }
-            else
-            {
-                speech.SpeakAsync("No se ha seleccionado ningún contacto de la lista.");
+                _speechController.LeerContacto(contacto);
             }
         }
 
 
         private void Btn_AddContact_Click(object sender, RoutedEventArgs e)
         {
-
             Navegacion.NavegarPaginaRegistro(NavigationService);
-
-
         }
 
 
-        // ----------   Navegación   -------------
-
-        private void NavegarAtras(object sender, RoutedEventArgs e)
-        {
-            Navegacion.NavegarAtras(NavigationService);
-        }
-
+        //  Duplicar contacto seleccionado del dataGrid
         private async void ClickDuplicarContacto(object sender, RoutedEventArgs e)
         {
+            // Cogemos el contacto que queremos duplicar (El seleccionado del datagrid)
+            Contacto contactoADuplicar = ContactoController.GetContactoDataGridSeleccionado(dataGrid);
 
-            // Verificar si se seleccionaron contactos para eliminar
-            if (dataGrid.SelectedItems.Count > 0)
-            {
-                Contacto contacto = null;
-                // Eliminar los contactos seleccionados de la base de datos
-                foreach (var item in dataGrid.SelectedItems)
-                {
-                    contacto = (Contacto)item;
-                }
-                if (contacto != null)
-                {
-                    if (contacto != null)
-                    {
-                        MessageBoxResult result = MessageBox.Show("¿Está seguro de querer duplicar al usuario " + contacto.FirstName +
-                            "?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                        if (result == MessageBoxResult.Yes)
-                        {
-                            //_dataAccess.DbContext.Contactos.Remove((Contacto)contacto);
-                            Contacto nuevoContacto = contacto;
-                            nuevoContacto.Id = Next();
-                            _dataAccess.DbContext.Contactos.Add(contacto);
-                            // Guardar los cambios en la base de datos
-                            await _dataAccess.DbContext.SaveChangesAsync();
-
-                            // Actualizar el DataGrid
-                            var contactos = await _dataAccess.DbContext.Contactos.ToListAsync();
-                            dataGrid.ItemsSource = contactos;
-                        }
-                    }
-
-                }
-
-            }
-
+            // Duplicamos el contacto
+            ContactoController.DuplicarContacto(_dataAccess, dataGrid, contactoADuplicar);
         }
 
 
-        public int Next()
+        // Asignar el contacto seleccionado del dataGrid al  _contactoActual
+        private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            // Ordenar los contactos por Id de forma descendente y luego seleccionar el primer elemento
-            var ultimoContacto = _dataAccess.DbContext.Contactos.OrderByDescending(c => c.Id).FirstOrDefault();
-            if (ultimoContacto != null)
+            // Verificar si se seleccionó un contacto del DataGrid
+            if (dataGrid.SelectedItem != null && dataGrid.SelectedItem is Contacto)
             {
-                return ultimoContacto.Id + 1;
-            }
-            else
-            {
-                return 1;
+                // Asignar el contacto seleccionado a la variable _contactoActual
+                _contactoActual = (Contacto)dataGrid.SelectedItem;
+
             }
         }
 
+        // -------  /GESTION CONTACTOS  ---------------
 
+
+
+
+
+
+        // -------   Funciones VOZ  ---------------
 
         // Función para pausar la voz
         private void btn_pausaLeer_Click(object sender, RoutedEventArgs e)
         {
-            if (speech != null && speech.State == SynthesizerState.Speaking)
-            {
-                speech.Pause();
-                speech2.SpeakAsync("Pausado");
-            }
+            _speechController.PausarLectura();
         }
 
         // Función para continuar la voz
         private async void btn_continuaLeer_Click(object sender, RoutedEventArgs e)
         {
-            if (speech != null && speech.State == SynthesizerState.Paused)
-            {
-                speech2.SpeakAsync("Continuando...");
-                // Esperar un segundo para no mezclar las voces
-                await Task.Delay(1000);
-                speech.Resume();
-            }
+            _speechController.ContinuarLectura();
         }
+        // -------   /Funciones VOZ  ---------------
 
+
+
+
+
+        // -------      GUARDAR INFORMES     ----------
         private void Click_Save_PDF(object sender, RoutedEventArgs e)
         {
-            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid,new int[] {0,1});
+            DataGridHelper.EliminarEncabezadosPorIndices(dataGrid, new int[] { 0, 1 });
             SaveFiles.SaveToPdfButton_Click(dataGrid, "Contactos");
 
             Navegacion.NavegarPaginaContactos(NavigationService);
@@ -382,22 +265,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         {
             SaveFiles.GuardarFicheroHTML(dataGrid, "Contactos");
         }
-      
-        private DataGrid DataGridModificado()
+        // ---------   /GUARDAR INFORMES    ---------------
+
+
+
+
+
+
+        // ----------   Navegación   -------------
+        private void NavegarAtras(object sender, RoutedEventArgs e)
         {
-            // Convertir SFDataGrid en DataGrid
-            // DataGrid dg = DataGridHelper.ConvertToWpfDataGrid(dataGrid);
-            // Eliminar la primera y segunda fila que es el boton de eliminar y la foto de contacto
-            //DataGrid dataGridModificado = DataGridHelper.EliminarEncabezadosPorIndices(dg, new int[] { 0, 1, 2 });
-            //return dataGridModificado;
-            return null;
+            Navegacion.NavegarAtras(NavigationService);
         }
 
         private void MostrarEventos_Click(object sender, RoutedEventArgs e)
         {
             if (_contactoActual != null)
             {
-                Navegacion.NavegarPaginaEventos(NavigationService, _contactoActual);
+                Navegacion.NavegarPaginaEventosContacto(NavigationService, _contactoActual);
             }
         }
 
@@ -405,22 +290,12 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
         {
             if (_contactoActual != null)
             {
-                Navegacion.NavegarPaginaNotas(NavigationService, _contactoActual);
+                Navegacion.NavegarPaginaNotasContacto(NavigationService, _contactoActual);
             }
         }
+        // ----------   /Navegación   -------------
 
-        private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            // Verificar si se seleccionó un contacto del DataGrid
-            if (dataGrid.SelectedItem != null && dataGrid.SelectedItem is Contacto)
-            {
-                // Asignar el contacto seleccionado a la variable _contactoActual
-                _contactoActual = (Contacto)dataGrid.SelectedItem;
 
-            }
-        }
-
-        
 
 
 

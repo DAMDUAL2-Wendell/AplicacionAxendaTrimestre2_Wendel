@@ -32,6 +32,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
     {
 
         ContactoManager contactoManager = null;
+
+        private string STRINGCONEXION = "";
+
         public PaginaPrincipal()
         {
             InitializeComponent();
@@ -46,93 +49,20 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
 
         }
 
-        //public DataAccess _dataAccess = AppData.dataAccess;
-
-
-        private string STRINGCONEXION = "";
-
-        private void MostrarPaginaContactos2(object sender, RoutedEventArgs e)
-        {
-            // Obtener la ventana principal
-            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
-
-            if (ventanaPrincipal != null)
-            {
-                // Acceder al Frame desde la ventana principal
-                Frame frameContenido = ventanaPrincipal.frameContenido;
-
-                if (frameContenido != null)
-                {
-                    // Crear una instancia de la otra página
-                    PaginaContactos otraPagina = new PaginaContactos();
-
-                    // Navegar a la otra página en el Frame
-                    frameContenido.NavigationService.Navigate(otraPagina);
-                }
-            }
-        }
 
         private void MostrarPaginaContactos(object sender, RoutedEventArgs e)
         {
-            // Obtener la ventana principal
-            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
-
-            if (ventanaPrincipal != null)
-            {
-                // Acceder al Frame desde la ventana principal
-                Frame frameContenido = ventanaPrincipal.frameContenido;
-
-                if (frameContenido != null)
-                {
-                    // Crear una instancia de la otra página
-                    PagContactos otraPagina = new PagContactos();
-
-                    // Navegar a la otra página en el Frame
-                    frameContenido.NavigationService.Navigate(otraPagina);
-                }
-            }
+            Navegacion.NavegarPagina(NavigationService, new PagContactos());
         }
 
         private void MostrarPaginaNotas(object sender, RoutedEventArgs e)
         {
-            // Obtener la ventana principal
-            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
-
-            if (ventanaPrincipal != null)
-            {
-                // Acceder al Frame desde la ventana principal
-                Frame frameContenido = ventanaPrincipal.frameContenido;
-
-                if (frameContenido != null)
-                {
-                    // Crear una instancia de la otra página
-                    PaginaNotas otraPagina = new PaginaNotas();
-
-                    // Navegar a la otra página en el Frame
-                    frameContenido.NavigationService.Navigate(otraPagina);
-                }
-            }
+            Navegacion.NavegarPagina(NavigationService,new PaginaNotas());
         }
 
         private void MostrarPaginaEventos(object sender, RoutedEventArgs e)
         {
-            // Obtener la ventana principal
-            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
-
-            if (ventanaPrincipal != null)
-            {
-                // Acceder al Frame desde la ventana principal
-                Frame frameContenido = ventanaPrincipal.frameContenido;
-
-                if (frameContenido != null)
-                {
-                    // Crear una instancia de la otra página
-                    PaginaEventos otraPagina = new PaginaEventos();
-
-                    // Navegar a la otra página en el Frame
-                    frameContenido.NavigationService.Navigate(otraPagina);
-                }
-            }
+            Navegacion.NavegarPagina(NavigationService, new PaginaEventos());
         }
 
         private void ClickBtnConectar(object sender, RoutedEventArgs e)
@@ -158,12 +88,9 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     if (directorioProyecto != null)
                     {
                         string rutaDirectorioProyecto = directorioProyecto.FullName;
-                        //MessageBox.Show($"El directorio principal del proyecto es: {rutaDirectorioProyecto}");
                     }
                     else
-                    {
-                        //MessageBox.Show("No se pudo encontrar el directorio principal del proyecto.");
-                    }
+
 
                     if (File.Exists(filePath))
                     {
@@ -212,43 +139,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             AppData.DataAccess = new DataAcceso(STRINGCONEXION);
         }
 
-
-        private void ClickBtnConectar2(object sender, RoutedEventArgs e)
-        {
-            switch (comboBox.SelectedIndex)
-            {
-                case 0:
-                    STRINGCONEXION = Configuracion.Configuracion.BDFICHERO + Configuracion.Configuracion.RUTAFICHERO;
-                    if (System.IO.File.Exists(Configuracion.Configuracion.RUTAFICHERO))
-                    {
-                        MessageBox.Show("Se ha cargado el fichero con éxito.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Creando fichero de base de datos en la ruta: ");
-                    }
-                    break;
-                case 1:
-                    STRINGCONEXION = Configuracion.Configuracion.BDMEMORIA;
-                    MessageBox.Show("Se ha cargado la base de datos en memoria.");
-                    break;
-                case 2:
-                    STRINGCONEXION = Configuracion.Configuracion.BDMYSQL;
-                    MessageBox.Show("Se ha cargado la base de datos desde servidor.");
-                    break;
-            }
-            try
-            {
-                AppData.DataAccess = new DataAcceso(STRINGCONEXION);
-                MessageBox.Show("Conexión al servidor establecida correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al conectar con el servidor: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-
-        }
-
         private void ClickMostrarPaginaHome(object sender, RoutedEventArgs e)
         {
             Navegacion.NavegarPaginaHome(NavigationService);
@@ -281,7 +171,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
                     AppData.DataAccess.DbContext.Contactos.RemoveRange(contactos);
                     await AppData.DataAccess.DbContext.SaveChangesAsync();
 
-                    MessageBox.Show("Se han borrado todos los datos de la base de datos correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Se han borrado todos los datos de la base de datos correctamente.", "Información", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     // Actualizar página de contactos
                     MostrarPaginaContactos(sender, e);
@@ -301,7 +191,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Main
             // Mostrar la ventana de configuración
             ventanaConfiguracionBBDD.ShowDialog();
         }
-
 
 
     }

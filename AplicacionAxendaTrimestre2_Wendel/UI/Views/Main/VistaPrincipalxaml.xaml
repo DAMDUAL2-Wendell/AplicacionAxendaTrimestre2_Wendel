@@ -82,9 +82,14 @@
             <!-- Manuales -->
             <MenuItem Header="Manuales">
                 <!-- Opción para abrir el Manual de Instalación -->
-                <MenuItem Header="Manual de Instalación" Click="AbrirManualInstalacion_Click" />
+                <MenuItem Header="Manual de Instalación CHM" Click="AbrirManualInstalacion_ClickCHM" />
                 <!-- Opción para abrir el Manual de Usuario -->
-                <MenuItem Header="Manual de Usuario" Click="AbrirManualUsuario_Click" />
+                <MenuItem Header="Manual de Usuario CHM" Click="AbrirManualUsuario_ClickCHM" />
+
+                <!-- Opción para abrir el Manual de Instalación -->
+                <MenuItem Header="Manual de Instalación PDF" Click="AbrirManualInstalacion_ClickPDF"  />
+                <!-- Opción para abrir el Manual de Usuario -->
+                <MenuItem Header="Manual de Usuario PDF" Click="AbrirManualUsuario_ClickPDF" />
             </MenuItem>
 
             <MenuItem Header="Tema">

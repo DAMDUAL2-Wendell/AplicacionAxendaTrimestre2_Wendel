@@ -40,22 +40,22 @@
 
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" Width="400">
 
-                <TextBlock Margin="10" Text="Haz click en un día o selecciona varios días con la tecla shift para realizar la búsqueda de eventos." 
+                <TextBlock Margin="0,0,0,0" Text="Haz click en un día o selecciona varios días con la tecla shift para realizar la búsqueda de eventos." 
                    Background="#FFF5CFC1" 
                    HorizontalAlignment="Center" 
                    FontSize="25" 
-                   Width="400" 
+                   Width="380" 
                    FontWeight="Bold" 
                    TextWrapping="Wrap"/>
 
-                <Calendar Style="{StaticResource styleCalendar}" Name="calendar" VerticalAlignment="Center" SelectionMode="MultipleRange"/>
+                <Calendar Style="{StaticResource styleCalendar}" Name="calendar" SelectionMode="MultipleRange" Height="380"/>
 
 
             </StackPanel>
-           
+
             <Grid Width="850">
-                
-                
+
+
 
                 <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,10,0" >
 
@@ -73,7 +73,7 @@
 
         </StackPanel>
 
-  
+
 
     </Grid>
 </Page>

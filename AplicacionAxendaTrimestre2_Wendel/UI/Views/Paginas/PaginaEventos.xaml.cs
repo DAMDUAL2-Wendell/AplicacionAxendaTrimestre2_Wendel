@@ -50,7 +50,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void Click_AgregarEvento(object sender, RoutedEventArgs e)
         {
-            Navegacion.NavegarARegistroEvento(NavigationService, _contactoActual);
+            Navegacion.NavegarARegistroEventoContacto(NavigationService, _contactoActual);
         }
 
         public DataGrid GetDataGrid()
@@ -142,9 +142,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                         // Verificar si hay un contacto asociado al evento y eliminar el evento de su lista de eventos
                         if (_contactoActual != null)
                         {
-                            MessageBox.Show("borrando evento contactoactual:"
-                                + _contactoActual + "evneto:" + evento.Descripcion);
-                            _contactoActual.Eventos.Remove(evento);
 
                             // Eliminar el evento de la base de datos
                             _dataAccess.DbContext.ListaEventos.Remove(evento);
@@ -184,7 +181,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
             else
             {
-                MessageBox.Show("El evento es nulo.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("El evento no existe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

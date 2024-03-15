@@ -119,9 +119,6 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
                         // Verificar si hay un contacto asociado a la nota y eliminar la nota de su lista de notas
                         if (_contactoActual != null)
                         {
-                            MessageBox.Show("Borrando nota del contacto actual:"
-                                + _contactoActual + ", Nota: " + nota.Descripcion);
-                            _contactoActual.Notas.Remove(nota);
 
                             // Eliminar la nota de la base de datos
                             _dataAccess.DbContext.listaNotas.Remove(nota);
@@ -160,7 +157,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
             }
             else
             {
-                MessageBox.Show("La nota es nula.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("La nota no existe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -183,7 +180,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas
 
         private void Click_AgregarNota(object sender, RoutedEventArgs e)
         {
-            Navegacion.NavegarARegistroNota(NavigationService, _contactoActual);
+            Navegacion.NavegarARegistroNotaContacto(NavigationService, _contactoActual);
         }
 
         /* ------------       NAVEGACION     ------------------*/

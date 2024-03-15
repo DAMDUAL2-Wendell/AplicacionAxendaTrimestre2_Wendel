@@ -655,19 +655,19 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
 
         private void Click_AgregarEvento(object sender, RoutedEventArgs e)
         {
-            Navegacion.NavegarARegistroEvento(NavigationService, _contactoActual);
+            Navegacion.NavegarARegistroEventoContacto(NavigationService, _contactoActual);
         }
 
         private void Click_AgregarNota(object sender, RoutedEventArgs e)
         {
-            Navegacion.NavegarARegistroNota(NavigationService, _contactoActual);
+            Navegacion.NavegarARegistroNotaContacto(NavigationService, _contactoActual);
         }
 
         private void MostrarEventos_Click(object sender, RoutedEventArgs e)
         {
             if (_contactoActual != null)
             {
-                Navegacion.NavegarPaginaEventos(NavigationService, _contactoActual);
+                Navegacion.NavegarPaginaEventosContacto(NavigationService, _contactoActual);
             }
         }
 
@@ -675,7 +675,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Views.Registros
         {
             if (_contactoActual != null)
             {
-                Navegacion.NavegarPaginaNotas(NavigationService, _contactoActual);
+                Navegacion.NavegarPaginaNotasContacto(NavigationService, _contactoActual);
             }
         }
 

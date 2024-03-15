@@ -31,9 +31,9 @@
 
         <Grid Grid.Row="1" Grid.Column="1" Margin="0,50,0,0">
 
-            <StackPanel Orientation="Vertical" Margin="0,70,0,50" Width="800" Height="432">
+            <StackPanel Orientation="Vertical" Width="1200" Height="450" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <!-- Panel Busqueda -->
-                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="20,0,0,0">
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="150,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <Grid Width="300">
                             <StackPanel Orientation="Horizontal">
@@ -50,7 +50,7 @@
                 </Grid>
 
                 <!-- DataGrid para mostrar las notas -->
-                <DataGrid Name="dataGridNotes" RowHeight="50" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="760">
+                <DataGrid Name="dataGridNotes" RowHeight="50" CanUserAddRows="False" HorizontalAlignment="Center" Height="246" Width="900">
                     <DataGrid.Columns>
                        
                         <!-- Columna de botón para eliminar la nota -->
@@ -58,7 +58,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Name="btnDeleteNote"
-                                            Height="45"
+                                            Height="35"
                                             Width="35"
                                             Margin="0"
                                             Background="Aquamarine"
@@ -69,11 +69,6 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
-                        <!-- Columna de título de la nota -->
-                        <DataGridTextColumn Header="Título" Binding="{Binding Titulo}" Width="*"/>
-                        <!-- Columna de descripción de la nota -->
-                        <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="*"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

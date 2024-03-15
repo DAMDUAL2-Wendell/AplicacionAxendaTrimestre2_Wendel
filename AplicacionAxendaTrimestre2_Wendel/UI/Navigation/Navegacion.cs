@@ -39,6 +39,24 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             }
         }
 
+        public static void NavegarPagina(NavigationService navigationService, Page pagina)
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameContenido = ventanaPrincipal.frameContenido;
+
+                if (frameContenido != null)
+                {
+                    // Navegar a la otra página en el Frame
+                    frameContenido.NavigationService.Navigate(pagina);
+                }
+            }
+        }
+
         public static void NavegarPaginaRegistro(NavigationService navigationService)
         {
             // Obtener la ventana principal
@@ -60,7 +78,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             }
         }
 
-        public static void NavegarPaginaNotas(NavigationService navigationService, Contacto contacto)
+        public static void NavegarPaginaNotasContacto(NavigationService navigationService, Contacto contacto)
         {
             // Crear una instancia de la página PaginaNotas con el contacto actual
             PaginaNotas paginaNotas = new PaginaNotas(contacto);
@@ -69,7 +87,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             navigationService.Navigate(paginaNotas);
         }
 
-        public static void NavegarARegistroEvento(NavigationService navigationService, Contacto contacto)
+        public static void NavegarARegistroEventoContacto(NavigationService navigationService, Contacto contacto)
         {
             // Crear una instancia de la página PaginaNotas con el contacto actual
             RegEvento paginaRegEvento = new RegEvento(contacto);
@@ -78,7 +96,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
             navigationService.Navigate(paginaRegEvento);
         }
 
-        public static void NavegarARegistroNota(NavigationService navigationService, Contacto contacto)
+        public static void NavegarARegistroNotaContacto(NavigationService navigationService, Contacto contacto)
         {
             // Crear una instancia de la página PaginaNotas con el contacto actual
             RegNota paginaRegistroNotas = new RegNota(contacto);
@@ -89,7 +107,7 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
 
 
 
-        public static void NavegarPaginaEventos(NavigationService navigationService, Contacto contacto)
+        public static void NavegarPaginaEventosContacto(NavigationService navigationService, Contacto contacto)
         {
             // Crear una instancia de la página PaginaEventos con el contacto actual
             PaginaEventos paginaEventos = new PaginaEventos(contacto);
@@ -111,6 +129,27 @@ namespace AplicacionAxendaTrimestre2_Wendel.UI.Navigation
                 {
                     // Crear una instancia de la otra página
                     PagContactos otraPagina = new PagContactos();
+
+                    // Navegar a la otra página en el Frame
+                    frameContenido.NavigationService.Navigate(otraPagina);
+                }
+            }
+        }
+
+        public static void NavegarPaginaNotas(NavigationService navigationService)
+        {
+            // Obtener la ventana principal
+            VistaPrincipalxaml? ventanaPrincipal = Application.Current.MainWindow as VistaPrincipalxaml;
+
+            if (ventanaPrincipal != null)
+            {
+                // Acceder al Frame desde la ventana principal
+                Frame frameContenido = ventanaPrincipal.frameContenido;
+
+                if (frameContenido != null)
+                {
+                    // Crear una instancia de la otra página
+                    PaginaNotas otraPagina = new PaginaNotas();
 
                     // Navegar a la otra página en el Frame
                     frameContenido.NavigationService.Navigate(otraPagina);

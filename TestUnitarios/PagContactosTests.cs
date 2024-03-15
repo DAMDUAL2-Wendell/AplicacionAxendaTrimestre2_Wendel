@@ -16,7 +16,7 @@ namespace TestUnitarios
         public void Next_NoContact_ReturnsOne()
         {
             var pagContactos = new AplicacionAxendaTrimestre2_Wendel.UI.Views.Paginas.PagContactos();
-            var result = pagContactos.Next();
+            var result = pagContactos.GetNextContactoId();
             Assert.AreEqual(1, result);
         }
 
